@@ -1,6 +1,6 @@
 
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
-
+import Logo from "@/assets/logo.jpg"
 
 const footerWhatWeDo = [
   { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
@@ -52,7 +52,7 @@ function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-400 flex items-center justify-center shadow-lg">
-                <span className="text-white font-black text-sm">CI</span>
+                <img className="text-white font-black text-sm" src={Logo} alt="CISON Footer Logo" />
               </div>
               <span className="font-bold text-white text-lg">CISON</span>
             </div>
