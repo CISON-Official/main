@@ -89,7 +89,7 @@ export default function SEO({
             <link rel="icon" href="/logo.jpg" sizes="32x32" />
             <meta name="theme-color" content="#8FD299" />
 
-            <meta name="google-site-verification" content="x3KcVwmFMgTn13o9lFRv3DcC1J7YEeLKAhj0OYoea1A" />
+            <meta name="google-site-verification" content="googlef6e8f004c1043043.html" />
             <meta name="tec-api-origin" content="https://cison.org.ng" />
             <meta name="tec-api-key" content="v1" />
             <link rel="alternate" type="text/calendar" title="Chartered Institute of Statisticians of Nigeria (CISON) » iCal Feed" href="https://cison.org.ng/events/?ical=1" />
