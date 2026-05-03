@@ -3,13 +3,18 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import viteImagemin from 'vite-plugin-imagemin';
+import Sitemap from 'vite-plugin-sitemap';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    viteImagemin({ webp: { quality: 80 } })
+    viteImagemin({ webp: { quality: 80 } }),
+    Sitemap({
+      hostname: 'https://dev.cison.org.ng',
+      dynamicRoutes: ['/membership', '/journal', '/accreditation'],
+    }),
   ],
   resolve: {
     alias: {
