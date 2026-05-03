@@ -12,7 +12,7 @@ const fadeIn = {
     show: (i = 0) => ({
         opacity: 1,
         transition: { duration: 0.5, delay: i * 0.1 },
-        git ease: [0.25, 0.25, 0.25, 0.75] as const,
+        ease: [0.25, 0.25, 0.25, 0.75] as const
     }),
 };
 
