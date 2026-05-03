@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout";
 import { Skeleton } from "./components/ui/skeleton";
+import RoutePath from "./routes";
 
 const PageLoader = () => (
   <div className="container py-20">
@@ -19,6 +20,15 @@ const PageLoader = () => (
 
 const HomePage = lazy(() => import("@/pages/Home"));
 
+// Privacy
+const PolicyPage = lazy(() => import("@/pages/Privacy/policy"));
+// const TermsPage = lazy(() => import("@/pages/Privacy/terms"));
+
+// About 
+const AboutPage = lazy(() => import("@/pages/About"));
+
+
+
 
 function App() {
 
@@ -27,6 +37,13 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="privacy">
+            <Route index element={<PolicyPage />} />
+            {/* <Route path={RoutePath.TermsOfService} element={<TermsPage />} /> */}
+          </Route>
+          <Route path={RoutePath.AboutUs}>
+            <Route index element={<AboutPage />} />
+          </Route>
         </Route>
       </Routes>
     </Suspense>

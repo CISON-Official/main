@@ -1,6 +1,7 @@
 
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
 import Logo from "@/assets/logo.jpg"
+import RoutePath from '@/routes';
 
 const footerWhatWeDo = [
   { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
@@ -14,7 +15,7 @@ const footerWhatWeDo = [
 ];
 
 const footerWhoWeAre = [
-  { name: 'About CISON', href: 'https://cison.org.ng/about/' },
+  { name: 'About CISON', href: RoutePath.AboutUs },
   { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
   { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
   { name: 'Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
@@ -105,7 +106,7 @@ function Footer() {
           <div>
             <p className="text-slate-300 font-semibold text-sm mb-4">Terms & Policies</p>
             <ul className="space-y-2.5">
-              <li><a href="https://cison.org.ng/privacy-policy/" className="text-xs hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+              <li><a href={RoutePath.Privacy} className="text-xs hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
               <li>
                 <a href="https://nsang.org/" target="_blank" rel="noopener noreferrer" className="text-xs hover:text-emerald-400 transition-colors flex items-center gap-1">
                   NSA Website <ArrowSquareOutIcon className="w-3 h-3" />

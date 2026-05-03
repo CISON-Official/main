@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { HamburgerIcon, XIcon, MagnifyingGlassIcon, ArrowSquareOutIcon, UserIcon, CaretDownIcon } from '@phosphor-icons/react';
 import ThemeToggle from '@/components/ThemeToggle'; 
 import Logo from "@/assets/logo.jpg";
+import RoutePath from '@/routes';
 
 // ─── Route Data (extracted from CISON HTML) ───────────────────────────────────
 
@@ -11,7 +12,7 @@ const routes = [
     {
         name: 'Who We Are',
         children: [
-            { name: 'About CISON', href: 'https://cison.org.ng/about/' },
+            { name: 'About CISON', href: RoutePath.AboutUs },
             { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
             { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
             { name: 'Structure and Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },

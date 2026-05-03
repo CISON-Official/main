@@ -1,4 +1,4 @@
-const Route: Record<string, string> = {
+const RoutePath: Record<string, string> = {
     Accreditation: '/accreditation',
     InstitutionalAccreditation: '/accreditation/institutional',
     ProgrammaticAccreditation: '/accreditation/programmatic',
@@ -21,10 +21,16 @@ const Route: Record<string, string> = {
     Blog: '/blog',
 
     //   About Us
+    AboutUs: '/about',
     OurHistory: '/about/history',
     Leadership: '/about/leadership',
     StrategicPlan: '/about/strategic-plan',
     ContactUs: '/contact',
+
+    // Privacy
+    Privacy: "/privacy",
+    PrivacyPolicy: "/privacy/policy",
+    TermsOfService: "privacy/terms-of-service"
 };
 
 type RouteMapType = { name: string, href?: string, description?: string, children?: RouteMapType[] }
@@ -84,4 +90,4 @@ export const HeaderRouteMap: RouteMapType[] = [
     },
 ] as const;
 
-export default Route;
+export default RoutePath;
