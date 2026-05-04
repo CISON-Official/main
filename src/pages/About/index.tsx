@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { fadeUp } from "@/animate";
 import RoutePath from "@/routes";
+import CTAStrip from "@/components/cta";
 
 
-function AnimatedSection({
+export function AnimatedSection({
     children,
     className = "",
     delay = 0,
@@ -593,38 +594,6 @@ function LeadershipSection() {
         </section>
     );
 }
-
-// ─── CTA Strip ────────────────────────────────────────────────────────────────
-
-function CTAStrip() {
-    return (
-        <AnimatedSection>
-            <div className="bg-[#0d1e14] border-y border-[#1a7a5e]/30 py-12 px-6 md:px-14">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-lg text-white font-semibold text-center md:text-left">
-                        We are here to address any questions you may have.
-                    </p>
-                    <div className="flex flex-wrap gap-3 justify-center">
-                        <Button
-                            className="bg-[#1a7a5e] hover:bg-[#155f4a] text-white  tracking-wide"
-                        >
-                            <a href="https://cison.org.ng/portal/contact/">Contact us now</a>
-                        </Button>
-                        <Button
-                            variant="outline"
-                            className="border-[#3dd9a8]/40 text-[#3dd9a8] hover:bg-[#1a7a5e]/20  tracking-wide"
-                        >
-                            <a href="https://cison.org.ng/membership-types/">
-                                Become a Member
-                            </a>
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </AnimatedSection>
-    );
-}
-
 // ─── Page Root ────────────────────────────────────────────────────────────────
 
 export default function AboutCISONPage() {

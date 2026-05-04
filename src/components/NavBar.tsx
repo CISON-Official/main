@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HamburgerIcon, XIcon, MagnifyingGlassIcon, ArrowSquareOutIcon, UserIcon, CaretDownIcon } from '@phosphor-icons/react';
-import ThemeToggle from '@/components/ThemeToggle'; 
+import ThemeToggle from '@/components/ThemeToggle';
 import Logo from "@/assets/logo.jpg";
 import RoutePath from '@/routes';
+
 
 // ─── Route Data (extracted from CISON HTML) ───────────────────────────────────
 
@@ -13,7 +14,7 @@ const routes = [
         name: 'Who We Are',
         children: [
             { name: 'About CISON', href: RoutePath.AboutUs },
-            { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
+            { name: 'Our Objectives', href: RoutePath.Objective },
             { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
             { name: 'Structure and Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
             { name: 'Leadership', href: 'https://cison.org.ng/our-people/' },
@@ -109,10 +110,10 @@ function NavAnchor({ item, className, onClick }: { item: RouteItem; className?: 
         ? { target: '_blank' as const, rel: 'noopener noreferrer' }
         : {};
     return (
-        <a href={item.href ?? '#'} className={className} onClick={onClick} {...props}>
+        <Link to={item.href ?? '#'} className={className} onClick={onClick} {...props}>
             {item.name}
             {isExternal && <ArrowSquareOutIcon className="inline ml-1 w-3 h-3 opacity-50" />}
-        </a>
+        </Link>
     );
 }
 
@@ -172,13 +173,13 @@ function DesktopNestedItem({ item }: { item: RouteItem }) {
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
         >
-            <a
-                href={item.href ?? '#'}
+            <Link
+                to={item.href ?? '#'}
                 className="flex items-center justify-between gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
             >
                 {item.name}
                 <CaretDownIcon className={`w-3.5 h-3.5 -rotate-90`} />
-            </a>
+            </Link>
             {open && (
                 <div className="absolute left-full top-0 pl-2 z-50 min-w-[200px]">
                     <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
@@ -221,9 +222,9 @@ function MobileAccordion({ item, depth = 0, onNavigate }: { item: RouteItem; dep
                 className="flex items-center justify-between w-full py-2.5 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
                 {item.href ? (
-                    <a href={item.href} onClick={e => e.stopPropagation()} className="hover:underline">
+                    <Link to={item.href} onClick={e => e.stopPropagation()} className="hover:underline">
                         {item.name}
-                    </a>
+                    </Link>
                 ) : (
                     <span>{item.name}</span>
                 )}
@@ -303,17 +304,17 @@ function Navbar() {
             >
                 {/* Top utility bar */}
                 <div className="hidden lg:flex items-center justify-end gap-4 px-6 py-1.5 border-b border-border/50 text-xs text-muted-foreground bg-muted/30">
-                    <a href="https://cison.org.ng/membership-types/" className="hover:text-foreground transition-colors">
+                    <Link to="https://cison.org.ng/membership-types/" className="hover:text-foreground transition-colors">
                         Become a Member
-                    </a>
+                    </Link>
                     <span className="opacity-30">|</span>
-                    <a href="https://my.cison.org.ng" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
+                    <Link to="https://my.cison.org.ng" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
                         <UserIcon className="w-3 h-3" /> Members Login
-                    </a>
+                    </Link>
                     <span className="opacity-30">|</span>
-                    <a href="https://cison.org.ng/contact/" className="hover:text-foreground transition-colors">
+                    <Link to="https://cison.org.ng/contact/" className="hover:text-foreground transition-colors">
                         Contact
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Main nav bar */}
@@ -364,14 +365,14 @@ function Navbar() {
 
                         <ThemeToggle />
 
-                        <a
-                            href="https://cison.org.ng/members/"
+                        <Link
+                            to="https://cison.org.ng/members/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden lg:flex items-center gap-2 ml-2 px-4 py-2 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors shadow-sm"
                         >
                             Member Login
-                        </a>
+                        </Link>
 
                         {/* Mobile hamburger */}
                         <button
@@ -439,20 +440,20 @@ function Navbar() {
 
                 {/* Drawer footer */}
                 <div className="px-5 py-4 border-t border-border space-y-2">
-                    <a
-                        href="https://cison.org.ng/members/"
+                    <Link
+                        to="https://cison.org.ng/members/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors"
                     >
                         <UserIcon className="w-4 h-4" /> Member Login
-                    </a>
-                    <a
-                        href="https://cison.org.ng/membership-types/"
+                    </Link>
+                    <Link
+                        to="https://cison.org.ng/membership-types/"
                         className="flex items-center justify-center w-full py-2.5 text-sm font-medium rounded-lg border border-border text-foreground/80 hover:bg-muted/50 transition-colors"
                     >
                         Become a Member
-                    </a>
+                    </Link>
                     <div className="flex items-center justify-between pt-1">
                         <span className="text-xs text-muted-foreground">Toggle theme</span>
                         <ThemeToggle />
