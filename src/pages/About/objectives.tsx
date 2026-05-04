@@ -28,7 +28,7 @@ const stats = [
     { num: "CPD", label: "Continuous Development" },
 ];
 
-function ObjectiveCard({ num, text, featured }) {
+function ObjectiveCard({ num, text, featured }: { num: string, text: string, featured: boolean }) {
     const [hovered, setHovered] = useState(false);
 
     return (
