@@ -2,6 +2,7 @@ import { CaretRightIcon, type Icon } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import type { ReactElement } from "react";
 import { Badge } from "./ui/badge";
+import { Link } from "react-router";
 
 type BreadcrumbType = {
     label: string;
@@ -11,13 +12,13 @@ type BreadcrumbType = {
 
 function Crumb({ element }: { element: BreadcrumbType }) {
     return (
-        <a
-            href={element.href || "#"}
+        <Link
+            to={element.href || "#"}
             className="flex items-center gap-1 hover:text-white transition-colors"
         >
             {element.icon && <element.icon className="w-3.5 h-3.5" />}
             {element.label}
-        </a>
+        </Link>
     )
 }
 function Breadcrumb({ Elements }: { Elements: BreadcrumbType[] }) {

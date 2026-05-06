@@ -1,7 +1,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CaretRightIcon, HouseIcon, EyeIcon, TargetIcon, BookOpenIcon } from "@phosphor-icons/react";
+import { HouseIcon, EyeIcon, TargetIcon, BookOpenIcon, IdentificationBadgeIcon } from "@phosphor-icons/react";
 import SEO from "@/components/SEO";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,8 @@ import { Separator } from "@/components/ui/separator";
 import { fadeUp } from "@/animate";
 import RoutePath from "@/routes";
 import CTAStrip from "@/components/cta";
+import { Breadcrumb, type BreadcrumbType } from "@/components/Hero";
+import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
 
 
 export function AnimatedSection({
@@ -36,32 +38,23 @@ export function AnimatedSection({
     );
 }
 
-// ─── Breadcrumb ───────────────────────────────────────────────────────────────
 
-function Breadcrumb() {
-    return (
-        <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-1.5 text-sm text-white/50 tracking-tight"
-        >
-            <a
-                href="/"
-                className="flex items-center gap-1 hover:text-white transition-colors"
-            >
-                <HouseIcon className="w-3.5 h-3.5" />
-                Home
-            </a>
-            <CaretRightIcon className="w-3.5 h-3.5 opacity-40" />
-            <span className="text-white/90 font-semibold" aria-current="page">
-                About CISON
-            </span>
-        </nav>
-    );
-}
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
 
 function PageHero() {
+
+    const crumbles: BreadcrumbType[] = [
+        {
+            label: "Home",
+            href: '/',
+            icon: HouseIcon
+        },
+        {
+            label: "About CISON",
+            href: RoutePath.AboutUs,
+            icon: IdentificationBadgeIcon
+        },
+    ];
     return (
         <div className="relative overflow-hidden bg-[#0b1120] border-b border-white/10 min-h-[340px] flex items-end">
             {/* Decorative skewed bars */}
@@ -102,7 +95,7 @@ function PageHero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Breadcrumb />
+                    <Breadcrumb Elements={crumbles} />
                 </motion.div>
 
                 <div className="flex flex-col gap-4">
@@ -460,7 +453,7 @@ function CISONBillSection() {
                             variant="ghost"
                         >
                             <a
-                                href="https://cison.org.ng/cison-act-2022-compressed/"
+                                href={CompressedCISONACTS}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex flex-row gap-2 dark:bg-[#1a7a5e] hover:bg-[#155f4a] dark:text-white  tracking-wide"

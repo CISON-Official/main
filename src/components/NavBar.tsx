@@ -15,7 +15,7 @@ const routes = [
         children: [
             { name: 'About CISON', href: RoutePath.AboutUs },
             { name: 'Our Objectives', href: RoutePath.Objective },
-            { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
+            { name: 'Our History', href: RoutePath.OurHistory },
             { name: 'Structure and Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
             { name: 'Leadership', href: 'https://cison.org.ng/our-people/' },
             { name: 'List of Elected Council Members', href: 'https://cison.org.ng/list-of-nominated-contestants/' },
