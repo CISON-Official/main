@@ -24,6 +24,7 @@ const RoutePath: Record<string, string> = {
     AboutUs: '/about',
     Objective: "/about/objective",
     OurHistory: '/about/history',
+    StructureAndGovernance: '/about/structure-and-governance',
     Leadership: '/about/leadership',
     StrategicPlan: '/about/strategic-plan',
     ContactUs: '/contact',

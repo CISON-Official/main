@@ -28,6 +28,8 @@ const PolicyPage = lazy(() => import("@/pages/Privacy/policy"));
 const AboutPage = lazy(() => import("@/pages/About"));
 const ObjectivePage = lazy(() => import("@/pages/About/objectives"));
 const HistoryPage = lazy(() => import("@/pages/About/history"));
+const StructureAndGovernancePage = lazy(() => import("@/pages/About/structureandgovernance"));
+
 
 
 
@@ -48,6 +50,7 @@ function App() {
             <Route index element={<AboutPage />} />
             <Route path={RoutePath.Objective} element={<ObjectivePage />} />
             <Route path={RoutePath.OurHistory} element={<HistoryPage />} />
+            <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
           </Route>
         </Route>
       </Routes>

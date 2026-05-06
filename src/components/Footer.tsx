@@ -2,6 +2,7 @@
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
 import Logo from "@/assets/logo.jpg"
 import RoutePath from '@/routes';
+import { Link } from 'react-router-dom';
 
 const footerWhatWeDo = [
   { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
@@ -16,9 +17,9 @@ const footerWhatWeDo = [
 
 const footerWhoWeAre = [
   { name: 'About CISON', href: RoutePath.AboutUs },
-  { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
-  { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
-  { name: 'Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
+  { name: 'Our History', href: RoutePath.OurHistory },
+  { name: 'Our Objectives', href: RoutePath.Objective },
+  { name: 'Governance', href: RoutePath.StructureAndGovernance },
   { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
   { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
   { name: 'Contact CISON', href: 'https://cison.org.ng/contact/' },
@@ -77,9 +78,9 @@ function Footer() {
             <ul className="space-y-2.5">
               {footerWhatWeDo.map(l => (
                 <li key={l.name}>
-                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <Link to={l.href} className="text-xs hover:text-emerald-400 transition-colors">
                     {l.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -89,9 +90,9 @@ function Footer() {
             <ul className="space-y-2.5">
               {footerWhoWeAre.map(l => (
                 <li key={l.name}>
-                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <Link to={l.href} className="text-xs hover:text-emerald-400 transition-colors">
                     {l.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

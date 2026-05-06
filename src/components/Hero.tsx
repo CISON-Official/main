@@ -17,7 +17,9 @@ function Crumb({ element }: { element: BreadcrumbType }) {
             className="flex items-center gap-1 hover:text-white transition-colors"
         >
             {element.icon && <element.icon className="w-3.5 h-3.5" />}
-            {element.label}
+            <p className="truncate max-w-[10ch] sm:max-w-[40ch] lg:max-w-[100ch]" >
+                {element.label}
+            </p>
         </Link>
     )
 }
@@ -30,7 +32,7 @@ function Breadcrumb({ Elements }: { Elements: BreadcrumbType[] }) {
             {Elements.map((element, index) => (
                 <div key={index} className="flex items-center gap-1.5">
                     <Crumb element={element} />
-                    {index+1 !== Elements.length && (
+                    {index + 1 !== Elements.length && (
                         <CaretRightIcon className="w-3.5 h-3.5 opacity-40" />
                     )}
                 </div>
