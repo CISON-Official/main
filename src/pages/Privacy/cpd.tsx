@@ -5,7 +5,7 @@ import { AnimatedSection } from "../About";
 export default function CPDPage() {
     return (
         <div id="main-content" className="min-h-screen bg-background text-foreground font-sans">
-            <SEO title="About CISON" description="About CISON as a statistical association" canonicalUrl={RoutePath.About} />
+            <SEO title="About CISON" description="About CISON as a statistical association" canonicalUrl={RoutePath.AboutUs} />
             <main role="main">
                 <section className="max-w-6xl mx-auto px-6 md:px-14 py-16">
                             <AnimatedSection className="max-w-3xl">

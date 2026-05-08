@@ -1,8 +1,5 @@
-"use client";
-
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ArrowSquareOutIcon, BookOpenIcon, BuildingIcon, CaretRightIcon, HouseIcon, IdentificationBadgeIcon, TreeEvergreenIcon, UsersIcon } from "@phosphor-icons/react";
 import { Reveal } from "@/animate";
@@ -80,7 +77,6 @@ function PeopleSection({
     subheading,
     icon,
     people,
-    sectionIndex,
 }: {
     id?: string;
     sectionLabel: string;

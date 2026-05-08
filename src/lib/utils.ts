@@ -6,8 +6,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function lazyImport(factory, name) {
-  return lazy(() => 
+export function lazyImport(factory: () => Promise<any>, name: string) {
+  return lazy(() =>
     factory().then(module => ({ default: module[name] }))
   );
 }

@@ -592,7 +592,7 @@ function LeadershipSection() {
 export default function AboutCISONPage() {
     return (
         <div id="main-content" className="min-h-screen bg-background text-foreground font-sans">
-            <SEO title="About CISON" description="About CISON as a statistical association" canonicalUrl={RoutePath.About} />
+            <SEO title="About CISON" description="About CISON as a statistical association" canonicalUrl={RoutePath.AboutUs} />
             <PageHero />
             <main role="main">
                 <IntroSection />

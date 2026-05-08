@@ -73,12 +73,12 @@ export default function CISONObjectives() {
         },
         {
             label: "Our Objective",
-            href: RoutePath.Objectives
+            href: RoutePath.Objective
         }
     ]
     return (
         <>
-            <SEO title="Our Objective" description="Aims and Objectives of the Chartered Institute of Statisticians of Nigeria (CISON)" canonicalUrl={RoutePath.Objectives} />
+            <SEO title="Our Objective" description="Aims and Objectives of the Chartered Institute of Statisticians of Nigeria (CISON)" canonicalUrl={RoutePath.Objective} />
 
             <PageHero title="Our Objectives" subtitle="Charting the Path to" breadcrumb={<Breadcrumb Elements={crumbles} />} catchy="Success" />
 

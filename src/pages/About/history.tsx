@@ -286,7 +286,7 @@ export default function OurHistoryPage() {
         },
         {
             label: "Our History",
-            href: RoutePath.History,
+            href: RoutePath.OurHistory,
             icon: ArchiveIcon
         }
     ]
