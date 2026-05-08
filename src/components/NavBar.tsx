@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HamburgerIcon, XIcon, MagnifyingGlassIcon, ArrowSquareOutIcon, UserIcon, CaretDownIcon } from '@phosphor-icons/react';
 import ThemeToggle from '@/components/ThemeToggle';
-import Logo from "@/assets/logo.jpg";
+import Logo from "@/assets/logo.png";
 import RoutePath from '@/routes';
 
 
@@ -17,7 +17,7 @@ const routes = [
             { name: 'Our Objectives', href: RoutePath.Objective },
             { name: 'Our History', href: RoutePath.OurHistory },
             { name: 'Structure and Governance', href: RoutePath.StructureAndGovernance },
-            { name: 'Leadership', href: 'https://cison.org.ng/our-people/' },
+            { name: 'Leadership', href: RoutePath.Leadership },
             { name: 'List of Elected Council Members', href: 'https://cison.org.ng/list-of-nominated-contestants/' },
             { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
             { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },

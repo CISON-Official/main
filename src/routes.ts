@@ -1,4 +1,4 @@
-const RoutePath: Record<string, string> = {
+const RoutePath = {
     Accreditation: '/accreditation',
     InstitutionalAccreditation: '/accreditation/institutional',
     ProgrammaticAccreditation: '/accreditation/programmatic',
@@ -32,7 +32,31 @@ const RoutePath: Record<string, string> = {
     // Privacy
     Privacy: "/privacy",
     PrivacyPolicy: "/privacy/policy",
-    TermsOfService: "privacy/terms-of-service"
+    TermsOfService: "privacy/terms-of-service",
+
+    // Council Members
+    President: "/about/council/president",
+    VicePresident: "/about/council/vice-president",
+    Registrar: "/about/council/registrar",
+    ElectedMemberOne: "/about/council/elected-member-one",
+    ElectedMemberTwo: "/about/council/elected-member-two",
+    ElectedMemberThree: "/about/council/elected-member-three",
+    ElectedMemberFour: "/about/council/elected-member-four",
+    ElectedMemberFive: "/about/council/elected-member-five",
+    ElectedMemberSix: "/about/council/elected-member-six",
+    CBNRepresentative: "/about/council/cbn-represntative",
+    NPCRepresentative: "/about/council/npc-representative",
+    NBSRepresentative: "/about/council/nbs-representative",
+    EditorInChief: "/about/council/editor-in-chief",
+    ManagingEditor: "/about/council/managing-editor",
+    AssociateEditor: "/about/council/Associate-Editor",
+
+    
+
+
+    // PRS
+    PRS: "/prs",
+    SecondQuarterPrs2026: "/prs/2nd-quarter-prs-2026",
 };
 
 type RouteMapType = { name: string, href?: string, description?: string, children?: RouteMapType[] }

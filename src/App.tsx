@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout";
 import { Skeleton } from "./components/ui/skeleton";
 import RoutePath from "./routes";
+import { lazyImport } from "./lib/utils";
 
 const PageLoader = () => (
   <div className="container py-20">
@@ -29,9 +30,13 @@ const AboutPage = lazy(() => import("@/pages/About"));
 const ObjectivePage = lazy(() => import("@/pages/About/objectives"));
 const HistoryPage = lazy(() => import("@/pages/About/history"));
 const StructureAndGovernancePage = lazy(() => import("@/pages/About/structureandgovernance"));
+const Leadership = lazy(() => import("@/pages/About/leadership"));
 
+// PRS
+const CisonWorkshopPage = lazy(() => import("@/pages/PRS/2nd_2026"));
 
-
+// Council Members
+const EditorInChiefPage = lazyImport(() => import("@/pages/About/council"), "EditorInChiefPage");
 
 
 
@@ -51,10 +56,15 @@ function App() {
             <Route path={RoutePath.Objective} element={<ObjectivePage />} />
             <Route path={RoutePath.OurHistory} element={<HistoryPage />} />
             <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
+            <Route path={RoutePath.Leadership} element={<Leadership />} />
+            <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
+          </Route>
+          <Route path={RoutePath.SecondQuarterPrs2026}>
+            <Route index element={<CisonWorkshopPage />} />
           </Route>
         </Route>
       </Routes>
-    </Suspense>
+    </Suspense >
   )
 }
 
