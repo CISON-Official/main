@@ -275,7 +275,7 @@ function CTASection() {
 
 function BigDescription() {
     return (
-        <div className="mt-8  border border-gray-200 rounded-xl p-6 black:text-white text-black">
+        <div className="mt-8  border border-gray-200 rounded-xl p-6 black:text-white text-black dark:text-white">
             <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
