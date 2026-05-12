@@ -31,6 +31,8 @@ const ObjectivePage = lazy(() => import("@/pages/About/objectives"));
 const HistoryPage = lazy(() => import("@/pages/About/history"));
 const StructureAndGovernancePage = lazy(() => import("@/pages/About/structureandgovernance"));
 const Leadership = lazy(() => import("@/pages/About/leadership"));
+const CoucilMembers = lazy(() => import("@/pages/About/electedcouncilmembers"));
+
 
 // PRS
 const CisonWorkshopPage = lazy(() => import("@/pages/PRS/2nd_2026"));
@@ -58,6 +60,7 @@ function App() {
             <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
             <Route path={RoutePath.Leadership} element={<Leadership />} />
             <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
+            <Route path={RoutePath.ElectedCouncilMembers} element={<CoucilMembers />} />
           </Route>
           <Route path={RoutePath.SecondQuarterPrs2026}>
             <Route index element={<CisonWorkshopPage />} />

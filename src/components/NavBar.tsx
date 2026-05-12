@@ -18,7 +18,7 @@ const routes = [
             { name: 'Our History', href: RoutePath.OurHistory },
             { name: 'Structure and Governance', href: RoutePath.StructureAndGovernance },
             { name: 'Leadership', href: RoutePath.Leadership },
-            { name: 'List of Elected Council Members', href: 'https://cison.org.ng/list-of-nominated-contestants/' },
+            { name: 'List of Elected Council Members', href: RoutePath.ElectedCouncilMembers },
             { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
             { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
             { name: 'The CISON Act', href: 'https://cison.org.ng/about/#cison_act' },

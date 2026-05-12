@@ -557,7 +557,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
 }
 
 
-// ─── Page Root ────────────────────────────────────────────────────────────────
+
 
 export default function PersonDetailPage({ person, route }: { person: PersonInterface, route: string }) {
     return (

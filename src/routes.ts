@@ -27,6 +27,7 @@ const RoutePath = {
     StructureAndGovernance: '/about/structure-and-governance',
     Leadership: '/about/leadership',
     StrategicPlan: '/about/strategic-plan',
+    ElectedCouncilMembers: '/about/council-members',
     ContactUs: '/contact',
 
     // Privacy
