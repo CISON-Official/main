@@ -1,3 +1,5 @@
+import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
+
 const RoutePath = {
     Accreditation: '/accreditation',
     InstitutionalAccreditation: '/accreditation/institutional',
@@ -28,6 +30,8 @@ const RoutePath = {
     Leadership: '/about/leadership',
     StrategicPlan: '/about/strategic-plan',
     ElectedCouncilMembers: '/about/council-members',
+    Departments: '/about/departments',
+    CISONAct: CompressedCISONACTS,
     ContactUs: '/contact',
 
     // Privacy
@@ -52,7 +56,7 @@ const RoutePath = {
     ManagingEditor: "/about/council/managing-editor",
     AssociateEditor: "/about/council/Associate-Editor",
 
-    
+
 
 
     // PRS

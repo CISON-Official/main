@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-
+import Logo from "@/assets/logo.png"
 interface SEOProps {
     title: string;
     description?: string;
@@ -15,7 +15,7 @@ export default function SEO({
     title,
     description,
     canonicalUrl,
-    ogImage = '/logo.jpg',
+    ogImage = Logo,
     article = false,
     publishedTime,
     author,
@@ -23,13 +23,13 @@ export default function SEO({
     const siteTitle = 'Charatered Institute of Statisticians of Nigeria';
     const fullTitle = `${title} | ${siteTitle}`;
     const metaDescription = description ?? 'Leading regulatory body for professional standards and accreditation worldwide.';
-    const siteUrl = 'https://regulatoryinstitute.org';
+    const siteUrl = 'https://dev.cison.org.ng';
     const fullUrl = `${siteUrl}${canonicalUrl}`;
     const fullImage = `${siteUrl}${ogImage}`;
 
 
     const structuredData = {
-        '@context': 'https://schema.org',
+        '@context': 'https://dev.cison.org.ng',
         '@type': article ? 'Article' : 'WebPage',
         name: fullTitle,
         description: metaDescription,
@@ -42,11 +42,11 @@ export default function SEO({
             name: siteTitle,
             logo: {
                 '@type': 'ImageObject',
-                url: `${siteUrl}/logo.jpg`,
+                url: `${siteUrl}/${Logo}`,
                 width: 128,
                 height: 128,
                 caption: siteTitle,
-                contentUrl: `${siteUrl}/logo.jpg`,
+                contentUrl: `${siteUrl}/{Logo}`,
             },
             url: siteUrl,
         },
@@ -83,10 +83,10 @@ export default function SEO({
                 {JSON.stringify(structuredData)}
             </script>
 
-            <meta name="msapplication-TileImage" content="/logo.jpg" />
+            <meta name="msapplication-TileImage" content={Logo} />
             <link rel="apple-touch-icon" href="/logo.jpg" />
-            <link rel="icon" href="/logo.jpg" sizes="192x192" />
-            <link rel="icon" href="/logo.jpg" sizes="32x32" />
+            <link rel="icon" href={Logo} sizes="192x192" />
+            <link rel="icon" href={Logo} sizes="32x32" />
             <meta name="theme-color" content="#8FD299" />
 
             <meta name="google-site-verification" content="googlef6e8f004c1043043.html" />

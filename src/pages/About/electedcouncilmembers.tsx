@@ -22,6 +22,7 @@ import { Separator } from "@/components/ui/separator";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
 import RoutePath from "@/routes";
 import { Reveal } from "@/animate";
+import SEO from "@/components/SEO";
 
 
 interface RelatedPost {
@@ -321,6 +322,7 @@ export default function NewsPostPage() {
     ];
     return (
         <div id="page" className="min-h-screen bg-background ">
+            <SEO title="Elected Coucil Members" description="The follow are the new elected CISON Council Members" canonicalUrl={RoutePath.ElectedCouncilMembers} />
             <PageHero title="Elected Coucil Members" subtitle="List of Elected" catchy="Council Members" breadcrumb={<Breadcrumb Elements={crumbles} />} />
             <ArticleBody />
             <CommentsSection />

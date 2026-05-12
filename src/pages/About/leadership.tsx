@@ -68,7 +68,6 @@ function PersonCard({
     );
 }
 
-// ─── People Grid Section ──────────────────────────────────────────────────────
 
 function PeopleSection({
     id,

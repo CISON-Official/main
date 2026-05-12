@@ -19,9 +19,9 @@ const routes = [
             { name: 'Structure and Governance', href: RoutePath.StructureAndGovernance },
             { name: 'Leadership', href: RoutePath.Leadership },
             { name: 'List of Elected Council Members', href: RoutePath.ElectedCouncilMembers },
-            { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
+            { name: 'Departments', href: RoutePath.Departments },
             { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
-            { name: 'The CISON Act', href: 'https://cison.org.ng/about/#cison_act' },
+            { name: 'The CISON Act', href: RoutePath.CISONAct },
         ],
     },
     {
@@ -110,10 +110,10 @@ function NavAnchor({ item, className, onClick }: { item: RouteItem; className?: 
         ? { target: '_blank' as const, rel: 'noopener noreferrer' }
         : {};
     return (
-        <Link to={item.href ?? '#'} className={className} onClick={onClick} {...props}>
+        <a href={item.href ?? '#'} className={className} onClick={onClick} {...props}>
             {item.name}
             {isExternal && <ArrowSquareOutIcon className="inline ml-1 w-3 h-3 opacity-50" />}
-        </Link>
+        </a>
     );
 }
 
