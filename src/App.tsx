@@ -33,6 +33,7 @@ const StructureAndGovernancePage = lazy(() => import("@/pages/About/structureand
 const Leadership = lazy(() => import("@/pages/About/leadership"));
 const CoucilMembers = lazy(() => import("@/pages/About/electedcouncilmembers"));
 const Departments = lazy(() => import("@/pages/About/departments"));
+const Committee = lazy(() => import("@/pages/About/committee"));
 
 
 // PRS
@@ -64,6 +65,7 @@ function App() {
             <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
             <Route path={RoutePath.ElectedCouncilMembers} element={<CoucilMembers />} />
             <Route path={RoutePath.Departments} element={<Departments />} />
+            <Route path={RoutePath.Committee} element={<Committee />} />
           </Route>
 
           <Route path={RoutePath.SecondQuarterPrs2026}>

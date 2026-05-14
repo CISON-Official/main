@@ -20,7 +20,7 @@ const routes = [
             { name: 'Leadership', href: RoutePath.Leadership },
             { name: 'List of Elected Council Members', href: RoutePath.ElectedCouncilMembers },
             { name: 'Departments', href: RoutePath.Departments },
-            { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
+            { name: 'Our Committees', href: RoutePath.Committee },
             { name: 'The CISON Act', href: RoutePath.CISONAct },
         ],
     },

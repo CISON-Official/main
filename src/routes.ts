@@ -31,7 +31,9 @@ const RoutePath = {
     StrategicPlan: '/about/strategic-plan',
     ElectedCouncilMembers: '/about/council-members',
     Departments: '/about/departments',
+    Committee: "/about/committee",
     CISONAct: CompressedCISONACTS,
+
     ContactUs: '/contact',
 
     // Privacy
