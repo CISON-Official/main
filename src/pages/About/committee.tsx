@@ -5,6 +5,8 @@ import RoutePath from "@/routes";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
 import { motion } from "framer-motion";
 import CTAStrip from "@/components/cta";
+import SEO from "@/components/SEO";
+import { Reveal } from "@/animate";
 
 function MemberList({ members }: { members: Members[] }) {
     return (
@@ -32,7 +34,7 @@ function MemberList({ members }: { members: Members[] }) {
 
 function RoleBadge({ icon: Icon, label, name, phone, email }: { icon?: PhsIcon, label?: string, name?: string, phone?: string, email?: string }) {
     return (
-        <div className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 dark:bg-slate-800 px-4 py-3 dark:text-white">
+        <Reveal className="flex items-start gap-3 rounded-xl border border-slate-100 bg-slate-50 dark:bg-slate-800 px-4 py-3 dark:text-white">
             <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-700">
                 {Icon && <Icon className="h-4 w-4" />}
             </span>
@@ -54,7 +56,7 @@ function RoleBadge({ icon: Icon, label, name, phone, email }: { icon?: PhsIcon, 
                     )}
                 </div>
             </div>
-        </div>
+        </Reveal>
     );
 }
 
@@ -227,7 +229,7 @@ export default function CisonCommittees() {
     ];
     return (
         <>
-
+            <SEO title="Our Committees | Chartered Institute of Statisticians of Nigeria (CISON)" description="Steering Progress Through Data" canonicalUrl={RoutePath.Committee} />
             <PageHero title="Our Committees" subtitle="Steering Progress" catchy="Through Data" breadcrumb={<Breadcrumb Elements={crumbles} />} />
             <main role="main" className="max-w-7xl mx-auto px-6 md:px-14 py-14 flex flex-col gap-14">
                 <BigDescription />
