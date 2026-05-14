@@ -312,7 +312,7 @@ function Navbar() {
                         <UserIcon className="w-3 h-3" /> Members Login
                     </Link>
                     <span className="opacity-30">|</span>
-                    <Link to="https://cison.org.ng/contact/" className="hover:text-foreground transition-colors">
+                    <Link to={RoutePath.ContactUs}className="hover:text-foreground transition-colors">
                         Contact
                     </Link>
                 </div>

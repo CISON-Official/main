@@ -239,8 +239,8 @@ export default function CisonCommittees() {
                         <CommitteeCard key={c.id} committee={c} />
                     ))}
                 </div>
-                <CTAStrip />
             </main>
+            <CTAStrip />
         </>
     );
 }

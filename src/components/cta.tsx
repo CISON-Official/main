@@ -2,6 +2,7 @@ import { AnimatedSection } from "@/pages/About";
 import { Button } from "./ui/button";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import RoutePath from "@/routes";
 
 export interface MVVCardProps {
     label: string;
@@ -23,7 +24,7 @@ export default function CTAStrip() {
                         <Button
                             className="bg-[#1a7a5e] hover:bg-[#155f4a] text-white  tracking-wide"
                         >
-                            <a href="https://cison.org.ng/portal/contact/">Contact us now</a>
+                            <a href={RoutePath.ContactUs}>Contact us now</a>
                         </Button>
                         <Button
                             variant="outline"

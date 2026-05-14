@@ -20,9 +20,9 @@ const footerWhoWeAre = [
   { name: 'Our History', href: RoutePath.OurHistory },
   { name: 'Our Objectives', href: RoutePath.Objective },
   { name: 'Governance', href: RoutePath.StructureAndGovernance },
-  { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
-  { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
-  { name: 'Contact CISON', href: 'https://cison.org.ng/contact/' },
+  { name: 'Departments', href: RoutePath.Departments },
+  { name: 'Our Committees', href: RoutePath.Committee },
+  { name: 'Contact CISON', href: RoutePath.ContactUs },
 ];
 
 function Footer() {
@@ -39,7 +39,7 @@ function Footer() {
             +234 701 443 2794
           </a>
           <a
-            href="https://cison.org.ng/contact/"
+            href={RoutePath.ContactUs}
             className="flex items-center gap-2 text-sm hover:text-emerald-400 transition-colors"
           >
             <MailboxIcon className="w-4 h-4 text-emerald-500" />
