@@ -1,4 +1,4 @@
-import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
+// import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
 
 const RoutePath = {
     Accreditation: '/accreditation',
@@ -32,7 +32,7 @@ const RoutePath = {
     ElectedCouncilMembers: '/about/council-members',
     Departments: '/about/departments',
     Committee: "/about/committee",
-    CISONAct: CompressedCISONACTS,
+    CISONAct: "/pdf/CISON-Act-2022-compressed.pdf",
 
     ContactUs: '/contact',
 

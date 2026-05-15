@@ -63,20 +63,34 @@ export default function SEO({
             <meta name="description" content={metaDescription} />
             <link rel="canonical" href={fullUrl} />
 
-            {/* Open Graph */}
-            <meta property="og:title" content={fullTitle} />
-            <meta property="og:description" content={metaDescription} />
-            <meta property="og:image" content={fullImage} />
-            <meta property="og:url" content={fullUrl} />
+            {/* Open Graph / Facebook */}
             <meta property="og:type" content={article ? 'article' : 'website'} />
-            <meta property="og:locale" content="en_US" />
+            <meta property="og:url" content={canonicalUrl} />
+            <meta property="og:title" content={fullTitle} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={ogImage} />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <meta property="og:image:type" content="image/png" />
+            <meta property="og:locale" content="en_NG" />
+            <meta property="og:site_name" content="CISON" />
             <meta property="og:site_name" content="Chartered Institute of Statisticians of Nigeria (CISON)" />
 
-            {/* Twitter */}
+            {/* Twitter / X */}
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:url" content={canonicalUrl} />
             <meta name="twitter:title" content={fullTitle} />
-            <meta name="twitter:description" content={metaDescription} />
-            <meta name="twitter:image" content={fullImage} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:creator" content="@CISON_Nigeria" />
+            <meta name="twitter:site" content="@CISON_Nigeria" />
+
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+            <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.google.com" />
+
 
             {/* JSON-LD */}
             <script type="application/ld+json">
@@ -94,6 +108,13 @@ export default function SEO({
             <meta name="tec-api-key" content="v1" />
             <link rel="alternate" type="text/calendar" title="Chartered Institute of Statisticians of Nigeria (CISON) » iCal Feed" href="https://cison.org.ng/events/?ical=1" />
             <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+            <meta name="language" content="English" />
+            <meta name="revisit-after" content="7 days" />
+            <meta name="distribution" content="global" />
+            <meta name="rating" content="general" />
+            <meta name="referrer" content="strict-origin-when-cross-origin" />
+
         </Helmet>
     );
 }
