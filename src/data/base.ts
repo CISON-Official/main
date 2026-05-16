@@ -32,4 +32,6 @@ export interface PersonInterface {
     publications: Publication[];
     appointments: string[];
     social: Social;
+    fellowship?: string;
+    membersince?: Number;
 };

@@ -31,7 +31,7 @@ function StickyBar({ person }: { person: PersonInterface }) {
             <div className="max-w-6xl mx-auto px-6 md:px-14 h-14 flex items-center justify-between gap-4">
                 <a
                     href={person.backHref}
-                    className="flex items-center gap-2 text-xs text-white/40 hover:text-[#6dd249] transition-colors font-mono"
+                    className="flex items-center gap-2 text-xs text-white/40 hover:text-[#6dd249] transition-colors "
                 >
                     <ArrowLeftIcon size={14} />
                     Our People
@@ -96,7 +96,7 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 text-xs text-white/35 hover:text-[#6dd249] font-mono tracking-widest uppercase mb-10 transition-colors group"
+                    className="inline-flex items-center gap-2 text-xs text-white/35 hover:text-[#6dd249]  tracking-widest uppercase mb-10 transition-colors group"
                 >
                     <motion.span whileHover={{ x: -3 }} transition={{ duration: 0.2 }}>
                         <ArrowLeftIcon size={13} />
@@ -124,7 +124,7 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                         </div>
                         {/* Category badge floating */}
                         <div className="absolute -top-3 -right-3">
-                            <Badge className="bg-[#6dd249] text-[#06080f] font-mono text-[9px] tracking-[0.18em] uppercase font-black px-2.5 py-1 shadow-lg">
+                            <Badge className="bg-[#6dd249] text-[#06080f]  text-[9px] tracking-[0.18em] uppercase font-black px-2.5 py-1 shadow-lg">
                                 {person.category}
                             </Badge>
                         </div>
@@ -140,7 +140,7 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                             >
                                 <Badge
                                     variant="outline"
-                                    className="w-fit border-[#6dd249]/40 text-[#6dd249]/80 bg-transparent font-mono text-[10px] tracking-[0.2em] uppercase"
+                                    className="w-fit border-[#6dd249]/40 text-[#6dd249]/80 bg-transparent  text-[10px] tracking-[0.2em] uppercase"
                                 >
                                     CISON · Our People
                                 </Badge>
@@ -160,7 +160,7 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                                 initial={{ opacity: 0, y: 12 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.38 }}
-                                className="text-base text-[#6dd249] font-semibold font-mono"
+                                className="text-base text-[#6dd249] font-semibold "
                             >
                                 {person.role}
                             </motion.p>
@@ -195,7 +195,7 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                                     target={label !== "Email" ? "_blank" : undefined}
                                     rel="noopener noreferrer"
                                     aria-label={label}
-                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 text-white/40 hover:text-[#6dd249] hover:border-[#6dd249]/40 hover:bg-[#6dd249]/5 transition-all duration-200 text-xs font-mono"
+                                    className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/12 text-white/40 hover:text-[#6dd249] hover:border-[#6dd249]/40 hover:bg-[#6dd249]/5 transition-all duration-200 text-xs "
                                 >
                                     <Icon size={14} weight="fill" />
                                     {label}
@@ -216,8 +216,8 @@ function ProfileHero({ person }: { person: PersonInterface }) {
                                 { label: "Appointments", value: `${person.appointments.length}` },
                             ].map((s) => (
                                 <div key={s.label} className="flex flex-col gap-0.5">
-                                    <span className="text-xl font-black text-[#6dd249] font-mono">{s.value}</span>
-                                    <span className="text-[10px] text-white/35 font-mono tracking-widest uppercase">{s.label}</span>
+                                    <span className="text-xl font-black text-[#6dd249] ">{s.value}</span>
+                                    <span className="text-[10px] text-white/35  tracking-widest uppercase">{s.label}</span>
                                 </div>
                             ))}
                         </motion.div>
@@ -235,7 +235,7 @@ function ExpertiseTags({ person }: { person: PersonInterface }) {
         <Reveal className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
                 <GraduationCapIcon size={18} className="text-[#6dd249]" weight="fill" />
-                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
+                <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
                     Areas of Expertise
                 </span>
             </div>
@@ -264,12 +264,12 @@ function EducationSection({ person }: { person: PersonInterface }) {
         <Reveal className="flex flex-col gap-5">
             <div className="flex items-center gap-2">
                 <CertificateIcon size={18} className="text-[#6dd249]" weight="fill" />
-                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
+                <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
                     Education
                 </span>
             </div>
             <div className="flex flex-col">
-                {person.education.map((ed, i) => (
+                {person.education.length > 0 && person.education.map((ed, i) => (
                     <motion.div
                         key={ed.degree}
                         initial={{ opacity: 0, x: -16 }}
@@ -287,7 +287,7 @@ function EducationSection({ person }: { person: PersonInterface }) {
                         <div className="pb-4">
                             <p className="text-sm font-bold text-foreground leading-snug">{ed.degree}</p>
                             <p className="text-xs text-muted-foreground">{ed.institution}</p>
-                            <p className="text-[10px] font-mono text-[#6dd249]/60 mt-0.5">{ed.year}</p>
+                            <p className="text-[10px]  text-[#6dd249]/60 mt-0.5">{ed.year}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -303,7 +303,7 @@ function PublicationsSection({ person }: { person: PersonInterface }) {
         <Reveal className="flex flex-col gap-5">
             <div className="flex items-center gap-2">
                 <NewspaperIcon size={18} className="text-[#6dd249]" weight="fill" />
-                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
+                <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
                     Selected Publications
                 </span>
             </div>
@@ -323,7 +323,7 @@ function PublicationsSection({ person }: { person: PersonInterface }) {
                             </p>
                             <p className="text-xs text-muted-foreground italic">{pub.journal}</p>
                         </div>
-                        <span className="text-xs font-black font-mono text-[#6dd249]/60 flex-shrink-0">
+                        <span className="text-xs font-black  text-[#6dd249]/60 flex-shrink-0">
                             {pub.year}
                         </span>
                     </motion.div>
@@ -340,7 +340,7 @@ function AppointmentsSection({ person }: { person: PersonInterface }) {
         <Reveal className="flex flex-col gap-5">
             <div className="flex items-center gap-2">
                 <UsersIcon size={18} className="text-[#6dd249]" weight="fill" />
-                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
+                <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
                     Appointments & Affiliations
                 </span>
             </div>
@@ -373,7 +373,7 @@ function FullBioSection({ person }: { person: PersonInterface }) {
         <Reveal className="flex flex-col gap-5">
             <div className="flex items-center gap-2">
                 <BookOpenIcon size={18} className="text-[#6dd249]" weight="fill" />
-                <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
+                <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
                     About {person.name.split(" ")[0]} {person.name.split(" ").pop()}
                 </span>
             </div>
@@ -383,7 +383,7 @@ function FullBioSection({ person }: { person: PersonInterface }) {
                 </p>
                 <button
                     onClick={() => setExpanded((v) => !v)}
-                    className="self-start text-xs font-mono text-[#6dd249] hover:underline transition-all"
+                    className="self-start text-xs  text-[#6dd249] hover:underline transition-all"
                 >
                     {expanded ? "Show less ↑" : "Read more ↓"}
                 </button>
@@ -432,7 +432,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                                     <TabsTrigger
                                         key={tab.value}
                                         value={tab.value}
-                                        className="text-xs font-mono tracking-wide data-[state=active]:bg-[#6dd249] data-[state=active]:text-[#06080f] data-[state=active]:font-black rounded-lg px-4 py-2"
+                                        className="text-xs  tracking-wide data-[state=active]:bg-[#6dd249] data-[state=active]:text-[#06080f] data-[state=active]:font-black rounded-lg px-4 py-2"
                                     >
                                         {tab.label}
                                     </TabsTrigger>
@@ -463,7 +463,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                     {/* Contact card */}
                     <Reveal delay={0.1}>
                         <div className="rounded-2xl border border-border/60 bg-card p-6 flex flex-col gap-5">
-                            <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#6dd249]/75 font-semibold">
+                            <span className="text-[10px]  tracking-[0.2em] uppercase text-[#6dd249]/75 font-semibold">
                                 Contact
                             </span>
                             <div className="flex flex-col gap-3">
@@ -487,7 +487,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                                 </a>
                             </div>
                             <Button
-                                className="w-full bg-[#6dd249] hover:bg-[#5bb83d] text-[#06080f] font-bold font-mono text-xs tracking-widest uppercase mt-1"
+                                className="w-full bg-[#6dd249] hover:bg-[#5bb83d] text-[#06080f] font-bold  text-xs tracking-widest uppercase mt-1"
                             >
                                 <a href={person.social.email}>Get in Touch</a>
                             </Button>
@@ -496,19 +496,19 @@ function ProfileContent({ person }: { person: PersonInterface }) {
 
                     {/* Journal card */}
                     <Reveal delay={0.18}>
-                        <div className="rounded-2xl border border-[#6dd249]/25 bg-[#0d1e0a]/60 p-6 flex flex-col gap-4">
+                        <div className="rounded-2xl border border-[#6dd249]/25  p-6 flex flex-col gap-4">
                             <div className="flex items-center gap-2">
                                 <BookOpenIcon size={16} className="text-[#6dd249]" weight="fill" />
-                                <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#6dd249]/75 font-semibold">
+                                <span className="text-[10px]  tracking-[0.2em] uppercase text-[#6dd249]/75 font-black">
                                     Journal of CISON
                                 </span>
                             </div>
-                            <p className="text-xs text-muted-foreground leading-relaxed">
-                                Prof. Chigbu leads the editorial direction of the Journal of CISON, Nigeria's premier peer-reviewed publication in statistical science.
+                            <p className="text-xs text-muted-foreground leading-relaxed font-semibold">
+                                The CISON Journals serve as the official, peer-reviewed research publications of the Chartered Institute of Signals Analysts (CISON). They are designed to advance the field of signals analysis, data infrastructure, and system metrics, bridging the gap between theoretical research and practical, enterprise-grade engineering.
                             </p>
                             <a
-                                href="https://cison.org.ng"
-                                className="flex items-center gap-1.5 text-xs text-[#6dd249] hover:underline font-mono"
+                                href="https://journal.cison.org.ng"
+                                className="flex items-center gap-1.5 text-xs text-[#6dd249] hover:underline "
                             >
                                 <GlobeIcon size={12} weight="fill" />
                                 View Journal
@@ -519,19 +519,19 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                     {/* Quick facts */}
                     <Reveal delay={0.24}>
                         <div className="rounded-2xl border border-border/60 bg-card p-6 flex flex-col gap-4">
-                            <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#6dd249]/75 font-semibold">
+                            <span className="text-[10px]  tracking-[0.2em] uppercase text-[#6dd249]/75 font-semibold">
                                 Quick Facts
                             </span>
                             <div className="flex flex-col divide-y divide-border/40">
                                 {[
-                                    { label: "Role", value: "Editor-in-Chief" },
-                                    { label: "Institution", value: "UNN, Nsukka" },
-                                    { label: "Fellowship", value: "FRSS" },
-                                    { label: "Member Since", value: "2023" },
+                                    { label: "Role", value: person.role },
+                                    { label: "Institution", value: person.education.length > 0 ? person.education[0].institution : null },
+                                    { label: "Fellowship", value: person.fellowship ? person.fellowship : "CISON" },
+                                    { label: "Member Since", value: String(person.membersince) ? String(person.membersince) : "2023" },
                                 ].map((f) => (
-                                    <div key={f.label} className="flex justify-between items-center py-2.5 text-xs">
+                                    <div key={f.label} className="flex justify-between items-center py-2.5 text-xs gap-10">
                                         <span className="text-muted-foreground">{f.label}</span>
-                                        <span className="font-semibold text-foreground">{f.value}</span>
+                                        <span className="font-semiboldw-20 truncate text-foreground">{f.value}</span>
                                     </div>
                                 ))}
                             </div>
@@ -542,7 +542,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                     <Reveal delay={0.3}>
                         <Button
                             variant="outline"
-                            className="w-full border-border/60 text-muted-foreground hover:text-[#6dd249] hover:border-[#6dd249]/40 font-mono text-xs tracking-widest"
+                            className="w-full border-border/60 text-muted-foreground hover:text-[#6dd249] hover:border-[#6dd249]/40  text-xs tracking-widest"
                         >
                             <a href={person.backHref} className="flex items-center gap-2">
                                 <ArrowLeftIcon size={13} />
@@ -561,7 +561,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
 
 export default function PersonDetailPage({ person, route }: { person: PersonInterface, route: string }) {
     return (
-        <div id="page" className="min-h-screen bg-background font-sans">
+        <div id="page" className="min-h-screen bg-background">
             <SEO title={person.name} description={person.bio} canonicalUrl={route} ogImage={person.img} />
             <StickyBar person={person} />
             <ProfileHero person={person} />

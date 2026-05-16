@@ -5,6 +5,21 @@ import { ArrowSquareOutIcon, BookOpenIcon, BuildingIcon, CaretRightIcon, HouseIc
 import { Reveal } from "@/animate";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
 import RoutePath from "@/routes";
+import EditorInChief from "@/data/council/editor-in-chief";
+import ManagingEditor from "@/data/council/managing-editor";
+import AssociateEditor from "@/data/council/associate-editor";
+import ElectedMemberSix from "@/data/council/elected-member-six";
+import ElectedMemberFive from "@/data/council/elected-member-five";
+import ElectedMemberFour from "@/data/council/elected-member-four";
+import CBNRepresentative from "@/data/council/cbn-rep";
+import NPCRepresentative from "@/data/council/npc-rep";
+import NBSRepresentative from "@/data/council/nbs-rep";
+import ElectedMemberThree from "@/data/council/elected-member-three";
+import ElectedMemberTwo from "@/data/council/elected-member-two";
+import ElectedMemberOne from "@/data/council/elected-member-one";
+import Registrar from "@/data/council/registrar";
+import VicePresident from "@/data/council/vice-president";
+import President from "@/data/council/president";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -127,107 +142,107 @@ function PeopleSection({
     );
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
+
 
 const councilMembers: Person[] = [
     {
-        name: "Dr. Godday Ebuh",
-        role: "President and Chairman Governing Council",
-        href: "https://cison.org.ng/our-people/dr-godday-ebuh/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Dr-Godday-Uwawunkoye-Ebuh-President-CISON.webp",
+        name: President.name,
+        role: President.role,
+        href: RoutePath.President,
+        img: President.img,
     },
     {
-        name: "Prof. S. U. Gulumbe",
-        role: "Vice-President, CISON",
-        href: "https://cison.org.ng/our-people/prof-s-u-gulumbe/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/10/Prof.-S.-U.-Gulumbe.webp",
+        name: VicePresident.name,
+        role: VicePresident.role,
+        href: RoutePath.VicePresident,
+        img: VicePresident.img,
     },
     {
-        name: "Mrs. Ngozi Theresa Agboegbulem",
-        role: "Registrar and Secretary of the Governing Council",
-        href: "https://cison.org.ng/our-people/mrs-ngozi-theresa-agboegbulem/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/06/Ngozi-Agboegbulem.jpg",
+        name: Registrar.name,
+        role: Registrar.role,
+        href: RoutePath.Registrar,
+        img: Registrar.img,
     },
 ];
 
 const electedMembers: Person[] = [
     {
-        name: "Prof. Julian Ibezimako Mbegbu",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/professor-julian-ibezimako-mbegbu/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Professor-Julian-Ibezimako-Mbegbu-.jpg",
+        name: ElectedMemberOne.name,
+        role: ElectedMemberOne.role,
+        href: RoutePath.ElectedMemberOne,
+        img: ElectedMemberOne.img,
     },
     {
-        name: "Dr. Umaru Baba",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/umaru-baba/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Umaru-Baba.jpeg",
+        name: ElectedMemberTwo.name,
+        role: ElectedMemberTwo.role,
+        href: RoutePath.ElectedMemberTwo,
+        img: ElectedMemberTwo.img,
     },
     {
-        name: "Aiyedun Stephen Mosimabale",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/aiyedun-stephen-mosimabale/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Aiyedun-Stephen-Mosimabale-.jpg",
+        name: ElectedMemberThree.name,
+        role: ElectedMemberThree.role,
+        href: RoutePath.ElectedMemberThree,
+        img: ElectedMemberThree.img,
     },
     {
-        name: "Bright F. Ajibade PhD. FNSA, FRSS",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/bright-f-ajibade-phd-fnsa-frss/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Bright-F.-Ajibade-PhD.-FNSA-FRSS.jpg",
+        name: ElectedMemberFour.name,
+        role: ElectedMemberFour.role,
+        href: RoutePath.ElectedMemberFour,
+        img: ElectedMemberFour.img,
     },
     {
-        name: "Bello Jaafar",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/bello-jaafar/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Bello-Jaafar.jpg",
+        name: ElectedMemberFive.name,
+        role: ElectedMemberFive.role,
+        href: RoutePath.ElectedMemberFive,
+        img: ElectedMemberFive.img,
     },
     {
-        name: "Dr. Uchenna Ogoke",
-        role: "Council Member, Elected",
-        href: "https://cison.org.ng/our-people/dr-uchenna-ogoke/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2025/03/Dr.-Uchenna-Ogoke-.jpg",
+        name: ElectedMemberSix.name,
+        role: ElectedMemberSix.role,
+        href: RoutePath.ElectedMemberSix,
+        img: ElectedMemberSix.img,
     },
 ];
 
 const institutionalReps: Person[] = [
     {
-        name: "Dr. Michael Mba",
-        role: "Council Member – Represents CBN",
-        href: "https://cison.org.ng/our-people/dr-michael-mba/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Dr.-Michael-Mba.webp",
+        name: CBNRepresentative.name,
+        role: CBNRepresentative.role,
+        href: RoutePath.CBNRepresentative,
+        img: CBNRepresentative.img,
     },
     {
-        name: "Crown Prince Abubakar Bello Afegbua",
-        role: "Council Member – Represents NPC",
-        href: "https://cison.org.ng/our-people/crown-prince-abubakar-bello-afegbua/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Crown-Prince-Abubakar-Bello-Afegbua.webp",
+        name: NPCRepresentative.name,
+        role: NPCRepresentative.role,
+        href: RoutePath.NPCRepresentative,
+        img: NPCRepresentative.img,
     },
     {
-        name: "Augustine Chuks Anyakorah",
-        role: "Council Member – Represents NBS",
-        href: "https://cison.org.ng/our-people/augustine-chuks-anyakorah/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Anyakora_NBS.webp",
+        name: NBSRepresentative.name,
+        role: NBSRepresentative.role,
+        href: RoutePath.NBSRepresentative,
+        img: NBSRepresentative.img,
     },
 ];
 
 const editorialBoard: Person[] = [
     {
-        name: "Prof Polycarp Chigbu",
-        role: "Editor-in-Chief: Journal of CISON",
+        name: EditorInChief.name,
+        role: EditorInChief.role,
         href: RoutePath.EditorInChief,
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/10/The_editor_in_chief.jpg",
+        img: EditorInChief.img,
     },
     {
-        name: "Dr. Atoi Ngozi Victor",
-        role: "Managing Editor: Journal of CISON",
-        href: "https://cison.org.ng/our-people/atoi-ngozi-victor/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/ATOI-NGOZI-VICTOR.webp",
+        name: ManagingEditor.name,
+        role: ManagingEditor.role,
+        href: RoutePath.ManagingEditor,
+        img: ManagingEditor.img,
     },
     {
-        name: "Dr OlaOluwa S. Yaya",
-        role: "Associate Editor: Journal of CISON",
-        href: "https://cison.org.ng/our-people/dr-olaoluwa-s-yaya/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Dr-OlaOluwa-S.-Yaya.webp",
+        name: AssociateEditor.name,
+        role: AssociateEditor.role,
+        href: RoutePath.AssociateEditor,
+        img: AssociateEditor.img,
     },
 ];
 
@@ -259,7 +274,6 @@ function SectionNav() {
     );
 }
 
-// ─── Main Content ─────────────────────────────────────────────────────────────
 
 function MainContent() {
     return (

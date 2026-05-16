@@ -41,6 +41,22 @@ const CisonWorkshopPage = lazy(() => import("@/pages/PRS/2nd_2026"));
 
 // Council Members
 const EditorInChiefPage = lazyImport(() => import("@/pages/About/council"), "EditorInChiefPage");
+const PresidentPage = lazyImport(() => import("@/pages/About/council"), "PresidentPage");
+const VicePresidentPage = lazyImport(() => import("@/pages/About/council"), "VicePresidentPage");
+const RegistrarPage = lazyImport(() => import("@/pages/About/council"), "RegistrarPage");
+const ElectedMemberOnePage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberOnePage");
+const ElectedMemberTwoPage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberTwoPage");
+const ElectedMemberFivePage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberFivePage");
+const ElectedMemberThreePage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberThreePage");
+const ElectedMemberFourPage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberFourPage");
+const ElectedMemberSixPage = lazyImport(() => import("@/pages/About/council"), "ElectedMemberSixPage");
+const CBNRepPage = lazyImport(() => import("@/pages/About/council"), "CBNRepresentativePage");
+const NPCRepPage = lazyImport(() => import("@/pages/About/council"), "NPCRepresentativePage");
+const NBSRepPage = lazyImport(() => import("@/pages/About/council"), "NBSRepresentativePage");
+const ManagingEditorPage = lazyImport(() => import("@/pages/About/council"), "ManagingEditorPage");
+const AssociateEditorPage = lazyImport(() => import("@/pages/About/council"), "AssociateEditorPage");
+
+
 
 
 
@@ -62,14 +78,32 @@ function App() {
             <Route path={RoutePath.OurHistory} element={<HistoryPage />} />
             <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
             <Route path={RoutePath.Leadership} element={<Leadership />} />
-            <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
             <Route path={RoutePath.ElectedCouncilMembers} element={<CoucilMembers />} />
             <Route path={RoutePath.Departments} element={<Departments />} />
             <Route path={RoutePath.Committee} element={<Committee />} />
+
+            <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
+            <Route path={RoutePath.President} element={<PresidentPage />} />
+            <Route path={RoutePath.VicePresident} element={<VicePresidentPage />} />
+            <Route path={RoutePath.Registrar} element={<RegistrarPage />} />
+            <Route path={RoutePath.ElectedMemberOne} element={<ElectedMemberOnePage />} />
+            <Route path={RoutePath.ElectedMemberTwo} element={<ElectedMemberTwoPage />} />
+            <Route path={RoutePath.ElectedMemberThree} element={<ElectedMemberThreePage />} />
+            <Route path={RoutePath.ElectedMemberFour} element={<ElectedMemberFourPage />} />
+            <Route path={RoutePath.ElectedMemberFive} element={<ElectedMemberFivePage />} />
+            <Route path={RoutePath.ElectedMemberSix} element={<ElectedMemberSixPage />} />
+            <Route path={RoutePath.CBNRepresentative} element={<CBNRepPage />} />
+            <Route path={RoutePath.NPCRepresentative} element={<NPCRepPage />} />
+            <Route path={RoutePath.NBSRepresentative} element={<NBSRepPage />} />
+            <Route path={RoutePath.ManagingEditor} element={<ManagingEditorPage />} />
+            <Route path={RoutePath.AssociateEditor} element={<AssociateEditorPage />} />
           </Route>
 
           <Route path={RoutePath.SecondQuarterPrs2026}>
             <Route index element={<CisonWorkshopPage />} />
+          </Route>
+          <Route path={RoutePath.OurPeople} >
+            <Route index element={<Leadership />} />
           </Route>
         </Route>
       </Routes>

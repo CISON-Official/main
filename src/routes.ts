@@ -64,6 +64,10 @@ const RoutePath = {
     // PRS
     PRS: "/prs",
     SecondQuarterPrs2026: "/prs/2nd-quarter-prs-2026",
+
+    // People
+    OurPeople: "/our-people",
+    
 };
 
 type RouteMapType = { name: string, href?: string, description?: string, children?: RouteMapType[] }
