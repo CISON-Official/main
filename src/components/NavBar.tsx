@@ -117,6 +117,71 @@ function NavAnchor({ item, className, onClick }: { item: RouteItem; className?: 
     );
 }
 
+// ─── Desktop Nested Item (flyout to right or left depending on space) ─────────
+
+function DesktopNestedItem({ item }: { item: RouteItem }) {
+    const [open, setOpen] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+    const [flyLeft, setFlyLeft] = useState(false);
+
+    // Determine flyout direction when opening
+    useEffect(() => {
+        if (open && ref.current) {
+            const rect = ref.current.getBoundingClientRect();
+            // If less than 220px to the right of viewport, fly left instead
+            setFlyLeft(window.innerWidth - rect.right < 220);
+        }
+    }, [open]);
+
+    const isExternal = item.external || item.href?.startsWith('http');
+
+    return (
+        <div
+            ref={ref}
+            className="relative"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+        >
+            {/* The row itself — clickable link + caret indicator */}
+            <div className="flex items-center justify-between gap-1 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors cursor-pointer">
+                {item.href ? (
+                    <a
+                        href={item.href}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="flex-1 flex items-center gap-1"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {item.name}
+                        {isExternal && <ArrowSquareOutIcon className="inline ml-1 w-3 h-3 opacity-50" />}
+                    </a>
+                ) : (
+                    <span className="flex-1">{item.name}</span>
+                )}
+                <CaretDownIcon className="w-3.5 h-3.5 -rotate-90 shrink-0 opacity-60" />
+            </div>
+
+            {/* Flyout submenu */}
+            {open && item.children && item.children.length > 0 && (
+                <div
+                    className={`absolute top-0 ${flyLeft ? 'right-full pr-2' : 'left-full pl-2'} z-[60] min-w-[200px]`}
+                >
+                    <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
+                        <div className="p-1.5">
+                            {item.children.map(child => (
+                                <NavAnchor
+                                    key={child.name}
+                                    item={child}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
+
 // ─── Desktop Dropdown ─────────────────────────────────────────────────────────
 
 function DesktopDropdown({ item }: { item: RouteItem }) {
@@ -146,7 +211,7 @@ function DesktopDropdown({ item }: { item: RouteItem }) {
                 <div className="absolute top-full left-0 pt-2 z-50 min-w-[220px]">
                     <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
                         <div className="p-1.5">
-                            {item.children?.map(child => (
+                            {item.children?.map(child =>
                                 child.children ? (
                                     <DesktopNestedItem key={child.name} item={child} />
                                 ) : (
@@ -156,41 +221,7 @@ function DesktopDropdown({ item }: { item: RouteItem }) {
                                         className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
                                     />
                                 )
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-function DesktopNestedItem({ item }: { item: RouteItem }) {
-    const [open, setOpen] = useState(false);
-    return (
-        <div
-            className="relative"
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-        >
-            <Link
-                to={item.href ?? '#'}
-                className="flex items-center justify-between gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-            >
-                {item.name}
-                <CaretDownIcon className={`w-3.5 h-3.5 -rotate-90`} />
-            </Link>
-            {open && (
-                <div className="absolute left-full top-0 pl-2 z-50 min-w-[200px]">
-                    <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
-                        <div className="p-1.5">
-                            {item.children?.map(child => (
-                                <NavAnchor
-                                    key={child.name}
-                                    item={child}
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-                                />
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>
@@ -222,9 +253,14 @@ function MobileAccordion({ item, depth = 0, onNavigate }: { item: RouteItem; dep
                 className="flex items-center justify-between w-full py-2.5 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
                 {item.href ? (
-                    <Link to={item.href} onClick={e => e.stopPropagation()} className="hover:underline">
+                    <a
+                        href={item.href}
+                        onClick={e => e.stopPropagation()}
+                        className="hover:underline"
+                        {...(item.external || item.href?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
                         {item.name}
-                    </Link>
+                    </a>
                 ) : (
                     <span>{item.name}</span>
                 )}
@@ -312,7 +348,7 @@ function Navbar() {
                         <UserIcon className="w-3 h-3" /> Members Login
                     </Link>
                     <span className="opacity-30">|</span>
-                    <Link to={RoutePath.ContactUs}className="hover:text-foreground transition-colors">
+                    <Link to={RoutePath.ContactUs} className="hover:text-foreground transition-colors">
                         Contact
                     </Link>
                 </div>
@@ -325,7 +361,6 @@ function Navbar() {
                         <img src={Logo} alt="CISON Logo" className="w-17 h-17" />
                         <div className="leading-none">
                             <p className="font-bold text-lg text-foreground tracking-tight">CISON</p>
-                            {/* <p className="text-[10px] text-muted-foreground leading-tight hidden sm:block">Chartered Institute of Statisticians Of Nigeria</p> */}
                         </div>
                     </Link>
 

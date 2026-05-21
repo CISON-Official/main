@@ -117,7 +117,7 @@ function Footer() {
 
             {/* Social icons */}
             <div className="flex gap-3 mt-6">
-              <a href="https://www.LinkedinLogoIcon.com/company/#" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/cison-nigeria/" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:border-emerald-500 hover:text-emerald-400 transition-colors">
                 <LinkedinLogoIcon className="w-3.5 h-3.5" />
               </a>

@@ -504,7 +504,7 @@ function ProfileContent({ person }: { person: PersonInterface }) {
                                 </span>
                             </div>
                             <p className="text-xs text-muted-foreground leading-relaxed font-semibold">
-                                The CISON Journals serve as the official, peer-reviewed research publications of the Chartered Institute of Signals Analysts (CISON). They are designed to advance the field of signals analysis, data infrastructure, and system metrics, bridging the gap between theoretical research and practical, enterprise-grade engineering.
+                                The Journal of the Chartered Institute of Statisticians of Nigeria (CISON) is a peer-reviewed, high-impact academic publication dedicated to advancing the science, methodology, and practical application of statistics.
                             </p>
                             <a
                                 href="https://journal.cison.org.ng"
