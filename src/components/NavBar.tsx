@@ -29,9 +29,9 @@ const routes = [
         children: [
             {
                 name: 'Accreditation & Examinations',
-                href: 'https://cison.org.ng/accreditation-and-examination/',
+                href: RoutePath.Accreditation,
                 children: [
-                    { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
+                    { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
                     { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
                 ],
             },

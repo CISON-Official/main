@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import type { ReactElement } from "react";
 import { Badge } from "./ui/badge";
 import { Link } from "react-router";
+import { fadeUp } from "@/animate";
 
 type BreadcrumbType = {
     label: string;
@@ -118,4 +119,27 @@ function PageHero({ breadcrumb, title, subtitle, catchy }: { breadcrumb: ReactEl
     );
 }
 
-export { Breadcrumb, PageHero, Crumb, type BreadcrumbType };
+function HeroBadge({ title }: { title: string }) {
+    return (
+        <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center gap-2 mb-6">
+            <span
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-widest uppercase"
+                style={{
+                    background: "rgba(16,185,129,0.12)",
+                    color: "#10b981",
+                    border: "1px solid rgba(16,185,129,0.25)",
+                    letterSpacing: "0.12em",
+                }}
+            >
+                <span
+                    className="w-1.5 h-1.5 rounded-full animate-pulse"
+                    style={{ background: "#10b981" }}
+                />
+                {title}
+            </span>
+        </motion.div>
+    );
+}
+export { Breadcrumb, PageHero, Crumb, type BreadcrumbType, HeroBadge };

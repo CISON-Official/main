@@ -25,7 +25,8 @@ export default function SEO({
     const metaDescription = description ?? 'Leading regulatory body for professional standards and accreditation worldwide.';
     const siteUrl = 'https://dev.cison.org.ng';
     const fullUrl = `${siteUrl}${canonicalUrl}`;
-    const fullImage = `${siteUrl}${ogImage}`;
+    const fullImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage.startsWith('/') ? ogImage : '/' + ogImage}`;
+
 
 
     const structuredData = {
@@ -68,20 +69,19 @@ export default function SEO({
             <meta property="og:url" content={canonicalUrl} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
-            <meta property="og:image" content={ogImage} />
+            <meta property="og:image" content={fullImage} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
             <meta property="og:image:type" content="image/png" />
             <meta property="og:locale" content="en_NG" />
-            <meta property="og:site_name" content="CISON" />
             <meta property="og:site_name" content="Chartered Institute of Statisticians of Nigeria (CISON)" />
 
             {/* Twitter / X */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:url" content={canonicalUrl} />
+            <meta name="twitter:url" content={fullUrl} />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={ogImage} />
+            <meta name="twitter:image" content={fullImage} />
             <meta name="twitter:creator" content="@CISON_Nigeria" />
             <meta name="twitter:site" content="@CISON_Nigeria" />
 

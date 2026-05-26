@@ -1,12 +1,15 @@
 // import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
 
 const RoutePath = {
+    // What we do
     Accreditation: '/accreditation',
+    ProfessionalAccreditation: '/accreditation/professional',
     InstitutionalAccreditation: '/accreditation/institutional',
     ProgrammaticAccreditation: '/accreditation/programmatic',
     SpecializedReviews: '/accreditation/reviews',
 
-    ProfessionalExams: '/examinations',
+    Examinations: '/examinations',
+    ProfessionalExamination: '/examinations/professional',
     RegulatoryProfessional: '/examinations/rp',
     SeniorRegulatory: '/examinations/sr',
     ExamSchedule: '/examinations/schedule',
@@ -78,7 +81,7 @@ export const HeaderRouteMap: RouteMapType[] = [
         children: [
             {
                 name: 'Accreditation',
-                href: '/accreditation',
+                href: RoutePath.Accreditation,
                 children: [
                     { name: 'Institutional Accreditation', href: '/accreditation/institutional' },
                     { name: 'Programmatic Accreditation', href: '/accreditation/programmatic' },

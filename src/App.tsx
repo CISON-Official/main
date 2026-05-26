@@ -57,6 +57,10 @@ const ManagingEditorPage = lazyImport(() => import("@/pages/About/council"), "Ma
 const AssociateEditorPage = lazyImport(() => import("@/pages/About/council"), "AssociateEditorPage");
 
 
+// What we do
+const AccreditationAndExam = lazy(() => import("@/pages/Wedo/accreditationandexam"));
+const ProfessionalAccreditation = lazy(() => import("@/pages/Wedo/professionalaccreditation"));
+const ProfessionalExamination = lazy(() => import("@/pages/Wedo/professionalexams"));
 
 
 
@@ -98,6 +102,16 @@ function App() {
             <Route path={RoutePath.ManagingEditor} element={<ManagingEditorPage />} />
             <Route path={RoutePath.AssociateEditor} element={<AssociateEditorPage />} />
           </Route>
+
+          <Route path={RoutePath.Accreditation}>
+            <Route index element={<AccreditationAndExam />} />
+            <Route path={RoutePath.ProfessionalAccreditation} element={<ProfessionalAccreditation />} />
+          </Route>
+          <Route path={RoutePath.Examinations}>
+            <Route index element={<ProfessionalExamination />} />
+          </Route>
+
+
 
           <Route path={RoutePath.SecondQuarterPrs2026}>
             <Route index element={<CisonWorkshopPage />} />
