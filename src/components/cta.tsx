@@ -70,7 +70,7 @@ export function MVVCard({ label, icon, quote, values, index }: MVVCardProps) {
                 <ul className="flex flex-col gap-2 mt-1">
                     {values.map((v) => (
                         <li key={v} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#3dd9a8] flex-shrink-0" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3dd9a8] shrink-0" />
                             <span className="font-semibold text-foreground">{v}</span>
                         </li>
                     ))}

@@ -7,6 +7,8 @@ const RoutePath = {
     InstitutionalAccreditation: '/accreditation/institutional',
     ProgrammaticAccreditation: '/accreditation/programmatic',
     SpecializedReviews: '/accreditation/reviews',
+    CurriculumDevelopment: '/accreditation/curriculum',
+    CourseAccreditation: '/accreditation/courses',
 
     Examinations: '/examinations',
     ProfessionalExamination: '/examinations/professional',

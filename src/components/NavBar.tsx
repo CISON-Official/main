@@ -32,12 +32,12 @@ const routes = [
                 href: RoutePath.Accreditation,
                 children: [
                     { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
-                    { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
+                    { name: 'Professional Examination', href: RoutePath.ProfessionalExamination },
                 ],
             },
-            { name: 'Curriculum Development', href: 'https://cison.org.ng/accreditation-and-examination/curriculum-development/' },
-            { name: 'Institutions Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/institutions-accreditation/' },
-            { name: 'Courses Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/courses-accreditation/' },
+            { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
+            { name: 'Institutions Accreditation', href: RoutePath.InstitutionalAccreditation },
+            { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
             { name: 'CPD Policy', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
             { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
             { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
@@ -50,7 +50,7 @@ const routes = [
             { name: 'Special Announcement', href: 'https://cison.org.ng/special-announcement/' },
             {
                 name: 'Membership Types',
-                href: 'https://cison.org.ng/membership-types/',
+                href: RoutePath.Membership,
                 children: [
                     { name: 'Chartered Statistician', href: 'https://cison.org.ng/chartered-statistician/' },
                     { name: 'Associate Statistician', href: 'https://cison.org.ng/associate-statistician/' },
@@ -78,8 +78,6 @@ const routes = [
     {
         name: 'Publications',
         children: [
-            { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
-            { name: 'CISON Book of Abstract', href: 'https://drive.google.com/file/d/1x9vBMq9IcFrclTKZU26bGxSF3WaF5lOy/view?usp=sharing', external: true },
             {
                 name: 'Conference Proceedings',
                 children: [
@@ -87,10 +85,12 @@ const routes = [
                     { name: '2025 Conference Proceedings', href: 'https://cison.org.ng/portal/wp-content/uploads/2026/03/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf' },
                 ],
             },
+            { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
+            { name: 'CISON Book of Abstract', href: 'https://drive.google.com/file/d/1x9vBMq9IcFrclTKZU26bGxSF3WaF5lOy/view?usp=sharing', external: true },
             { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf' },
         ],
     },
-    { name: 'Contact', href: 'https://cison.org.ng/contact/' },
+    { name: 'Contact', href: RoutePath.ContactUs },
 ] as const;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -138,7 +138,7 @@ function DesktopNestedItem({ item }: { item: RouteItem }) {
     return (
         <div
             ref={ref}
-            className="relative"
+            // className="absolute"
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
         >
@@ -163,7 +163,7 @@ function DesktopNestedItem({ item }: { item: RouteItem }) {
             {/* Flyout submenu */}
             {open && item.children && item.children.length > 0 && (
                 <div
-                    className={`absolute top-0 ${flyLeft ? 'right-full pr-2' : 'left-full pl-2'} z-[60] min-w-[200px]`}
+                    className={`absolute top-0 z-20 ${flyLeft ? 'left-53' : 'right-53'} min-w-70 `}
                 >
                     <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
                         <div className="p-1.5">
@@ -208,7 +208,7 @@ function DesktopDropdown({ item }: { item: RouteItem }) {
             </button>
 
             {open && (
-                <div className="absolute top-full left-0 pt-2 z-50 min-w-[220px]">
+                <div className="absolute top-full left-0 pt-2 z-50 min-w-55">
                     <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
                         <div className="p-1.5">
                             {item.children?.map(child =>
@@ -277,7 +277,6 @@ function MobileAccordion({ item, depth = 0, onNavigate }: { item: RouteItem; dep
     );
 }
 
-// ─── Search Bar ───────────────────────────────────────────────────────────────
 
 function SearchBar({ onClose }: { onClose: () => void }) {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -319,7 +318,7 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handler);
     }, []);
 
-    // Lock body scroll when mobile menu is open
+    
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
@@ -497,7 +496,7 @@ function Navbar() {
             </aside>
 
             {/* Spacer so content doesn't hide under fixed header */}
-            <div className="h-16 lg:h-[calc(4rem+2.125rem)]" aria-hidden />
+            <div className="h-16 lg:h-24.5" aria-hidden />
         </>
     );
 }

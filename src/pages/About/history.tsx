@@ -115,7 +115,7 @@ const historyItems: AccordionItem[] = [
                         "President and Vice-President of the Institute",
                     ].map((item) => (
                         <li key={item} className="flex items-start gap-2">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6dd249] flex-shrink-0" />
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#6dd249] shrink-0" />
                             <span>{item}</span>
                         </li>
                     ))}
@@ -146,7 +146,7 @@ function HistoryAccordion({ items }: { items: AccordionItem[] }) {
                             >
                                 {/* Index pill */}
                                 <span
-                                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black font-mono transition-colors duration-200 ${isOpen ? "bg-[#6dd249] text-[#080e18]" : "bg-muted text-muted-foreground"
+                                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-xs font-black font-mono transition-colors duration-200 ${isOpen ? "bg-[#6dd249] text-[#080e18]" : "bg-muted text-muted-foreground"
                                         }`}
                                 >
                                     {item.index}
@@ -157,7 +157,7 @@ function HistoryAccordion({ items }: { items: AccordionItem[] }) {
                                 <motion.span
                                     animate={{ rotate: isOpen ? 45 : 0 }}
                                     transition={{ duration: 0.25 }}
-                                    className={`flex-shrink-0 transition-colors ${isOpen ? "text-[#6dd249]" : "text-muted-foreground"}`}
+                                    className={`shrink-0 transition-colors ${isOpen ? "text-[#6dd249]" : "text-muted-foreground"}`}
                                 >
                                     <PlusIcon className="w-4 h-4" />
                                 </motion.span>
@@ -254,7 +254,7 @@ function MainContent() {
                                 ].map((m, i) => (
                                     <div key={m.year} className="flex items-start gap-3 group">
                                         <div className="flex flex-col items-center">
-                                            <div className="w-2 h-2 rounded-full bg-[#6dd249] mt-1 flex-shrink-0 group-hover:scale-125 transition-transform" />
+                                            <div className="w-2 h-2 rounded-full bg-[#6dd249] mt-1 shrink-0 group-hover:scale-125 transition-transform" />
                                             {i < 6 && <div className="w-px h-6 bg-[#6dd249]/20 mt-1" />}
                                         </div>
                                         <div className="pb-3">

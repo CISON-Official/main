@@ -61,6 +61,16 @@ const AssociateEditorPage = lazyImport(() => import("@/pages/About/council"), "A
 const AccreditationAndExam = lazy(() => import("@/pages/Wedo/accreditationandexam"));
 const ProfessionalAccreditation = lazy(() => import("@/pages/Wedo/professionalaccreditation"));
 const ProfessionalExamination = lazy(() => import("@/pages/Wedo/professionalexams"));
+const CuririculumDevelopmentPage = lazy(() => import("@/pages/Wedo/curriculumdevelopment"));
+const InstitutionalAccreditationPage = lazy(() => import("@/pages/Wedo/institutionaccreditation"));
+const CourseAccreditationPage = lazy(() => import("@/pages/Wedo/courseaccreditation"));
+
+
+
+
+const MembershipPage = lazy(() => import("@/pages/Membership"));
+
+
 
 
 
@@ -106,9 +116,14 @@ function App() {
           <Route path={RoutePath.Accreditation}>
             <Route index element={<AccreditationAndExam />} />
             <Route path={RoutePath.ProfessionalAccreditation} element={<ProfessionalAccreditation />} />
+            <Route path={RoutePath.CurriculumDevelopment} element={<CuririculumDevelopmentPage />} />
+            <Route path={RoutePath.InstitutionalAccreditation} element={<InstitutionalAccreditationPage />} />
+            <Route path={RoutePath.CourseAccreditation} element={<CourseAccreditationPage />} />
           </Route>
+
           <Route path={RoutePath.Examinations}>
             <Route index element={<ProfessionalExamination />} />
+            <Route path={RoutePath.ProfessionalExamination} element={<ProfessionalExamination />} />
           </Route>
 
 
@@ -119,6 +134,11 @@ function App() {
           <Route path={RoutePath.OurPeople} >
             <Route index element={<Leadership />} />
           </Route>
+
+          <Route path={RoutePath.Membership}>
+            <Route index element={<MembershipPage />} />
+          </Route>
+
         </Route>
       </Routes>
     </Suspense >

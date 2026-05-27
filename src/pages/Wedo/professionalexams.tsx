@@ -181,7 +181,7 @@ function Revalidation() {
                 <div className="grid md:grid-cols-[1fr_2fr] gap-12 items-start">
                     <Reveal>
                         <div>
-                            <span className="inline-flex items-center gap-2 text-(--accent-gold) text-xs tracking-[0.2em] uppercase font-semibold mb-4 text-white">
+                            <span className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase font-semibold mb-4 text-white">
                                 <span className="w-6 h-px bg-(--accent-gold) text-white inline-block" />
                                 C.Stat.
                             </span>
@@ -243,8 +243,6 @@ function InfoCards() {
         </section>
     );
 }
-
-
 
 export default function CisonExaminationPage() {
     return (
