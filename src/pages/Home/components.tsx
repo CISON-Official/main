@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon} from '@phosphor-icons/react';
+import RoutePath from '@/routes';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -67,28 +68,28 @@ const servicesTabs = [
         items: [
             {
                 title: 'Professional Accreditation',
-                href: 'https://cison.org.ng/portal/professional-accreditation/',
+                href: RoutePath.ProfessionalAccreditation,
                 desc: 'Two levels: Associate Statistician (A.Stat.) and Chartered Statistician (C.Stat.).',
             },
             {
                 title: 'Professional Examination',
-                href: 'https://cison.org.ng/portal/professional-examination/',
+                href: RoutePath.ProfessionalExamination,
                 desc: 'Ordinary Certificate, Higher Certificate and Graduate Certificate in Statistics.',
             },
             {
                 title: 'Accreditation of Institutions',
-                href: 'https://cison.org.ng/portal/accreditation-and-examination/institutions-accreditation/',
+                href: RoutePath.InstitutionalAccreditation,
                 desc: 'CISON works with NBTE and NUC for tertiary institution course accreditation.',
             },
         ],
-        cta: { label: 'Accreditation Overview', href: 'https://cison.org.ng/accreditation-and-examination/' },
+        cta: { label: 'Accreditation Overview', href: RoutePath.Accreditation },
     },
     {
         id: 'exams',
         number: '03',
         label: 'Professional Examinations',
         heading: 'Professional Examinations',
-        image: 'https://cison.org.ng/portal/wp-content/uploads/2024/08/pro-exams.webp',
+        image: RoutePath.ProfessionalExamination,
         items: [
             {
                 title: 'Foundation Level',
@@ -479,7 +480,7 @@ function TeamSection() {
                         Get to know the incredible individuals behind CISON
                     </h2>
                     <a
-                        href="https://cison.org.ng/our-people/"
+                        href={RoutePath.OurPeople}
                         className="inline-flex items-center gap-3 px-7 py-3.5 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 hover:border-emerald-500 font-semibold rounded-xl text-sm transition-all duration-200"
                     >
                         Our People <ArrowRightIcon className="w-4 h-4" />

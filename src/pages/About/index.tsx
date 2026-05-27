@@ -11,6 +11,8 @@ import RoutePath from "@/routes";
 import CTAStrip from "@/components/cta";
 import { Breadcrumb, type BreadcrumbType } from "@/components/Hero";
 import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
+import President from "@/data/council/president";
+import VicePresident from "@/data/council/vice-president";
 
 
 export function AnimatedSection({
@@ -405,7 +407,7 @@ function HistorySection() {
                     variant="outline"
                     className="border-[#1a7a5e]/60 text-[#3dd9a8] hover:bg-[#1a7a5e]/15 hover:text-[#3dd9a8] hover:border-[#3dd9a8]/60  tracking-wide"
                 >
-                    <a href="https://cison.org.ng/about/our-history/">
+                    <a href={RoutePath.OurHistory}>
                         Read the full History →
                     </a>
                 </Button>
@@ -496,14 +498,14 @@ const leaders = [
     {
         name: "Dr. Godday Ebuh",
         role: "President and Chairman Governing Council",
-        href: "https://cison.org.ng/our-people/dr-godday-ebuh/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/08/Dr-Godday-Uwawunkoye-Ebuh-President-CISON.webp",
+        href: RoutePath.President,
+        img: President.img,
     },
     {
         name: "Prof. S. U. Gulumbe",
         role: "Vice-President, CISON",
-        href: "https://cison.org.ng/our-people/prof-s-u-gulumbe/",
-        img: "https://cison.org.ng/portal/wp-content/uploads/2024/10/Prof.-S.-U.-Gulumbe.webp",
+        href: RoutePath.VicePresident,
+        img: VicePresident.img,
     },
 ];
 
@@ -581,7 +583,7 @@ function LeadershipSection() {
                     variant="outline"
                     className="border-[#1a7a5e]/60 text-[#3dd9a8] hover:bg-[#1a7a5e]/15  tracking-wide"
                 >
-                    <a href="https://cison.org.ng/our-people/">View CISON Leadership →</a>
+                    <a href={RoutePath.Leadership}>View CISON Leadership →</a>
                 </Button>
             </AnimatedSection>
         </section>
