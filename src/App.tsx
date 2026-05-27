@@ -64,6 +64,7 @@ const ProfessionalExamination = lazy(() => import("@/pages/Wedo/professionalexam
 const CuririculumDevelopmentPage = lazy(() => import("@/pages/Wedo/curriculumdevelopment"));
 const InstitutionalAccreditationPage = lazy(() => import("@/pages/Wedo/institutionaccreditation"));
 const CourseAccreditationPage = lazy(() => import("@/pages/Wedo/courseaccreditation"));
+const CPDPolicyPage = lazy(() => import("@/pages/Wedo/cpdpolicy"));
 
 
 
@@ -119,6 +120,7 @@ function App() {
             <Route path={RoutePath.CurriculumDevelopment} element={<CuririculumDevelopmentPage />} />
             <Route path={RoutePath.InstitutionalAccreditation} element={<InstitutionalAccreditationPage />} />
             <Route path={RoutePath.CourseAccreditation} element={<CourseAccreditationPage />} />
+            <Route path={RoutePath.CPDPolicy} element={<CPDPolicyPage />} />
           </Route>
 
           <Route path={RoutePath.Examinations}>

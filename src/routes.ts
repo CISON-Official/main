@@ -9,6 +9,7 @@ const RoutePath = {
     SpecializedReviews: '/accreditation/reviews',
     CurriculumDevelopment: '/accreditation/curriculum',
     CourseAccreditation: '/accreditation/courses',
+    CPDPolicy: '/accreditation/continous-professional-development-policy',
 
     Examinations: '/examinations',
     ProfessionalExamination: '/examinations/professional',

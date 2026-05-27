@@ -491,7 +491,6 @@ function TeamSection() {
     );
 }
 
-// ─── Articles / Latest Posts ──────────────────────────────────────────────────
 
 function ArticlesSection() {
     return (

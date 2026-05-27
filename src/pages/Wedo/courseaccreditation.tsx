@@ -127,14 +127,14 @@ function Hero() {
                 </motion.div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to top, white, transparent)' }} />
+            {/* <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to top, white, transparent)' }} /> */}
         </section>
     )
 }
 
 function Overview() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 ">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div
@@ -146,14 +146,14 @@ function Overview() {
                             <div className="w-8 h-px bg-green-500" />
                             Our Mandate
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-semibold text-green-950 leading-tight mb-6"
+                        <h2 className="text-4xl md:text-5xl font-semibold text-green-500 leading-tight mb-6"
                             style={{ fontFamily: "'Playfair Display', serif" }}>
                             Setting the benchmark for Statistics education
                         </h2>
-                        <p className="text-gray-600 leading-relaxed mb-6">
+                        <p className="leading-relaxed mb-6">
                             CISON is mandated to accredit Statistics courses at both polytechnics and universities, covering National Diploma and Higher National Diploma programmes, as well as Undergraduate and Master's level degrees.
                         </p>
-                        <p className="text-gray-600 leading-relaxed mb-8">
+                        <p className="leading-relaxed mb-8">
                             This process is carried out in close consultation with the National Board for Technical Education (NBTE) and National Universities Commission (NUC) respectively, ensuring alignment with national educational standards.
                         </p>
                         <div className="flex flex-col gap-3">
@@ -164,7 +164,7 @@ function Overview() {
                             ].map((item) => (
                                 <div key={item} className="flex items-start gap-3">
                                     <CheckCircleIcon size={18} weight="fill" className="text-green-600 mt-0.5 shrink-0" />
-                                    <span className="text-gray-700 text-sm">{item}</span>
+                                    <span className="text-sm">{item}</span>
                                 </div>
                             ))}
                         </div>
@@ -202,19 +202,19 @@ function Overview() {
 
 function Criteria() {
     return (
-        <section id="criteria" className="py-24 bg-green-50">
+        <section id="criteria" className="py-24 bg-green-50 dark:bg-green-900">
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                    <div className="inline-flex items-center gap-2 text-green-700 text-xs tracking-widest uppercase mb-4"
+                    <div className="inline-flex items-center gap-2 text-green-700 text-xs tracking-widest uppercase mb-4 dark:text-emerald-300"
                         style={{ fontFamily: "'DM Mono', monospace" }}>
-                        <div className="w-8 h-px bg-green-500" />
+                        <div className="w-8 h-px bg-green-500 dark:bg-emerald-300" />
                         Accreditation Criteria
-                        <div className="w-8 h-px bg-green-500" />
+                        <div className="w-8 h-px bg-green-500 dark:bg-emerald-300" />
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-semibold text-green-950 leading-tight"
-                        style={{ fontFamily: "'Playfair Display', serif" }}>
+                    <h2 className="text-4xl md:text-5xl font-semibold text-green-500 leading-tight"
+                        >
                         What CISON evaluates
                     </h2>
                 </motion.div>
@@ -222,29 +222,29 @@ function Criteria() {
                 <div className="grid md:grid-cols-3 gap-6">
                     {criteria.map(({ icon: Icon, title, desc, border }, i) => (
                         <motion.div key={title}
-                            className={`bg-white rounded-2xl p-7 border ${border} transition-all`}
+                            className={` rounded-2xl p-7 border ${border} transition-all`}
                             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
                             whileHover={{ y: -4, boxShadow: '0 20px 40px rgba(21,128,61,0.12)' }}>
-                            <div className="w-12 h-12 rounded-xl bg-green-50 text-green-700 flex items-center justify-center mb-5">
+                            <div className="w-12 h-12 rounded-xl  border-2  text-green-700 flex items-center justify-center mb-5">
                                 <Icon size={22} weight="duotone" />
                             </div>
-                            <h3 className="text-xl font-semibold text-green-950 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                            <h3 className="text-xl font-semibold text-green-950 dark:text-emerald-500 mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>{title}</h3>
+                            <p className="text-sm leading-relaxed">{desc}</p>
                         </motion.div>
                     ))}
                 </div>
 
-                <motion.div className="mt-10 bg-white border border-green-200 rounded-2xl p-7"
+                <motion.div className="mt-10 bg-green border border-green-200 rounded-2xl p-7"
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}>
                     <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center shrink-0 mt-1">
+                        <div className="w-10 h-10 rounded-xl border-2 flex items-center justify-center shrink-0 mt-1">
                             <CheckCircleIcon size={20} weight="duotone" className="text-green-700" />
                         </div>
                         <div>
-                            <h4 className="font-semibold text-green-950 mb-2">Key Principle: Foundation Must Not Be Shallow</h4>
-                            <p className="text-gray-600 text-sm leading-relaxed">
+                            <h4 className="font-semibold dark:text-green-500 mb-2">Key Principle: Foundation Must Not Be Shallow</h4>
+                            <p className="text-sm leading-relaxed">
                                 CISON requires that the mathematical and statistical foundation of any course is treated with genuine depth — not superficially. The treatment must provide an adequate framework upon which further work, including work beyond the HND and undergraduate degree level, may be constructed.
                             </p>
                         </div>
@@ -257,18 +257,18 @@ function Criteria() {
 
 function Process() {
     return (
-        <section className="py-24 bg-white">
+        <section className="py-24 ">
             <div className="max-w-7xl mx-auto px-6">
                 <motion.div className="mb-16"
                     initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }} transition={{ duration: 0.6 }}>
                     <div className="inline-flex items-center gap-2 text-green-700 text-xs tracking-widest uppercase mb-4"
                         style={{ fontFamily: "'DM Mono', monospace" }}>
-                        <div className="w-8 h-px bg-green-500" />
+                        <div className="w-8 h-px bg-green-500 dark:bg-green-200" />
                         The Process
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-semibold text-green-950 leading-tight"
-                        style={{ fontFamily: "'Playfair Display', serif" }}>
+                    <h2 className="text-4xl md:text-5xl font-semibold text-green-500 leading-tight"
+                        >
                         How accreditation works
                     </h2>
                 </motion.div>
@@ -279,11 +279,11 @@ function Process() {
                         <motion.div key={step} className="relative z-10"
                             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.12 }}>
-                            <div className="flex items-center justify-center w-20 h-20 rounded-full border-2 border-green-200 bg-white mb-5 mx-auto lg:mx-0">
+                            <div className="flex items-center justify-center w-20 h-20 rounded-full border-2 border-green-200 bg-white dark:bg-black mb-5 mx-auto lg:mx-0">
                                 <span className="text-green-700 font-semibold text-lg" style={{ fontFamily: "'DM Mono', monospace" }}>{step}</span>
                             </div>
-                            <h3 className="font-semibold text-green-950 mb-2 text-base">{label}</h3>
-                            <p className="text-gray-600 text-sm leading-relaxed">{desc}</p>
+                            <h3 className="font-semibold text-green-950 mb-2 text-base dark:text-emerald-300">{label}</h3>
+                            <p className="text-sm leading-relaxed">{desc}</p>
                         </motion.div>
                     ))}
                 </div>

@@ -38,7 +38,7 @@ const routes = [
             { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
             { name: 'Institutions Accreditation', href: RoutePath.InstitutionalAccreditation },
             { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
-            { name: 'CPD Policy', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
+            { name: 'CPD Policy', href: RoutePath.CPDPolicy },
             { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
             { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
             { name: 'Fellows', href: 'https://cison.org.ng/fellows/' },
@@ -318,7 +318,7 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handler);
     }, []);
 
-    
+
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
@@ -452,9 +452,8 @@ function Navbar() {
                 {/* Drawer header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                     <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-500 flex items-center justify-center">
-                            <span className="text-white font-black text-xs">CI</span>
-                        </div>
+
+                        <img src={Logo} alt="CISON Logo" className="w-5 h-5" />
                         <span className="font-bold text-sm text-foreground">CISON</span>
                     </Link>
                     <button
