@@ -4,6 +4,7 @@ import MainLayout from "@/layout/MainLayout";
 import { Skeleton } from "./components/ui/skeleton";
 import RoutePath from "./routes";
 import { lazyImport } from "./lib/utils";
+import FloatingDonateButton from "./components/Donate";
 
 const PageLoader = () => (
   <div className="container py-20">
@@ -143,6 +144,7 @@ function App() {
 
         </Route>
       </Routes>
+        <FloatingDonateButton />
     </Suspense >
   )
 }
