@@ -5,11 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import viteImagemin from 'vite-plugin-imagemin';
 import fs from 'fs';
 import { resolve } from 'path';
-
-// Import your routes
 import RoutePath from "./src/routes.ts";
 
-// Extract dynamic routes
 const dynamicRoutes = Object.values(RoutePath).filter((path) => {
   return typeof path === 'string' && path.startsWith('/');
 });
@@ -36,7 +33,6 @@ const getChangeFrequency = (route: string): string => {
   return 'monthly';
 };
 
-// Enhanced sitemap generation with priority and change frequency
 function generateSitemapFile(_: string, routes: string[], baseUrl: string) {
   const xmlHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>\n';
   const urlSetOpen = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n';
@@ -92,35 +88,13 @@ const SITEMAP_XSL = `<?xml version="1.0" encoding="UTF-8"?>
                 <title>XML Sitemap</title>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <style type="text/css">
-                    * { margin: 0; padding: 0; box-sizing: border-box; }
-                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 40px 20px; color: #333; }
-                    .container { max-width: 1200px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden; }
-                    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; }
-                    .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
-                    .header p { font-size: 16px; opacity: 0.95; }
-                    .content { padding: 40px; }
-                    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
-                    .stat-box { background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 20px; border-radius: 8px; border-left: 4px solid #667eea; }
-                    .stat-box strong { display: block; color: #667eea; font-size: 28px; margin-bottom: 8px; font-weight: 700; }
-                    .stat-box span { font-size: 14px; color: #666; font-weight: 500; }
-                    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-                    th { text-align: left; background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 16px; border-bottom: 2px solid #667eea; font-weight: 600; color: #667eea; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
-                    td { padding: 16px; border-bottom: 1px solid #e9ecef; font-size: 14px; color: #555; }
-                    tr:hover td { background: #f9f9fc; }
-                    a { color: #667eea; text-decoration: none; word-break: break-word; font-weight: 500; }
-                    a:hover { color: #764ba2; text-decoration: underline; }
-                    .priority { background: linear-gradient(135deg, #e7f3ff 0%, #e0edff 100%); padding: 4px 12px; border-radius: 20px; font-weight: 600; color: #667eea; font-size: 13px; display: inline-block; }
-                    .freq { text-transform: capitalize; font-size: 13px; color: #666; font-weight: 500; background: #f0f0f0; padding: 4px 12px; border-radius: 4px; display: inline-block; }
-                    .footer { background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 30px 40px; text-align: center; font-size: 13px; color: #999; border-top: 1px solid #e9ecef; }
-                    @media (max-width: 768px) { .header { padding: 30px 20px; } .header h1 { font-size: 24px; } .content { padding: 20px; } }
-                </style>
+                
             </head>
             <body>
                 <div class="container">
                     <div class="header">
-                        <h1>🗺️ XML Sitemap</h1>
-                        <p>CISON - Professional Medical Education Platform</p>
+                        <h1>XML Sitemap</h1>
+                        <p>CISON - Charactered Institute of Statisticians of Nigeria</p>
                     </div>
                     <div class="content">
                         <div class="stats">
@@ -156,41 +130,26 @@ const SITEMAP_INDEX_XSL = `<?xml version="1.0" encoding="UTF-8"?>
                 <title>Sitemap Index</title>
                 <meta charset="utf-8"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <style type="text/css">
-                    * { margin: 0; padding: 0; box-sizing: border-box; }
-                    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 40px 20px; }
-                    .container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
-                    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; text-align: center; }
-                    .header h1 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
-                    .content { padding: 40px; }
-                    .sitemaps-grid { display: grid; gap: 20px; }
-                    .sitemap-card { background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 24px; border-radius: 8px; border-left: 4px solid #667eea; transition: all 0.3s ease; }
-                    .sitemap-card:hover { box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2); transform: translateX(5px); border-left-color: #764ba2; }
-                    .sitemap-card h3 { margin: 0 0 12px 0; color: #667eea; font-size: 16px; font-weight: 600; }
-                    .sitemap-card a { display: block; color: #667eea; text-decoration: none; word-break: break-all; font-weight: 500; font-size: 14px; margin-bottom: 12px; }
-                    .sitemap-card a:hover { color: #764ba2; text-decoration: underline; }
-                    .sitemap-meta { font-size: 12px; color: #999; }
-                    .footer { background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%); padding: 30px 40px; text-align: center; font-size: 13px; color: #999; border-top: 1px solid #e9ecef; }
-                </style>
+                
             </head>
             <body>
                 <div class="container">
                     <div class="header">
-                        <h1>🗂️ Sitemap Index</h1>
-                        <p>CISON - Professional Medical Education</p>
+                        <h1>Sitemap Index</h1>
+                        <p>CISON - Charactered Institute of Statisticians of Nigeria</p>
                     </div>
                     <div class="content">
                         <div class="sitemaps-grid">
                             <xsl:for-each select="//sitemap:sitemap">
                                 <div class="sitemap-card">
-                                    <h3><xsl:choose><xsl:when test="contains(sitemap:loc, 'exams')">📝 Examinations Sitemap</xsl:when><xsl:when test="contains(sitemap:loc, 'prs')">📊 PRS Sitemap</xsl:when><xsl:otherwise>📄 Pages Sitemap</xsl:otherwise></xsl:choose></h3>
+                                    <h3><xsl:choose><xsl:when test="contains(sitemap:loc, 'exams')">Examinations Sitemap</xsl:when><xsl:when test="contains(sitemap:loc, 'prs')">PRS Sitemap</xsl:when><xsl:otherwise>Pages Sitemap</xsl:otherwise></xsl:choose></h3>
                                     <a href="{sitemap:loc}"><xsl:value-of select="sitemap:loc"/></a>
                                     <div class="sitemap-meta">Last updated: <xsl:value-of select="substring(sitemap:lastmod, 1, 10)"/></div>
                                 </div>
                             </xsl:for-each>
                         </div>
                     </div>
-                    <div class="footer"><p>📋 Sitemap Index for optimal search engine crawling.</p></div>
+                    <div class="footer"><p>Sitemap Index for optimal search engine crawling.</p></div>
                 </div>
             </body>
         </html>
@@ -228,7 +187,6 @@ export default defineConfig({
 
         const baseUrl = process.env.VITE_SITE_URL || 'https://dev.cison.org.ng';
 
-        // Separate routes by category
         const examRoutes = dynamicRoutes.filter(r => r.includes('/examinations'));
         const prsRoutes = dynamicRoutes.filter(r => r.includes('/prs'));
         const pageRoutes = dynamicRoutes.filter(r => !r.includes('/examinations') && !r.includes('/prs'));
