@@ -341,7 +341,7 @@ function AppointmentsSection({ person }: { person: PersonInterface }) {
             <div className="flex items-center gap-2">
                 <UsersIcon size={18} className="text-[#6dd249]" weight="fill" />
                 <span className="text-[10px]  tracking-[0.22em] uppercase text-[#6dd249]/75 font-semibold">
-                    Appointments & Affiliations
+                    Appointments & Affiliations & Achievements
                 </span>
             </div>
             <ul className="flex flex-col gap-2">

@@ -73,7 +73,10 @@ const RoutePath = {
 
     // People
     OurPeople: "/our-people",
-    
+
+    // Former 
+    CrownPrinceAbubakarBelloAfegbua: "/about/crown-prince-abubakar-bello-afegbua"
+
 };
 
 type RouteMapType = { name: string, href?: string, description?: string, children?: RouteMapType[] }

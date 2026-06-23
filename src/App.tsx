@@ -67,7 +67,8 @@ const InstitutionalAccreditationPage = lazy(() => import("@/pages/Wedo/instituti
 const CourseAccreditationPage = lazy(() => import("@/pages/Wedo/courseaccreditation"));
 const CPDPolicyPage = lazy(() => import("@/pages/Wedo/cpdpolicy"));
 
-
+// Former
+const CrownPrinceAbubakarBelloAfegbuaPage = lazyImport(() => import("@/pages/Members/former"), "CrownPrinceAbubakarBelloAfegbuaPage");
 
 
 const MembershipPage = lazy(() => import("@/pages/Membership"));
@@ -113,6 +114,7 @@ function App() {
             <Route path={RoutePath.NBSRepresentative} element={<NBSRepPage />} />
             <Route path={RoutePath.ManagingEditor} element={<ManagingEditorPage />} />
             <Route path={RoutePath.AssociateEditor} element={<AssociateEditorPage />} />
+            <Route path={RoutePath.CrownPrinceAbubakarBelloAfegbua} element={<CrownPrinceAbubakarBelloAfegbuaPage />} />
           </Route>
 
           <Route path={RoutePath.Accreditation}>
@@ -144,7 +146,7 @@ function App() {
 
         </Route>
       </Routes>
-        <FloatingDonateButton />
+      <FloatingDonateButton />
     </Suspense >
   )
 }
