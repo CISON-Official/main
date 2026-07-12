@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, type ReactNode } from "react";
 import {
-    CalendarBlank,
-    MapPin,
-    Clock,
-    Users,
-    Microphone,
-    Laptop,
-    Handshake,
-    Trophy,
-    ArrowRight,
-    CheckCircle,
+    CalendarBlankIcon,
+    MapPinIcon,
+    ClockIcon,
+    MicrophoneIcon,
+    LaptopIcon,
+    HandshakeIcon,
+    TrophyIcon,
+    ArrowRightIcon,
+    CheckCircleIcon,
 } from "@phosphor-icons/react";
 
 const T = {
@@ -38,22 +37,22 @@ const STATS = [
 
 const FEATURES = [
     {
-        icon: Microphone,
+        icon: MicrophoneIcon,
         title: "World-Class Keynote Speakers",
         text: "Nigeria's foremost statisticians and global data leaders share insights on the national statistical vision.",
     },
     {
-        icon: Laptop,
+        icon: LaptopIcon,
         title: "Hands-On Technical Workshops",
         text: "Deep-dives on AI, statistical modelling, big data tools, and official statistics methodology.",
     },
     {
-        icon: Handshake,
+        icon: HandshakeIcon,
         title: "High-Impact Networking",
         text: "Meet peers, government officials, and multinational partners in a curated environment.",
     },
     {
-        icon: Trophy,
+        icon: TrophyIcon,
         title: "Awards & Recognition",
         text: "Excellence awards celebrating 50 years of outstanding contributions to statistical development.",
     },
@@ -94,7 +93,7 @@ const TAG_STYLES = {
     ceremony: { bg: "rgba(232,160,32,0.12)", color: "#f0c060" },
 };
 
-const SCHEDULE = {
+const SCHEDULE:any = {
     "Day 1 — Oct 12": [
         { time: "8:00 – 9:00", title: "Delegate Registration & Welcome Coffee", speaker: "Conference Secretariat", tag: null },
         { time: "9:00 – 10:30", title: "Workshop A: Statistical Modelling with R", speaker: "Technical Faculty, CISON", tag: "workshop" },
@@ -160,12 +159,12 @@ const REG_CARDS = [
 ];
 
 
-function useCountdown(targetDate) {
+function useCountdown(targetDate:any) {
     const [timeLeft, setTimeLeft] = useState({ d: "--", h: "--", m: "--", s: "--" });
 
     useEffect(() => {
         const end = new Date(targetDate).getTime();
-        const pad = (n) => String(n).padStart(2, "0");
+        const pad = (n:any) => String(n).padStart(2, "0");
 
         const tick = () => {
             const diff = end - Date.now();
@@ -325,9 +324,9 @@ function Hero() {
 
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem 2rem", marginBottom: "2.6rem" }}>
                     {[
-                        { icon: CalendarBlank, text: "October 12–16, 2026" },
-                        { icon: MapPin, text: "Abuja, Nigeria" },
-                        { icon: Clock, text: "5 Days · Workshops, Panels & Awards" },
+                        { icon: CalendarBlankIcon, text: "October 12–16, 2026" },
+                        { icon: MapPinIcon, text: "Abuja, Nigeria" },
+                        { icon: ClockIcon, text: "5 Days · Workshops, Panels & Awards" },
                     ].map(({ icon: Icon, text }) => (
                         <span key={text} style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", fontWeight: 500 }}>
                             <span style={{ width: 6, height: 6, borderRadius: "50%", background: T.gold, flexShrink: 0 }} />
@@ -342,7 +341,7 @@ function Hero() {
                         href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
                         style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
                     >
-                        Individual Registration <ArrowRight size={16} />
+                        Individual Registration <ArrowRightIcon size={16} />
                     </a>
                     <a
                         href="https://my.cison.org.ng/group-conference-registration/"
@@ -411,7 +410,7 @@ function StatsBar() {
                 {STATS.map((s, i) => (
                     <div
                         key={s.label}
-                        className={`py-[2.2rem] px-[1.5rem] text-center ${i < STATS.length - 1 ? 'border-r border-[#E8EDE9]' : 'border-r-0'}`}
+                        className={`py-[2.2rem] px-6 text-center ${i < STATS.length - 1 ? 'border-r border-[#E8EDE9]' : 'border-r-0'}`}
                     >
                         <div className="dark:text-white text-green-600 text-4xl font-bold">
                             {s.num}
@@ -424,7 +423,7 @@ function StatsBar() {
     );
 }
 
-function Eyebrow({ children, light = false }) {
+function Eyebrow({ children, light = false }: {children: ReactNode, light: Boolean}) {
     return (
         <div
             style={{
@@ -445,7 +444,7 @@ function Eyebrow({ children, light = false }) {
     );
 }
 
-function SectionHeading({ children, light = false, style = {} }) {
+function SectionHeading({ children, light = false, style = {} }:{children: React.ReactNode, light: Boolean, style:any}) {
     return (
         <h2
             style={{
@@ -468,8 +467,8 @@ function AboutSection() {
         <section style={{ padding: "5.5rem 1.5rem", background: T.white }}>
             <div style={{ maxWidth: 1080, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}>
                 <div>
-                    <Eyebrow>About the Conference</Eyebrow>
-                    <SectionHeading>Nigeria's Premier Statistics & Data Analytics Summit</SectionHeading>
+                    <Eyebrow light={false}>About the Conference</Eyebrow>
+                    <SectionHeading style={"mike"} light={false}>Nigeria's Premier Statistics & Data Analytics Summit</SectionHeading>
                     <p style={{ fontSize: "1.02rem", color: T.muted, lineHeight: 1.8, maxWidth: 560, marginBottom: "2.5rem" }}>
                         The CISON Annual Conference unites statisticians, data scientists, policymakers, academics, and industry leaders across Africa. Our 2026 edition moves to Abuja — Nigeria's governance heartland — as we mark 50 years of shaping the national statistical system.
                     </p>
@@ -536,8 +535,8 @@ function ThemesSection() {
     return (
         <section style={{ padding: "5.5rem 1.5rem", background: T.cream }}>
             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-                <Eyebrow>Key Themes</Eyebrow>
-                <SectionHeading>What We'll Explore</SectionHeading>
+                <Eyebrow light={false}>Key Themes</Eyebrow>
+                <SectionHeading light={false} style={"any"}>What We'll Explore</SectionHeading>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1.2rem" }}>
                     {THEMES.map((t) => (
                         <div
@@ -573,7 +572,7 @@ function ScheduleSection() {
         <section style={{ padding: "5.5rem 1.5rem", background: T.green }}>
             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
                 <Eyebrow light>Programme</Eyebrow>
-                <SectionHeading light>Conference Schedule</SectionHeading>
+                <SectionHeading style light>Conference Schedule</SectionHeading>
                 <p style={{ fontSize: "1.02rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }}>
                     Five days of keynotes, technical workshops, panel discussions, and the Golden Jubilee Gala.
                 </p>
@@ -603,7 +602,7 @@ function ScheduleSection() {
 
                 {/* Schedule items */}
                 <div>
-                    {SCHEDULE[activeDay].map((item, i) => (
+                    {SCHEDULE[activeDay].map((item:any, i:any) => (
                         <div
                             key={i}
                             style={{
@@ -652,7 +651,7 @@ function RegistrationSection() {
         <section id="registration" style={{ padding: "5.5rem 1.5rem", background: T.ink }}>
             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
                 <Eyebrow light>Registration</Eyebrow>
-                <SectionHeading light>Secure Your Place</SectionHeading>
+                <SectionHeading style light>Secure Your Place</SectionHeading>
                 <p style={{ fontSize: "1.02rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }}>
                     Early bird pricing available until July 1, 2026. All registrations include access to all plenary sessions, workshops, and the Gala dinner.
                 </p>
@@ -682,7 +681,7 @@ function RegistrationSection() {
                             <div style={{ marginBottom: "1.5rem" }}>
                                 {card.features.map((f) => (
                                     <div key={f} style={{ fontSize: "0.82rem", color: card.featured ? "rgba(11,61,30,0.8)" : "rgba(255,255,255,0.7)", marginBottom: 6, display: "flex", gap: 6, alignItems: "flex-start" }}>
-                                        <CheckCircle size={14} color={card.featured ? T.green : T.teal} weight="bold" style={{ flexShrink: 0, marginTop: 1 }} />
+                                        <CheckCircleIcon size={14} color={card.featured ? T.green : T.teal} weight="bold" style={{ flexShrink: 0, marginTop: 1 }} />
                                         {f}
                                     </div>
                                 ))}
@@ -719,8 +718,8 @@ function SponsorsSection() {
     return (
         <section style={{ padding: "5.5rem 1.5rem", background: T.white }}>
             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-                <Eyebrow>Partners & Sponsors</Eyebrow>
-                <SectionHeading>Supported By</SectionHeading>
+                <Eyebrow light>Partners & Sponsors</Eyebrow>
+                <SectionHeading style light >Supported By</SectionHeading>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
                     {sponsors.map((s) => (
                         <div key={s} style={{ border: `1px solid ${T.border}`, borderRadius: 6, padding: "1rem 1.8rem", fontSize: "0.87rem", fontWeight: 600, color: T.muted, background: T.cream }}>
@@ -750,7 +749,7 @@ function CTASection() {
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", justifyContent: "center" }}>
                     <a href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}>
-                        Register Now — Save 25% <ArrowRight size={16} />
+                        Register Now — Save 25% <ArrowRightIcon size={16} />
                     </a>
                     <a href="#registration" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,0.4)", textDecoration: "none" }}>
                         View Pricing

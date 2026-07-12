@@ -1,19 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, SignIn, Medal, ArrowRight } from "@phosphor-icons/react";
+import { SignInIcon, MedalIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { fadeUp, Stagger } from "@/animate";
 
-// Animation variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-};
 
 const Fellows: React.FC = () => {
   return (
@@ -28,14 +21,14 @@ const Fellows: React.FC = () => {
           className="mx-auto max-w-4xl"
           initial="hidden"
           animate="visible"
-          variants={stagger}
+          variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
             <Badge
               variant="outline"
               className="border-emerald-200 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-300"
             >
-              <Medal weight="bold" className="mr-2 h-4 w-4" />
+              <MedalIcon weight="bold" className="mr-2 h-4 w-4" />
               Fellows
             </Badge>
           </motion.div>
@@ -107,7 +100,6 @@ const Fellows: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <Button
-                  asChild
                   variant="default"
                   className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
                 >
@@ -116,7 +108,7 @@ const Fellows: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <SignIn weight="bold" className="mr-2 h-5 w-5" />
+                    <SignInIcon weight="bold" className="mr-2 h-5 w-5" />
                     Sign in or Recover your Account Here
                   </a>
                 </Button>

@@ -6,7 +6,7 @@ function Reveal({
   className = "",
   delay = 0,
   x = 0,
-  custom=0,
+  custom = 0,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -48,6 +48,8 @@ const fadeIn = {
   }),
 };
 
+const Stagger = {
+  show: { transition: { staggerChildren: 0.15 } },
+};
 
-
-export { fadeUp, fadeIn, Reveal };
+export { fadeUp, fadeIn, Reveal, Stagger };

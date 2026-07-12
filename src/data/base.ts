@@ -35,3 +35,26 @@ export interface PersonInterface {
     fellowship?: string;
     membersince?: Number;
 };
+
+export interface EventLocation {
+    type: string;
+    name: string;
+    address: {
+        type: string;
+        addressCountry: string;
+    };
+}
+
+export interface EventData {
+    id: string;
+    name: string;
+    description: string;
+    url: string;
+    startDate: string;
+    endDate: string;
+    location?: EventLocation;
+    displayDateRange: string;
+    monthSection: string;
+    dayNum: string;
+    weekday: string;
+}

@@ -1,78 +1,20 @@
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-    MagnifyingGlass,
-    Calendar,
-    MapPin,
-    Clock,
-    CaretDown,
-    List,
-    CalendarBlank,
-    Rows,
-    Export,
-    ArrowRight
+    MagnifyingGlassIcon,
+    CalendarIcon,
+    MapPinIcon,
+    ClockIcon,
+    CaretDownIcon,
+    ListIcon,
+    CalendarBlankIcon,
+    RowsIcon,
+    ExportIcon,
+    ArrowRightIcon
 } from '@phosphor-icons/react';
-
-// --- Types ---
-interface EventLocation {
-    type: string;
-    name: string;
-    address: {
-        type: string;
-        addressCountry: string;
-    };
-}
-
-interface EventData {
-    id: string;
-    name: string;
-    description: string;
-    url: string;
-    startDate: string;
-    endDate: string;
-    location?: EventLocation;
-    displayDateRange: string;
-    monthSection: string;
-    dayNum: string;
-    weekday: string;
-}
-
-// --- Parsed Data From Legacy Content ---
-const INITIAL_EVENTS: EventData[] = [
-    {
-        id: "994151",
-        name: "Q3 Planning, Research and Statistics Workshop",
-        description: "Forecasting & Scenario Modeling for National Development. Equip yourself with the critical tools needed to navigate complex economic landscapes and drive sustainable growth. This practical, high-impact workshop is designed for professionals eager to transform data into actionable insights for both national and sub-national planning. Led by renowned expert Dr. Ephraim Ogbonna from the University of Nigeria.",
-        url: "https://cison.org.ng/event/q3-planning-research-and-statistics-workship/",
-        startDate: "2026-08-10T08:00:00+01:00",
-        endDate: "2026-08-13T17:00:00+01:00",
-        displayDateRange: "August 10 @ 8:00 am - August 13 @ 5:00 pm",
-        monthSection: "August 2026",
-        dayNum: "10",
-        weekday: "Mon"
-    },
-    {
-        id: "994153",
-        name: "Q4 Planning, Research and Statistics Workshop",
-        description: "Fundamental Power BI for Executive PRS Dashboards. This intensive four-day workshop takes you from absolute beginner to advanced dashboard creator. Led by expert facilitator Dr. O.T. Arowolo from the Lagos State University of Science and Technology, you will master the crucial soft and technical skills needed to build dynamic PRS (Planning, Research, and Statistics) dashboards.",
-        url: "https://cison.org.ng/event/q4-planning-research-and-statistics-workshop/",
-        startDate: "2026-11-09T00:00:00+01:00",
-        endDate: "2026-11-12T23:59:59+01:00",
-        location: {
-            type: "Place",
-            name: "Kano",
-            address: {
-                type: "PostalAddress",
-                addressCountry: "Nigeria"
-            }
-        },
-        displayDateRange: "November 9 - November 12",
-        monthSection: "November 2026",
-        dayNum: "09",
-        weekday: "Mon"
-    }
-];
+import INITIAL_EVENTS from '@/data/events';
+import type { EventData } from '@/data/base';
 
 export default function EventsArchivePage() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -110,7 +52,7 @@ export default function EventsArchivePage() {
 
                     {/* Search Form component resembling Shadcn input style */}
                     <div className="relative flex flex-1 max-w-md items-center">
-                        <MagnifyingGlass className="absolute left-3 h-4 w-4 text-slate-400" />
+                        <MagnifyingGlassIcon className="absolute left-3 h-4 w-4 text-slate-400" />
                         <input
                             type="text"
                             placeholder="Search for events..."
@@ -129,11 +71,11 @@ export default function EventsArchivePage() {
                                 onClick={() => setIsViewDropdownOpen(!isViewDropdownOpen)}
                                 className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
                             >
-                                {currentView === 'list' && <List className="h-4 w-4" />}
-                                {currentView === 'month' && <CalendarBlank className="h-4 w-4" />}
-                                {currentView === 'day' && <Rows className="h-4 w-4" />}
+                                {currentView === 'list' && <ListIcon className="h-4 w-4" />}
+                                {currentView === 'month' && <CalendarBlankIcon className="h-4 w-4" />}
+                                {currentView === 'day' && <RowsIcon className="h-4 w-4" />}
                                 <span className="capitalize">{currentView} View</span>
-                                <CaretDown className="h-3 w-3 opacity-50" />
+                                <CaretDownIcon className="h-3 w-3 opacity-50" />
                             </button>
 
                             <AnimatePresence>
@@ -157,9 +99,9 @@ export default function EventsArchivePage() {
                                                     className={`flex w-full items-center gap-2 rounded-sm px-3 py-2 text-sm text-left hover:bg-slate-100 dark:hover:bg-slate-800 ${currentView === view ? 'bg-slate-100 font-medium dark:bg-slate-800' : ''
                                                         }`}
                                                 >
-                                                    {view === 'list' && <List className="h-4 w-4" />}
-                                                    {view === 'month' && <CalendarBlank className="h-4 w-4" />}
-                                                    {view === 'day' && <Rows className="h-4 w-4" />}
+                                                    {view === 'list' && <ListIcon className="h-4 w-4" />}
+                                                    {view === 'month' && <CalendarBlankIcon className="h-4 w-4" />}
+                                                    {view === 'day' && <RowsIcon className="h-4 w-4" />}
                                                     <span className="capitalize">{view}</span>
                                                 </button>
                                             ))}
@@ -184,7 +126,7 @@ export default function EventsArchivePage() {
                         animate={{ opacity: 1 }}
                         className="flex flex-col items-center justify-center py-24 text-center"
                     >
-                        <Calendar className="h-12 w-12 text-slate-300 dark:text-slate-700 mb-4" />
+                        <CalendarIcon className="h-12 w-12 text-slate-300 dark:text-slate-700 mb-4" />
                         <h3 className="text-lg font-semibold">No events found</h3>
                         <p className="text-sm text-slate-500 mt-1">Try adjusting your keyword filter keywords.</p>
                     </motion.div>
@@ -194,7 +136,7 @@ export default function EventsArchivePage() {
                             <div key={monthSection} className="space-y-6">
 
                                 {/* Month Separator Header Column */}
-                                <div className="sticky top-0 z-10 bg-gradient-to-b from-slate-50 via-slate-50/95 to-slate-50/0 py-2 dark:from-slate-950 dark:via-slate-950/95 dark:to-slate-950/0">
+                                <div className="sticky top-0 z-10 bg-linear-to-b from-slate-50 via-slate-50/95 to-slate-50/0 py-2 dark:from-slate-950 dark:via-slate-950/95 dark:to-slate-950/0">
                                     <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                                         {monthSection}
                                     </h3>
@@ -211,7 +153,7 @@ export default function EventsArchivePage() {
                                             className="group relative flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:flex-row sm:p-6"
                                         >
                                             {/* Left Tag Element: Numerical Date View block */}
-                                            <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-1 sm:border-r sm:border-slate-100 sm:pr-6 dark:sm:border-slate-800 min-w-[70px]">
+                                            <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-1 sm:border-r sm:border-slate-100 sm:pr-6 dark:sm:border-slate-800 min-w-17.5">
                                                 <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500 sm:block">
                                                     {event.weekday}
                                                 </span>
@@ -227,12 +169,12 @@ export default function EventsArchivePage() {
                                                     {/* Top row meta indicators */}
                                                     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
                                                         <span className="inline-flex items-center gap-1">
-                                                            <Clock className="h-3.5 w-3.5" />
+                                                            <ClockIcon className="h-3.5 w-3.5" />
                                                             {event.displayDateRange}
                                                         </span>
                                                         {event.location && (
                                                             <span className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400">
-                                                                <MapPin className="h-3.5 w-3.5" />
+                                                                <MapPinIcon className="h-3.5 w-3.5" />
                                                                 {event.location.name}{event.location.address?.addressCountry ? `, ${event.location.address.addressCountry}` : ''}
                                                             </span>
                                                         )}
@@ -256,7 +198,7 @@ export default function EventsArchivePage() {
                                                 <div className="flex items-center justify-end border-t border-slate-50 pt-3 dark:border-slate-800/50">
                                                     <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
                                                         View Event details
-                                                        <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                                        <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                                                     </span>
                                                 </div>
 
@@ -277,9 +219,9 @@ export default function EventsArchivePage() {
                             onClick={() => setIsSubscribeDropdownOpen(!isSubscribeDropdownOpen)}
                             className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
                         >
-                            <Export className="h-4 w-4" />
+                            <ExportIcon className="h-4 w-4" />
                             Subscribe to calendar
-                            <CaretDown className="h-3 w-3 opacity-50" />
+                            <CaretDownIcon className="h-3 w-3 opacity-50" />
                         </button>
 
                         <AnimatePresence>
