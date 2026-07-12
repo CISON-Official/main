@@ -2,36 +2,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  CreditCard,
-  ArrowRight,
-  SignIn,
-  UserPlus,
   LayoutIcon,
-  Bank,
-  Lock,
-  CheckCircle,
+  BankIcon,
+  CreditCardIcon,
+  ArrowRightIcon,
+  SignInIcon,
+  LockIcon,
+  CheckCircleIcon,
 } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { fadeUp, Stagger } from "@/animate";
 
-// Animation variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-};
-
-const cardHover = {
-  hover: {
-    y: -8,
-    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-    transition: { duration: 0.2 },
-  },
-};
 
 const HowToPayPage: React.FC = () => {
   return (
@@ -39,28 +23,28 @@ const HowToPayPage: React.FC = () => {
       {/* ===== HERO SECTION ===== */}
       <section className="relative isolate px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         {/* Decorative background */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
 
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
           animate="visible"
-          variants={stagger}
+          variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
             <Badge
               variant="outline"
               className="border-emerald-200 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-300"
             >
-              <CreditCard weight="bold" className="mr-2 h-4 w-4" />
+              <CreditCardIcon weight="bold" className="mr-2 h-4 w-4" />
               How to Pay
             </Badge>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
+            className="mt-6 bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
           >
             How to Make <span className="text-emerald-600 dark:text-emerald-400">Payments</span>
           </motion.h1>
@@ -101,14 +85,14 @@ const HowToPayPage: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
-            variants={stagger}
+            variants={Stagger}
           >
             {/* Step 1 */}
             <motion.div variants={fadeUp} whileHover="hover" initial="initial" animate="initial">
               <Card className="group relative h-full border-emerald-200/50 bg-white/80 backdrop-blur-sm transition-all dark:border-emerald-800/30 dark:bg-gray-900/80">
                 <CardHeader>
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 transition-colors group-hover:bg-emerald-600 group-hover:text-white dark:bg-emerald-900/40 dark:text-emerald-300 dark:group-hover:bg-emerald-500">
-                    <SignIn weight="bold" className="h-6 w-6" />
+                    <SignInIcon weight="bold" className="h-6 w-6" />
                   </div>
                   <CardTitle className="text-xl">Step 1: Log in or Register</CardTitle>
                 </CardHeader>
@@ -180,7 +164,7 @@ const HowToPayPage: React.FC = () => {
               <Card className="group relative h-full border-emerald-200/50 bg-white/80 backdrop-blur-sm transition-all dark:border-emerald-800/30 dark:bg-gray-900/80">
                 <CardHeader>
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 transition-colors group-hover:bg-emerald-600 group-hover:text-white dark:bg-emerald-900/40 dark:text-emerald-300 dark:group-hover:bg-emerald-500">
-                    <Bank weight="bold" className="h-6 w-6" />
+                    <BankIcon weight="bold" className="h-6 w-6" />
                   </div>
                   <CardTitle className="text-xl">Step 3: Choose Payment Method</CardTitle>
                 </CardHeader>
@@ -233,7 +217,6 @@ const HowToPayPage: React.FC = () => {
             variants={fadeUp}
           >
             <Button
-              asChild
               size="lg"
               className="group bg-emerald-600 px-8 text-base hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
             >
@@ -242,9 +225,9 @@ const HowToPayPage: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SignIn weight="bold" className="mr-2 h-5 w-5" />
+                <SignInIcon weight="bold" className="mr-2 h-5 w-5" />
                 Login / Register
-                <ArrowRight
+                <ArrowRightIcon
                   weight="bold"
                   className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
                 />
@@ -252,10 +235,10 @@ const HowToPayPage: React.FC = () => {
             </Button>
 
             <div className="mt-4 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-              <Lock weight="bold" className="h-4 w-4" />
+              <LockIcon weight="bold" className="h-4 w-4" />
               Secured by Paystack
               <span className="mx-2 h-4 w-px bg-gray-300 dark:bg-gray-700" />
-              <CheckCircle weight="bold" className="h-4 w-4 text-emerald-500" />
+              <CheckCircleIcon weight="bold" className="h-4 w-4 text-emerald-500" />
               100% Secure
             </div>
           </motion.div>
