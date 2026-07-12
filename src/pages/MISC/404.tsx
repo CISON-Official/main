@@ -1,6 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ChartBar, Warning, TrendDown, RecycleIcon } from '@phosphor-icons/react';
+import { ArrowLeftIcon, WarningIcon, TrendDownIcon, RecycleIcon } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -23,7 +22,7 @@ export default function Statistical404Page() {
                             animate={{ opacity: 1, y: 0 }}
                             className="mb-6 flex items-center gap-2 rounded-full bg-amber-500/10 px-3 w-fit py-1 text-xs font-semibold text-amber-600 border border-amber-500/20 dark:text-amber-400"
                         >
-                            <Warning size={14} className="animate-pulse" />
+                            <WarningIcon size={14} className="animate-pulse" />
                             <span>ERROR 404: OUTLIER DETECTED</span>
                         </motion.div>
 
@@ -87,7 +86,7 @@ export default function Statistical404Page() {
                                 transition={{ repeat: Infinity, duration: 2 }}
                                 className="absolute bottom-[2%] right-[15%] flex flex-col items-center"
                             >
-                                <TrendDown size={20} className="text-red-500" />
+                                <TrendDownIcon size={20} className="text-red-500" />
                                 <span className="font-mono text-[10px] text-red-500 font-bold">Null Pointer</span>
                             </motion.div>
                         </div>
@@ -115,7 +114,7 @@ export default function Statistical404Page() {
                                 className="w-full border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-900 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-50"
                                 onClick={() => window.history.back()}
                             >
-                                <ArrowLeft size={16} className="mr-2" />
+                                <ArrowLeftIcon size={16} className="mr-2" />
                                 Recalibrate (Go Back)
                             </Button>
 
