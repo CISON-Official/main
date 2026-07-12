@@ -240,8 +240,8 @@ function Hero({ theme }: { theme: string }) {
             {/* bottom divider */}
             <div
                 className={`absolute bottom-0 inset-x-0 h-24 ${dark
-                    ? "bg-gradient-to-t from-[#071209] to-transparent"
-                    : "bg-gradient-to-t from-[#f0fdf4] to-transparent"
+                    ? "bg-linear-to-t from-[#071209] to-transparent"
+                    : "bg-linear-to-t from-[#f0fdf4] to-transparent"
                     }`}
             />
         </section>

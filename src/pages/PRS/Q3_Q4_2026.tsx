@@ -1,258 +1,310 @@
-
-import { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-    MagnifyingGlassIcon,
-    CalendarIcon,
-    MapPinIcon,
-    ClockIcon,
-    CaretDownIcon,
-    ListIcon,
-    CalendarBlankIcon,
-    RowsIcon,
-    ExportIcon,
-    ArrowRightIcon
+import React, { useState } from 'react';
+import { 
+  CalendarBlankIcon, 
+  CheckCircleIcon, 
+  UserIcon, 
+  StudentIcon, 
+  PhoneIcon,
+  EnvelopeSimpleIcon,
+  CoatHangerIcon,
+  WebcamIcon,
+  NetworkIcon,
 } from '@phosphor-icons/react';
-import INITIAL_EVENTS from '@/data/events';
-import type { EventData } from '@/data/base';
+import { motion } from 'framer-motion';
 
-export default function EventsArchivePage() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [currentView, setCurrentView] = useState<'list' | 'month' | 'day'>('list');
-    const [isViewDropdownOpen, setIsViewDropdownOpen] = useState(false);
-    const [isSubscribeDropdownOpen, setIsSubscribeDropdownOpen] = useState(false);
-
-    // Filter logic
-    const filteredEvents = useMemo(() => {
-        return INITIAL_EVENTS.filter(event =>
-            event.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            event.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (event.location?.name && event.location.name.toLowerCase().includes(searchQuery.toLowerCase()))
-        );
-    }, [searchQuery]);
-
-    // Group items by month section safely
-    const groupedEvents = useMemo(() => {
-        const groups: { [key: string]: EventData[] } = {};
-        filteredEvents.forEach(event => {
-            if (!groups[event.monthSection]) {
-                groups[event.monthSection] = [];
-            }
-            groups[event.monthSection].push(event);
-        });
-        return groups;
-    }, [filteredEvents]);
-
-    return (
-        <div className="min-h-screen bg-slate-50/50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-50">
-            <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-
-                {/* Top Control Bar / Header Section */}
-                <div className="mb-10 flex flex-col gap-4 border-b border-slate-200 pb-6 dark:border-slate-800 md:flex-row md:items-center md:justify-between">
-
-                    {/* Search Form component resembling Shadcn input style */}
-                    <div className="relative flex flex-1 max-w-md items-center">
-                        <MagnifyingGlassIcon className="absolute left-3 h-4 w-4 text-slate-400" />
-                        <input
-                            type="text"
-                            placeholder="Search for events..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="h-10 w-full rounded-md border border-slate-200 bg-white pl-10 pr-4 text-sm ring-offset-white placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 dark:border-slate-800 dark:bg-slate-900 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300"
-                        />
-                    </div>
-
-                    {/* Controls View & Filter Switchers */}
-                    <div className="flex flex-wrap items-center gap-3">
-
-                        {/* View Selector Selector dropdown */}
-                        <div className="relative">
-                            <button
-                                onClick={() => setIsViewDropdownOpen(!isViewDropdownOpen)}
-                                className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
-                            >
-                                {currentView === 'list' && <ListIcon className="h-4 w-4" />}
-                                {currentView === 'month' && <CalendarBlankIcon className="h-4 w-4" />}
-                                {currentView === 'day' && <RowsIcon className="h-4 w-4" />}
-                                <span className="capitalize">{currentView} View</span>
-                                <CaretDownIcon className="h-3 w-3 opacity-50" />
-                            </button>
-
-                            <AnimatePresence>
-                                {isViewDropdownOpen && (
-                                    <>
-                                        <div className="fixed inset-0 z-10" onClick={() => setIsViewDropdownOpen(false)} />
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 8 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: 8 }}
-                                            transition={{ duration: 0.15 }}
-                                            className="absolute right-0 z-20 mt-2 w-40 origin-top-right rounded-md border border-slate-200 bg-white p-1 shadow-lg ring-1 ring-black ring-opacity-5 dark:border-slate-800 dark:bg-slate-900"
-                                        >
-                                            {(['list', 'month', 'day'] as const).map((view) => (
-                                                <button
-                                                    key={view}
-                                                    onClick={() => {
-                                                        setCurrentView(view);
-                                                        setIsViewDropdownOpen(false);
-                                                    }}
-                                                    className={`flex w-full items-center gap-2 rounded-sm px-3 py-2 text-sm text-left hover:bg-slate-100 dark:hover:bg-slate-800 ${currentView === view ? 'bg-slate-100 font-medium dark:bg-slate-800' : ''
-                                                        }`}
-                                                >
-                                                    {view === 'list' && <ListIcon className="h-4 w-4" />}
-                                                    {view === 'month' && <CalendarBlankIcon className="h-4 w-4" />}
-                                                    {view === 'day' && <RowsIcon className="h-4 w-4" />}
-                                                    <span className="capitalize">{view}</span>
-                                                </button>
-                                            ))}
-                                        </motion.div>
-                                    </>
-                                )}
-                            </AnimatePresence>
-                        </div>
-
-                        {/* Inline Indicator Date range context */}
-                        <div className="inline-flex h-10 items-center justify-center rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300">
-                            Upcoming
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* Content Area Rendering Structured Events */}
-                {filteredEvents.length === 0 ? (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="flex flex-col items-center justify-center py-24 text-center"
-                    >
-                        <CalendarIcon className="h-12 w-12 text-slate-300 dark:text-slate-700 mb-4" />
-                        <h3 className="text-lg font-semibold">No events found</h3>
-                        <p className="text-sm text-slate-500 mt-1">Try adjusting your keyword filter keywords.</p>
-                    </motion.div>
-                ) : (
-                    <div className="space-y-12">
-                        {Object.keys(groupedEvents).map((monthSection) => (
-                            <div key={monthSection} className="space-y-6">
-
-                                {/* Month Separator Header Column */}
-                                <div className="sticky top-0 z-10 bg-linear-to-b from-slate-50 via-slate-50/95 to-slate-50/0 py-2 dark:from-slate-950 dark:via-slate-950/95 dark:to-slate-950/0">
-                                    <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                                        {monthSection}
-                                    </h3>
-                                </div>
-
-                                {/* Container for Cards belonging to section */}
-                                <div className="grid gap-6">
-                                    {groupedEvents[monthSection].map((event, index) => (
-                                        <motion.div
-                                            key={event.id}
-                                            initial={{ opacity: 0, y: 16 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.3, delay: index * 0.05 }}
-                                            className="group relative flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:shadow-md dark:border-slate-800 dark:bg-slate-900 sm:flex-row sm:p-6"
-                                        >
-                                            {/* Left Tag Element: Numerical Date View block */}
-                                            <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-1 sm:border-r sm:border-slate-100 sm:pr-6 dark:sm:border-slate-800 min-w-17.5">
-                                                <span className="text-xs font-semibold uppercase tracking-wide text-slate-400 dark:text-slate-500 sm:block">
-                                                    {event.weekday}
-                                                </span>
-                                                <span className="text-3xl font-bold tabular-nums tracking-tight text-slate-900 dark:text-slate-50 sm:block sm:text-4xl">
-                                                    {event.dayNum}
-                                                </span>
-                                            </div>
-
-                                            {/* Right Details Block Layout Elements */}
-                                            <div className="flex flex-1 flex-col justify-between gap-4">
-                                                <div className="space-y-2">
-
-                                                    {/* Top row meta indicators */}
-                                                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs font-medium text-slate-500 dark:text-slate-400">
-                                                        <span className="inline-flex items-center gap-1">
-                                                            <ClockIcon className="h-3.5 w-3.5" />
-                                                            {event.displayDateRange}
-                                                        </span>
-                                                        {event.location && (
-                                                            <span className="inline-flex items-center gap-1 text-teal-600 dark:text-teal-400">
-                                                                <MapPinIcon className="h-3.5 w-3.5" />
-                                                                {event.location.name}{event.location.address?.addressCountry ? `, ${event.location.address.addressCountry}` : ''}
-                                                            </span>
-                                                        )}
-                                                    </div>
-
-                                                    {/* Event Title Link Anchor */}
-                                                    <h4 className="text-lg font-bold leading-snug tracking-tight text-slate-900 group-hover:text-blue-600 dark:text-slate-50 dark:group-hover:text-blue-400 sm:text-xl">
-                                                        <a href={event.url} target="_blank" rel="noopener noreferrer" className="focus:outline-none">
-                                                            <span className="absolute inset-0" aria-hidden="true" />
-                                                            {event.name}
-                                                        </a>
-                                                    </h4>
-
-                                                    {/* Description text content excerpt block */}
-                                                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400 line-clamp-3 pt-1">
-                                                        {event.description}
-                                                    </p>
-                                                </div>
-
-                                                {/* Action footer context metrics inside standard card template */}
-                                                <div className="flex items-center justify-end border-t border-slate-50 pt-3 dark:border-slate-800/50">
-                                                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
-                                                        View Event details
-                                                        <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                                                    </span>
-                                                </div>
-
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-
-                            </div>
-                        ))}
-                    </div>
-                )}
-
-                {/* Bottom Context Subscription Action Drawer Row element */}
-                <div className="mt-16 flex items-center justify-center border-t border-slate-200 pt-8 dark:border-slate-800">
-                    <div className="relative">
-                        <button
-                            onClick={() => setIsSubscribeDropdownOpen(!isSubscribeDropdownOpen)}
-                            className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium shadow-sm hover:bg-slate-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:bg-slate-800"
-                        >
-                            <ExportIcon className="h-4 w-4" />
-                            Subscribe to calendar
-                            <CaretDownIcon className="h-3 w-3 opacity-50" />
-                        </button>
-
-                        <AnimatePresence>
-                            {isSubscribeDropdownOpen && (
-                                <>
-                                    <div className="fixed inset-0 z-10" onClick={() => setIsSubscribeDropdownOpen(false)} />
-                                    <motion.div
-                                        initial={{ opacity: 0, y: 8 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 8 }}
-                                        transition={{ duration: 0.15 }}
-                                        className="absolute bottom-full left-1/2 z-20 mb-2 w-48 -translate-x-1/2 origin-bottom rounded-md border border-slate-200 bg-white p-1 shadow-lg dark:border-slate-800 dark:bg-slate-900"
-                                    >
-                                        {['Google Calendar', 'iCalendar', 'Outlook 365', 'Outlook Live'].map((provider) => (
-                                            <button
-                                                key={provider}
-                                                onClick={() => setIsSubscribeDropdownOpen(false)}
-                                                className="flex w-full items-center rounded-sm px-3 py-2 text-sm text-left hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300"
-                                            >
-                                                {provider}
-                                            </button>
-                                        ))}
-                                    </motion.div>
-                                </>
-                            )}
-                        </AnimatePresence>
-                    </div>
-                </div>
-
-            </main>
-        </div>
-    );
+// --- Types ---
+interface WorkshopData {
+  id: string;
+  quarter: string;
+  title: string;
+  subtitle: string;
+  dates: string;
+  facilitator: {
+    name: string;
+    institution: string;
+    image: string;
+  };
+  outcomes: string[];
+  registrationLinks: {
+    virtual: string;
+    individual: string;
+    student: string;
+    corporate: string;
+  };
 }
 
+// --- Mocking Data parsed from the input HTML markup ---
+const workshops: WorkshopData[] = [
+  {
+    id: "Q3PRSregistration",
+    quarter: "Q3 PRS Workshop",
+    title: "Forecasting and Scenario Modeling for National and Sub-National Development",
+    subtitle: "Empowering Institutional Leaders and Technical professionals with data-driven methodologies.",
+    dates: "10th to 13th, August, 2026",
+    facilitator: {
+      name: "DR. Ephraim Ogbonna",
+      institution: "University of Ibadan, Oyo State",
+      image: "https://cison.org.ng/portal/wp-content/uploads/2026/07/citations.jpeg"
+    },
+    outcomes: [
+      "Master the Art of forecasting for National Development",
+      "Apply specific skills to improve daily tasks efficiency",
+      "Enhance productive efficiency in professional work environments"
+    ],
+    registrationLinks: {
+      virtual: "https://my.cison.org.ng/q3-prs-virtual-registration/",
+      individual: "https://my.cison.org.ng/q3-prs-individual-registration/",
+      student: "https://my.cison.org.ng/q3-prs-student-registration/",
+      corporate: "https://my.cison.org.ng/q3-prs-corporate-registration/"
+    }
+  },
+  {
+    id: "Q4PRSregistration",
+    quarter: "Q4 PRS Workshop",
+    title: "Fundamental Power BI for Executive PRS Dashboards",
+    subtitle: "Obtain high-impact structural data parsing methodologies and dashboard presentation patterns.",
+    dates: "9th - 12th November, 2026",
+    facilitator: {
+      name: "DR. O. T. Arowolo",
+      institution: "Lagos State University of Science and Technology, Ikorodu, Lagos",
+      image: "https://cison.org.ng/portal/wp-content/uploads/2026/07/citations-1.jpeg"
+    },
+    outcomes: [
+      "Obtain professional Soft skills for Advanced Professional Dashboards",
+      "Facilitate speedy presentation and stakeholder decision making",
+      "Boost productive Efficiency in data-heavy work environments"
+    ],
+    registrationLinks: {
+      virtual: "https://my.cison.org.ng/q4-prs-virtual-registration/",
+      individual: "https://my.cison.org.ng/q4-prs-individual-registration/",
+      student: "https://my.cison.org.ng/q4-prs-student-registration/",
+      corporate: "https://my.cison.org.ng/q4-prs-corporate-registration/"
+    }
+  }
+];
+
+export default function PrsWorkshops() {
+  const [activeTab, setActiveTab] = useState<string>("Q3PRSregistration");
+
+  const activeWorkshop = workshops.find(w => w.id === activeTab) || workshops[0];
+
+  const scrollToSection = (id: string) => {
+    setActiveTab(id);
+    const element = document.getElementById('workshop-showcase');
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900">
+      
+      {/* --- HERO SECTION --- */}
+      <header className="relative border-b border-slate-900 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 py-20 px-4">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        
+        <div className="relative max-w-4xl mx-auto text-center space-y-6">
+          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 rounded-full border border-emerald-500/20">
+            Planning, Research and Statistics
+          </span>
+          
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-b from-white to-slate-400 bg-clip-text text-transparent leading-tight">
+            Q3 & Q4 PRS Registration Portal
+          </h1>
+          
+          <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.
+          </p>
+
+          {/* Core Navigation Quick Jumps */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <button 
+              onClick={() => scrollToSection("Q3PRSregistration")}
+              className="px-5 py-3 text-sm font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl shadow-lg shadow-emerald-400/10 transition-all active:scale-[0.98]"
+            >
+              Go to Q3 PRS Registration
+            </button>
+            <button 
+              onClick={() => scrollToSection("Q4PRSregistration")}
+              className="px-5 py-3 text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl transition-all active:scale-[0.98]"
+            >
+              Go to Q4 PRS Registration
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* --- LIVE INTERACTIVE HUB --- */}
+      <main id="workshop-showcase" className="max-w-5xl mx-auto px-4 py-16 space-y-12">
+        
+        {/* Quarter Selectors Toggle */}
+        <div className="flex bg-slate-900 p-1.5 border border-slate-800 rounded-xl max-w-md mx-auto relative z-10 shadow-inner">
+          {workshops.map((w) => (
+            <button
+              key={w.id}
+              onClick={() => setActiveTab(w.id)}
+              className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-all ${
+                activeTab === w.id 
+                  ? 'bg-slate-800 text-emerald-400 border border-slate-700 shadow-sm' 
+                  : 'text-slate-400 hover:text-slate-200'
+              }`}
+            >
+              {w.quarter}
+            </button>
+          ))}
+        </div>
+
+        {/* Selected Workshop Display Wrapper */}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-900 rounded-2xl p-6 md:p-8 shadow-xl"
+        >
+          {/* Main Context Left Side Column */}
+          <div className="lg:col-span-2 space-y-8">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
+                <CalendarBlankIcon size={18} weight="duotone" />
+                {activeWorkshop.dates}
+              </div>
+              <h2 className="text-xl md:text-3xl font-bold tracking-tight text-slate-100">
+                {activeWorkshop.title}
+              </h2>
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+                {activeWorkshop.subtitle}
+              </p>
+            </div>
+
+            {/* Learning Outcomes Checklist Container */}
+            <div className="space-y-4">
+              <h3 className="text-xs uppercase tracking-wider font-bold text-slate-400 border-l-2 border-emerald-400 pl-2">
+                Learning Outcomes
+              </h3>
+              <ul className="grid grid-cols-1 gap-3">
+                {activeWorkshop.outcomes.map((outcome, idx) => (
+                  <li key={idx} className="flex items-start gap-3 bg-slate-950/40 p-3 rounded-xl border border-slate-900/80">
+                    <CheckCircleIcon size={20} weight="fill" className="text-emerald-400 shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-[15px] text-slate-300">{outcome}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Facilitator Sub-Card Section */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-slate-950/30 p-4 rounded-xl border border-slate-900">
+              <img 
+                src={activeWorkshop.facilitator.image} 
+                alt={activeWorkshop.facilitator.name}
+                className="w-14 h-14 rounded-xl object-cover border border-slate-800 bg-slate-900 shrink-0" 
+              />
+              <div>
+                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">
+                  <CoatHangerIcon size={14} /> Facilitator
+                </div>
+                <div className="text-base font-bold text-slate-200">
+                  {activeWorkshop.facilitator.name}
+                </div>
+                <div className="text-xs text-slate-400">
+                  {activeWorkshop.facilitator.institution}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Action Registration Links Box */}
+          <div className="bg-slate-950/60 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div className="text-center pb-2 border-b border-slate-900">
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+                  Secure Access Window
+                </span>
+                <p className="text-xs text-slate-400 mt-1">Select appropriate pathway track to apply</p>
+              </div>
+
+              <div className="space-y-3">
+                <RegistrationButton 
+                  href={activeWorkshop.registrationLinks.virtual} 
+                  icon={<WebcamIcon size={18} />} 
+                  label="Register Virtually" 
+                  primary
+                />
+                <RegistrationButton 
+                  href={activeWorkshop.registrationLinks.individual} 
+                  icon={<UserIcon size={18} />} 
+                  label="Register Individually" 
+                />
+                <RegistrationButton 
+                  href={activeWorkshop.registrationLinks.student} 
+                  icon={<StudentIcon size={18} />} 
+                  label="Register as a Student" 
+                />
+                <RegistrationButton 
+                  href={activeWorkshop.registrationLinks.corporate} 
+                  icon={<NetworkIcon size={18} />} 
+                  label="Corporate Registration" 
+                />
+              </div>
+            </div>
+
+            <p className="text-[11px] text-center text-slate-500 leading-normal">
+              Upon successful registration, onboarding packets and matching virtual streaming credentials will be piped to your active profile vector.
+            </p>
+          </div>
+        </motion.div>
+      </main>
+
+      {/* --- FOOTER SECTIONS DESIGN --- */}
+      <footer className="border-t border-slate-900 bg-slate-950 text-slate-500 text-sm py-12 px-4 mt-20">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="h-8 px-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded font-bold text-sm tracking-widest flex items-center justify-center">
+              CISON
+            </div>
+            <p className="text-xs text-slate-400">
+              Chartered Institute of Statisticians of Nigeria &copy; 2026. All Rights Reserved.
+            </p>
+          </div>
+
+          {/* Quick Contact Options */}
+          <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-400">
+            <a href="tel:+2347014432794" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
+              <PhoneIcon size={14} /> +234 701 443 2794
+            </a>
+            <a href="mailto:info@cison.org.ng" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
+              <EnvelopeSimpleIcon size={14} /> info@cison.org.ng
+            </a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  );
+}
+
+function RegistrationButton({ 
+  href, 
+  icon, 
+  label, 
+  primary = false 
+}: { 
+  href: string; 
+  icon: React.ReactNode; 
+  label: string; 
+  primary?: boolean; 
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center gap-3 transition-all active:scale-[0.99] ${
+        primary 
+          ? 'bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-md shadow-emerald-400/5' 
+          : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800/80'
+      }`}
+    >
+      <span className={primary ? 'text-slate-950' : 'text-slate-400'}>{icon}</span>
+      {label}
+    </a>
+  );
+}

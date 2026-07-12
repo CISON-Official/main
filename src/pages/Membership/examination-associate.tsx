@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  GraduationCap,
-  ArrowRight,
-  SignIn,
-  CurrencyNgn,
-  UserSwitch,
+  GraduationCapIcon,
+  ArrowRightIcon,
+  SignInIcon,
+  CurrencyNgnIcon,
+  UserSwitchIcon,
 } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,16 +18,9 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import RoutePath from "@/routes";
+import { fadeUp, Stagger } from "@/animate";
 
-// Animation variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-};
 
 const ExaminationAssociatePage: React.FC = () => {
   return (
@@ -35,28 +28,28 @@ const ExaminationAssociatePage: React.FC = () => {
       {/* ===== HERO SECTION ===== */}
       <section className="relative isolate px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
         {/* Decorative background */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
+        <div className="absolute inset-0 -z-10 bg-linear-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
 
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
           animate="visible"
-          variants={stagger}
+          variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
             <Badge
               variant="outline"
               className="border-emerald-200 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-300"
             >
-              <GraduationCap weight="bold" className="mr-2 h-4 w-4" />
+              <GraduationCapIcon weight="bold" className="mr-2 h-4 w-4" />
               Examination Associate
             </Badge>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
+            className="mt-6 bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
           >
             Explore Our Membership Options
           </motion.h1>
@@ -105,7 +98,6 @@ const ExaminationAssociatePage: React.FC = () => {
 
           <motion.div variants={fadeUp} className="mt-8">
             <Button
-              asChild
               size="lg"
               className="group relative overflow-hidden bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
             >
@@ -115,9 +107,9 @@ const ExaminationAssociatePage: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <span className="relative flex items-center gap-2">
-                  <UserSwitch weight="bold" className="h-5 w-5" />
+                  <UserSwitchIcon weight="bold" className="h-5 w-5" />
                   Registered Now!
-                  <ArrowRight
+                  <ArrowRightIcon
                     weight="bold"
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
@@ -156,7 +148,6 @@ const ExaminationAssociatePage: React.FC = () => {
                 </CardHeader>
                 <CardContent>
                   <Button
-                    asChild
                     variant="default"
                     className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                   >
@@ -165,7 +156,7 @@ const ExaminationAssociatePage: React.FC = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <SignIn weight="bold" className="mr-2 h-5 w-5" />
+                      <SignInIcon weight="bold" className="mr-2 h-5 w-5" />
                       Sign in or Recover your Account Here
                     </a>
                   </Button>
@@ -229,12 +220,11 @@ const ExaminationAssociatePage: React.FC = () => {
                   </p>
 
                   <Button
-                    asChild
                     variant="outline"
                     className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-800/50 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
                   >
-                    <a href="https://cison.org.ng/annual-fees-and-dues/">
-                      <CurrencyNgn weight="bold" className="mr-2 h-5 w-5" />
+                    <a href={RoutePath.AnnualFees}>
+                      <CurrencyNgnIcon weight="bold" className="mr-2 h-5 w-5" />
                       All Fees
                     </a>
                   </Button>

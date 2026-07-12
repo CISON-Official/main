@@ -25,7 +25,7 @@ const HeroSection: React.FC = () => (
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="relative w-full bg-gradient-to-r from-green-50 to-white py-16 md:py-24"
+        className="relative w-full bg-linear-to-r from-green-50 to-white py-16 md:py-24"
     >
         <div className="container mx-auto px-4 md:px-6">
             <div className="flex flex-col items-start gap-4">
