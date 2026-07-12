@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon} from '@phosphor-icons/react';
+import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
 import RoutePath from '@/routes';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
@@ -171,8 +171,8 @@ const articles = [
     },
     {
         category: 'Latest · Membership',
-        title: '2024 Conference Programme',
-        href: 'https://cison.org.ng/2024-conference-programme/',
+        title: '2026 Conference Programme',
+        href: 'https://cison.org.ng/2026-international-annual-conference/',
     },
 ];
 
@@ -433,13 +433,13 @@ function EventBanner() {
                                 href="https://cison.org.ng/event/1st-annual-conference-1st-pre-conference-workshop/"
                                 className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                             >
-                                The 1st Annual Conference and 1st Pre-Conference Workshop of The Chartered Institute of Statisticians of Nigeria (CISON)
+                                The 3rd Annual Conference and 3rd Pre-Conference Workshop of The Chartered Institute of Statisticians of Nigeria (CISON)
                             </a>
                         </h2>
                     </div>
                     <div className="flex flex-col sm:items-end gap-3 shrink-0">
                         <a
-                            href="https://cison.org.ng/event/1st-annual-conference-1st-pre-conference-workshop/"
+                            href="https://cison.org.ng/2026-international-annual-conference/"
                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-500 transition-colors"
                         >
                             Register to Participate <ArrowRightIcon className="w-4 h-4" />

@@ -1,18 +1,18 @@
 
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
-import Logo from "@/assets/logo.jpg"
+import Logo from "@/assets/logo.png"
 import RoutePath from '@/routes';
 import { Link } from 'react-router-dom';
 
 const footerWhatWeDo = [
-  { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
-  { name: 'Accreditation of Institutions', href: 'https://cison.org.ng/accreditation-and-examination/institutions-accreditation/' },
-  { name: 'Courses Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/courses-accreditation/' },
-  { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
-  { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
-  { name: 'Capacity Building', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
-  { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
-  { name: 'Curriculum Development', href: 'https://cison.org.ng/accreditation-and-examination/curriculum-development/' },
+  { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
+  { name: 'Accreditation of Institutions', href: RoutePath.InstitutionalAccreditation },
+  { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
+  { name: 'Professional Examination', href: RoutePath.ProfessionalExamination },
+  { name: 'Consultancy Services', href: RoutePath.ConsultancyService },
+  { name: 'Capacity Building', href: RoutePath.CPDPolicy },
+  { name: 'Mentoring Scheme', href: RoutePath.MentoringScheme },
+  { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
 ];
 
 const footerWhoWeAre = [
@@ -53,7 +53,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 gap-10 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-400 flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 rounded-xl bg-linear-to-br flex items-center justify-center shadow-lg">
                 <img className="text-white font-black text-sm" src={Logo} alt="CISON Footer Logo" />
               </div>
               <span className="font-bold text-white text-lg">CISON</span>
@@ -78,9 +78,9 @@ function Footer() {
             <ul className="space-y-2.5">
               {footerWhatWeDo.map(l => (
                 <li key={l.name}>
-                  <Link to={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
                     {l.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -90,9 +90,9 @@ function Footer() {
             <ul className="space-y-2.5">
               {footerWhoWeAre.map(l => (
                 <li key={l.name}>
-                  <Link to={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
                     {l.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

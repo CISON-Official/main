@@ -1,6 +1,7 @@
 import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import AnnouncementModal from "../Announcements";
+import RoutePath from "@/routes";
 
 export default function CISON2026Conference() {
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -33,7 +34,7 @@ export default function CISON2026Conference() {
                                     <span className="text-indigo-600 text-lg">📍</span>
                                     <div>
                                         <p className="font-semibold text-slate-800">Venue</p>
-                                        <p className="text-slate-500">International Conference Centre</p>
+                                        <p className="text-slate-500">Chida Hotel Event Center, Utako, Abuja, Nigeria</p>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +54,7 @@ export default function CISON2026Conference() {
                                 <button
                                     onClick={() => {
                                         // Replace with actual registration path or router navigation
-                                        window.location.href = '/conference-registration';
+                                        window.location.href = RoutePath.Conference2026;
                                         handleClose();
                                     }}
                                     className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-bold text-white shadow-md hover:from-blue-700 hover:to-indigo-700 transition sm:w-auto"

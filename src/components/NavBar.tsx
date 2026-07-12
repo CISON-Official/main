@@ -39,9 +39,9 @@ const routes = [
             { name: 'Institutions Accreditation', href: RoutePath.InstitutionalAccreditation },
             { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
             { name: 'CPD Policy', href: RoutePath.CPDPolicy },
-            { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
-            { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
-            { name: 'Fellows', href: 'https://cison.org.ng/fellows/' },
+            { name: 'Consultancy Services', href: RoutePath.ConsultancyService },
+            { name: 'Mentoring Scheme', href: RoutePath.MentoringScheme },
+            { name: 'Fellows', href: RoutePath.Fellows },
         ],
     },
     {
@@ -52,19 +52,20 @@ const routes = [
                 name: 'Membership Types',
                 href: RoutePath.Membership,
                 children: [
-                    { name: 'Chartered Statistician', href: 'https://cison.org.ng/chartered-statistician/' },
-                    { name: 'Associate Statistician', href: 'https://cison.org.ng/associate-statistician/' },
-                    { name: 'Examination Associate', href: 'https://cison.org.ng/examination-associate/' },
-                    { name: 'Registered Statistician', href: 'https://cison.org.ng/registered-statistician/' },
-                    { name: 'Student Member', href: 'https://cison.org.ng/student-member/' },
-                    { name: 'Corporate Member', href: 'https://cison.org.ng/portal/membership-types/#corporate' },
+                    { name: 'Chartered Statistician', href: RoutePath.CharacterdStatistician },
+                    { name: 'Associate Statistician', href: RoutePath.AssociateStatistician },
+                    { name: 'Examination Associate', href: RoutePath.ExaminationAssociate },
+                    { name: 'Registered Statistician', href: RoutePath.RegisteredStatistician },
+                    { name: 'Student Member', href: RoutePath.Student },
+                    { name: 'Corporate Member', href: RoutePath.Corporate },
                 ],
             },
-            { name: 'Annual Fees', href: 'https://cison.org.ng/annual-fees-and-dues/' },
-            { name: 'How to Pay', href: 'https://cison.org.ng/how-to-pay/' },
+            { name: 'Annual Fees', href: RoutePath.AnnualFees },
+            { name: 'How to Pay', href: RoutePath.HowToPay },
             { name: 'Membership Verification', href: 'https://my.cison.org.ng/verify-certificate/', external: true },
-            { name: 'Member Login', href: 'https://cison.org.ng/members/', external: true },
+            { name: 'Member Login', href: 'https://my.cison.org.ng/members/', external: true },
         ],
+        href: RoutePath.Membership
     },
     {
         name: 'News & Events',
@@ -90,7 +91,7 @@ const routes = [
             { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf' },
         ],
     },
-    { name: 'Contact', href: RoutePath.ContactUs },
+    { name: 'Contact', href: RoutePath.ContactUs }, { name: "Donate", href: RoutePath.Donate }
 ] as const;
 
 // ─── Types ────────────────────────────────────────────────────────────────────

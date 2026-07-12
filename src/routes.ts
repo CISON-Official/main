@@ -21,6 +21,10 @@ const RoutePath = {
     Individual: '/membership/individual',
     Corporate: '/membership/corporate',
     Student: '/membership/student',
+    ExaminationAssociate: "/membership/examination-associate",
+    RegisteredStatistician: "/membership/registered-statistician",
+    AssociateStatistician: "/membership/associate-statistician",
+    CharacterdStatistician: "/membership/charactered-statistician",
 
 
     // News & Insights',
@@ -63,19 +67,31 @@ const RoutePath = {
     EditorInChief: "/about/council/editor-in-chief",
     ManagingEditor: "/about/council/managing-editor",
     AssociateEditor: "/about/council/Associate-Editor",
+    MentoringScheme: "/about/mentoring",
+    ConsultancyService: "/about/consultancy-service",
+    Fellows: "/about/fellows",
+
+    // Event
+    Event: "/event",
+    Conference2026: "/event/2026-conference-preconference",
+    SingleEvent: "/event/:eventid",
+    SecondQuarterPrs2026: "/event/2nd-quarter-prs-2026",
+    ThirdFourthQuarterPRS2026: "/event/3rd-4th-quarter-prs-2026",
 
 
-
-
-    // PRS
-    PRS: "/prs",
-    SecondQuarterPrs2026: "/prs/2nd-quarter-prs-2026",
 
     // People
     OurPeople: "/our-people",
 
     // Former 
-    CrownPrinceAbubakarBelloAfegbua: "/about/crown-prince-abubakar-bello-afegbua"
+    CrownPrinceAbubakarBelloAfegbua: "/about/crown-prince-abubakar-bello-afegbua",
+
+    // Misc
+    HowToPay: "/misc/how-to-pay",
+    AnnualFees: "/misc/annual-fees",
+    Donate: "/donate",
+
+    WP_ADMIN: "/wp-admin",
 
 };
 

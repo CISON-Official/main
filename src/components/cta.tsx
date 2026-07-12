@@ -30,7 +30,7 @@ export default function CTAStrip() {
                             variant="outline"
                             className="border-[#3dd9a8]/40 text-[#3dd9a8] hover:bg-[#1a7a5e]/20  tracking-wide"
                         >
-                            <a href="https://cison.org.ng/membership-types/">
+                            <a href={RoutePath.Membership}>
                                 Become a Member
                             </a>
                         </Button>
