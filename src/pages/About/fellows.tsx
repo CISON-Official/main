@@ -20,7 +20,7 @@ const Fellows: React.FC = () => {
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
-          animate="visible"
+          animate="show"
           variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -79,7 +79,7 @@ const Fellows: React.FC = () => {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
@@ -104,7 +104,7 @@ const Fellows: React.FC = () => {
                   className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
                 >
                   <a
-                    href="https://cison.org.ng/members/wp-login.php"
+                    href="https://my.cison.org.ng/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

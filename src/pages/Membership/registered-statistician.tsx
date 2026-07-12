@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { fadeUp, Stagger } from "@/animate";
+import RoutePath from "@/routes";
 
 
 
@@ -35,7 +36,7 @@ const RegisteredStatisticianPage: React.FC = () => {
                 <motion.div
                     className="mx-auto max-w-4xl"
                     initial="hidden"
-                    animate="visible"
+                    animate="show"
                     variants={Stagger}
                 >
                     <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -64,14 +65,14 @@ const RegisteredStatisticianPage: React.FC = () => {
                             to all those with interest in statistics and the Institute’s
                             objectives. Under this category are:{" "}
                             <a
-                                href="https://cison.org.ng/portal/registered-member/"
+                                href={RoutePath.RegisteredStatistician}
                                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
                             >
                                 Registered Statistician
                             </a>{" "}
                             and the{" "}
                             <a
-                                href="https://cison.org.ng/portal/student-member/"
+                                href={RoutePath.Student}
                                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
                             >
                                 Student Member
@@ -82,7 +83,7 @@ const RegisteredStatisticianPage: React.FC = () => {
                             After two years of membership, the Registered Statistician becomes
                             an{" "}
                             <a
-                                href="https://cison.org.ng/portal/associate-statistician/"
+                                href={RoutePath.AssociateStatistician}
                                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
                             >
                                 Associate Statistician (A.Stat.)
@@ -122,7 +123,7 @@ const RegisteredStatisticianPage: React.FC = () => {
                         {/* Already a Member? Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                         >
@@ -162,7 +163,7 @@ const RegisteredStatisticianPage: React.FC = () => {
                         {/* Annual Fees Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                             transition={{ delay: 0.1 }}
@@ -239,7 +240,7 @@ const RegisteredStatisticianPage: React.FC = () => {
                                         variant="outline"
                                         className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-800/50 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
                                     >
-                                        <a href="https://cison.org.ng/annual-fees-and-dues/">
+                                        <a href={RoutePath.AnnualFees}>
                                             <CurrencyNgnIcon weight="bold" className="mr-2 h-5 w-5" />
                                             All Fees
                                         </a>

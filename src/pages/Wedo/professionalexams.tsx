@@ -271,7 +271,7 @@ export default function CisonExaminationPage() {
 
                     <Reveal custom={1} className="mt-12 text-center">
                         <a
-                            href="https://cison.org.ng/members/member-registration/"
+                            href="https://my.cison.org.ng/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-3 border border-(--accent-green) text-(--accent-green) font-bold px-7 py-4 text-sm tracking-wide hover:bg-(--accent-green) hover:text-(--navy) transition-all duration-300"

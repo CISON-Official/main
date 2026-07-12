@@ -29,7 +29,7 @@ const HowToPayPage: React.FC = () => {
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
-          animate="visible"
+          animate="show"
           variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -83,7 +83,7 @@ const HowToPayPage: React.FC = () => {
           <motion.div
             className="grid grid-cols-1 gap-6 md:grid-cols-3"
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.1 }}
             variants={Stagger}
           >
@@ -212,7 +212,7 @@ const HowToPayPage: React.FC = () => {
           <motion.div
             className="mt-12 flex flex-col items-center justify-center gap-4"
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
@@ -221,7 +221,7 @@ const HowToPayPage: React.FC = () => {
               className="group bg-emerald-600 px-8 text-base hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
             >
               <a
-                href="https://cison.org.ng/members/wp-login.php"
+                href="https://my.cison.org.ng"
                 target="_blank"
                 rel="noopener noreferrer"
               >

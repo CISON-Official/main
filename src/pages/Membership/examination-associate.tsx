@@ -34,7 +34,7 @@ const ExaminationAssociatePage: React.FC = () => {
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
-          animate="visible"
+          animate="show"
           variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -61,14 +61,14 @@ const ExaminationAssociatePage: React.FC = () => {
             <p>
               After the two years of membership, an{" "}
               <a
-                href="https://cison.org.ng/portal/associate-statistician/"
+                href={RoutePath.AssociateStatistician}
                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
               >
                 Associate Statistician
               </a>{" "}
               is eligible to begin the sequential examinations to earn the{" "}
               <a
-                href="https://cison.org.ng/portal/chartered-statistician/"
+                href={RoutePath.CharacterdStatistician}
                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
               >
                 Chartered Statistician
@@ -76,7 +76,7 @@ const ExaminationAssociatePage: React.FC = () => {
               status, provided s/he has five years of practical experience in
               applying statistics. At this stage, they will be reclassified as{" "}
               <a
-                href="https://cison.org.ng/portal/examination-associate/"
+                href={RoutePath.ExaminationAssociate}
                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
               >
                 Examination Associates
@@ -87,7 +87,7 @@ const ExaminationAssociatePage: React.FC = () => {
               Upon successfully earning the <strong>Graduate Certificate</strong>
               , they are designated as{" "}
               <a
-                href="https://cison.org.ng/portal/chartered-statistician/"
+                href={RoutePath.CharacterdStatistician}
                 className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
               >
                 Chartered Statisticians
@@ -102,7 +102,7 @@ const ExaminationAssociatePage: React.FC = () => {
               className="group relative overflow-hidden bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
             >
               <a
-                href="https://cison.org.ng/members/wp-login.php"
+                href="https://my.cison.org.ng"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -127,7 +127,7 @@ const ExaminationAssociatePage: React.FC = () => {
             {/* Already a Member? Card */}
             <motion.div
               initial="hidden"
-              whileInView="visible"
+              whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUp}
             >
@@ -152,7 +152,7 @@ const ExaminationAssociatePage: React.FC = () => {
                     className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                   >
                     <a
-                      href="https://cison.org.ng/members/wp-login.php"
+                      href="https://my.cison.org.ng"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -167,7 +167,7 @@ const ExaminationAssociatePage: React.FC = () => {
             {/* Annual Fees Card */}
             <motion.div
               initial="hidden"
-              whileInView="visible"
+              whileInView="show"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUp}
               transition={{ delay: 0.1 }}

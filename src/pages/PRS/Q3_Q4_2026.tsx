@@ -4,14 +4,13 @@ import {
   CheckCircleIcon, 
   UserIcon, 
   StudentIcon, 
-  PhoneIcon,
-  EnvelopeSimpleIcon,
   CoatHangerIcon,
   WebcamIcon,
   NetworkIcon,
 } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
-
+import Person1 from "@/assets/people/citations.jpeg";
+import Person2 from "@/assets/people/citations-1.jpeg";
 // --- Types ---
 interface WorkshopData {
   id: string;
@@ -44,7 +43,7 @@ const workshops: WorkshopData[] = [
     facilitator: {
       name: "DR. Ephraim Ogbonna",
       institution: "University of Ibadan, Oyo State",
-      image: "https://cison.org.ng/portal/wp-content/uploads/2026/07/citations.jpeg"
+      image: Person1
     },
     outcomes: [
       "Master the Art of forecasting for National Development",
@@ -67,7 +66,7 @@ const workshops: WorkshopData[] = [
     facilitator: {
       name: "DR. O. T. Arowolo",
       institution: "Lagos State University of Science and Technology, Ikorodu, Lagos",
-      image: "https://cison.org.ng/portal/wp-content/uploads/2026/07/citations-1.jpeg"
+      image: Person2
     },
     outcomes: [
       "Obtain professional Soft skills for Advanced Professional Dashboards",
@@ -253,30 +252,7 @@ export default function PrsWorkshops() {
         </motion.div>
       </main>
 
-      {/* --- FOOTER SECTIONS DESIGN --- */}
-      <footer className="border-t border-slate-900 bg-slate-950 text-slate-500 text-sm py-12 px-4 mt-20">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <div className="h-8 px-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded font-bold text-sm tracking-widest flex items-center justify-center">
-              CISON
-            </div>
-            <p className="text-xs text-slate-400">
-              Chartered Institute of Statisticians of Nigeria &copy; 2026. All Rights Reserved.
-            </p>
-          </div>
-
-          {/* Quick Contact Options */}
-          <div className="flex flex-wrap items-center gap-4 text-xs font-medium text-slate-400">
-            <a href="tel:+2347014432794" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
-              <PhoneIcon size={14} /> +234 701 443 2794
-            </a>
-            <a href="mailto:info@cison.org.ng" className="flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
-              <EnvelopeSimpleIcon size={14} /> info@cison.org.ng
-            </a>
-          </div>
-        </div>
-      </footer>
-
+     
     </div>
   );
 }

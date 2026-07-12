@@ -47,7 +47,7 @@ const routes = [
     {
         name: 'Membership',
         children: [
-            { name: 'Special Announcement', href: 'https://cison.org.ng/special-announcement/' },
+            // { name: 'Special Announcement', href: 'https://cison.org.ng/special-announcement/' },
             {
                 name: 'Membership Types',
                 href: RoutePath.Membership,
@@ -72,8 +72,8 @@ const routes = [
         href: '/event',
         children: [
             { name: 'News', href: '/portal/news' },
-            { name: 'Upcoming Events', href: 'https://cison.org.ng/events/' },
-            { name: 'Vacancy Announcement', href: 'https://cison.org.ng/vacancy-announcement/' },
+            { name: 'Upcoming Events', href: RoutePath.Event },
+            // { name: 'Vacancy Announcement', href: 'https://cison.org.ng/vacancy-announcement/' },
         ],
     },
     {
@@ -82,13 +82,13 @@ const routes = [
             {
                 name: 'Conference Proceedings',
                 children: [
-                    { name: '1st Annual CISON Conference Proceedings', href: 'https://cison.org.ng/portal/wp-content/uploads/2025/08/2024-PROCEEDINGS-SUBMITTED-FOR-PUBLICATION_UPDATED.pdf' },
-                    { name: '2025 Conference Proceedings', href: 'https://cison.org.ng/portal/wp-content/uploads/2026/03/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf' },
+                    { name: '1st Annual CISON Conference Proceedings', href: RoutePath.CISON2024ConferenceProceeding },
+                    { name: '2025 Conference Proceedings', href: RoutePath.CISON2025ConferenceProceeding },
                 ],
             },
             { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
-            { name: 'CISON Book of Abstract', href: 'https://drive.google.com/file/d/1x9vBMq9IcFrclTKZU26bGxSF3WaF5lOy/view?usp=sharing', external: true },
-            { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf' },
+            { name: 'CISON Book of Abstract', href: RoutePath.CISONBookOfAbstracts },
+            { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf', external: true },
         ],
     },
     { name: 'Contact', href: RoutePath.ContactUs }, { name: "Donate", href: RoutePath.Donate }
@@ -340,7 +340,7 @@ function Navbar() {
             >
                 {/* Top utility bar */}
                 <div className="hidden lg:flex items-center justify-end gap-4 px-6 py-1.5 border-b border-border/50 text-xs text-muted-foreground bg-muted/30">
-                    <Link to="https://cison.org.ng/membership-types/" className="hover:text-foreground transition-colors">
+                    <Link to={RoutePath.Membership} className="hover:text-foreground transition-colors">
                         Become a Member
                     </Link>
                     <span className="opacity-30">|</span>
@@ -401,7 +401,7 @@ function Navbar() {
                         <ThemeToggle />
 
                         <Link
-                            to="https://cison.org.ng/members/"
+                            to="https://my.cison.org.ng/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden lg:flex items-center gap-2 ml-2 px-4 py-2 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors shadow-sm"
@@ -475,7 +475,7 @@ function Navbar() {
                 {/* Drawer footer */}
                 <div className="px-5 py-4 border-t border-border space-y-2">
                     <Link
-                        to="https://cison.org.ng/members/"
+                        to="https://my.cison.org.ng"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors"
@@ -483,7 +483,7 @@ function Navbar() {
                         <UserIcon className="w-4 h-4" /> Member Login
                     </Link>
                     <Link
-                        to="https://cison.org.ng/membership-types/"
+                        to={RoutePath.Membership}
                         className="flex items-center justify-center w-full py-2.5 text-sm font-medium rounded-lg border border-border text-foreground/80 hover:bg-muted/50 transition-colors"
                     >
                         Become a Member

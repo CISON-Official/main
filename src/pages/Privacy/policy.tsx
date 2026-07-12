@@ -11,7 +11,7 @@ function Breadcrumb() {
             className="flex items-center gap-1.5 text-sm text-muted-foreground font-mono tracking-tight"
         >
             <a
-                href="https://cison.org.ng/"
+                href="/"
                 className="flex items-center gap-1 hover:text-foreground transition-colors"
             >
                 <HouseIcon className="w-3.5 h-3.5" />

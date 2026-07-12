@@ -98,7 +98,7 @@ function Hero() {
 
                     <motion.div className="flex flex-wrap gap-4"
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-                        <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                        <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                             className="group inline-flex items-center gap-2.5 bg-green-500 hover:bg-green-400 text-white px-7 py-3.5 rounded-full font-medium text-sm transition-all">
                             Begin the Process
                             <ArrowUpRightIcon size={16} />
@@ -214,7 +214,7 @@ function Criteria() {
                         <div className="w-8 h-px bg-green-500 dark:bg-emerald-300" />
                     </div>
                     <h2 className="text-4xl md:text-5xl font-semibold text-green-500 leading-tight"
-                        >
+                    >
                         What CISON evaluates
                     </h2>
                 </motion.div>
@@ -268,7 +268,7 @@ function Process() {
                         The Process
                     </div>
                     <h2 className="text-4xl md:text-5xl font-semibold text-green-500 leading-tight"
-                        >
+                    >
                         How accreditation works
                     </h2>
                 </motion.div>
@@ -301,12 +301,12 @@ function Process() {
                         </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-                        <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                        <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                             className="group inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white px-6 py-3 rounded-full font-medium text-sm transition-all whitespace-nowrap">
                             Begin the Process
                             <ArrowRightIcon size={15} />
                         </a>
-                        <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                        <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                             className="inline-flex items-center gap-2 text-green-300 px-6 py-3 rounded-full font-medium text-sm transition-all whitespace-nowrap"
                             style={{ border: '1px solid rgba(74,222,128,0.5)' }}>
                             <SignInIcon size={15} />

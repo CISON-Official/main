@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { fadeUp, Stagger } from "@/animate";
+import RoutePath from "@/routes";
 
 
 const AnnualFeesPage: React.FC = () => {
@@ -33,7 +34,7 @@ const AnnualFeesPage: React.FC = () => {
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
-          animate="visible"
+          animate="show"
           variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -69,7 +70,7 @@ const AnnualFeesPage: React.FC = () => {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
@@ -114,15 +115,15 @@ const AnnualFeesPage: React.FC = () => {
                         {
                           sn: 2,
                           item: "Membership Transition Fee",
-                          student: "₦0.00",
+                          student: "N/A",
                           member: "₦20,000.00",
                           retired: "₦20,000.00",
-                          corporate: "₦50,000.00",
+                          corporate: "N/A",
                         },
                         {
                           sn: 3,
                           item: "CISON’s Development Levy",
-                          student: "₦0.00",
+                          student: "₦5,000.00",
                           member: "₦20,000.00",
                           retired: "₦20,000.00",
                           corporate: "N/A",
@@ -130,10 +131,10 @@ const AnnualFeesPage: React.FC = () => {
                         {
                           sn: 4,
                           item: "New Members Registration Fee *",
-                          student: "₦0.00",
+                          student: "₦10,000.00",
                           member: "₦50,000.00",
                           retired: "₦50,000.00",
-                          corporate: "N/A",
+                          corporate: "₦50,000.00",
                         },
                       ].map((row) => (
                         <TableRow key={row.sn}>
@@ -157,7 +158,7 @@ const AnnualFeesPage: React.FC = () => {
                   <p className="text-sm text-gray-600 dark:text-gray-300">
                     Also see the available{" "}
                     <a
-                      href="https://cison.org.ng/portal/how-to-pay/"
+                      href={RoutePath.HowToPay}
                       className="font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
                     >
                       Methods of Payment
@@ -170,7 +171,7 @@ const AnnualFeesPage: React.FC = () => {
                     className="group bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                   >
                     <a
-                      href="https://cison.org.ng/members/member-registration/"
+                      href="https://my.cison.org.ng/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -188,7 +189,7 @@ const AnnualFeesPage: React.FC = () => {
                     className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-800/50 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
                   >
                     <a
-                      href="https://cison.org.ng/members/shop/"
+                      href="https://my.cison.org.ng/members/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -208,7 +209,7 @@ const AnnualFeesPage: React.FC = () => {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
@@ -233,7 +234,7 @@ const AnnualFeesPage: React.FC = () => {
                   className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
                 >
                   <a
-                    href="https://cison.org.ng/members/wp-login.php"
+                    href="https://my.cison.org.ng"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

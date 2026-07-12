@@ -27,7 +27,7 @@ export default function CPDPage() {
 
     return (
         <>
-            <SEO title="CPD Policy" canonicalUrl={RoutePath.CPDPolicy} description="Continuing Professional Development (CPD) Policy"/>
+            <SEO title="CPD Policy" canonicalUrl={RoutePath.CPDPolicy} description="Continuing Professional Development (CPD) Policy" />
             {/* Hero */}
             <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden" style={{ background: 'var(--hero-bg)' }}>
                 <motion.div style={{ y }} className="absolute inset-0 pointer-events-none">
@@ -59,12 +59,12 @@ export default function CPDPage() {
 
                         <motion.div className="flex flex-wrap gap-4"
                             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}>
-                            <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                            <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                                 className="group inline-flex items-center gap-2.5 bg-green-500 hover:bg-green-400 text-white px-7 py-3.5 rounded-full font-medium text-sm transition-all">
                                 Access CPD Portal <ArrowRightIcon size={16} />
                             </a>
                             <a href="#cpd-features" className="inline-flex items-center gap-2 dark:text-green-300 hover:text-green-200 px-7 py-3.5 rounded-full font-medium text-sm transition-all text-green-700 "
-                                >
+                            >
                                 Learn More
                             </a>
                         </motion.div>
@@ -203,7 +203,7 @@ export default function CPDPage() {
                         }} />
                         <div className="relative z-10">
                             <div className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-6 text-xs tracking-widest uppercase font-mono-dm border-green-600 border-2 text-emerald-500"
-                                >
+                            >
                                 <ArrowsClockwiseIcon size={13} /> Already a C.Stat. Member?
                             </div>
                             <h2 className="font-display text-3xl md:text-5xl font-semibold mb-5 max-w-2xl mx-auto leading-tight text-black dark:text-white">
@@ -213,11 +213,11 @@ export default function CPDPage() {
                                 Sign in to the CISON members portal to manage your CPD record, log professional development activities, and apply for your Maintained Professional Certificate.
                             </p>
                             <div className="flex flex-wrap gap-4 justify-center">
-                                <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                                <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                                     className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white px-8 py-3.5 rounded-full font-medium text-sm transition-all">
                                     Sign In to Members Portal <ArrowRightIcon size={15} />
                                 </a>
-                                <a href="https://cison.org.ng/members/wp-login.php" target="_blank" rel="noreferrer"
+                                <a href="https://my.cison.org.ng" target="_blank" rel="noreferrer"
                                     className="inline-flex items-center gap-2 text-green-300 hover:text-green-200 px-8 py-3.5 rounded-full font-medium text-sm transition-all"
                                     style={{ border: '1px solid rgba(74,222,128,0.4)' }}>
                                     <SignInIcon size={15} /> Recover Your Account

@@ -76,7 +76,7 @@ const examLevels = [
 
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
-function Hero({ theme }: { theme:string }) {
+function Hero({ theme }: { theme: string }) {
   const dark = theme === "dark";
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -86,9 +86,8 @@ function Hero({ theme }: { theme:string }) {
   return (
     <section
       ref={ref}
-      className={`relative min-h-screen flex items-center overflow-hidden transition-colors duration-500 ${
-        dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
-      }`}
+      className={`relative min-h-screen flex items-center overflow-hidden transition-colors duration-500 ${dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
+        }`}
     >
       {/* dot grid */}
       <div
@@ -103,9 +102,8 @@ function Hero({ theme }: { theme:string }) {
 
       {/* ambient glow */}
       <div
-        className={`absolute top-0 right-0 w-[55vw] h-[55vw] rounded-full pointer-events-none blur-[150px] ${
-          dark ? "bg-green-900/20" : "bg-green-200/50"
-        }`}
+        className={`absolute top-0 right-0 w-[55vw] h-[55vw] rounded-full pointer-events-none blur-[150px] ${dark ? "bg-green-900/20" : "bg-green-200/50"
+          }`}
       />
 
       <motion.div
@@ -126,9 +124,8 @@ function Hero({ theme }: { theme:string }) {
 
             <Reveal custom={1}>
               <h1
-                className={`text-4xl md:text-6xl lg:text-7xl font-black leading-[0.92] tracking-tight mb-6 ${
-                  dark ? "text-white" : "text-[#0a1a10]"
-                }`}
+                className={`text-4xl md:text-6xl lg:text-7xl font-black leading-[0.92] tracking-tight mb-6 ${dark ? "text-white" : "text-[#0a1a10]"
+                  }`}
               >
                 Accreditation of
                 <br />
@@ -140,9 +137,8 @@ function Hero({ theme }: { theme:string }) {
 
             <Reveal custom={2}>
               <p
-                className={`text-base md:text-lg leading-relaxed max-w-xl mb-10 ${
-                  dark ? "text-white/55" : "text-green-900/60"
-                }`}
+                className={`text-base md:text-lg leading-relaxed max-w-xl mb-10 ${dark ? "text-white/55" : "text-green-900/60"
+                  }`}
               >
                 CISON works with NBTE and NUC to accredit institutions preparing
                 candidates for professional statistical examinations — setting clear
@@ -164,14 +160,13 @@ function Hero({ theme }: { theme:string }) {
                   />
                 </a>
                 <a
-                  href="https://cison.org.ng/members/wp-login.php"
+                  href="https://my.cison.org.ng"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-2 border font-bold px-6 py-3 text-sm transition-colors duration-300 ${
-                    dark
+                  className={`inline-flex items-center gap-2 border font-bold px-6 py-3 text-sm transition-colors duration-300 ${dark
                       ? "border-white/20 text-white/70 hover:border-[#22c55e] hover:text-[#22c55e]"
                       : "border-green-300 text-green-800 hover:border-[#22c55e] hover:text-[#22c55e]"
-                  }`}
+                    }`}
                 >
                   Begin the Process
                   <ArrowSquareOut size={13} weight="bold" />
@@ -183,9 +178,8 @@ function Hero({ theme }: { theme:string }) {
           {/* right — exam level pills */}
           <Reveal custom={1} className="hidden md:flex flex-col gap-4">
             <p
-              className={`text-[10px] tracking-[0.22em] uppercase font-black mb-2 ${
-                dark ? "text-white/30" : "text-green-900/40"
-              }`}
+              className={`text-[10px] tracking-[0.22em] uppercase font-black mb-2 ${dark ? "text-white/30" : "text-green-900/40"
+                }`}
             >
               Examination Levels Covered
             </p>
@@ -196,9 +190,8 @@ function Hero({ theme }: { theme:string }) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.25 + i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className={`flex items-center gap-5 p-5 border-l-4 ${
-                  dark ? "bg-white/5" : "bg-white shadow-sm shadow-green-100"
-                }`}
+                className={`flex items-center gap-5 p-5 border-l-4 ${dark ? "bg-white/5" : "bg-white shadow-sm shadow-green-100"
+                  }`}
                 style={{ borderLeftColor: color }}
               >
                 <span
@@ -226,24 +219,22 @@ function Hero({ theme }: { theme:string }) {
       </motion.div>
 
       <div
-        className={`absolute bottom-0 inset-x-0 h-28 ${
-          dark
+        className={`absolute bottom-0 inset-x-0 h-28 ${dark
             ? "bg-linear-to-t from-[#071209] to-transparent"
             : "bg-linear-to-t from-[#f0fdf4] to-transparent"
-        }`}
+          }`}
       />
     </section>
   );
 }
 
 // ── Overview prose ────────────────────────────────────────────────────────────
-function Overview({ theme }: { theme:string }) {
+function Overview({ theme }: { theme: string }) {
   const dark = theme === "dark";
   return (
     <section
-      className={`py-24 transition-colors duration-500 ${
-        dark ? "bg-[#0a1a10]" : "bg-white"
-      }`}
+      className={`py-24 transition-colors duration-500 ${dark ? "bg-[#0a1a10]" : "bg-white"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div className="grid md:grid-cols-[1fr_1.5fr] gap-14 items-start">
@@ -255,9 +246,8 @@ function Overview({ theme }: { theme:string }) {
               </span>
             </div>
             <h2
-              className={`text-3xl md:text-4xl font-black leading-tight ${
-                dark ? "text-white" : "text-[#0a1a10]"
-              }`}
+              className={`text-3xl md:text-4xl font-black leading-tight ${dark ? "text-white" : "text-[#0a1a10]"
+                }`}
             >
               Why Institutional
               <br />
@@ -267,9 +257,8 @@ function Overview({ theme }: { theme:string }) {
 
           <Reveal custom={1}>
             <div
-              className={`space-y-5 text-sm leading-relaxed ${
-                dark ? "text-white/55" : "text-green-900/65"
-              }`}
+              className={`space-y-5 text-sm leading-relaxed ${dark ? "text-white/55" : "text-green-900/65"
+                }`}
             >
               <p>
                 CISON, in consultation with the National Board for Technical Education
@@ -293,9 +282,8 @@ function Overview({ theme }: { theme:string }) {
 
               {/* pull quote */}
               <div
-                className={`mt-6 pl-5 border-l-4 border-[#22c55e] italic ${
-                  dark ? "text-white/40" : "text-green-900/50"
-                }`}
+                className={`mt-6 pl-5 border-l-4 border-[#22c55e] italic ${dark ? "text-white/40" : "text-green-900/50"
+                  }`}
               >
                 "CISON could draw up guidelines for such institutions, in terms of
                 the qualifications of their staff and the depth of materials to be
@@ -310,13 +298,12 @@ function Overview({ theme }: { theme:string }) {
 }
 
 // ── What We Accredit ──────────────────────────────────────────────────────────
-function WhatWeAccredit({ theme }: { theme:string }) {
+function WhatWeAccredit({ theme }: { theme: string }) {
   const dark = theme === "dark";
   return (
     <section
-      className={`py-24 transition-colors duration-500 ${
-        dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
-      }`}
+      className={`py-24 transition-colors duration-500 ${dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <Reveal className="mb-14">
@@ -327,16 +314,14 @@ function WhatWeAccredit({ theme }: { theme:string }) {
             </span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl font-black leading-tight ${
-              dark ? "text-white" : "text-[#0a1a10]"
-            }`}
+            className={`text-4xl md:text-5xl font-black leading-tight ${dark ? "text-white" : "text-[#0a1a10]"
+              }`}
           >
             What CISON Accredits
           </h2>
           <p
-            className={`mt-4 max-w-lg text-sm leading-relaxed ${
-              dark ? "text-white/50" : "text-green-900/55"
-            }`}
+            className={`mt-4 max-w-lg text-sm leading-relaxed ${dark ? "text-white/50" : "text-green-900/55"
+              }`}
           >
             Accreditation applies across three categories of institutions engaged
             in statistics education and professional exam preparation.
@@ -347,11 +332,10 @@ function WhatWeAccredit({ theme }: { theme:string }) {
           {whatWeAccredit.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} custom={i * 0.1}>
               <div
-                className={`group relative h-full p-8 border transition-all duration-400 hover:-translate-y-1 ${
-                  dark
+                className={`group relative h-full p-8 border transition-all duration-400 hover:-translate-y-1 ${dark
                     ? "border-white/10 bg-[#0a1a10] hover:border-[#22c55e]/50"
                     : "border-green-100 bg-white hover:border-[#22c55e]/60 shadow-sm"
-                }`}
+                  }`}
               >
                 {/* animated top line */}
                 <motion.div
@@ -364,25 +348,22 @@ function WhatWeAccredit({ theme }: { theme:string }) {
                 />
 
                 <div
-                  className={`w-12 h-12 flex items-center justify-center mb-6 ${
-                    dark ? "bg-[#22c55e]/15" : "bg-green-100"
-                  }`}
+                  className={`w-12 h-12 flex items-center justify-center mb-6 ${dark ? "bg-[#22c55e]/15" : "bg-green-100"
+                    }`}
                 >
                   <Icon size={24} weight="duotone" className="text-[#22c55e]" />
                 </div>
 
                 <h3
-                  className={`text-lg font-black mb-3 ${
-                    dark ? "text-white" : "text-[#0a1a10]"
-                  }`}
+                  className={`text-lg font-black mb-3 ${dark ? "text-white" : "text-[#0a1a10]"
+                    }`}
                 >
                   {title}
                 </h3>
 
                 <p
-                  className={`text-sm leading-relaxed ${
-                    dark ? "text-white/50" : "text-green-900/60"
-                  }`}
+                  className={`text-sm leading-relaxed ${dark ? "text-white/50" : "text-green-900/60"
+                    }`}
                 >
                   {body}
                 </p>
@@ -396,14 +377,13 @@ function WhatWeAccredit({ theme }: { theme:string }) {
 }
 
 // ── Guidelines Grid ───────────────────────────────────────────────────────────
-function Guidelines({ theme }: { theme:string }) {
+function Guidelines({ theme }: { theme: string }) {
   const dark = theme === "dark";
   return (
     <section
       id="guidelines"
-      className={`py-24 transition-colors duration-500 ${
-        dark ? "bg-[#0a1a10]" : "bg-white"
-      }`}
+      className={`py-24 transition-colors duration-500 ${dark ? "bg-[#0a1a10]" : "bg-white"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <Reveal className="mb-14">
@@ -414,16 +394,14 @@ function Guidelines({ theme }: { theme:string }) {
             </span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl font-black leading-tight ${
-              dark ? "text-white" : "text-[#0a1a10]"
-            }`}
+            className={`text-4xl md:text-5xl font-black leading-tight ${dark ? "text-white" : "text-[#0a1a10]"
+              }`}
           >
             Institutional Guidelines
           </h2>
           <p
-            className={`mt-4 max-w-xl text-sm leading-relaxed ${
-              dark ? "text-white/50" : "text-green-900/55"
-            }`}
+            className={`mt-4 max-w-xl text-sm leading-relaxed ${dark ? "text-white/50" : "text-green-900/55"
+              }`}
           >
             Institutions seeking CISON accreditation must meet standards across
             the following areas to ensure candidate preparation is of the highest quality.
@@ -434,28 +412,24 @@ function Guidelines({ theme }: { theme:string }) {
           {guidelines.map(({ icon: GIcon, title, body }, i) => (
             <Reveal key={title} custom={i * 0.07}>
               <div
-                className={`p-8 h-full group hover:bg-[#22c55e]/5 transition-colors duration-300 ${
-                  dark ? "bg-[#0a1a10]" : "bg-white"
-                }`}
+                className={`p-8 h-full group hover:bg-[#22c55e]/5 transition-colors duration-300 ${dark ? "bg-[#0a1a10]" : "bg-white"
+                  }`}
               >
                 <div
-                  className={`w-10 h-10 flex items-center justify-center mb-5 ${
-                    dark ? "bg-[#22c55e]/15" : "bg-green-100"
-                  }`}
+                  className={`w-10 h-10 flex items-center justify-center mb-5 ${dark ? "bg-[#22c55e]/15" : "bg-green-100"
+                    }`}
                 >
                   <GIcon size={20} weight="duotone" className="text-[#22c55e]" />
                 </div>
                 <h4
-                  className={`text-sm font-black mb-3 ${
-                    dark ? "text-white" : "text-[#0a1a10]"
-                  }`}
+                  className={`text-sm font-black mb-3 ${dark ? "text-white" : "text-[#0a1a10]"
+                    }`}
                 >
                   {title}
                 </h4>
                 <p
-                  className={`text-xs leading-relaxed ${
-                    dark ? "text-white/45" : "text-green-900/55"
-                  }`}
+                  className={`text-xs leading-relaxed ${dark ? "text-white/45" : "text-green-900/55"
+                    }`}
                 >
                   {body}
                 </p>
@@ -469,7 +443,7 @@ function Guidelines({ theme }: { theme:string }) {
 }
 
 // ── Regulatory Partners strip ─────────────────────────────────────────────────
-function Partners({ theme }: { theme:string }) {
+function Partners({ theme }: { theme: string }) {
   const dark = theme === "dark";
   const partners = [
     { abbr: "NBTE", full: "National Board for Technical Education" },
@@ -479,16 +453,14 @@ function Partners({ theme }: { theme:string }) {
 
   return (
     <section
-      className={`py-16 border-y transition-colors duration-500 ${
-        dark ? "bg-[#071209] border-white/10" : "bg-[#f0fdf4] border-green-100"
-      }`}
+      className={`py-16 border-y transition-colors duration-500 ${dark ? "bg-[#071209] border-white/10" : "bg-[#f0fdf4] border-green-100"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <Reveal className="mb-10 text-center">
           <p
-            className={`text-xs tracking-[0.22em] uppercase font-bold ${
-              dark ? "text-white/35" : "text-green-900/45"
-            }`}
+            className={`text-xs tracking-[0.22em] uppercase font-bold ${dark ? "text-white/35" : "text-green-900/45"
+              }`}
           >
             Regulatory Framework — Working With
           </p>
@@ -497,21 +469,18 @@ function Partners({ theme }: { theme:string }) {
           {partners.map(({ abbr, full }, i) => (
             <Reveal key={abbr} custom={i * 0.1}>
               <div
-                className={`flex flex-col items-center text-center p-6 border ${
-                  dark ? "border-white/10 bg-white/5" : "border-green-100 bg-white shadow-sm"
-                }`}
+                className={`flex flex-col items-center text-center p-6 border ${dark ? "border-white/10 bg-white/5" : "border-green-100 bg-white shadow-sm"
+                  }`}
               >
                 <span
-                  className={`text-3xl font-black mb-2 ${
-                    dark ? "text-white" : "text-[#0a1a10]"
-                  }`}
+                  className={`text-3xl font-black mb-2 ${dark ? "text-white" : "text-[#0a1a10]"
+                    }`}
                 >
                   {abbr}
                 </span>
                 <span
-                  className={`text-xs leading-snug ${
-                    dark ? "text-white/40" : "text-green-900/50"
-                  }`}
+                  className={`text-xs leading-snug ${dark ? "text-white/40" : "text-green-900/50"
+                    }`}
                 >
                   {full}
                 </span>
@@ -526,7 +495,7 @@ function Partners({ theme }: { theme:string }) {
 }
 
 // ── Process Steps ─────────────────────────────────────────────────────────────
-function ProcessSteps({ theme }: { theme:string }) {
+function ProcessSteps({ theme }: { theme: string }) {
   const dark = theme === "dark";
   const steps = [
     {
@@ -553,9 +522,8 @@ function ProcessSteps({ theme }: { theme:string }) {
 
   return (
     <section
-      className={`py-24 transition-colors duration-500 ${
-        dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
-      }`}
+      className={`py-24 transition-colors duration-500 ${dark ? "bg-[#071209]" : "bg-[#f0fdf4]"
+        }`}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <Reveal className="mb-14">
@@ -566,9 +534,8 @@ function ProcessSteps({ theme }: { theme:string }) {
             </span>
           </div>
           <h2
-            className={`text-4xl md:text-5xl font-black leading-tight ${
-              dark ? "text-white" : "text-[#0a1a10]"
-            }`}
+            className={`text-4xl md:text-5xl font-black leading-tight ${dark ? "text-white" : "text-[#0a1a10]"
+              }`}
           >
             The Accreditation Process
           </h2>
@@ -578,11 +545,10 @@ function ProcessSteps({ theme }: { theme:string }) {
           {steps.map(({ n, title, desc }, i) => (
             <Reveal key={n} custom={i * 0.1}>
               <div
-                className={`flex gap-6 p-8 border h-full transition-colors duration-400 ${
-                  dark
+                className={`flex gap-6 p-8 border h-full transition-colors duration-400 ${dark
                     ? "border-white/10 bg-[#0a1a10] hover:border-[#22c55e]/40"
                     : "border-green-100 bg-white hover:border-[#22c55e]/50 shadow-sm"
-                }`}
+                  }`}
               >
                 <div className="shrink-0">
                   <div className="w-12 h-12 bg-[#22c55e] flex items-center justify-center">
@@ -591,16 +557,14 @@ function ProcessSteps({ theme }: { theme:string }) {
                 </div>
                 <div>
                   <h4
-                    className={`text-base font-black mb-2 ${
-                      dark ? "text-white" : "text-[#0a1a10]"
-                    }`}
+                    className={`text-base font-black mb-2 ${dark ? "text-white" : "text-[#0a1a10]"
+                      }`}
                   >
                     {title}
                   </h4>
                   <p
-                    className={`text-sm leading-relaxed ${
-                      dark ? "text-white/50" : "text-green-900/60"
-                    }`}
+                    className={`text-sm leading-relaxed ${dark ? "text-white/50" : "text-green-900/60"
+                      }`}
                   >
                     {desc}
                   </p>
@@ -617,7 +581,7 @@ function ProcessSteps({ theme }: { theme:string }) {
 
 
 export default function CisonInstitutionsAccreditationPage() {
-  const {isDark, theme} = useTheme();
+  const { isDark, theme } = useTheme();
   let dark = isDark;
 
   return (

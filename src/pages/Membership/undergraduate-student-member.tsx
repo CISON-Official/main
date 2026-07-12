@@ -33,7 +33,7 @@ const StudentMemberPage: React.FC = () => {
                 <motion.div
                     className="mx-auto max-w-4xl"
                     initial="hidden"
-                    animate="visible"
+                    animate="show"
                     variants={Stagger}
                 >
                     <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -80,7 +80,7 @@ const StudentMemberPage: React.FC = () => {
                             className="group relative overflow-hidden bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                         >
                             <a
-                                href="https://cison.org.ng/members/wp-login.php"
+                                href="https://my.cison.org.ng"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -105,7 +105,7 @@ const StudentMemberPage: React.FC = () => {
                         {/* Already a Member? Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                         >
@@ -140,7 +140,7 @@ const StudentMemberPage: React.FC = () => {
                         {/* Annual Fees Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                             transition={{ delay: 0.1 }}

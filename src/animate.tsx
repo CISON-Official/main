@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, type Variants } from "framer-motion";
 import { useRef } from "react";
 
 function Reveal({
@@ -47,9 +47,17 @@ const fadeIn = {
     ease: [0.25, 0.25, 0.25, 0.75] as const
   }),
 };
-
-const Stagger = {
-  show: { transition: { staggerChildren: 0.15 } },
+const Stagger: Variants = {
+  hidden: { 
+    opacity: 0 
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.05,
+      ease: "easeOut"
+    },
+  },
 };
-
 export { fadeUp, fadeIn, Reveal, Stagger };

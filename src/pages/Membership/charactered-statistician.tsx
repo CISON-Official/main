@@ -17,6 +17,7 @@ import {
     TableHeader,
     TableRow,
 } from '@/components/ui/table';
+import RoutePath from '@/routes';
 
 
 const HeroSection: React.FC = () => (
@@ -85,7 +86,7 @@ const RequirementsSection: React.FC = () => (
                     variant="default"
                     className="group bg-green-600 px-6 py-6 text-base text-white hover:bg-green-700"
                 >
-                    <a href="https://cison.org.ng/portal/professional-accreditation/#reqcstat">
+                    <a href={RoutePath.ProfessionalAccreditation}>
                         <span className="flex items-center gap-2">
                             <span>Requirements for the Chartered Statistician).</span>
                             <ArrowRightIcon
@@ -100,7 +101,7 @@ const RequirementsSection: React.FC = () => (
                     className="group border-green-600 px-6 py-6 text-base text-green-600 hover:bg-green-50"
                 >
                     <a
-                        href="https://cison.org.ng/members/cison-members/me/profile/"
+                        href="https://my.cison.org.ng/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -144,7 +145,7 @@ const MembershipSection: React.FC = () => (
                     className="w-full bg-green-600 px-6 py-6 text-base text-white hover:bg-green-700 md:w-auto"
                 >
                     <a
-                        href="https://cison.org.ng/members/wp-login.php"
+                        href="https://my.cison.org.ng/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -229,7 +230,7 @@ const FeesSection: React.FC = () => {
                         variant="default"
                         className="bg-green-600 px-6 py-6 text-base text-white hover:bg-green-700"
                     >
-                        <a href="https://cison.org.ng/annual-fees-and-dues/">
+                        <a href={RoutePath.AnnualFees}>
                             <span className="flex items-center gap-2">
                                 <CurrencyNgnIcon size={20} />
                                 <span>All CISON Fees &amp; Dues</span>

@@ -1,11 +1,12 @@
 import RoutePath from "@/routes";
 import type { PersonInterface } from "../base";
+import EditorInChiefImg from "@/assets/council/The_editor_in_chief.jpg";
 
 const EditorInChief: PersonInterface = {
     name: "Prof Polycarp Chigbu",
     role: "Editor-in-Chief: Journal of CISON",
     category: "Editorial Board",
-    img: "https://cison.org.ng/portal/wp-content/uploads/2024/10/The_editor_in_chief.jpg",
+    img: EditorInChiefImg,
     backHref: RoutePath.OurPeople,
 
     bio: `Prof. Polycarp Uchenna Chigbu is a distinguished statistician and academic leader with decades of contributions to statistical science and education in Nigeria. He serves as the Editor-in-Chief of the Journal of CISON, bringing rigorous editorial standards and scholarly depth to the Institute's flagship publication. His career has spanned university teaching, research, and national statistical advisory roles, making him one of Nigeria's foremost authorities in applied and theoretical statistics.`,
@@ -71,7 +72,7 @@ const EditorInChief: PersonInterface = {
     social: {
         linkedin: "#",
         twitter: "#",
-        email: "https://cison.org.ng/contact/",
+        email: "#",
         facebook: "https://web.facebook.com/profile.php?id=61560745762908",
     },
 };

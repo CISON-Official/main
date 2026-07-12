@@ -24,6 +24,7 @@ const HomePage = lazy(() => import("@/pages/Home"));
 
 // Privacy
 const PolicyPage = lazy(() => import("@/pages/Privacy/policy"));
+const ContactUsPage = lazy(() => import("@/pages/Privacy/contactus"));
 // const TermsPage = lazy(() => import("@/pages/Privacy/terms"));
 
 // About 
@@ -87,6 +88,7 @@ const CorporateStatisticianPage = lazy(() => import("@/pages/Membership/corporat
 const Conference2026Page = lazy(() => import("@/pages/Events/2026conference"));
 const EventPage = lazy(() => import("@/pages/Events/index"));
 const SingleEvent = lazy(() => import("@/pages/Events/single-event"));
+const JCISONPage = lazy(() => import("@/pages/Events/jcison-call-for-papers"));
 
 // MISC
 const Page404 = lazy(() => import('@/pages/MISC/404'));
@@ -103,6 +105,7 @@ function App() {
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
           <Route path="*" element={<Page404 />} />
+          <Route path={RoutePath.ContactUs} element={<ContactUsPage />} />
           <Route path="privacy">
             <Route index element={<PolicyPage />} />
             {/* <Route path={RoutePath.TermsOfService} element={<TermsPage />} /> */}
@@ -173,6 +176,7 @@ function App() {
             <Route path={RoutePath.SingleEvent} element={<SingleEvent />} />
             <Route path={RoutePath.SecondQuarterPrs2026} element={<CisonWorkshopPage />} />
             <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
+            <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
           </Route>
 
           <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />

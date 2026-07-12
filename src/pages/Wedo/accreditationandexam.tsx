@@ -36,19 +36,19 @@ const quickLinks = [
     {
         icon: UsersIcon,
         title: "Membership Types",
-        href: "https://cison.org.ng/membership-types/",
+        href: RoutePath.Membership,
         desc: "A.Stat., C.Stat. and more pathways",
     },
     {
         icon: CreditCardIcon,
         title: "Annual Fees & Dues",
-        href: "https://cison.org.ng/portal/cison-fees",
+        href: RoutePath.AnnualFees,
         desc: "Schedule of professional membership fees",
     },
     {
         icon: BookOpenIcon,
         title: "Members Directory",
-        href: "https://cison.org.ng/members/cison-members/",
+        href: "https://my.cison.org.ng/members/cison-members",
         external: true,
         desc: "Browse verified CISON members",
     },

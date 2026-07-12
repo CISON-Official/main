@@ -181,7 +181,7 @@ export default function EventsArchivePage() {
                                                     </div>
 
                                                     {/* Event Title Link Anchor */}
-                                                    <h4 className="text-lg font-bold leading-snug tracking-tight text-slate-900 group-hover:text-blue-600 dark:text-slate-50 dark:group-hover:text-blue-400 sm:text-xl">
+                                                    <h4 className="text-lg font-bold leading-snug tracking-tight text-slate-900 group-hover:text-emerald-600 dark:text-slate-50 dark:group-hover:text-emerald-400 sm:text-xl">
                                                         <a href={event.url} target="_blank" rel="noopener noreferrer" className="focus:outline-none">
                                                             <span className="absolute inset-0" aria-hidden="true" />
                                                             {event.name}
@@ -196,7 +196,7 @@ export default function EventsArchivePage() {
 
                                                 {/* Action footer context metrics inside standard card template */}
                                                 <div className="flex items-center justify-end border-t border-slate-50 pt-3 dark:border-slate-800/50">
-                                                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 dark:text-blue-400">
+                                                    <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
                                                         View Event details
                                                         <ArrowRightIcon className="h-3 w-3 transition-transform group-hover:translate-x-1" />
                                                     </span>

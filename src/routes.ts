@@ -42,12 +42,17 @@ const RoutePath = {
     ElectedCouncilMembers: '/about/council-members',
     Departments: '/about/departments',
     Committee: "/about/committee",
+
+    // Documents
     CISONAct: "/pdf/CISON-Act-2022-compressed.pdf",
+    CISONBookOfAbstracts: "/pdf/CISON Book of Abstracts FINAL-1.pdf",
+    CISON2025ConferenceProceeding: "/pdf/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf",
+    CISON2024ConferenceProceeding: "/pdf/2024-PROCEEDINGS-SUBMITTED-FOR-PUBLICATION_UPDATED.pdf",
 
-    ContactUs: '/contact',
-
+    
     // Privacy
     Privacy: "/privacy",
+    ContactUs: '/contact',
     PrivacyPolicy: "/privacy/policy",
     TermsOfService: "privacy/terms-of-service",
 
@@ -77,6 +82,7 @@ const RoutePath = {
     SingleEvent: "/event/:eventid",
     SecondQuarterPrs2026: "/event/2nd-quarter-prs-2026",
     ThirdFourthQuarterPRS2026: "/event/3rd-4th-quarter-prs-2026",
+    JCISONCallForPapers:"/event/jcison-call-for-papers",
 
 
 

@@ -104,7 +104,7 @@ const aims = [
 ];
 
 // ── Hero ──────────────────────────────────────────────────────────────────────
-function Hero({ theme }: { theme:string }) {
+function Hero({ theme }: { theme: string }) {
     const dark = theme === "dark";
     const ref = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -187,12 +187,12 @@ function Hero({ theme }: { theme:string }) {
                                 />
                             </a>
                             <a
-                                href="https://cison.org.ng/members/wp-login.php"
+                                href="https://my.cison.org.ng"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={`inline-flex items-center gap-2 border font-bold px-6 py-3 text-sm transition-colors duration-300 ${dark
-                                        ? "border-white/20 text-white/70 hover:border-[#22c55e] hover:text-[#22c55e]"
-                                        : "border-green-300 text-green-800 hover:border-[#22c55e] hover:text-[#22c55e]"
+                                    ? "border-white/20 text-white/70 hover:border-[#22c55e] hover:text-[#22c55e]"
+                                    : "border-green-300 text-green-800 hover:border-[#22c55e] hover:text-[#22c55e]"
                                     }`}
                             >
                                 Begin the Process
@@ -233,8 +233,8 @@ function Hero({ theme }: { theme:string }) {
 
             <div
                 className={`absolute bottom-0 inset-x-0 h-28 ${dark
-                        ? "bg-linear-to-t from-[#071209] to-transparent"
-                        : "bg-linear-to-t from-[#f0fdf4] to-transparent"
+                    ? "bg-linear-to-t from-[#071209] to-transparent"
+                    : "bg-linear-to-t from-[#f0fdf4] to-transparent"
                     }`}
             />
         </section>
@@ -242,7 +242,7 @@ function Hero({ theme }: { theme:string }) {
 }
 
 // ── Introduction Strip ────────────────────────────────────────────────────────
-function IntroStrip({ theme }: { theme:string }) {
+function IntroStrip({ theme }: { theme: string }) {
     const dark = theme === "dark";
     return (
         <section
@@ -303,7 +303,7 @@ function LevelCard({
     reverse,
 }: {
     level: (typeof levels)[0];
-    theme:string;
+    theme: string;
     index: number;
     reverse: boolean;
 }) {
@@ -408,7 +408,7 @@ function LevelCard({
 
                     <div className="mt-10">
                         <a
-                            href="https://cison.org.ng/members/wp-login.php"
+                            href="https://my.cison.org.ng"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-2 font-bold text-sm transition-colors duration-300"
@@ -429,7 +429,7 @@ function LevelCard({
 }
 
 // ── Aims Grid ─────────────────────────────────────────────────────────────────
-function AimsGrid({ theme }: { theme:string }) {
+function AimsGrid({ theme }: { theme: string }) {
     const dark = theme === "dark";
     return (
         <section
@@ -495,14 +495,14 @@ function AimsGrid({ theme }: { theme:string }) {
 
 // ── Root Page ─────────────────────────────────────────────────────────────────
 export default function CisonCurriculumPage() {
-    const {isDark, theme} = useTheme();
+    const { isDark, theme } = useTheme();
     let dark = isDark;
 
     return (
         <>
 
             <div className={`transition-colors duration-500 ${dark ? "bg-[#071209]" : "bg-white"}`}>
-                
+
                 <Hero theme={theme} />
                 <IntroStrip theme={theme} />
 
@@ -551,7 +551,7 @@ export default function CisonCurriculumPage() {
 
                 <AimsGrid theme={theme} />
                 <CTAStrip />
-                
+
             </div>
         </>
     );

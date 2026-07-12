@@ -12,16 +12,15 @@ import { fadeUp, Stagger } from "@/animate";
 const MentoringScheme: React.FC = () => {
   return (
     <main className="relative overflow-hidden bg-white dark:bg-gray-950">
-      {/* ===== HERO SECTION ===== */}
+
       <section className="relative isolate px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-        {/* Decorative background */}
         <div className="absolute inset-0 -z-10 bg-linear-to-br from-teal-50/50 to-transparent dark:from-teal-950/20" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-teal-200/30 via-transparent to-transparent dark:from-teal-800/20" />
 
         <motion.div
           className="mx-auto max-w-4xl"
           initial="hidden"
-          animate="visible"
+          animate="show"
           variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -75,7 +74,7 @@ const MentoringScheme: React.FC = () => {
               className="group bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400"
             >
               <a
-                href="https://cison.org.ng/members/wp-login.php"
+                href="https://my.cison.org.ng/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -98,7 +97,7 @@ const MentoringScheme: React.FC = () => {
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial="hidden"
-            whileInView="visible"
+            whileInView="show"
             viewport={{ once: true, amount: 0.2 }}
             variants={fadeUp}
           >
@@ -123,7 +122,7 @@ const MentoringScheme: React.FC = () => {
                   className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400 sm:w-auto"
                 >
                   <a
-                    href="https://cison.org.ng/members/wp-login.php"
+                    href="https://my.cison.org.ng"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

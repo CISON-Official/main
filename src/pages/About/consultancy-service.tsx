@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { fadeUp, Stagger } from "@/animate";
+import RoutePath from "@/routes";
 
 
 const ConsultancyServicesPage: React.FC = () => {
@@ -18,7 +19,7 @@ const ConsultancyServicesPage: React.FC = () => {
                 <motion.div
                     className="mx-auto max-w-4xl"
                     initial="hidden"
-                    animate="visible"
+                    animate="show"
                     variants={Stagger}
                 >
                     <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -33,7 +34,7 @@ const ConsultancyServicesPage: React.FC = () => {
 
                     <motion.h1
                         variants={fadeUp}
-                        className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
+                        className="mt-6 bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
                     >
                         Statistical <span className="text-emerald-600 dark:text-emerald-400">Consultancy</span> Services
                     </motion.h1>
@@ -61,7 +62,7 @@ const ConsultancyServicesPage: React.FC = () => {
                             size="lg"
                             className="group bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                         >
-                            <a href="https://cison.org.ng/contact/" target="_blank" rel="noopener noreferrer">
+                            <a href={RoutePath.ContactUs} target="_blank" rel="noopener noreferrer">
                                 <span className="flex items-center gap-2">
                                     Request a Consultation
                                     <ArrowRightIcon
@@ -72,6 +73,7 @@ const ConsultancyServicesPage: React.FC = () => {
                             </a>
                         </Button>
                     </motion.div>
+
                 </motion.div>
             </section>
 

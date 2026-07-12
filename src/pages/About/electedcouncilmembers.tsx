@@ -35,12 +35,12 @@ interface RelatedPost {
 const post = {
     title: "List of Elected Council Members",
     author: "Portal Crafter",
-    authorHref: "https://cison.org.ng/author/cison/",
+    authorHref: "#",
     date: "November 6, 2024",
     time: "11:03 pm",
     categories: [
-        { label: "Announcement", href: "https://cison.org.ng/category/announcement/" },
-        { label: "Latest", href: "https://cison.org.ng/category/latest/" },
+        { label: "Announcement", href: "#" },
+        { label: "Latest", href: "#" },
     ],
     readTime: "2 min read",
     content: {

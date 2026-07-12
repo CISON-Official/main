@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { fadeUp, Stagger } from "@/animate";
+import RoutePath from "@/routes";
 
 
 
@@ -28,7 +29,7 @@ const AssociateStatisticianPage: React.FC = () => {
                 <motion.div
                     className="mx-auto max-w-4xl"
                     initial="hidden"
-                    animate="visible"
+                    animate="show"
                     variants={Stagger}
                 >
                     <motion.div variants={fadeUp} className="flex items-center gap-3">
@@ -64,12 +65,12 @@ const AssociateStatisticianPage: React.FC = () => {
                         className="mt-8 flex flex-wrap gap-4"
                     >
                         <Button
-                            
+
                             size="lg"
                             className="group relative overflow-hidden bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                         >
                             <a
-                                href="https://cison.org.ng/portal/professional-accreditation/#reqastat"
+                                href={RoutePath.ProfessionalAccreditation}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -84,13 +85,13 @@ const AssociateStatisticianPage: React.FC = () => {
                         </Button>
 
                         <Button
-                            
+
                             size="lg"
                             variant="outline"
                             className="group border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800 dark:border-emerald-800/50 dark:text-emerald-300 dark:hover:bg-emerald-950/30 dark:hover:text-emerald-200"
                         >
                             <a
-                                href="https://cison.org.ng/members/cison-members/me/profile/"
+                                href="https://my.cison.org.ng/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -114,7 +115,7 @@ const AssociateStatisticianPage: React.FC = () => {
                         {/* Already a Member? Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                         >
@@ -135,12 +136,12 @@ const AssociateStatisticianPage: React.FC = () => {
                                 </CardHeader>
                                 <CardContent>
                                     <Button
-                                        
+
                                         variant="default"
                                         className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                                     >
                                         <a
-                                            href="https://cison.org.ng/members/wp-login.php"
+                                            href="https://my.cison.org.ng/"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                         >
@@ -155,7 +156,7 @@ const AssociateStatisticianPage: React.FC = () => {
                         {/* Annual Fees Card */}
                         <motion.div
                             initial="hidden"
-                            whileInView="visible"
+                            whileInView="show"
                             viewport={{ once: true, amount: 0.2 }}
                             variants={fadeUp}
                             transition={{ delay: 0.1 }}
@@ -213,11 +214,11 @@ const AssociateStatisticianPage: React.FC = () => {
                                     </p>
 
                                     <Button
-                                        
+
                                         variant="outline"
                                         className="w-full border-emerald-200 text-emerald-700 hover:bg-emerald-50 dark:border-emerald-800/50 dark:text-emerald-300 dark:hover:bg-emerald-950/30"
                                     >
-                                        <a href="https://cison.org.ng/annual-fees-and-dues/">
+                                        <a href={RoutePath.AnnualFees}>
                                             <CurrencyNgnIcon weight="bold" className="mr-2 h-5 w-5" />
                                             All CISON Fees & Dues
                                         </a>
