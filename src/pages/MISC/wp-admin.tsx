@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
-import { SmileyBlank, ShieldWarning, ArrowLeft } from '@phosphor-icons/react';
+import { SmileyBlankIcon, ShieldWarningIcon, ArrowLeftIcon } from '@phosphor-icons/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -21,7 +21,7 @@ export default function AccessDeniedPage() {
               transition={{ duration: 0.4 }}
               className="mb-6 flex items-center gap-2 rounded-full bg-red-500/10 px-3 py-1 text-xs font-medium text-red-600 border border-red-500/20 dark:text-red-400"
             >
-              <ShieldWarning size={14} className="animate-pulse" />
+              <ShieldWarningIcon size={14} className="animate-pulse" />
               <span>403: UNPRIVILEGED ACCESS</span>
             </motion.div>
 
@@ -71,10 +71,10 @@ export default function AccessDeniedPage() {
                 </motion.div>
 
                 {/* Head */}
-                <SmileyBlank size={64} weight="duotone" className="text-zinc-500 dark:text-zinc-400" />
+                <SmileyBlankIcon size={64} weight="duotone" className="text-zinc-500 dark:text-zinc-400" />
                 
                 {/* Torso & Waving Limbs */}
-                <svg width="80" height="100" viewBox="0 0 80 100" className="text-zinc-500 fill-none stroke-current stroke-[3] stroke-linecap-round stroke-linejoin-round dark:text-zinc-400">
+                <svg width="80" height="100" viewBox="0 0 80 100" className="text-zinc-500 fill-none stroke-current stroke-3 stroke-linecap-round stroke-linejoin-round dark:text-zinc-400">
                   {/* Spine */}
                   <line x1="40" y1="0" x2="40" y2="50" />
                   
@@ -131,7 +131,7 @@ export default function AccessDeniedPage() {
                 className="w-full border-zinc-200 bg-white hover:bg-zinc-100 text-zinc-900 transition-colors dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800 dark:text-zinc-50"
                 onClick={() => window.history.back()}
               >
-                <ArrowLeft size={16} className="mr-2" />
+                <ArrowLeftIcon size={16} className="mr-2" />
                 Return to Safety
               </Button>
             </motion.div>
