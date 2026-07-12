@@ -1,40 +1,32 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Handshake, ArrowRight } from "@phosphor-icons/react";
+import { HandshakeIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { fadeUp, Stagger } from "@/animate";
 
-// Animation variants
-const fadeUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const stagger = {
-    visible: { transition: { staggerChildren: 0.15 } },
-};
 
 const ConsultancyServicesPage: React.FC = () => {
     return (
         <main className="relative overflow-hidden bg-white dark:bg-gray-950">
             <section className="relative isolate px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-                <div className="absolute inset-0 -z-10 bg-gradient-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
-                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
+                <div className="absolute inset-0 -z-10 bg-linear-to-br from-emerald-50/50 to-transparent dark:from-emerald-950/20" />
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent dark:from-emerald-800/20" />
 
                 <motion.div
                     className="mx-auto max-w-4xl"
                     initial="hidden"
                     animate="visible"
-                    variants={stagger}
+                    variants={Stagger}
                 >
                     <motion.div variants={fadeUp} className="flex items-center gap-3">
                         <Badge
                             variant="outline"
                             className="border-emerald-200 bg-emerald-50/80 px-4 py-1.5 text-sm font-medium text-emerald-700 dark:border-emerald-800/50 dark:bg-emerald-950/30 dark:text-emerald-300"
                         >
-                            <Handshake weight="bold" className="mr-2 h-4 w-4" />
+                            <HandshakeIcon weight="bold" className="mr-2 h-4 w-4" />
                             Consultancy Services
                         </Badge>
                     </motion.div>
@@ -66,14 +58,13 @@ const ConsultancyServicesPage: React.FC = () => {
 
                     <motion.div variants={fadeUp} className="mt-8">
                         <Button
-                            asChild
                             size="lg"
                             className="group bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400"
                         >
                             <a href="https://cison.org.ng/contact/" target="_blank" rel="noopener noreferrer">
                                 <span className="flex items-center gap-2">
                                     Request a Consultation
-                                    <ArrowRight
+                                    <ArrowRightIcon
                                         weight="bold"
                                         className="transition-transform duration-300 group-hover:translate-x-1"
                                     />

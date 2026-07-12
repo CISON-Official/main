@@ -1,20 +1,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, SignIn, Compass, ArrowRight } from "@phosphor-icons/react";
+import { UsersIcon, SignInIcon, CompassIcon, ArrowRightIcon } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { fadeUp, Stagger } from "@/animate";
 
-// Animation variants
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
 
-const stagger = {
-  visible: { transition: { staggerChildren: 0.15 } },
-};
 
 const MentoringScheme: React.FC = () => {
   return (
@@ -29,21 +22,21 @@ const MentoringScheme: React.FC = () => {
           className="mx-auto max-w-4xl"
           initial="hidden"
           animate="visible"
-          variants={stagger}
+          variants={Stagger}
         >
           <motion.div variants={fadeUp} className="flex items-center gap-3">
             <Badge
               variant="outline"
               className="border-teal-200 bg-teal-50/80 px-4 py-1.5 text-sm font-medium text-teal-700 dark:border-teal-800/50 dark:bg-teal-950/30 dark:text-teal-300"
             >
-              <Compass weight="bold" className="mr-2 h-4 w-4" />
+              <CompassIcon weight="bold" className="mr-2 h-4 w-4" />
               Mentoring Scheme
             </Badge>
           </motion.div>
 
           <motion.h1
             variants={fadeUp}
-            className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
+            className="mt-6 bg-linear-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
           >
             Mentoring Scheme for{" "}
             <span className="text-teal-600 dark:text-teal-400">
@@ -78,7 +71,6 @@ const MentoringScheme: React.FC = () => {
 
           <motion.div variants={fadeUp} className="mt-8">
             <Button
-              asChild
               size="lg"
               className="group bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400"
             >
@@ -88,9 +80,9 @@ const MentoringScheme: React.FC = () => {
                 rel="noopener noreferrer"
               >
                 <span className="flex items-center gap-2">
-                  <Users weight="bold" className="h-5 w-5" />
+                  <UsersIcon weight="bold" className="h-5 w-5" />
                   Begin the Process – Register now!
-                  <ArrowRight
+                  <ArrowRightIcon
                     weight="bold"
                     className="transition-transform duration-300 group-hover:translate-x-1"
                   />
@@ -127,7 +119,6 @@ const MentoringScheme: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <Button
-                  asChild
                   variant="default"
                   className="w-full bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-400 sm:w-auto"
                 >
@@ -136,7 +127,7 @@ const MentoringScheme: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <SignIn weight="bold" className="mr-2 h-5 w-5" />
+                    <SignInIcon weight="bold" className="mr-2 h-5 w-5" />
                     Sign in or Recover your Account Here
                   </a>
                 </Button>

@@ -2,7 +2,6 @@
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
 import Logo from "@/assets/logo.png"
 import RoutePath from '@/routes';
-import { Link } from 'react-router-dom';
 
 const footerWhatWeDo = [
   { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
