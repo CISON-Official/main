@@ -213,9 +213,9 @@ function HeroSlider() {
     const slide = slides[current];
 
     return (
-        <section className="relative h-[92vh] min-h-[560px] flex items-center overflow-hidden">
+        <section className="relative h-[92vh] min-h-140 flex items-center overflow-hidden">
             {/* Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg} transition-all duration-700`} />
+            <div className={`absolute inset-0 bg-linear-to-br ${slide.bg} transition-all duration-700`} />
 
             {/* Decorative grid */}
             <div
@@ -350,7 +350,7 @@ function ServicesSection() {
                                     href={item.href}
                                     className="group flex gap-4 p-4 rounded-xl border border-border hover:border-emerald-500/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 transition-all duration-200"
                                 >
-                                    <div className="w-1.5 h-full min-h-[40px] bg-emerald-500 rounded-full shrink-0 mt-1" />
+                                    <div className="w-1.5 h-full min-h-10 bg-emerald-500 rounded-full shrink-0 mt-1" />
                                     <div>
                                         <h4 className="font-semibold text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-2">
                                             {item.title}
@@ -370,13 +370,13 @@ function ServicesSection() {
                     </div>
 
                     {/* Right — image */}
-                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-black/10 dark:shadow-black/30">
+                    <div className="relative rounded-2xl overflow-hidden aspect-4/3 shadow-xl shadow-black/10 dark:shadow-black/30">
                         <img
                             src={tab.image}
                             alt={tab.heading}
                             className="w-full h-full object-cover transition-all duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     </div>
                 </div>
             </div>
@@ -475,7 +475,7 @@ function TeamSection() {
     return (
         <section className="relative py-28 overflow-hidden">
             {/* Dark background with texture */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950" />
+            <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-emerald-950 to-slate-950" />
             <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -483,7 +483,7 @@ function TeamSection() {
                     backgroundSize: '32px 32px',
                 }}
             />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-emerald-500/10 rounded-full blur-3xl" />
 
             <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10">
                 <div className="max-w-2xl">
