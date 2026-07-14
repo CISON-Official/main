@@ -1,10 +1,11 @@
 import { lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout";
 import { Skeleton } from "./components/ui/skeleton";
-import RoutePath from "./routes";
+import RoutePath, { legacyRedirectRules } from "./routes";
 import { lazyImport } from "./lib/utils";
 import FloatingDonateButton from "./components/Donate";
+import type { RuleType } from "./data/base";
 
 const PageLoader = () => (
   <div className="container py-20">
@@ -19,6 +20,19 @@ const PageLoader = () => (
     </div>
   </div>
 );
+
+function LegacyRedirectWatcher({ rules, fallbackTo = "/" }: { rules: RuleType[], fallbackTo: string }) {
+  const location = useLocation();
+  const currentPath = location.pathname.toLowerCase();
+
+  const activeRule = rules.find(rule => currentPath.includes(rule.from.toLowerCase()));
+
+  if (activeRule) {
+    return <Navigate to={activeRule.to} replace />;
+  }
+
+  return <Navigate to={fallbackTo} replace />;
+}
 
 const HomePage = lazy(() => import("@/pages/Home"));
 
@@ -91,7 +105,7 @@ const SingleEvent = lazy(() => import("@/pages/Events/single-event"));
 const JCISONPage = lazy(() => import("@/pages/Events/jcison-call-for-papers"));
 
 // MISC
-const Page404 = lazy(() => import('@/pages/MISC/404'));
+// const Page404 = lazy(() => import('@/pages/MISC/404'));
 const HowToPayPage = lazy(() => import("@/pages/MISC/how-to-pay"));
 const AnnualFeesPage = lazy(() => import("@/pages/MISC/annual-fees"));
 const WPADMINPage = lazy(() => import("@/pages/MISC/wp-admin"))
@@ -104,7 +118,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
-          <Route path="*" element={<Page404 />} />
+
           <Route path={RoutePath.ContactUs} element={<ContactUsPage />} />
           <Route path="privacy">
             <Route index element={<PolicyPage />} />
@@ -183,6 +197,12 @@ function App() {
           <Route path={RoutePath.HowToPay} element={<HowToPayPage />} />
           <Route path={RoutePath.WP_ADMIN} element={<WPADMINPage />} />
 
+
+          {/* Redirect Existing URLS on the internet */}
+          <Route
+            path="*"
+            element={<LegacyRedirectWatcher rules={legacyRedirectRules} fallbackTo="/" />}
+          />
         </Route>
       </Routes>
       <FloatingDonateButton />

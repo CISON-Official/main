@@ -58,3 +58,8 @@ export interface EventData {
     dayNum: string;
     weekday: string;
 }
+
+
+export interface RuleType {
+    from: string; to: string;
+}

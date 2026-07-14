@@ -1,5 +1,6 @@
 // import CompressedCISONACTS from "@/assets/pdf/CISON-Act-2022-compressed.pdf";
 
+
 const RoutePath = {
     // What we do
     Accreditation: '/accreditation',
@@ -102,6 +103,14 @@ const RoutePath = {
 };
 
 type RouteMapType = { name: string, href?: string, description?: string, children?: RouteMapType[] }
+
+export const legacyRedirectRules = [
+    { from: 'charactered', to: RoutePath.CharacterdStatistician },
+    { from: 'registered-statistician', to: RoutePath.RegisteredStatistician },
+    { from: 'contact-us', to: RoutePath.ContactUs },
+    { from: 'about-old', to: RoutePath.AboutUs }
+  ];
+
 
 export const HeaderRouteMap: RouteMapType[] = [
     {

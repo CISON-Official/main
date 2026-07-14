@@ -19,7 +19,7 @@ const routePriority: Record<string, number> = {
   '/contact': 0.7,
   '/examinations': 0.9,
   '/prs': 0.85,
-  '/blog': 0.7,
+  '/news': 0.7,
 };
 
 const getRoutePriority = (route: string): number => {
@@ -29,6 +29,7 @@ const getRoutePriority = (route: string): number => {
 const getChangeFrequency = (route: string): string => {
   if (route.includes('/examinations')) return 'weekly';
   if (route.includes('/prs')) return 'monthly';
+  if (route.includes('/event')) return 'monthly';
   if (route === '/') return 'daily';
   return 'monthly';
 };
