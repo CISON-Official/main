@@ -152,7 +152,7 @@ const REG_CARDS = [
         tier: "Group Rate",
         type: "Corporate / Group",
         price: "₦150,000",
-        period: "10+ delegates · discounted",
+        period: "10+ delegates",
         // features: ["Dedicated group coordinator", "Custom workshop allocation", "Branded delegate packs", "Priority reserved seating"],
         features:[],
         href: "https://my.cison.org.ng/group-conference-registration/",
