@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon} from '@phosphor-icons/react';
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
+import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
+import RoutePath from '@/routes';
+import LandingMeeting from "@/assets/landing/meeting-e1724103063780.webp";
+import LandingLegal from "@/assets/landing/legal-approval.webp";
+import LandingBlackMan from "@/assets/landing/black-man-using-a-desktop-e1724105770552.webp";
+import LandingProExams from "@/assets/landing/pro-exams.webp";
 
 const slides = [
     {
@@ -10,7 +13,7 @@ const slides = [
         description: 'Chartered Institute of Statisticians of Nigeria',
         motto: 'Statistical Science, Knowledge and Professionalism',
         cta: 'Become a Registered Statistician',
-        href: 'https://cison.org.ng/membership-types/',
+        href: RoutePath.Membership,
         bg: 'from-emerald-950 via-slate-900 to-slate-950',
     },
     {
@@ -18,7 +21,7 @@ const slides = [
         heading: '3rd International Conference & Pre-Conference Workshop',
         description: 'Intensive technical sessions, member induction and certification.',
         cta: 'Register Here',
-        href: 'https://cison.org.ng/2026-international-annual-conference/',
+        href: RoutePath.Conference2026,
         bg: 'from-slate-900 via-emerald-950 to-slate-950',
     },
     {
@@ -27,10 +30,20 @@ const slides = [
         description:
             'The Journal of CISON invites researchers, academicians, and practitioners to submit original research papers, review articles, and case studies for our upcoming edition.',
         cta: 'Submit Your Paper',
-        href: 'https://cison.org.ng/jcison-call-for-papers/',
+        href: RoutePath.JCISONCallForPapers,
         bg: 'from-slate-950 via-slate-900 to-emerald-950',
     },
+    {
+        id: 4,
+        heading: 'Q3 and Q4 PRS Registration',
+        description:
+            'Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.',
+        cta: 'Register for PRS',
+        href: RoutePath.ThirdFourthQuarterPRS2026, 
+        bg: 'from-blue-950 via-slate-900 to-slate-950',
+    },
 ];
+
 
 const servicesTabs = [
     {
@@ -38,57 +51,57 @@ const servicesTabs = [
         number: '01',
         label: 'Membership Programme',
         heading: 'Membership Programme',
-        image: 'https://cison.org.ng/portal/wp-content/uploads/2024/07/meeting-e1724103063780.webp',
+        image: LandingMeeting,
         items: [
             {
                 title: 'Registered Statisticians',
-                href: 'https://cison.org.ng/registered-statistician/',
+                href: RoutePath.RegisteredStatistician,
                 desc: 'Open to all with interest in statistics and the Institute.',
             },
             {
                 title: 'Associate Statistician',
-                href: 'https://cison.org.ng/associate-statistician/',
+                href: RoutePath.AssociateStatistician,
                 desc: 'An entry level of accreditation, preparatory for full C.Stat. accreditation.',
             },
             {
                 title: 'Chartered Statistician',
-                href: 'https://cison.org.ng/chartered-statistician/',
+                href: RoutePath.CharacterdStatistician,
                 desc: 'The highest level of professional recognition awarded by CISON.',
             },
         ],
-        cta: { label: 'All Membership Types', href: 'https://cison.org.ng/portal/membership-types/' },
+        cta: { label: 'All Membership Types', href: RoutePath.Membership },
     },
     {
         id: 'accreditation',
         number: '02',
         label: 'Accreditation Programmes',
         heading: 'Accreditation Programmes',
-        image: 'https://cison.org.ng/portal/wp-content/uploads/2024/08/legal-approval.webp',
+        image: LandingLegal,
         items: [
             {
                 title: 'Professional Accreditation',
-                href: 'https://cison.org.ng/portal/professional-accreditation/',
+                href: RoutePath.ProfessionalAccreditation,
                 desc: 'Two levels: Associate Statistician (A.Stat.) and Chartered Statistician (C.Stat.).',
             },
             {
                 title: 'Professional Examination',
-                href: 'https://cison.org.ng/portal/professional-examination/',
+                href: RoutePath.ProfessionalExamination,
                 desc: 'Ordinary Certificate, Higher Certificate and Graduate Certificate in Statistics.',
             },
             {
                 title: 'Accreditation of Institutions',
-                href: 'https://cison.org.ng/portal/accreditation-and-examination/institutions-accreditation/',
+                href: RoutePath.InstitutionalAccreditation,
                 desc: 'CISON works with NBTE and NUC for tertiary institution course accreditation.',
             },
         ],
-        cta: { label: 'Accreditation Overview', href: 'https://cison.org.ng/accreditation-and-examination/' },
+        cta: { label: 'Accreditation Overview', href: RoutePath.Accreditation },
     },
     {
         id: 'exams',
         number: '03',
         label: 'Professional Examinations',
         heading: 'Professional Examinations',
-        image: 'https://cison.org.ng/portal/wp-content/uploads/2024/08/pro-exams.webp',
+        image: LandingProExams,
         items: [
             {
                 title: 'Foundation Level',
@@ -97,83 +110,83 @@ const servicesTabs = [
             },
             {
                 title: 'Intermediate Level',
-                href: 'https://cison.org.ng/examination-associate/',
+                href: "#",
                 desc: 'Higher Certificate equivalent to first-year university course in statistics.',
             },
             {
                 title: 'Graduate Level',
-                href: 'https://cison.org.ng/examination-associate/',
+                href: "#",
                 desc: 'Graduate Certificate equivalent to a good university degree in statistics.',
             },
         ],
-        cta: { label: 'View Exam Details', href: 'https://cison.org.ng/professional-examination/' },
+        cta: { label: 'View Exam Details', href: RoutePath.ProfessionalExamination },
     },
     {
         id: 'cpd',
         number: '04',
         label: 'Professional Development (CPD)',
         heading: 'Professional Development',
-        image: 'https://cison.org.ng/portal/wp-content/uploads/2024/07/black-man-using-a-desktop-e1724105770552.webp',
+        image: LandingBlackMan,
         items: [
             {
                 title: 'Revalidation',
-                href: 'https://cison.org.ng/portal/professional-examination/#revalid',
+                href: RoutePath.ProfessionalExamination,
                 desc: 'CISON conducts revalidation of the Chartered Statistician award every five years.',
             },
             {
                 title: 'Mentoring Associates',
-                href: 'https://cison.org.ng/portal/accreditation-and-examination/mentoring-scheme/',
+                href: RoutePath.MentoringScheme,
                 desc: 'A structured mentoring scheme in service of Associate Statisticians.',
             },
             {
                 title: 'CPD Policy',
-                href: 'https://cison.org.ng/portal/continuing-professional-development-cpd-policy/',
+                href: RoutePath.CPDPolicy,
                 desc: 'Continuous professional review process required of all CISON members.',
             },
         ],
-        cta: { label: 'CPD Policy', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
+        cta: { label: 'CPD Policy', href: RoutePath.CPDPolicy },
     },
 ];
 
 const whatElseLinks = [
-    { name: 'Membership', href: 'https://cison.org.ng/membership-types/' },
-    { name: 'Registered Statistician', href: 'https://cison.org.ng/registered-statistician/' },
-    { name: 'Accreditation & Examinations', href: 'https://cison.org.ng/accreditation-and-examination/' },
-    { name: 'Corporate Member', href: 'https://cison.org.ng/corporate-member/' },
-    { name: 'Examination Associate', href: 'https://cison.org.ng/examination-associate/' },
-    { name: 'Student Member', href: 'https://cison.org.ng/student-member/' },
-    { name: 'How to Pay', href: 'https://cison.org.ng/how-to-pay/' },
+    { name: 'Membership', href: RoutePath.Membership },
+    { name: 'Registered Statistician', href: RoutePath.RegisteredStatistician },
+    { name: 'Accreditation & Examinations', href: RoutePath.Accreditation },
+    { name: 'Corporate Member', href: RoutePath.Corporate },
+    { name: 'Examination Associate', href: RoutePath.ExaminationAssociate },
+    { name: 'Student Member', href: RoutePath.Student },
+    { name: 'How to Pay', href: RoutePath.HowToPay },
 ];
 
 const accreditationLinks = [
-    { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
-    { name: 'Accreditation of Institutions', href: 'https://cison.org.ng/accreditation-and-examination/institutions-accreditation/' },
-    { name: 'Courses Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/courses-accreditation/' },
-    { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
-    { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
-    { name: 'Capacity Building', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
-    { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
-    { name: 'Curriculum Development', href: 'https://cison.org.ng/accreditation-and-examination/curriculum-development/' },
-    { name: 'Conferences', href: 'https://cison.org.ng/events/category/conferences/' },
+    { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
+    { name: 'Accreditation of Institutions', href: RoutePath.InstitutionalAccreditation },
+    { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
+    { name: 'Professional Examination', href: RoutePath.ProfessionalExamination },
+    { name: 'Consultancy Services', href: RoutePath.ConsultancyService },
+    { name: 'Capacity Building', href: RoutePath.CPDPolicy },
+    { name: 'Mentoring Scheme', href: RoutePath.MentoringScheme },
+    { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
+    { name: 'Conferences', href: RoutePath.Conference2026 },
 ];
 
-const articles = [
-    {
-        category: 'Events · Latest',
-        title: 'List of Hotels for the 2nd CISON International Conference 2025, Asaba, Delta State.',
-        href: 'https://cison.org.ng/list-of-hotels-for-the-2nd-cison-international-conference-2025/',
-    },
-    {
-        category: 'Announcement · Jobs',
-        title: 'Vacancy Announcement',
-        href: 'https://cison.org.ng/vacancy-announcement/',
-    },
-    {
-        category: 'Latest · Membership',
-        title: '2024 Conference Programme',
-        href: 'https://cison.org.ng/2024-conference-programme/',
-    },
-];
+// const _articles = [
+//     {
+//         category: 'Events · Latest',
+//         title: 'List of Hotels for the 2nd CISON International Conference 2025, Asaba, Delta State.',
+//         href: 'https://cison.org.ng/list-of-hotels-for-the-2nd-cison-international-conference-2025/',
+//     },
+//     {
+//         category: 'Announcement · Jobs',
+//         title: 'Vacancy Announcement',
+//         href: 'https://cison.org.ng/vacancy-announcement/',
+//     },
+//     {
+//         category: 'Latest · Membership',
+//         title: '2026 Conference Programme',
+//         href: 'https://cison.org.ng/2026-international-annual-conference/',
+//     },
+// ];
 
 
 // ─── Hero Slider ──────────────────────────────────────────────────────────────
@@ -200,9 +213,9 @@ function HeroSlider() {
     const slide = slides[current];
 
     return (
-        <section className="relative h-[92vh] min-h-[560px] flex items-center overflow-hidden">
+        <section className="relative h-[92vh] min-h-140 flex items-center overflow-hidden">
             {/* Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${slide.bg} transition-all duration-700`} />
+            <div className={`absolute inset-0 bg-linear-to-br ${slide.bg} transition-all duration-700`} />
 
             {/* Decorative grid */}
             <div
@@ -337,7 +350,7 @@ function ServicesSection() {
                                     href={item.href}
                                     className="group flex gap-4 p-4 rounded-xl border border-border hover:border-emerald-500/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 transition-all duration-200"
                                 >
-                                    <div className="w-1.5 h-full min-h-[40px] bg-emerald-500 rounded-full shrink-0 mt-1" />
+                                    <div className="w-1.5 h-full min-h-10 bg-emerald-500 rounded-full shrink-0 mt-1" />
                                     <div>
                                         <h4 className="font-semibold text-foreground group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors flex items-center gap-2">
                                             {item.title}
@@ -357,13 +370,13 @@ function ServicesSection() {
                     </div>
 
                     {/* Right — image */}
-                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl shadow-black/10 dark:shadow-black/30">
+                    <div className="relative rounded-2xl overflow-hidden aspect-4/3 shadow-xl shadow-black/10 dark:shadow-black/30">
                         <img
                             src={tab.image}
                             alt={tab.heading}
                             className="w-full h-full object-cover transition-all duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                        <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                     </div>
                 </div>
             </div>
@@ -429,22 +442,22 @@ function EventBanner() {
                         <SectionLabel label="Events" />
                         <h2 className="text-xl sm:text-2xl font-bold text-foreground max-w-2xl leading-snug">
                             <a
-                                href="https://cison.org.ng/event/1st-annual-conference-1st-pre-conference-workshop/"
+                                href={RoutePath.Conference2026}
                                 className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                             >
-                                The 1st Annual Conference and 1st Pre-Conference Workshop of The Chartered Institute of Statisticians of Nigeria (CISON)
+                                The 3rd Annual Conference and 3rd Pre-Conference Workshop of The Chartered Institute of Statisticians of Nigeria (CISON)
                             </a>
                         </h2>
                     </div>
                     <div className="flex flex-col sm:items-end gap-3 shrink-0">
                         <a
-                            href="https://cison.org.ng/event/1st-annual-conference-1st-pre-conference-workshop/"
+                            href={RoutePath.Conference2026}
                             className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-500 transition-colors"
                         >
                             Register to Participate <ArrowRightIcon className="w-4 h-4" />
                         </a>
                         <a
-                            href="https://cison.org.ng/2024-cison-conference-final-call-for-papers/"
+                            href={RoutePath.JCISONCallForPapers}
                             className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
                         >
                             Final Call for Papers
@@ -462,7 +475,7 @@ function TeamSection() {
     return (
         <section className="relative py-28 overflow-hidden">
             {/* Dark background with texture */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950" />
+            <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-emerald-950 to-slate-950" />
             <div
                 className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -470,7 +483,7 @@ function TeamSection() {
                     backgroundSize: '32px 32px',
                 }}
             />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/10 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 bg-emerald-500/10 rounded-full blur-3xl" />
 
             <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10">
                 <div className="max-w-2xl">
@@ -479,7 +492,7 @@ function TeamSection() {
                         Get to know the incredible individuals behind CISON
                     </h2>
                     <a
-                        href="https://cison.org.ng/our-people/"
+                        href={RoutePath.OurPeople}
                         className="inline-flex items-center gap-3 px-7 py-3.5 border border-emerald-400/40 text-emerald-300 hover:bg-emerald-500 hover:text-slate-950 hover:border-emerald-500 font-semibold rounded-xl text-sm transition-all duration-200"
                     >
                         Our People <ArrowRightIcon className="w-4 h-4" />
@@ -490,7 +503,6 @@ function TeamSection() {
     );
 }
 
-// ─── Articles / Latest Posts ──────────────────────────────────────────────────
 
 function ArticlesSection() {
     return (
@@ -505,14 +517,14 @@ function ArticlesSection() {
                         </h2>
                     </div>
                     <a
-                        href="https://cison.org.ng/subscribe/"
+                        href={RoutePath.ContactUs}
                         className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline underline-offset-4 flex items-center gap-2"
                     >
                         Subscribe to our Newsletter <ArrowRightIcon className="w-4 h-4" />
                     </a>
                 </div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {articles.map((article, i) => (
                         <a
                             key={i}
@@ -533,7 +545,7 @@ function ArticlesSection() {
                             </div>
                         </a>
                     ))}
-                </div>
+                </div> */}
             </div>
         </section>
     );

@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { HamburgerIcon, XIcon, MagnifyingGlassIcon, ArrowSquareOutIcon, UserIcon, CaretDownIcon } from '@phosphor-icons/react';
-import ThemeToggle from '@/components/ThemeToggle'; 
-import Logo from "@/assets/logo.jpg";
+import ThemeToggle from '@/components/ThemeToggle';
+import Logo from "@/assets/logo.png";
+import RoutePath from '@/routes';
+
 
 // ─── Route Data (extracted from CISON HTML) ───────────────────────────────────
 
@@ -11,15 +13,15 @@ const routes = [
     {
         name: 'Who We Are',
         children: [
-            { name: 'About CISON', href: 'https://cison.org.ng/about/' },
-            { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
-            { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
-            { name: 'Structure and Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
-            { name: 'Leadership', href: 'https://cison.org.ng/our-people/' },
-            { name: 'List of Elected Council Members', href: 'https://cison.org.ng/list-of-nominated-contestants/' },
-            { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
-            { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
-            { name: 'The CISON Act', href: 'https://cison.org.ng/about/#cison_act' },
+            { name: 'About CISON', href: RoutePath.AboutUs },
+            { name: 'Our Objectives', href: RoutePath.Objective },
+            { name: 'Our History', href: RoutePath.OurHistory },
+            { name: 'Structure and Governance', href: RoutePath.StructureAndGovernance },
+            { name: 'Leadership', href: RoutePath.Leadership },
+            { name: 'List of Elected Council Members', href: RoutePath.ElectedCouncilMembers },
+            { name: 'Departments', href: RoutePath.Departments },
+            { name: 'Our Committees', href: RoutePath.Committee },
+            { name: 'The CISON Act', href: RoutePath.CISONAct },
         ],
     },
     {
@@ -27,68 +29,69 @@ const routes = [
         children: [
             {
                 name: 'Accreditation & Examinations',
-                href: 'https://cison.org.ng/accreditation-and-examination/',
+                href: RoutePath.Accreditation,
                 children: [
-                    { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
-                    { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
+                    { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
+                    { name: 'Professional Examination', href: RoutePath.ProfessionalExamination },
                 ],
             },
-            { name: 'Curriculum Development', href: 'https://cison.org.ng/accreditation-and-examination/curriculum-development/' },
-            { name: 'Institutions Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/institutions-accreditation/' },
-            { name: 'Courses Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/courses-accreditation/' },
-            { name: 'CPD Policy', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
-            { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
-            { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
-            { name: 'Fellows', href: 'https://cison.org.ng/fellows/' },
+            { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
+            { name: 'Institutions Accreditation', href: RoutePath.InstitutionalAccreditation },
+            { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
+            { name: 'CPD Policy', href: RoutePath.CPDPolicy },
+            { name: 'Consultancy Services', href: RoutePath.ConsultancyService },
+            { name: 'Mentoring Scheme', href: RoutePath.MentoringScheme },
+            { name: 'Fellows', href: RoutePath.Fellows },
         ],
     },
     {
         name: 'Membership',
         children: [
-            { name: 'Special Announcement', href: 'https://cison.org.ng/special-announcement/' },
+            // { name: 'Special Announcement', href: 'https://cison.org.ng/special-announcement/' },
             {
                 name: 'Membership Types',
-                href: 'https://cison.org.ng/membership-types/',
+                href: RoutePath.Membership,
                 children: [
-                    { name: 'Chartered Statistician', href: 'https://cison.org.ng/chartered-statistician/' },
-                    { name: 'Associate Statistician', href: 'https://cison.org.ng/associate-statistician/' },
-                    { name: 'Examination Associate', href: 'https://cison.org.ng/examination-associate/' },
-                    { name: 'Registered Statistician', href: 'https://cison.org.ng/registered-statistician/' },
-                    { name: 'Student Member', href: 'https://cison.org.ng/student-member/' },
-                    { name: 'Corporate Member', href: 'https://cison.org.ng/portal/membership-types/#corporate' },
+                    { name: 'Chartered Statistician', href: RoutePath.CharacterdStatistician },
+                    { name: 'Associate Statistician', href: RoutePath.AssociateStatistician },
+                    { name: 'Examination Associate', href: RoutePath.ExaminationAssociate },
+                    { name: 'Registered Statistician', href: RoutePath.RegisteredStatistician },
+                    { name: 'Student Member', href: RoutePath.Student },
+                    { name: 'Corporate Member', href: RoutePath.Corporate },
                 ],
             },
-            { name: 'Annual Fees', href: 'https://cison.org.ng/annual-fees-and-dues/' },
-            { name: 'How to Pay', href: 'https://cison.org.ng/how-to-pay/' },
+            { name: 'Annual Fees', href: RoutePath.AnnualFees },
+            { name: 'How to Pay', href: RoutePath.HowToPay },
             { name: 'Membership Verification', href: 'https://my.cison.org.ng/verify-certificate/', external: true },
-            { name: 'Member Login', href: 'https://cison.org.ng/members/', external: true },
+            { name: 'Member Login', href: 'https://my.cison.org.ng/members/', external: true },
         ],
+        href: RoutePath.Membership
     },
     {
         name: 'News & Events',
         href: '/event',
         children: [
             { name: 'News', href: '/portal/news' },
-            { name: 'Upcoming Events', href: 'https://cison.org.ng/events/' },
-            { name: 'Vacancy Announcement', href: 'https://cison.org.ng/vacancy-announcement/' },
+            { name: 'Upcoming Events', href: RoutePath.Event },
+            // { name: 'Vacancy Announcement', href: 'https://cison.org.ng/vacancy-announcement/' },
         ],
     },
     {
         name: 'Publications',
         children: [
-            { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
-            { name: 'CISON Book of Abstract', href: 'https://drive.google.com/file/d/1x9vBMq9IcFrclTKZU26bGxSF3WaF5lOy/view?usp=sharing', external: true },
             {
                 name: 'Conference Proceedings',
                 children: [
-                    { name: '1st Annual CISON Conference Proceedings', href: 'https://cison.org.ng/portal/wp-content/uploads/2025/08/2024-PROCEEDINGS-SUBMITTED-FOR-PUBLICATION_UPDATED.pdf' },
-                    { name: '2025 Conference Proceedings', href: 'https://cison.org.ng/portal/wp-content/uploads/2026/03/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf' },
+                    { name: '1st Annual CISON Conference Proceedings', href: RoutePath.CISON2024ConferenceProceeding },
+                    { name: '2025 Conference Proceedings', href: RoutePath.CISON2025ConferenceProceeding },
                 ],
             },
-            { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf' },
+            { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
+            { name: 'CISON Book of Abstract', href: RoutePath.CISONBookOfAbstracts },
+            { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf', external: true },
         ],
     },
-    { name: 'Contact', href: 'https://cison.org.ng/contact/' },
+    { name: 'Contact', href: RoutePath.ContactUs }, { name: "Donate", href: RoutePath.Donate }
 ] as const;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -112,6 +115,71 @@ function NavAnchor({ item, className, onClick }: { item: RouteItem; className?: 
             {item.name}
             {isExternal && <ArrowSquareOutIcon className="inline ml-1 w-3 h-3 opacity-50" />}
         </a>
+    );
+}
+
+// ─── Desktop Nested Item (flyout to right or left depending on space) ─────────
+
+function DesktopNestedItem({ item }: { item: RouteItem }) {
+    const [open, setOpen] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+    const [flyLeft, setFlyLeft] = useState(false);
+
+    // Determine flyout direction when opening
+    useEffect(() => {
+        if (open && ref.current) {
+            const rect = ref.current.getBoundingClientRect();
+            // If less than 220px to the right of viewport, fly left instead
+            setFlyLeft(window.innerWidth - rect.right < 220);
+        }
+    }, [open]);
+
+    const isExternal = item.external || item.href?.startsWith('http');
+
+    return (
+        <div
+            ref={ref}
+            // className="absolute"
+            onMouseEnter={() => setOpen(true)}
+            onMouseLeave={() => setOpen(false)}
+        >
+            {/* The row itself — clickable link + caret indicator */}
+            <div className="flex items-center justify-between gap-1 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors cursor-pointer">
+                {item.href ? (
+                    <a
+                        href={item.href}
+                        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        className="flex-1 flex items-center gap-1"
+                        onClick={e => e.stopPropagation()}
+                    >
+                        {item.name}
+                        {isExternal && <ArrowSquareOutIcon className="inline ml-1 w-3 h-3 opacity-50" />}
+                    </a>
+                ) : (
+                    <span className="flex-1">{item.name}</span>
+                )}
+                <CaretDownIcon className="w-3.5 h-3.5 -rotate-90 shrink-0 opacity-60" />
+            </div>
+
+            {/* Flyout submenu */}
+            {open && item.children && item.children.length > 0 && (
+                <div
+                    className={`absolute top-0 z-20 ${flyLeft ? 'left-53' : 'right-53'} min-w-70 `}
+                >
+                    <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
+                        <div className="p-1.5">
+                            {item.children.map(child => (
+                                <NavAnchor
+                                    key={child.name}
+                                    item={child}
+                                    className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
+                                />
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
     );
 }
 
@@ -141,10 +209,10 @@ function DesktopDropdown({ item }: { item: RouteItem }) {
             </button>
 
             {open && (
-                <div className="absolute top-full left-0 pt-2 z-50 min-w-[220px]">
+                <div className="absolute top-full left-0 pt-2 z-50 min-w-55">
                     <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
                         <div className="p-1.5">
-                            {item.children?.map(child => (
+                            {item.children?.map(child =>
                                 child.children ? (
                                     <DesktopNestedItem key={child.name} item={child} />
                                 ) : (
@@ -154,41 +222,7 @@ function DesktopDropdown({ item }: { item: RouteItem }) {
                                         className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
                                     />
                                 )
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-function DesktopNestedItem({ item }: { item: RouteItem }) {
-    const [open, setOpen] = useState(false);
-    return (
-        <div
-            className="relative"
-            onMouseEnter={() => setOpen(true)}
-            onMouseLeave={() => setOpen(false)}
-        >
-            <a
-                href={item.href ?? '#'}
-                className="flex items-center justify-between gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-            >
-                {item.name}
-                <CaretDownIcon className={`w-3.5 h-3.5 -rotate-90`} />
-            </a>
-            {open && (
-                <div className="absolute left-full top-0 pl-2 z-50 min-w-[200px]">
-                    <div className="bg-background border border-border rounded-xl shadow-xl shadow-black/10 dark:shadow-black/40 overflow-hidden">
-                        <div className="p-1.5">
-                            {item.children?.map(child => (
-                                <NavAnchor
-                                    key={child.name}
-                                    item={child}
-                                    className="flex items-center gap-2 px-3 py-2 text-sm text-foreground/75 hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-                                />
-                            ))}
+                            )}
                         </div>
                     </div>
                 </div>
@@ -220,7 +254,12 @@ function MobileAccordion({ item, depth = 0, onNavigate }: { item: RouteItem; dep
                 className="flex items-center justify-between w-full py-2.5 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
             >
                 {item.href ? (
-                    <a href={item.href} onClick={e => e.stopPropagation()} className="hover:underline">
+                    <a
+                        href={item.href}
+                        onClick={e => e.stopPropagation()}
+                        className="hover:underline"
+                        {...(item.external || item.href?.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    >
                         {item.name}
                     </a>
                 ) : (
@@ -239,7 +278,6 @@ function MobileAccordion({ item, depth = 0, onNavigate }: { item: RouteItem; dep
     );
 }
 
-// ─── Search Bar ───────────────────────────────────────────────────────────────
 
 function SearchBar({ onClose }: { onClose: () => void }) {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -281,7 +319,7 @@ function Navbar() {
         return () => window.removeEventListener('scroll', handler);
     }, []);
 
-    // Lock body scroll when mobile menu is open
+
     useEffect(() => {
         document.body.style.overflow = mobileOpen ? 'hidden' : '';
         return () => { document.body.style.overflow = ''; };
@@ -302,17 +340,17 @@ function Navbar() {
             >
                 {/* Top utility bar */}
                 <div className="hidden lg:flex items-center justify-end gap-4 px-6 py-1.5 border-b border-border/50 text-xs text-muted-foreground bg-muted/30">
-                    <a href="https://cison.org.ng/membership-types/" className="hover:text-foreground transition-colors">
+                    <Link to={RoutePath.Membership} className="hover:text-foreground transition-colors">
                         Become a Member
-                    </a>
+                    </Link>
                     <span className="opacity-30">|</span>
-                    <a href="https://my.cison.org.ng" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
+                    <Link to="https://my.cison.org.ng" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors flex items-center gap-1">
                         <UserIcon className="w-3 h-3" /> Members Login
-                    </a>
+                    </Link>
                     <span className="opacity-30">|</span>
-                    <a href="https://cison.org.ng/contact/" className="hover:text-foreground transition-colors">
+                    <Link to={RoutePath.ContactUs} className="hover:text-foreground transition-colors">
                         Contact
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Main nav bar */}
@@ -323,7 +361,6 @@ function Navbar() {
                         <img src={Logo} alt="CISON Logo" className="w-17 h-17" />
                         <div className="leading-none">
                             <p className="font-bold text-lg text-foreground tracking-tight">CISON</p>
-                            {/* <p className="text-[10px] text-muted-foreground leading-tight hidden sm:block">Chartered Institute of Statisticians Of Nigeria</p> */}
                         </div>
                     </Link>
 
@@ -363,14 +400,14 @@ function Navbar() {
 
                         <ThemeToggle />
 
-                        <a
-                            href="https://cison.org.ng/members/"
+                        <Link
+                            to="https://my.cison.org.ng/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden lg:flex items-center gap-2 ml-2 px-4 py-2 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors shadow-sm"
                         >
                             Member Login
-                        </a>
+                        </Link>
 
                         {/* Mobile hamburger */}
                         <button
@@ -416,9 +453,8 @@ function Navbar() {
                 {/* Drawer header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                     <Link to="/" onClick={() => setMobileOpen(false)} className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-md bg-gradient-to-br from-emerald-700 to-emerald-500 flex items-center justify-center">
-                            <span className="text-white font-black text-xs">CI</span>
-                        </div>
+
+                        <img src={Logo} alt="CISON Logo" className="w-5 h-5" />
                         <span className="font-bold text-sm text-foreground">CISON</span>
                     </Link>
                     <button
@@ -438,20 +474,20 @@ function Navbar() {
 
                 {/* Drawer footer */}
                 <div className="px-5 py-4 border-t border-border space-y-2">
-                    <a
-                        href="https://cison.org.ng/members/"
+                    <Link
+                        to="https://my.cison.org.ng"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-semibold rounded-lg bg-emerald-700 text-white hover:bg-emerald-600 transition-colors"
                     >
                         <UserIcon className="w-4 h-4" /> Member Login
-                    </a>
-                    <a
-                        href="https://cison.org.ng/membership-types/"
+                    </Link>
+                    <Link
+                        to={RoutePath.Membership}
                         className="flex items-center justify-center w-full py-2.5 text-sm font-medium rounded-lg border border-border text-foreground/80 hover:bg-muted/50 transition-colors"
                     >
                         Become a Member
-                    </a>
+                    </Link>
                     <div className="flex items-center justify-between pt-1">
                         <span className="text-xs text-muted-foreground">Toggle theme</span>
                         <ThemeToggle />
@@ -460,7 +496,7 @@ function Navbar() {
             </aside>
 
             {/* Spacer so content doesn't hide under fixed header */}
-            <div className="h-16 lg:h-[calc(4rem+2.125rem)]" aria-hidden />
+            <div className="h-16 lg:h-24.5" aria-hidden />
         </>
     );
 }

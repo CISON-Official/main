@@ -1,26 +1,27 @@
 
 import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
-
+import Logo from "@/assets/logo.png"
+import RoutePath from '@/routes';
 
 const footerWhatWeDo = [
-  { name: 'Professional Accreditation', href: 'https://cison.org.ng/professional-accreditation/' },
-  { name: 'Accreditation of Institutions', href: 'https://cison.org.ng/accreditation-and-examination/institutions-accreditation/' },
-  { name: 'Courses Accreditation', href: 'https://cison.org.ng/accreditation-and-examination/courses-accreditation/' },
-  { name: 'Professional Examination', href: 'https://cison.org.ng/professional-examination/' },
-  { name: 'Consultancy Services', href: 'https://cison.org.ng/accreditation-and-examination/consultancy-services/' },
-  { name: 'Capacity Building', href: 'https://cison.org.ng/continuing-professional-development-cpd-policy/' },
-  { name: 'Mentoring Scheme', href: 'https://cison.org.ng/accreditation-and-examination/mentoring-scheme/' },
-  { name: 'Curriculum Development', href: 'https://cison.org.ng/accreditation-and-examination/curriculum-development/' },
+  { name: 'Professional Accreditation', href: RoutePath.ProfessionalAccreditation },
+  { name: 'Accreditation of Institutions', href: RoutePath.InstitutionalAccreditation },
+  { name: 'Courses Accreditation', href: RoutePath.CourseAccreditation },
+  { name: 'Professional Examination', href: RoutePath.ProfessionalExamination },
+  { name: 'Consultancy Services', href: RoutePath.ConsultancyService },
+  { name: 'Capacity Building', href: RoutePath.CPDPolicy },
+  { name: 'Mentoring Scheme', href: RoutePath.MentoringScheme },
+  { name: 'Curriculum Development', href: RoutePath.CurriculumDevelopment },
 ];
 
 const footerWhoWeAre = [
-  { name: 'About CISON', href: 'https://cison.org.ng/about/' },
-  { name: 'Our History', href: 'https://cison.org.ng/about/our-history/' },
-  { name: 'Our Objectives', href: 'https://cison.org.ng/about/our-objectives/' },
-  { name: 'Governance', href: 'https://cison.org.ng/about/structure-and-governance/' },
-  { name: 'Departments', href: 'https://cison.org.ng/departments-and-activities/' },
-  { name: 'Our Committees', href: 'https://cison.org.ng/committees/' },
-  { name: 'Contact CISON', href: 'https://cison.org.ng/contact/' },
+  { name: 'About CISON', href: RoutePath.AboutUs },
+  { name: 'Our History', href: RoutePath.OurHistory },
+  { name: 'Our Objectives', href: RoutePath.Objective },
+  { name: 'Governance', href: RoutePath.StructureAndGovernance },
+  { name: 'Departments', href: RoutePath.Departments },
+  { name: 'Our Committees', href: RoutePath.Committee },
+  { name: 'Contact CISON', href: RoutePath.ContactUs },
 ];
 
 function Footer() {
@@ -37,7 +38,7 @@ function Footer() {
             +234 701 443 2794
           </a>
           <a
-            href="https://cison.org.ng/contact/"
+            href={RoutePath.ContactUs}
             className="flex items-center gap-2 text-sm hover:text-emerald-400 transition-colors"
           >
             <MailboxIcon className="w-4 h-4 text-emerald-500" />
@@ -51,8 +52,8 @@ function Footer() {
         <div className="grid sm:grid-cols-2 gap-10 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-400 flex items-center justify-center shadow-lg">
-                <span className="text-white font-black text-sm">CI</span>
+              <div className="w-10 h-10 rounded-xl bg-linear-to-br flex items-center justify-center shadow-lg">
+                <img className="text-white font-black text-sm" src={Logo} alt="CISON Footer Logo" />
               </div>
               <span className="font-bold text-white text-lg">CISON</span>
             </div>
@@ -105,7 +106,7 @@ function Footer() {
           <div>
             <p className="text-slate-300 font-semibold text-sm mb-4">Terms & Policies</p>
             <ul className="space-y-2.5">
-              <li><a href="https://cison.org.ng/privacy-policy/" className="text-xs hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+              <li><a href={RoutePath.Privacy} className="text-xs hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
               <li>
                 <a href="https://nsang.org/" target="_blank" rel="noopener noreferrer" className="text-xs hover:text-emerald-400 transition-colors flex items-center gap-1">
                   NSA Website <ArrowSquareOutIcon className="w-3 h-3" />
@@ -115,7 +116,7 @@ function Footer() {
 
             {/* Social icons */}
             <div className="flex gap-3 mt-6">
-              <a href="https://www.LinkedinLogoIcon.com/company/#" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/cison-nigeria/" target="_blank" rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:border-emerald-500 hover:text-emerald-400 transition-colors">
                 <LinkedinLogoIcon className="w-3.5 h-3.5" />
               </a>
