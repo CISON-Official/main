@@ -110,6 +110,9 @@ export const legacyRedirectRules = [
     { from: 'contact-us', to: RoutePath.ContactUs },
     { from: 'about-old', to: RoutePath.AboutUs },
     { from: "conference", to: RoutePath.Conference2026 },
+    { from: "history", to: RoutePath.OurHistory },
+    { from: "membership", to: RoutePath.Membership },
+    { from: "Professional", to: RoutePath.ProfessionalExamination },
 ];
 
 
