@@ -339,12 +339,18 @@ function Hero() {
                     ))}
                 </div>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem" }}>
+                <div className="flex flex-3 flex-wrap gap-3 content-center items-center justify-center">
                     <a
                         href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
                         style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
                     >
-                        Individual Registration <ArrowRightIcon size={16} />
+                        Member Registration <ArrowRightIcon size={16} />
+                    </a>
+                     <a
+                        href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
+                        style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
+                    >
+                        Non-Member Registration <ArrowRightIcon size={16} />
                     </a>
                     <a
                         href="https://my.cison.org.ng/group-conference-registration/"
