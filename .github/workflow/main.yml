@@ -1,0 +1,22 @@
+name: Deploy To Main Site
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
+      - name: Deploy to Server
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.MAIN_FTP_SERVER }}
+          username: ${{ secrets.MAIN_FTP_USERNAME }}
+          password: ${{ secrets.MAIN_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: /public_html/
