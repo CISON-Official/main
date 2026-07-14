@@ -27,7 +27,7 @@ export default function CISON2026Conference() {
                                     <span className="text-blue-600 text-lg">📅</span>
                                     <div>
                                         <p className="font-semibold text-slate-800">Date</p>
-                                        <p className="text-slate-500">Upcoming 2026 Session</p>
+                                        <p className="text-slate-500">October 12 -16, 2026</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
