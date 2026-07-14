@@ -50,7 +50,7 @@ const RoutePath = {
     CISON2025ConferenceProceeding: "/pdf/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf",
     CISON2024ConferenceProceeding: "/pdf/2024-PROCEEDINGS-SUBMITTED-FOR-PUBLICATION_UPDATED.pdf",
 
-    
+
     // Privacy
     Privacy: "/privacy",
     ContactUs: '/contact',
@@ -83,7 +83,7 @@ const RoutePath = {
     SingleEvent: "/event/:eventid",
     SecondQuarterPrs2026: "/event/2nd-quarter-prs-2026",
     ThirdFourthQuarterPRS2026: "/event/3rd-4th-quarter-prs-2026",
-    JCISONCallForPapers:"/event/jcison-call-for-papers",
+    JCISONCallForPapers: "/event/jcison-call-for-papers",
 
 
 
@@ -108,8 +108,9 @@ export const legacyRedirectRules = [
     { from: 'charactered', to: RoutePath.CharacterdStatistician },
     { from: 'registered-statistician', to: RoutePath.RegisteredStatistician },
     { from: 'contact-us', to: RoutePath.ContactUs },
-    { from: 'about-old', to: RoutePath.AboutUs }
-  ];
+    { from: 'about-old', to: RoutePath.AboutUs },
+    { from: "conference", to: RoutePath.Conference2026 },
+];
 
 
 export const HeaderRouteMap: RouteMapType[] = [
