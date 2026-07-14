@@ -129,7 +129,7 @@ const REG_CARDS = [
     {
         tier: "",
         type: "CISON Member",
-        price: "₦120,000",
+        price: "₦150,000 Conference",
         period: "per delegate",
         // features: ["All plenary & panel sessions", "2 pre-conference workshops", "Conference materials", "Gala dinner access"],
         features:[],
@@ -140,7 +140,7 @@ const REG_CARDS = [
     {
         tier: "Most Popular",
         type: "Non-Member",
-        price: "₦185,000",
+        price: "₦195,000",
         period: "per delegate",
         // features: ["All plenary & panel sessions", "3 pre-conference workshops", "Conference materials & bag", "Gala dinner access"],
         features:[],
@@ -151,7 +151,7 @@ const REG_CARDS = [
     {
         tier: "Group Rate",
         type: "Corporate / Group",
-        price: "₦100,000",
+        price: "₦150,000",
         period: "10+ delegates · discounted",
         // features: ["Dedicated group coordinator", "Custom workshop allocation", "Branded delegate packs", "Priority reserved seating"],
         features:[],
