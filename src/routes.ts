@@ -103,8 +103,9 @@ const RoutePath = {
 
 
 export const legacyRedirectRules = [
+    { from: "chartered", to: RoutePath.CharacterdStatistician },
     { from: 'charactered', to: RoutePath.CharacterdStatistician },
-    { from: 'registered-statistician', to: RoutePath.RegisteredStatistician },
+    { from: 'registered', to: RoutePath.RegisteredStatistician },
     { from: 'contact-us', to: RoutePath.ContactUs },
     { from: 'about-old', to: RoutePath.AboutUs },
     { from: "conference", to: RoutePath.Conference2026 },

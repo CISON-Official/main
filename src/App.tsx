@@ -105,7 +105,7 @@ const SingleEvent = lazy(() => import("@/pages/Events/single-event"));
 const JCISONPage = lazy(() => import("@/pages/Events/jcison-call-for-papers"));
 
 // MISC
-// const Page404 = lazy(() => import('@/pages/MISC/404'));
+const Page404 = lazy(() => import('@/pages/MISC/404'));
 const HowToPayPage = lazy(() => import("@/pages/MISC/how-to-pay"));
 const AnnualFeesPage = lazy(() => import("@/pages/MISC/annual-fees"));
 const WPADMINPage = lazy(() => import("@/pages/MISC/wp-admin"))
@@ -203,6 +203,7 @@ function App() {
             path="*"
             element={<LegacyRedirectWatcher rules={legacyRedirectRules} fallbackTo="/" />}
           />
+          <Route path="*" element={<Page404 />} />
         </Route>
       </Routes>
       <FloatingDonateButton />
