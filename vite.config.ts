@@ -64,8 +64,8 @@ function generateSitemapIndex(baseUrl: string) {
 
   const sitemaps = [
     { url: '/sitemap-pages.xml', name: 'Pages' },
-    { url: '/sitemap-exams.xml', name: 'Examinations' },
-    { url: '/sitemap-prs.xml', name: 'PRS' },
+    { url: '/sitemap-events.xml', name: 'Events' },
+    {url: '/sitemap-membership.xml', name: 'Membership'},
   ];
 
   const entries = sitemaps.map(sitemap => `  <sitemap>
@@ -186,11 +186,11 @@ export default defineConfig({
           return;
         }
 
-        const baseUrl = process.env.VITE_SITE_URL || 'https://dev.cison.org.ng';
+        const baseUrl = process.env.VITE_SITE_URL || 'https://cison.org.ng';
 
-        const examRoutes = dynamicRoutes.filter(r => r.includes('/examinations'));
-        const prsRoutes = dynamicRoutes.filter(r => r.includes('/prs'));
-        const pageRoutes = dynamicRoutes.filter(r => !r.includes('/examinations') && !r.includes('/prs'));
+        const examRoutes = dynamicRoutes.filter(r => r.includes('/membership'));
+        const prsRoutes = dynamicRoutes.filter(r => r.includes('/events'));
+        const pageRoutes = dynamicRoutes.filter(r => !r.includes('/membership') && !r.includes('/events'));
 
         // Generate categorized sitemaps
         fs.writeFileSync(
@@ -201,14 +201,14 @@ export default defineConfig({
         if (examRoutes.length > 0) {
           fs.writeFileSync(
             resolve(distPath, 'sitemap-exams.xml'),
-            generateSitemapFile('exams', examRoutes, baseUrl)
+            generateSitemapFile('membership', examRoutes, baseUrl)
           );
         }
 
         if (prsRoutes.length > 0) {
           fs.writeFileSync(
             resolve(distPath, 'sitemap-prs.xml'),
-            generateSitemapFile('prs', prsRoutes, baseUrl)
+            generateSitemapFile('events', prsRoutes, baseUrl)
           );
         }
 
