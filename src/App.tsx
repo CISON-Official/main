@@ -25,6 +25,11 @@ function LegacyRedirectWatcher({ rules, fallbackTo = "/" }: { rules: RuleType[],
   const location = useLocation();
   const currentPath = location.pathname.toLowerCase();
 
+  if (currentPath.includes("sitemap") || currentPath.endsWith(".xml")) {
+    window.location.replace(window.location.href);
+    return;
+  }
+
   const activeRule = rules.find(rule => currentPath.includes(rule.from.toLowerCase()));
 
   if (activeRule) {
