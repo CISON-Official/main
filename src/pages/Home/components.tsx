@@ -14,7 +14,7 @@ const slides = [
         motto: 'Statistical Science, Knowledge and Professionalism',
         cta: 'Become a Registered Statistician',
         href: RoutePath.Membership,
-        bg: 'from-emerald-950 via-slate-900 to-slate-950',
+        bg: 'from-emerald-50 via-slate-50 to-slate-100 dark:from-emerald-950 dark:via-slate-900 dark:to-slate-950',
     },
     {
         id: 2,
@@ -22,7 +22,7 @@ const slides = [
         description: 'Intensive technical sessions, member induction and certification.',
         cta: 'Register Here',
         href: RoutePath.Conference2026,
-        bg: 'from-slate-900 via-emerald-950 to-slate-950',
+        bg: 'from-slate-50 via-emerald-50 to-slate-100 dark:from-slate-900 dark:via-emerald-950 dark:to-slate-950',
     },
     {
         id: 3,
@@ -31,7 +31,7 @@ const slides = [
             'The Journal of CISON invites researchers, academicians, and practitioners to submit original research papers, review articles, and case studies for our upcoming edition.',
         cta: 'Submit Your Paper',
         href: RoutePath.JCISONCallForPapers,
-        bg: 'from-slate-950 via-slate-900 to-emerald-950',
+        bg: 'from-slate-100 via-slate-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-emerald-950',
     },
     {
         id: 4,
@@ -39,9 +39,17 @@ const slides = [
         description:
             'Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.',
         cta: 'Register for PRS',
-        href: RoutePath.ThirdFourthQuarterPRS2026, 
-        bg: 'from-blue-950 via-slate-900 to-slate-950',
+        href: RoutePath.ThirdFourthQuarterPRS2026,
+        bg: 'from-blue-50 via-slate-50 to-slate-100 dark:from-blue-950 dark:via-slate-900 dark:to-slate-950',
     },
+    {
+        id: 5,
+        heading: "2026 Induction List",
+        description: "CISON has officially released the comprehensive list of approved inductees for the upcoming 2026 Annual International Conference.",
+        cta: 'View Inductee',
+        href: RoutePath.InductionList2026,
+        bg: 'from-slate-100 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900'
+    }
 ];
 
 
@@ -235,13 +243,13 @@ function HeroSlider() {
                 <div
                     className={`transition-all duration-400 ${animating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
                 >
-                    <p className="text-emerald-400 text-xs font-semibold tracking-[0.25em] uppercase mb-6">
+                    <p className="dark:text-emerald-400 text-green-600 text-xs font-semibold tracking-[0.25em] uppercase mb-6">
                         Chartered Institute of Statisticians of Nigeria
                     </p>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold dark:text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
                         {slide.heading}
                     </h1>
-                    <p className="text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed mb-3">
+                    <p className="dark:text-slate-300  text-lg sm:text-xl max-w-2xl leading-relaxed mb-3">
                         {slide.description}
                     </p>
                     {slide.motto && (
@@ -260,33 +268,42 @@ function HeroSlider() {
 
             {/* Controls */}
             <div className="absolute bottom-10 left-6 sm:left-10 flex items-center gap-4 z-10">
+                {/* Previous Button */}
                 <button
                     onClick={() => go(current - 1)}
-                    className="p-2 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/50 transition-colors"
+                    className="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-400 dark:border-white/20 dark:text-white/60 dark:hover:text-white dark:hover:border-white/50 transition-colors"
                 >
                     <CaretLeftIcon className="w-5 h-5" />
                 </button>
+
+                {/* Slide Indicator Dots */}
                 <div className="flex gap-2">
                     {slides.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => go(i)}
-                            className={`h-1 rounded-full transition-all duration-300 ${i === current ? 'w-8 bg-emerald-400' : 'w-2 bg-white/30'}`}
+                            className={`h-1 rounded-full transition-all duration-300 ${i === current
+                                ? 'w-8 bg-emerald-500 dark:bg-emerald-400'
+                                : 'w-2 bg-slate-300 dark:bg-white/30'
+                                }`}
                         />
                     ))}
                 </div>
+
+                {/* Next Button */}
                 <button
                     onClick={() => go(current + 1)}
-                    className="p-2 rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/50 transition-colors"
+                    className="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-400 dark:border-white/20 dark:text-white/60 dark:hover:text-white dark:hover:border-white/50 transition-colors"
                 >
                     <CaretRightIcon className="w-5 h-5" />
                 </button>
             </div>
 
             {/* Slide counter */}
-            <div className="absolute bottom-10 right-6 sm:right-10 text-white/30 text-sm font-mono z-10">
+            <div className="absolute bottom-10 right-6 sm:right-10 text-slate-400 dark:text-white/30 text-sm font-mono z-10">
                 {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
             </div>
+
         </section>
     );
 }
