@@ -110,6 +110,9 @@ const HowToPayPage = lazy(() => import("@/pages/MISC/how-to-pay"));
 const AnnualFeesPage = lazy(() => import("@/pages/MISC/annual-fees"));
 const WPADMINPage = lazy(() => import("@/pages/MISC/wp-admin"))
 
+// News
+const InductionList2026Page = lazy(() => import("@/pages/News/2026-induction-list"));
+
 
 function App() {
 
@@ -191,6 +194,10 @@ function App() {
             <Route path={RoutePath.SecondQuarterPrs2026} element={<CisonWorkshopPage />} />
             <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
             <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
+          </Route>
+
+          <Route path={RoutePath.News}>
+            <Route path={RoutePath.InductionList2026} element={<InductionList2026Page />} />
           </Route>
 
           <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />

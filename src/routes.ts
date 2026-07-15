@@ -84,6 +84,10 @@ const RoutePath = {
     ThirdFourthQuarterPRS2026: "/event/3rd-4th-quarter-prs-2026",
     JCISONCallForPapers: "/event/jcison-call-for-papers",
 
+    // News
+    News: "/news",
+    InductionList2026: "/news/2026-induction-list",
+
 
 
     // People
