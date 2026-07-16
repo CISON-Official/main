@@ -1,5 +1,4 @@
-
-import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon } from '@phosphor-icons/react';
+import { ArrowSquareOutIcon, FacebookLogoIcon, LinkedinLogoIcon, MailboxIcon, PhoneIcon, TwitterLogoIcon, InstagramLogoIcon } from '@phosphor-icons/react';
 import Logo from "@/assets/logo.png"
 import RoutePath from '@/routes';
 
@@ -26,22 +25,22 @@ const footerWhoWeAre = [
 
 function Footer() {
   return (
-    <footer className="bg-slate-950 text-slate-400">
+    <footer className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-none transition-colors duration-300">
       {/* Contact bar */}
-      <div className="border-b border-slate-800">
+      <div className="border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 py-6 flex flex-wrap items-center justify-between gap-4">
           <a
             href="tel:+2347014432794"
-            className="flex items-center gap-2 text-sm hover:text-emerald-400 transition-colors"
+            className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium"
           >
-            <PhoneIcon className="w-4 h-4 text-emerald-500" />
+            <PhoneIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
             +234 701 443 2794
           </a>
           <a
             href={RoutePath.ContactUs}
-            className="flex items-center gap-2 text-sm hover:text-emerald-400 transition-colors"
+            className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium"
           >
-            <MailboxIcon className="w-4 h-4 text-emerald-500" />
+            <MailboxIcon className="w-4 h-4 text-emerald-600 dark:text-emerald-500" />
             info@cison.org.ng
           </a>
         </div>
@@ -52,17 +51,17 @@ function Footer() {
         <div className="grid sm:grid-cols-2 gap-10 mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-linear-to-br flex items-center justify-center shadow-lg">
-                <img className="text-white font-black text-sm" src={Logo} alt="CISON Footer Logo" />
+              <div className="w-10 h-10 rounded-xl bg-slate-200 dark:bg-slate-900 border border-slate-300/50 dark:border-slate-800 flex items-center justify-center shadow-md">
+                <img className="font-black text-sm max-w-[80%]" src={Logo} alt="CISON Footer Logo" />
               </div>
-              <span className="font-bold text-white text-lg">CISON</span>
+              <span className="font-bold text-slate-900 dark:text-white text-lg">CISON</span>
             </div>
-            <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
+            <p className="text-xs text-slate-500 dark:text-slate-500 max-w-xs leading-relaxed">
               Chartered Institute of Statisticians of Nigeria — promoting excellence in statistical science across all sectors.
             </p>
           </div>
           <div className="sm:text-right">
-            <p className="text-2xl sm:text-3xl font-bold text-slate-200 leading-tight">
+            <p className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-200 leading-tight">
               Statistical Science,
               <br />
               Knowledge and Professionalism.
@@ -71,13 +70,13 @@ function Footer() {
         </div>
 
         {/* Links grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800">
           <div>
-            <p className="text-slate-300 font-semibold text-sm mb-4">What We Do</p>
+            <p className="text-slate-800 dark:text-slate-300 font-semibold text-sm mb-4">What We Do</p>
             <ul className="space-y-2.5">
               {footerWhatWeDo.map(l => (
                 <li key={l.name}>
-                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <a href={l.href} className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                     {l.name}
                   </a>
                 </li>
@@ -85,11 +84,11 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-slate-300 font-semibold text-sm mb-4">Who We Are</p>
+            <p className="text-slate-800 dark:text-slate-300 font-semibold text-sm mb-4">Who We Are</p>
             <ul className="space-y-2.5">
               {footerWhoWeAre.map(l => (
                 <li key={l.name}>
-                  <a href={l.href} className="text-xs hover:text-emerald-400 transition-colors">
+                  <a href={l.href} className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                     {l.name}
                   </a>
                 </li>
@@ -97,18 +96,18 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <p className="text-slate-300 font-semibold text-sm mb-4">News & Events</p>
+            <p className="text-slate-800 dark:text-slate-300 font-semibold text-sm mb-4">News & Events</p>
             <ul className="space-y-2.5">
-              <li><a href="/events" className="text-xs hover:text-emerald-400 transition-colors">Events</a></li>
-              <li><a href="/news" className="text-xs hover:text-emerald-400 transition-colors">CISON News</a></li>
+              <li><a href="/events" className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Events</a></li>
+              <li><a href="/news" className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">CISON News</a></li>
             </ul>
           </div>
           <div>
-            <p className="text-slate-300 font-semibold text-sm mb-4">Terms & Policies</p>
+            <p className="text-slate-800 dark:text-slate-300 font-semibold text-sm mb-4">Terms & Policies</p>
             <ul className="space-y-2.5">
-              <li><a href={RoutePath.Privacy} className="text-xs hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
+              <li><a href={RoutePath.Privacy} className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Privacy Policy</a></li>
               <li>
-                <a href="https://nsang.org/" target="_blank" rel="noopener noreferrer" className="text-xs hover:text-emerald-400 transition-colors flex items-center gap-1">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-xs hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center gap-1">
                   NSA Website <ArrowSquareOutIcon className="w-3 h-3" />
                 </a>
               </li>
@@ -117,26 +116,30 @@ function Footer() {
             {/* Social icons */}
             <div className="flex gap-3 mt-6">
               <a href="https://www.linkedin.com/in/cison-nigeria/" target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:border-emerald-500 hover:text-emerald-400 transition-colors">
+                className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-emerald-600 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 <LinkedinLogoIcon className="w-3.5 h-3.5" />
               </a>
-              <a href="https://TwitterLogoIcon.com/#" target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:border-emerald-500 hover:text-emerald-400 transition-colors">
+              <a href="https://x.com/Officialcison" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-emerald-600 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 <TwitterLogoIcon className="w-3.5 h-3.5" />
               </a>
-              <a href="https://web.FacebookLogoIcon.com/profile.php?id=61560745762908" target="_blank" rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full border border-slate-700 flex items-center justify-center hover:border-emerald-500 hover:text-emerald-400 transition-colors">
+              <a href="https://web.facebook.com/p/Chartered-Institute-of-Statisticians-of-Nigeria-CISON-61560745762908/" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-emerald-600 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                 <FacebookLogoIcon className="w-3.5 h-3.5" />
+              </a>
+              <a href="https://www.instagram.com/official_cison" target="_blank" rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full border border-slate-300 dark:border-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:border-emerald-600 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <InstagramLogoIcon className="w-3.5 h-3.5" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600">
+        <div className="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 dark:text-slate-600">
           <p>© 2026 Chartered Institute of Statisticians of Nigeria (CISON). All rights reserved.</p>
-          <a href="https://nsang.org/" target="_blank" rel="noopener noreferrer"
-            className="hover:text-emerald-400 transition-colors flex items-center gap-1">
+          <a href="#" target="_blank" rel="noopener noreferrer"
+            className="hover:text-emerald-600 dark:hover:text-emerald-400 text-slate-500 dark:text-slate-500 transition-colors flex items-center gap-1">
             Nigerian Statistical Association <ArrowSquareOutIcon className="w-3 h-3" />
           </a>
         </div>
