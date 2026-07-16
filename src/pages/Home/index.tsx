@@ -1,6 +1,7 @@
 import CISON2026Conference from "@/components/announcements/2026conference";
 import { ArticlesSection, EventBanner, HeroSlider, ServicesSection, TeamSection, WhatElseSection } from "./components";
 import SEO from "@/components/SEO";
+import { ScheduleSidebar } from "@/components/announcements/conference";
 
 export default function HomePage() {
     return (
@@ -11,6 +12,7 @@ export default function HomePage() {
                 <HeroSlider />
                 <ServicesSection />
                 <WhatElseSection />
+                <ScheduleSidebar />
                 <EventBanner />
                 <TeamSection />
                 <ArticlesSection />

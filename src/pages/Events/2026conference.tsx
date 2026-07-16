@@ -10,6 +10,7 @@ import {
     ArrowRightIcon,
     CheckCircleIcon,
 } from "@phosphor-icons/react";
+import SEO from "@/components/SEO";
 
 const T = {
     green: "#0B3D1E",
@@ -132,7 +133,7 @@ const REG_CARDS = [
         price: "₦150,000 Conference",
         period: "per delegate",
         // features: ["All plenary & panel sessions", "2 pre-conference workshops", "Conference materials", "Gala dinner access"],
-        features:[],
+        features: [],
         href: "https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/",
         cta: "Register — Member",
         featured: false,
@@ -143,7 +144,7 @@ const REG_CARDS = [
         price: "₦195,000",
         period: "per delegate",
         // features: ["All plenary & panel sessions", "3 pre-conference workshops", "Conference materials & bag", "Gala dinner access"],
-        features:[],
+        features: [],
         href: "https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/",
         cta: "Register — Non-Member",
         featured: true,
@@ -154,7 +155,7 @@ const REG_CARDS = [
         price: "₦150,000",
         period: "10+ delegates",
         // features: ["Dedicated group coordinator", "Custom workshop allocation", "Branded delegate packs", "Priority reserved seating"],
-        features:[],
+        features: [],
         href: "https://my.cison.org.ng/group-conference-registration/",
         cta: "Corporate Registration",
         featured: false,
@@ -346,7 +347,7 @@ function Hero() {
                     >
                         Member Registration <ArrowRightIcon size={16} />
                     </a>
-                     <a
+                    <a
                         href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
                         style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
                     >
@@ -777,6 +778,7 @@ function CTASection() {
 export default function CisonConference2026() {
     return (
         <>
+            <SEO title="2026 International Conference" />
             <EarlyBirdStrip />
             <Hero />
             <Countdown />
