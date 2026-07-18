@@ -134,7 +134,7 @@ const REG_CARDS = [
         period: "per delegate",
         // features: ["All plenary & panel sessions", "2 pre-conference workshops", "Conference materials", "Gala dinner access"],
         features: [],
-        href: "https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/",
+        href: "https://my.cison.org.ng/2026-conference-and-preconference-registration/",
         cta: "Register — Member",
         featured: false,
     },
@@ -342,7 +342,7 @@ function Hero() {
 
                 <div className="flex flex-3 flex-wrap gap-3 content-center items-center justify-center">
                     <a
-                        href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
+                        href="https://my.cison.org.ng/2026-conference-and-preconference-registration/"
                         style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
                     >
                         Member Registration <ArrowRightIcon size={16} />
