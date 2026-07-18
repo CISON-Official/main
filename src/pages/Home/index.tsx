@@ -10,9 +10,9 @@ export default function HomePage() {
             <main className="min-h-screen">
                 <CISON2026Conference />
                 <HeroSlider />
+                <ScheduleSidebar />
                 <ServicesSection />
                 <WhatElseSection />
-                <ScheduleSidebar />
                 <EventBanner />
                 <TeamSection />
                 <ArticlesSection />
