@@ -3,6 +3,7 @@ import { CaretRightIcon, HouseIcon, ShieldIcon } from '@phosphor-icons/react';
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import SEO from '@/components/SEO';
+import RoutePath from '@/routes';
 
 function Breadcrumb() {
     return (
@@ -95,7 +96,7 @@ export default function PrivacyPolicyPage() {
 
     return (
         <>
-        <SEO title="Privacy Policy" description='Privacy Policy page for CISON' canonicalUrl='/privacy'/>
+            <SEO title="Privacy Policy" description="Privacy Policy page for CISON; Understand Cison\' s commitment to data privacy. Explore our policies on information security, personal data collection, and compliance for PR and media services; " canonicalUrl={RoutePath.PrivacyPolicy} keywords="Data Protection, Statistical Institute of Nigeria, Member Information, Personal Data, Confidentiality Policy, CISON Membership, Data Collection, CISON privacy policy, Chartered Institute of Statisticians of Nigeria data protection, Nigeria statistical body privacy, CISON member data security, Registered Statistician privacy, Nigerian statistics professional data" />
             <div id="main-content" className="min-h-screen bg-background font-sans">
                 <PageHero />
 

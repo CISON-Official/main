@@ -116,6 +116,7 @@ export const legacyRedirectRules = [
     { from: "history", to: RoutePath.OurHistory },
     { from: "membership", to: RoutePath.Membership },
     { from: "Professional", to: RoutePath.ProfessionalExamination },
+    { from: "privacy", to: RoutePath.PrivacyPolicy}
 ];
 
 export default RoutePath;
