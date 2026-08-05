@@ -1,6 +1,6 @@
 import RoutePath from "@/routes";
 import type { PersonInterface } from "../base";
-import Image from "@/assets/council/Professor-Julian-Ibezimako-Mbegbu-.jpg"
+import Image from "@/assets/council/Professor-Julian-Ibezimako-Mbegbu-.jpeg"
 
 const ElectedMemberOne: PersonInterface = {
     name: "Prof. Julian Ibezimako Mbegbu",
