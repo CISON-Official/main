@@ -20,8 +20,8 @@ import ElectedMemberOne from "@/data/council/elected-member-one";
 import Registrar from "@/data/council/registrar";
 import VicePresident from "@/data/council/vice-president";
 import President from "@/data/council/president";
+import SEO from "@/components/SEO";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
 
 interface Person {
     name: string;
@@ -54,7 +54,7 @@ function PersonCard({
             className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card hover:border-[#6dd249]/50 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-[#6dd249]/5"
         >
             {/* Photo */}
-            <div className="relative overflow-hidden aspect-[387/460] bg-muted">
+            <div className="relative overflow-hidden aspect-387/460 bg-muted">
                 <motion.img
                     src={person.img}
                     alt={person.name}
@@ -64,7 +64,7 @@ function PersonCard({
                     loading="lazy"
                 />
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080f]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#06080f]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="w-7 h-7 rounded-full bg-[#6dd249] flex items-center justify-center">
                         <ArrowSquareOutIcon className="w-3 h-3 text-[#06080f]" />
@@ -105,7 +105,7 @@ function PeopleSection({
             <Reveal delay={0}>
                 <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 rounded-xl bg-[#6dd249]/10 border border-[#6dd249]/25 flex items-center justify-center text-[#6dd249] flex-shrink-0">
+                        <div className="w-9 h-9 rounded-xl bg-[#6dd249]/10 border border-[#6dd249]/25 flex items-center justify-center text-[#6dd249] shrink-0">
                             {icon}
                         </div>
                         <span className="text-[10px] font-mono tracking-[0.22em] uppercase text-[#6dd249]/80 font-semibold">
@@ -246,7 +246,6 @@ const editorialBoard: Person[] = [
     },
 ];
 
-// ─── Quick nav tabs ───────────────────────────────────────────────────────────
 
 const navItems = [
     { label: "Council", href: "#council" },
@@ -347,11 +346,20 @@ export default function OurPeoplePage() {
         }
     ];
     return (
-        <div id="page" className="min-h-screen bg-background font-sans">
-            <PageHero
-                title="Our People" subtitle="Come meet" catchy="Our People" breadcrumb={<Breadcrumb Elements={crumbles} />} />
-            <MainContent />
+        <>
+            <SEO
+                title="Our People"
+                description="All members of CISON in Leadership capacity"
+                canonicalUrl={RoutePath.Leadership}
+                keywords="leadership, leaders, Council, council members, who we are, CISON governance, governing council, executive committee, statistical board, Nigeria statisticians, CISON board, Dr Godday Ebuh, Prof S U Gulumbe, CISON president, CISON registrar, Ngozi Agboegbulem, Christopher M Okafor, Nigerian Statistical Association, NSA, professional statisticians, chartered statisticians, statistical society, Nigeria data experts, data science leadership, national statistical system, NBS Nigeria, National Bureau of Statistics, National Population Commission, NPC representative, CBN research team, Central Bank of Nigeria statistics, EFCC corporate partner, NIPSS delegation, data driven governance, institutional editorial board, CISON elected members, pioneer state chairmen, Plateau state chapter, FCT Abuja chapter, statistical regulation, data ethics board, accredited data analysts, Act No 38, CISON Act 2022, President Muhammadu Buhari signed bill, official gazette data, statistical practice enforcement, continuing professional development, CPD programme, mandatory training board, statistical examination council, member induction committee, charter certification board, registered statisticians, associate statistician, A Stat, C Stat accreditation, research fellows, data analytics professors, academic statisticians, public sector analysts, private sector data consultants, statistical policy makers, macroeconomic analysts, demographic experts, survey methodology experts, biostatisticians, econometricians, operational research leaders, data infrastructure committee, technical sessions committee, pre conference workshop planners, annual conference executives, Chida Hotel Abuja event organizers, membership transition committee, development levy board, institutional partnerships, academic accreditation team, statistical curriculum developers, professional ethics panel, disciplinary committee, data integrity enforcement, regional coordinators, zonal executives, state statistical chiefs, public health analysts, data scientists Nigeria, tech infrastructure advisors, digital data governance, census planners, population data board, economic planning council, Federal Commissioners, state chapter executives, statistical management team, institutional trustees, board of fellows, honorary fellows, tracking metrics leadership"
+            />
 
-        </div>
+            <div id="page" className="min-h-screen bg-background font-sans">
+                <PageHero
+                    title="Our People" subtitle="Come meet" catchy="Our People" breadcrumb={<Breadcrumb Elements={crumbles} />} />
+                <MainContent />
+
+            </div>
+        </>
     );
 }
