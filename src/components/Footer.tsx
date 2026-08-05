@@ -25,7 +25,7 @@ const footerWhoWeAre = [
 
 function Footer() {
   return (
-    <footer className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-none transition-colors duration-300">
+    <footer className="text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-none transition-colors duration-300">
       {/* Contact bar */}
       <div className="border-b border-slate-200 dark:border-slate-800">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 py-6 flex flex-wrap items-center justify-between gap-4">

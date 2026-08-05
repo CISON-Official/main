@@ -1,4 +1,4 @@
-import React, { useState, useEffect, type ReactNode } from "react";
+import React, { type ReactNode } from "react";
 import {
     CalendarBlankIcon,
     MapPinIcon,
@@ -11,6 +11,7 @@ import {
     CheckCircleIcon,
 } from "@phosphor-icons/react";
 import SEO from "@/components/SEO";
+import RoutePath from "@/routes";
 
 const T = {
     green: "#0B3D1E",
@@ -163,61 +164,61 @@ const REG_CARDS = [
 ];
 
 
-function useCountdown(targetDate: any) {
-    const [timeLeft, setTimeLeft] = useState({ d: "--", h: "--", m: "--", s: "--" });
+// function useCountdown(targetDate: any) {
+//     const [timeLeft, setTimeLeft] = useState({ d: "--", h: "--", m: "--", s: "--" });
 
-    useEffect(() => {
-        const end = new Date(targetDate).getTime();
-        const pad = (n: any) => String(n).padStart(2, "0");
+//     useEffect(() => {
+//         const end = new Date(targetDate).getTime();
+//         const pad = (n: any) => String(n).padStart(2, "0");
 
-        const tick = () => {
-            const diff = end - Date.now();
-            if (diff > 0) {
-                setTimeLeft({
-                    d: pad(Math.floor(diff / 86400000)),
-                    h: pad(Math.floor((diff % 86400000) / 3600000)),
-                    m: pad(Math.floor((diff % 3600000) / 60000)),
-                    s: pad(Math.floor((diff % 60000) / 1000)),
-                });
-            } else {
-                setTimeLeft({ d: "00", h: "00", m: "00", s: "00" });
-            }
-        };
+//         const tick = () => {
+//             const diff = end - Date.now();
+//             if (diff > 0) {
+//                 setTimeLeft({
+//                     d: pad(Math.floor(diff / 86400000)),
+//                     h: pad(Math.floor((diff % 86400000) / 3600000)),
+//                     m: pad(Math.floor((diff % 3600000) / 60000)),
+//                     s: pad(Math.floor((diff % 60000) / 1000)),
+//                 });
+//             } else {
+//                 setTimeLeft({ d: "00", h: "00", m: "00", s: "00" });
+//             }
+//         };
 
-        tick();
-        const id = setInterval(tick, 1000);
-        return () => clearInterval(id);
-    }, [targetDate]);
+//         tick();
+//         const id = setInterval(tick, 1000);
+//         return () => clearInterval(id);
+//     }, [targetDate]);
 
-    return timeLeft;
-}
+//     return timeLeft;
+// }
 
 // ─── Sub-components ─────────────────────────────────────────────────────────
 
-function EarlyBirdStrip() {
-    return (
-        <div
-            style={{
-                background: T.gold,
-                color: T.green,
-                fontSize: 13,
-                fontWeight: 600,
-                textAlign: "center",
-                padding: "10px 16px",
-                letterSpacing: "0.01em",
-            }}
-        >
-            Early Bird Registration — Save 25% before{" "}
-            <strong>July 1, 2026</strong>.{" "}
-            <a
-                href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
-                style={{ color: T.green, fontWeight: 700, marginLeft: 6 }}
-            >
-                Register Now →
-            </a>
-        </div>
-    );
-}
+// function EarlyBirdStrip() {
+//     return (
+//         <div
+//             style={{
+//                 background: T.gold,
+//                 color: T.green,
+//                 fontSize: 13,
+//                 fontWeight: 600,
+//                 textAlign: "center",
+//                 padding: "10px 16px",
+//                 letterSpacing: "0.01em",
+//             }}
+//         >
+//             Early Bird Registration — Save 25% before{" "}
+//             <strong>July 1, 2026</strong>.{" "}
+//             <a
+//                 href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
+//                 style={{ color: T.green, fontWeight: 700, marginLeft: 6 }}
+//             >
+//                 Register Now →
+//             </a>
+//         </div>
+//     );
+// }
 
 function Hero() {
     return (
@@ -365,57 +366,57 @@ function Hero() {
     );
 }
 
-function Countdown() {
-    const { d, h, m, s } = useCountdown("July 1, 2026 00:00:00 GMT+0100");
+// function Countdown() {
+//     const { d, h, m, s } = useCountdown("July 1, 2026 00:00:00 GMT+0100");
 
-    return (
-        /* Replaced flat padding with responsive py-6 (mobile) to py-9 (desktop) */
-        <section className="bg-zinc-950 px-4 py-6 sm:px-6 sm:py-9">
-            {/* Added flex-col for a single-column layout on mobile, switching to row on tablet (sm:) */}
-            <div className="mx-auto flex max-w-[700px] flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
-                <div className="flex flex-col items-center sm:items-start">
-                    {/* Header Label */}
-                    <div className="mb-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-white/50 sm:text-[11px]">
-                        Early bird ends in
-                    </div>
+//     return (
+//         /* Replaced flat padding with responsive py-6 (mobile) to py-9 (desktop) */
+//         <section className="bg-zinc-950 px-4 py-6 sm:px-6 sm:py-9">
+//             {/* Added flex-col for a single-column layout on mobile, switching to row on tablet (sm:) */}
+//             <div className="mx-auto flex max-w-[700px] flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
+//                 <div className="flex flex-col items-center sm:items-start">
+//                     {/* Header Label */}
+//                     <div className="mb-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-white/50 sm:text-[11px]">
+//                         Early bird ends in
+//                     </div>
 
-                    {/* Numbers Row - Tighter gap on tiny screens (gap-1.5) scaling up on larger screens */}
-                    <div className="flex items-start gap-1.5 sm:gap-2.5">
-                        {[
-                            { val: d, unit: "Days" },
-                            { val: h, unit: "Hrs" },
-                            { val: m, unit: "Min" },
-                            { val: s, unit: "Sec" }
-                        ].map(({ val, unit }, i) => (
-                            <div key={unit} className="flex items-start gap-1.5 sm:gap-2.5">
-                                {i > 0 && (
-                                    /* Reduced separator sizing for mobile layout stability */
-                                    <span className="font-serif text-xl text-white/20 mt-0.5 sm:text-2xl sm:mt-1">
-                                        :
-                                    </span>
-                                )}
-                                <div className="text-center">
-                                    {/* Typography scales from text-3xl (mobile) to text-4xl (desktop). Width adapts safely */}
-                                    <span className="font-serif text-3xl font-bold text-white block min-w-[48px] sm:min-w-[64px] leading-none tracking-tight">
-                                        {val}
-                                    </span>
-                                    <span className="text-[9px] tracking-[0.12em] uppercase text-white/45 block mt-1 sm:text-[10px] sm:tracking-[0.14em]">
-                                        {unit}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+//                     {/* Numbers Row - Tighter gap on tiny screens (gap-1.5) scaling up on larger screens */}
+//                     <div className="flex items-start gap-1.5 sm:gap-2.5">
+//                         {[
+//                             { val: d, unit: "Days" },
+//                             { val: h, unit: "Hrs" },
+//                             { val: m, unit: "Min" },
+//                             { val: s, unit: "Sec" }
+//                         ].map(({ val, unit }, i) => (
+//                             <div key={unit} className="flex items-start gap-1.5 sm:gap-2.5">
+//                                 {i > 0 && (
+//                                     /* Reduced separator sizing for mobile layout stability */
+//                                     <span className="font-serif text-xl text-white/20 mt-0.5 sm:text-2xl sm:mt-1">
+//                                         :
+//                                     </span>
+//                                 )}
+//                                 <div className="text-center">
+//                                     {/* Typography scales from text-3xl (mobile) to text-4xl (desktop). Width adapts safely */}
+//                                     <span className="font-serif text-3xl font-bold text-white block min-w-[48px] sm:min-w-[64px] leading-none tracking-tight">
+//                                         {val}
+//                                     </span>
+//                                     <span className="text-[9px] tracking-[0.12em] uppercase text-white/45 block mt-1 sm:text-[10px] sm:tracking-[0.14em]">
+//                                         {unit}
+//                                     </span>
+//                                 </div>
+//                             </div>
+//                         ))}
+//                     </div>
+//                 </div>
 
-                {/* Offer Subtext - Flex margin push places it cleanly underneath on mobile */}
-                <div className="mt-2 text-xs font-medium text-amber-400 dark:text-amber-500 sm:mt-0 sm:text-[13.92px]">
-                    Save 25% · Deadline <strong className="font-bold whitespace-nowrap">July 1, 2026</strong>
-                </div>
-            </div>
-        </section>
-    );
-}
+//                 {/* Offer Subtext - Flex margin push places it cleanly underneath on mobile */}
+//                 <div className="mt-2 text-xs font-medium text-amber-400 dark:text-amber-500 sm:mt-0 sm:text-[13.92px]">
+//                     Save 25% · Deadline <strong className="font-bold whitespace-nowrap">July 1, 2026</strong>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// }
 
 function StatsBar() {
     return (
@@ -437,40 +438,20 @@ function StatsBar() {
     );
 }
 
-function Eyebrow({ children, light = false }: { children: ReactNode, light: Boolean }) {
+
+function Eyebrow({ children, className }: { children: ReactNode, className?: string }) {
     return (
-        <div
-            style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: light ? T.gold : T.teal,
-                marginBottom: "0.9rem",
-                display: "flex",
-                alignItems: "center",
-                gap: 8,
-            }}
-        >
-            <span style={{ width: 20, height: 2, background: light ? T.gold : T.teal, flexShrink: 0, display: "inline-block" }} />
+        <div className={`font-bold tracking-[0.2em] uppercase flex items-center gap-2 mb-[0.9rem] text-brand-teal dark:text-brand-gold ${className}`}>
+            <span className="w-5 h-0.5 shrink-0 inline-block bg-brand-teal dark:bg-brand-gold" />
             {children}
         </div>
     );
 }
 
-function SectionHeading({ children, light = false, style = {} }: { children: React.ReactNode, light: Boolean, style: any }) {
+
+function SectionHeading({ children, className }: { children: React.ReactNode, className?: string }) {
     return (
-        <h2
-            style={{
-                fontFamily: "'Fraunces', serif",
-                fontSize: "clamp(1.8rem, 4vw, 2.6rem)",
-                fontWeight: 700,
-                color: light ? "#fff" : T.green,
-                lineHeight: 1.15,
-                marginBottom: "1rem",
-                ...style,
-            }}
-        >
+        <h2 className={`font-black ${className}`}>
             {children}
         </h2>
     );
@@ -478,33 +459,36 @@ function SectionHeading({ children, light = false, style = {} }: { children: Rea
 
 function AboutSection() {
     return (
-        <section style={{ padding: "5.5rem 1.5rem", background: T.white }}>
+        <section className="my-12 px-5">
             <div className="mx-auto max-w-270 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
                 <div>
-                    <Eyebrow light={false}>About the Conference</Eyebrow>
-                    <SectionHeading style light>Nigeria's Premier Statistics & Data Analytics Summit</SectionHeading>
-                    <p style={{ fontSize: "1.02rem", color: T.muted, lineHeight: 1.8, maxWidth: 560, marginBottom: "2.5rem" }}>
+                    <Eyebrow>About the Conference</Eyebrow>
+                    <SectionHeading className="text-2xl my-10">Nigeria's Premier Statistics & Data Analytics Summit</SectionHeading>
+                    <p className="text-[1.02rem] leading-[1.8] max-w-140 mb-10 text-[#5A6B5E] dark:text-[#E8F5ED]">
                         The CISON Annual Conference unites statisticians, data scientists, policymakers, academics, and industry leaders across Africa. Our 2026 edition moves to Abuja — Nigeria's governance heartland — as we mark 50 years of shaping the national statistical system.
                     </p>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         {FEATURES.map(({ icon: Icon, title, text }) => (
                             <div
                                 key={title}
-                                style={{
-                                    display: "flex",
-                                    gap: "1rem",
-                                    padding: "1.2rem",
-                                    borderRadius: 6,
-                                    background: T.greenLight,
-                                    borderLeft: `3px solid ${T.greenMid}`,
-                                }}
+                                className="flex gap-4 p-[1.2rem] rounded-[6px] border-l-4 bg-green-700 border-green-900 text-white"
                             >
-                                <Icon size={22} color={T.greenMid} weight="duotone" style={{ flexShrink: 0, marginTop: 1 }} />
+                                <Icon
+                                    size={22}
+
+                                    weight="duotone"
+                                    className="shrink-0 mt-px text-brand-greenMid dark:text-brand-green"
+                                />
                                 <div>
-                                    <div style={{ fontSize: "0.92rem", fontWeight: 600, color: T.green, marginBottom: 3 }}>{title}</div>
-                                    <div style={{ fontSize: "0.83rem", color: T.muted, lineHeight: 1.6 }}>{text}</div>
+                                    <div className="text-[0.92rem] font-semibold mb-0.75 text-green dark:text-green">
+                                        {title}
+                                    </div>
+                                    <div className="text-[0.83rem] leading-[1.6] text-brand-muted dark:text-brand-greenLight/80">
+                                        {text}
+                                    </div>
                                 </div>
                             </div>
+
                         ))}
                     </div>
                 </div>
@@ -547,23 +531,25 @@ function AboutSection() {
 
 function ThemesSection() {
     return (
-        <section style={{ padding: "5.5rem 1.5rem", background: T.cream }}>
-            <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-                <Eyebrow light={false}>Key Themes</Eyebrow>
-                <SectionHeading light={false} style>What We'll Explore</SectionHeading>
+        <section className="py-20 bg-linear-[120deg] from-green-700 to-green-900 mask-[linear-gradient(45deg,rgba(20,0,0,1),rgba(0,0,0,20))] from-45%">
+
+            <div className="w-full max-w-5xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center">
+
+                <Eyebrow className="text-2xl font-black text-white">Key Themes</Eyebrow>
+                <SectionHeading className="text-2xl mb-10 dark:text-white text-black">What We'll Explore</SectionHeading>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1.2rem" }}>
                     {THEMES.map((t) => (
-                        <div
+                        <div className="bg-white"
                             key={t.num}
                             style={{
-                                background: T.white,
+
                                 // border: `1px solid ${T.greenMid}`,
                                 borderRadius: 6,
                                 padding: "1.6rem 1.4rem",
                                 transition: "border-color 0.2s, transform 0.2s",
                             }}
-                        // onMouseEnter={(e) => { e.currentTarget.style.borderColor = T.greenMid; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                        // onMouseLeave={(e) => { e.currentTarget.style.borderColor = T.green; e.currentTarget.style.transform = "none"; }}
+                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = T.greenMid; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = T.green; e.currentTarget.style.transform = "none"; }}
                         >
                             <div style={{ fontFamily: "'Fraunces', serif", fontSize: "2rem", fontWeight: 700, color: "#C8DFCE", lineHeight: 1, marginBottom: "0.7rem" }}>
                                 {t.num}
@@ -662,64 +648,90 @@ function ThemesSection() {
 
 function RegistrationSection() {
     return (
-        <section id="registration" style={{ padding: "5.5rem 1.5rem", background: T.ink }}>
+        <section id="registration" style={{ padding: "5.5rem 1.5rem" }}>
             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-                <Eyebrow light>Registration</Eyebrow>
-                <SectionHeading style light>Secure Your Place</SectionHeading>
-                <p style={{ fontSize: "1.02rem", color: "rgba(255,255,255,0.55)", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }}>
+                <Eyebrow>Registration</Eyebrow>
+                <SectionHeading className="text-2xl  mb-5">Secure Your Place</SectionHeading>
+                <p style={{ fontSize: "1.02rem", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }} className="text-black dark:text-white">
                     Early bird pricing available until July 1, 2026. All registrations include access to all plenary sessions, workshops, and the Gala dinner.
                 </p>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: "1.2rem", marginBottom: "2rem" }}>
                     {REG_CARDS.map((card) => (
                         <div
                             key={card.type}
-                            style={{
-                                borderRadius: 8,
-                                padding: "2rem 1.5rem",
-                                border: `1px solid ${card.featured ? T.gold : "rgba(255,255,255,0.1)"}`,
-                                background: card.featured ? T.gold : "rgba(255,255,255,0.05)",
-                            }}
+                            className={`rounded-get p-8 border transition-all duration-200 ${card.featured
+                                ? "border-brand-gold bg-brand-gold dark:border-brand-gold dark:bg-brand-gold"
+                                : "border-white/10 bg-slate-950 dark:border-brand-border/10 dark:bg-brand-ink/40"
+                                }`}
                         >
-                            <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: card.featured ? "rgba(11,61,30,0.6)" : "rgba(255,255,255,0.45)", marginBottom: "0.7rem" }}>
+                            {/* Tier Label */}
+                            <div className={`text-[10px] font-bold tracking-[0.15em] uppercase mb-[0.7rem] ${card.featured
+                                ? "text-brand-green/60"
+                                : "text-white/45 dark:text-brand-muted"
+                                }`}>
                                 {card.tier}
                             </div>
-                            <div style={{ fontWeight: 600, fontSize: "1rem", color: card.featured ? T.green : "#fff", marginBottom: "1rem" }}>
+
+                            {/* Type / Title */}
+                            <div className={`font-semibold text-base mb-4 ${card.featured
+                                ? "text-brand-green"
+                                : "text-white dark:text-brand-green"
+                                }`}>
                                 {card.type}
                             </div>
-                            <div style={{ fontFamily: "'Fraunces', serif", fontSize: "2.2rem", fontWeight: 700, color: card.featured ? T.green : "#fff", lineHeight: 1 }}>
+
+                            {/* Pricing Track */}
+                            <div className={`font-['Fraunces',serif] text-[2.2rem] font-bold leading-none ${card.featured
+                                ? "text-brand-green"
+                                : "text-white dark:text-brand-green"
+                                }`}>
                                 {card.price}
                             </div>
-                            <div style={{ fontSize: "0.78rem", color: card.featured ? "rgba(11,61,30,0.55)" : "rgba(255,255,255,0.45)", marginTop: 3, marginBottom: "1.2rem" }}>
+
+                            {/* Payment Billing Period */}
+                            <div className={`text-[0.78rem] mt-0.75 mb-[1.2rem] ${card.featured
+                                ? "text-brand-green/55"
+                                : "text-white/45 dark:text-brand-muted"
+                                }`}>
                                 {card.period}
                             </div>
-                            <div style={{ marginBottom: "1.5rem" }}>
+
+                            {/* Features List Section */}
+                            <div className="mb-6">
                                 {card.features && card.features.map((f) => (
-                                    <div key={f} style={{ fontSize: "0.82rem", color: card.featured ? "rgba(11,61,30,0.8)" : "rgba(255,255,255,0.7)", marginBottom: 6, display: "flex", gap: 6, alignItems: "flex-start" }}>
-                                        <CheckCircleIcon size={14} color={card.featured ? T.green : T.teal} weight="bold" style={{ flexShrink: 0, marginTop: 1 }} />
+                                    <div
+                                        key={f}
+                                        className={`text-[0.82rem] mb-1.5 flex gap-1.5 items-start ${card.featured
+                                            ? "text-green/80"
+                                            : "text-white/70 dark:text-brand-muted/90 bg-slate-500"
+                                            }`}
+                                    >
+                                        <CheckCircleIcon
+                                            size={14}
+                                            color={undefined} // Handled dynamically below via Tailwind text utilities
+                                            weight="bold"
+                                            className={`shrink-0 mt-px ${card.featured
+                                                ? "text-brand-green"
+                                                : "text-brand-teal dark:text-brand-greenMid"
+                                                }`}
+                                        />
                                         {f}
                                     </div>
                                 ))}
                             </div>
+
+                            {/* Call To Action Action Link Button */}
                             <a
                                 href={card.href}
-                                style={{
-                                    display: "block",
-                                    width: "100%",
-                                    padding: "0.8rem",
-                                    borderRadius: 4,
-                                    fontWeight: 600,
-                                    fontSize: "0.88rem",
-                                    textAlign: "center",
-                                    cursor: "pointer",
-                                    border: "none",
-                                    background: card.featured ? T.green : "rgba(255,255,255,0.1)",
-                                    color: "#fff",
-                                    textDecoration: "none",
-                                }}
+                                className={`block w-full p-[0.8rem] rounded-lg font-semibold text-[0.88rem] text-center no-underline cursor-pointer border-none transition-all duration-200 hover:opacity-90 active:scale-[0.98] text-white ${card.featured
+                                    ? "bg-[#E8A020]  shadow-sm hover:bg-brand-green/90"
+                                    : "bg-white/10  hover:bg-white/20 dark:bg-brand-greenMid dark:text-white"
+                                    }`}
                             >
                                 {card.cta}
                             </a>
                         </div>
+
                     ))}
                 </div>
             </div>
@@ -778,10 +790,16 @@ function CTASection() {
 export default function CisonConference2026() {
     return (
         <>
-            <SEO title="2026 International Conference" />
-            <EarlyBirdStrip />
+            <SEO
+                title="2026 International Conference"
+                description="Join global data experts, policy makers, and academics at the CISON 2026 International Conference to explore cutting-edge statistical methodologies, data science innovations, and economic governance strategies."
+                canonicalUrl={RoutePath.Conference2026}
+                keywords="CISON 2026, international conference, statistics conference Nigeria, data science summit 2026, chartered statisticians event, global data experts, statistical methodology, economic research conference, big data analytics, machine learning application, AI in statistics, national statistical system, NBS Nigeria partnership, annual statistical convention, data driven governance, research paper presentation, abstract submission 2026, keynote speakers, panel discussions, pre conference workshop, statistical computing, econometrics panel, biostatistics forum, data ethics seminar, digital transformation, data analytics training, professional networking, census methodology, demographic research, macroeconomic forecasting, financial econometrics, operational research, sampling techniques, survey data management, qualitative analysis, quantitative research methods, academic journal publication, conference proceedings, CISON act implementation, data regulation Nigeria, professional development, CPD credits, membership induction, statistical society, African data scientists, global statistical framework, evidence based policy, sustainable development goals, SDG monitoring, health informatics, public sector statistics, private sector data insights, business intelligence, tech infrastructure, cloud computing for data, predictive modeling, statistical modeling workshop, statistical software training, SPSS R Python workshops, data visualization techniques, GIS spatial analysis, environmental statistics, agricultural data analytics, educational statistics, social statistics framework, institutional partnership, academic collaboration, university research presentation, research fellows, board of fellows, doctoral thesis forum, masterclass data science, data security protocols, privacy preservation, blockchain in data, open data initiatives, smart cities metrics, industrial statistics, quality control metrics, reliability engineering, mathematical statistics, probability theory, stochastic processes, time series analysis, multivariate data analysis, data mining techniques, survey enumeration, national population metrics, trade statistics, labor market analytics, consumer price index tracking, inflation modeling, risk assessment analytics, actuarial science forum, statistical consultation services, tech innovators Nigeria, West African data hub, CISON conference registry"
+            />
+
+            {/* <EarlyBirdStrip /> */}
             <Hero />
-            <Countdown />
+            {/* <Countdown /> */}
             <StatsBar />
             <AboutSection />
             <ThemesSection />
