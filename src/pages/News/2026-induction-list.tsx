@@ -194,7 +194,7 @@ export default function InductionPage() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div>
                             <h2 className="text-2xl font-bold tracking-tight">Class of 2026 Inductees</h2>
-                            <p className="text-sm text-slate-500 mt-0.5">Showing {filteredInductees.length} verified members</p>
+                            <p className="text-sm text-slate-500 mt-0.5">Showing {filteredInductees.length} verified members as at {new Date("08/01/2026").toDateString()}</p>
                         </div>
 
                         {/* Search Input (Shadcn-style Input) */}
