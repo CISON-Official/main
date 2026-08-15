@@ -49,6 +49,13 @@ const slides = [
         cta: 'View Inductee',
         href: RoutePath.InductionList2026,
         bg: 'from-slate-100 via-blue-50 to-slate-50 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900'
+    },
+    {
+        id: 6,
+        heading: "Women In Statistics",
+        cta: "Apply for Event",
+        href: RoutePath.WomenStatsEvent2026,
+        bg: ""
     }
 ];
 
