@@ -182,7 +182,7 @@ export const AccessHub: React.FC = () => {
                         <h3 className="text-lg font-bold">Virtual Access & Link Information</h3>
                     </div>
                     <p className="text-xs text-neutral-400 font-mono break-all bg-neutral-950 p-3.5 rounded-xl border border-neutral-800/80 mb-6">
-                        https://zoom.us
+                        https://us06web.zoom.us/j/
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-medium">
                         <div className="bg-neutral-950 p-4 rounded-xl border border-neutral-800">
