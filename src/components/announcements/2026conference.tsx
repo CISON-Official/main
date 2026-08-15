@@ -2,6 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import AnnouncementModal from "../Announcements";
 import RoutePath from "@/routes";
+import { getDaysDifference } from "@/lib/utils";
 
 export default function CISON2026Conference() {
     const [isModalOpen, setIsModalOpen] = useState(true);
@@ -39,12 +40,12 @@ export default function CISON2026Conference() {
                                 </div>
                             </div>
 
-                            <p className="text-xs text-slate-400 mt-2">
-                                *Ensure your professional profile details and membership status are fully updated on the portal before initiating registration to fast-track your passes.
+                            <p className="text-lg text-slate-900 mt-2 text-center">
+                                {getDaysDifference(new Date(), new Date("2026-10-12"))} days to go
                             </p>
 
                             {/* Action Buttons */}
-                            <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
+                            <div className="mt-6 flex flex-col-reverse gap-3 justify-between sm:flex-row sm:justify-end">
                                 <button
                                     onClick={handleClose}
                                     className="w-full rounded-lg px-4 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-100 transition sm:w-auto"
@@ -57,7 +58,7 @@ export default function CISON2026Conference() {
                                         window.location.href = RoutePath.Conference2026;
                                         handleClose();
                                     }}
-                                    className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-bold text-white shadow-md hover:from-blue-700 hover:to-indigo-700 transition sm:w-auto"
+                                    className="w-full rounded-lg bg-linear-to-r from-blue-600 to-indigo-600 px-5 py-2.5 text-sm font-bold text-white shadow-md hover:from-blue-700 hover:to-indigo-700 transition sm:w-auto"
                                 >
                                     Proceed to Register
                                 </button>

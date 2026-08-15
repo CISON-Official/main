@@ -11,3 +11,9 @@ export function lazyImport(factory: () => Promise<any>, name: string) {
     factory().then(module => ({ default: module[name] }))
   );
 }
+
+export function getDaysDifference(date1: Date, date2: Date) {
+  const diffTime = Math.abs(Number(date2) - Number(date1)); // Difference in milliseconds
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
+}
