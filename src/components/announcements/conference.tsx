@@ -23,7 +23,7 @@ export function ScheduleSidebar({ fadeInUp }: ScheduleSidebarProps) {
     };
 
     return (
-        <div className="space-y-8 mx-auto flex justify-center items-center gap-5 my-5">
+        <div className="space-y-8 mx-auto flex justify-center items-center gap-5 my-5 flex-col md:flex-row">
 
             {/* Schedule Card */}
             <motion.section

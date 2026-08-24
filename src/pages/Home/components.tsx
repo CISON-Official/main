@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRightIcon, CaretLeftIcon, CaretRightIcon } from '@phosphor-icons/react';
+import { ArrowRightIcon} from '@phosphor-icons/react';
 import RoutePath from '@/routes';
 import LandingMeeting from "@/assets/landing/meeting-e1724103063780.webp";
 import LandingLegal from "@/assets/landing/legal-approval.webp";
 import LandingBlackMan from "@/assets/landing/black-man-using-a-desktop-e1724105770552.webp";
 import LandingProExams from "@/assets/landing/pro-exams.webp";
+import NewsAnnouncementData from '@/data/news';
 
 const slides = [
     {
@@ -210,6 +211,18 @@ function HeroSlider() {
     const [current, setCurrent] = useState(0);
     const [animating, setAnimating] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout>>(2);
+    const latestAnnouncements = NewsAnnouncementData.filter((e) => {
+        if (!e.expiry) return true;
+
+        const expiryDate = new Date(e.expiry);
+        const currentDate = new Date();
+
+        expiryDate.setHours(0, 0, 0, 0);
+        currentDate.setHours(0, 0, 0, 0);
+
+        return expiryDate >= currentDate;
+    }).slice(0, 6);
+
 
     const go = (idx: number) => {
         if (animating) return;
@@ -225,10 +238,10 @@ function HeroSlider() {
         return () => clearTimeout(timerRef.current);
     }, [current]);
 
-    const slide = slides[current];
+    const slide = slides[0];
 
     return (
-        <section className="relative h-[92vh] min-h-140 flex items-center overflow-hidden">
+        <section className="relative h-[80vh] min-h-140 flex items-center overflow-hidden">
             {/* Background */}
             <div className={`absolute inset-0 bg-linear-to-br ${slide.bg} transition-all duration-700`} />
 
@@ -246,45 +259,87 @@ function HeroSlider() {
             <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-emerald-400/5 rounded-full blur-2xl" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10">
-                <div
-                    className={`transition-all duration-400 ${animating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}
-                >
-                    <p className="dark:text-emerald-400 text-green-600 text-xs font-semibold tracking-[0.25em] uppercase mb-6">
-                        Chartered Institute of Statisticians of Nigeria
-                    </p>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold dark:text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
-                        {slide.heading}
-                    </h1>
-                    <p className="dark:text-slate-300  text-lg sm:text-xl max-w-2xl leading-relaxed mb-3">
-                        {slide.description}
-                    </p>
-                    {slide.motto && (
-                        <p className="text-emerald-400/80 text-sm italic mb-10">{slide.motto}</p>
-                    )}
-                    {!slide.motto && <div className="mb-10" />}
-                    <a
-                        href={slide.href}
-                        className="inline-flex items-center gap-3 px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
+            <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 py-12">
+
+                {/* 🌟 Responsive Split Container */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-125">
+
+                    {/* 👈 Left Side: Main Text Content (Centered Vertically) */}
+                    <div
+                        className={`lg:col-span-7 flex flex-col justify-center transition-all duration-400 ${animating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+                            }`}
                     >
-                        {slide.cta}
-                        <ArrowRightIcon className="w-4 h-4" />
-                    </a>
+                        <p className="dark:text-emerald-400 text-green-600 tracking-[0.25em] uppercase mb-6 text-3xl font-black">
+                            Chartered Institute of Statisticians of Nigeria
+                        </p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold dark:text-white leading-[1.05] tracking-tight max-w-4xl mb-6">
+                            {slide.heading}
+                        </h1>
+                        <p className="dark:text-slate-300 text-lg sm:text-xl max-w-2xl leading-relaxed mb-3">
+                            {slide.description}
+                        </p>
+                        {slide.motto ? (
+                            <p className="text-emerald-400/80 text-sm italic mb-10">{slide.motto}</p>
+                        ) : (
+                            <div className="mb-10" />
+                        )}
+                        <div>
+                            <a
+                                href={slide.href}
+                                className="inline-flex items-center gap-3 px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
+                            >
+                                {slide.cta}
+                                <ArrowRightIcon className="w-4 h-4" />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* 👉 Right Side: Latest Announcements (Hidden on Mobile, Visible on Desktop) */}
+                    <div className="hidden lg:flex lg:col-span-5 flex-col gap-4 self-center bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 p-6 rounded-2xl backdrop-blur-sm">
+                        <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 mb-2">
+                            <h3 className="text-sm font-bold tracking-wide uppercase text-slate-900 dark:text-white">
+                                Latest Updates
+                            </h3>
+                            <span className="flex h-2 w-2 relative">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                        </div>
+
+                        <div className="flex flex-col gap-3">
+                            {latestAnnouncements.map((item, index) => (
+                                <a
+                                    key={index}
+                                    href={item.route || "#"}
+                                    className="group flex flex-col gap-1 p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 shadow-sm hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-200"
+                                >
+                                    <h4 className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 line-clamp-2 transition-colors">
+                                        {item.title}
+                                    </h4>
+                                    <span className="text-xs text-slate-400 dark:text-slate-500">
+                                        {item.description}
+                                    </span>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
 
             {/* Controls */}
-            <div className="absolute bottom-10 left-6 sm:left-10 flex items-center gap-4 z-10">
-                {/* Previous Button */}
-                <button
+            {/* <div className="absolute bottom-10 left-6 sm:left-10 flex items-center gap-4 z-10"> */}
+            {/* Previous Button */}
+            {/* <button
                     onClick={() => go(current - 1)}
                     className="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-400 dark:border-white/20 dark:text-white/60 dark:hover:text-white dark:hover:border-white/50 transition-colors"
                 >
                     <CaretLeftIcon className="w-5 h-5" />
-                </button>
+                </button> */}
 
-                {/* Slide Indicator Dots */}
-                <div className="flex gap-2">
+            {/* Slide Indicator Dots */}
+            {/* <div className="flex gap-2">
                     {slides.map((_, i) => (
                         <button
                             key={i}
@@ -295,21 +350,21 @@ function HeroSlider() {
                                 }`}
                         />
                     ))}
-                </div>
+                </div> */}
 
-                {/* Next Button */}
-                <button
+            {/* Next Button */}
+            {/* <button
                     onClick={() => go(current + 1)}
                     className="p-2 rounded-full border border-slate-200 text-slate-500 hover:text-slate-900 hover:border-slate-400 dark:border-white/20 dark:text-white/60 dark:hover:text-white dark:hover:border-white/50 transition-colors"
                 >
                     <CaretRightIcon className="w-5 h-5" />
-                </button>
-            </div>
+                </button> */}
+            {/* </div> */}
 
             {/* Slide counter */}
-            <div className="absolute bottom-10 right-6 sm:right-10 text-slate-400 dark:text-white/30 text-sm font-mono z-10">
+            {/* <div className="absolute bottom-10 right-6 sm:right-10 text-slate-400 dark:text-white/30 text-sm font-mono z-10">
                 {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
-            </div>
+            </div> */}
 
         </section>
     );

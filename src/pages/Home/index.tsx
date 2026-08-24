@@ -2,6 +2,7 @@ import CISON2026Conference from "@/components/announcements/2026conference";
 import { ArticlesSection, EventBanner, HeroSlider, ServicesSection, TeamSection, WhatElseSection } from "./components";
 import SEO from "@/components/SEO";
 import { ScheduleSidebar } from "@/components/announcements/conference";
+import { NewsAnnouncement } from "@/components/News";
 
 export default function HomePage() {
     return (
@@ -10,6 +11,7 @@ export default function HomePage() {
             <main className="min-h-screen">
                 <CISON2026Conference />
                 <HeroSlider />
+                <NewsAnnouncement />
                 <ScheduleSidebar />
                 <ServicesSection />
                 <WhatElseSection />
