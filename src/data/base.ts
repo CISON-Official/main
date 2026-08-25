@@ -63,3 +63,11 @@ export interface EventData {
 export interface RuleType {
     from: string; to: string;
 }
+
+export interface PanTracker {
+  isDragging?: boolean;
+  startX: number;
+  startY: number;
+  startPanX: number;
+  startPanY: number;
+}

@@ -109,6 +109,7 @@ const EventPage = lazy(() => import("@/pages/Events/index"));
 const SingleEvent = lazy(() => import("@/pages/Events/single-event"));
 const JCISONPage = lazy(() => import("@/pages/Events/jcison-call-for-papers"));
 const WomenStatEvent2026 = lazy(() => import("@/pages/Events/women"));
+const Attending2026Conference = lazy(() => import("@/pages/Events/attending"));
 
 // MISC
 const Page404 = lazy(() => import('@/pages/MISC/404'));
@@ -201,6 +202,7 @@ function App() {
             <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
             <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
             <Route path={RoutePath.WomenStatsEvent2026} element={<WomenStatEvent2026 />} />
+            <Route path={RoutePath.Attending2026Conference} element={<Attending2026Conference />} />
           </Route>
 
           <Route path={RoutePath.News}>
