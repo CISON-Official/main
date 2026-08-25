@@ -14,7 +14,6 @@ import {
 import { ArrowLeftIcon, BookOpenIcon, CertificateIcon, EnvelopeIcon, FacebookLogoIcon, GlobeIcon, GraduationCapIcon, LinkedinLogoIcon, NewspaperIcon, PhoneIcon, TwitterLogoIcon, UsersIcon } from "@phosphor-icons/react";
 import { Reveal } from "@/animate";
 import type { PersonInterface } from "@/data/base";
-import SEO from "./SEO";
 
 
 
@@ -559,14 +558,13 @@ function ProfileContent({ person }: { person: PersonInterface }) {
 
 
 
-export default function PersonDetailPage({ person, route }: { person: PersonInterface, route: string }) {
+export default function PersonDetailPage(args: { person: PersonInterface, route: string }) {
     return (
         <div id="page" className="min-h-screen bg-background">
-            <SEO title={person.name} description={person.bio} canonicalUrl={route} ogImage={person.img} />
-            <StickyBar person={person} />
-            <ProfileHero person={person} />
+            <StickyBar person={args.person} />
+            <ProfileHero person={args.person} />
             <main role="main">
-                <ProfileContent person={person} />
+                <ProfileContent person={args.person} />
             </main>
         </div>
     );

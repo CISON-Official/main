@@ -2,7 +2,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { HouseIcon, EyeIcon, TargetIcon, BookOpenIcon, IdentificationBadgeIcon } from "@phosphor-icons/react";
-import SEO from "@/components/SEO";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -594,7 +593,6 @@ function LeadershipSection() {
 export default function AboutCISONPage() {
     return (
         <div id="main-content" className="min-h-screen bg-background text-foreground font-sans">
-            <SEO title="About CISON" description="About CISON as a statistical association" canonicalUrl={RoutePath.AboutUs} />
             <PageHero />
             <main role="main">
                 <IntroSection />

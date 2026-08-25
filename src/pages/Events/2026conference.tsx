@@ -10,8 +10,7 @@ import {
     ArrowRightIcon,
     CheckCircleIcon,
 } from "@phosphor-icons/react";
-import SEO from "@/components/SEO";
-import RoutePath from "@/routes";
+
 
 const T = {
     green: "#0B3D1E",
@@ -790,13 +789,6 @@ function CTASection() {
 export default function CisonConference2026() {
     return (
         <>
-            <SEO
-                title="2026 International Conference"
-                description="Join global data experts, policy makers, and academics at the CISON 2026 International Conference to explore cutting-edge statistical methodologies, data science innovations, and economic governance strategies."
-                canonicalUrl={RoutePath.Conference2026}
-                keywords="CISON 2026, international conference, statistics conference Nigeria, data science summit 2026, chartered statisticians event, global data experts, statistical methodology, economic research conference, big data analytics, machine learning application, AI in statistics, national statistical system, NBS Nigeria partnership, annual statistical convention, data driven governance, research paper presentation, abstract submission 2026, keynote speakers, panel discussions, pre conference workshop, statistical computing, econometrics panel, biostatistics forum, data ethics seminar, digital transformation, data analytics training, professional networking, census methodology, demographic research, macroeconomic forecasting, financial econometrics, operational research, sampling techniques, survey data management, qualitative analysis, quantitative research methods, academic journal publication, conference proceedings, CISON act implementation, data regulation Nigeria, professional development, CPD credits, membership induction, statistical society, African data scientists, global statistical framework, evidence based policy, sustainable development goals, SDG monitoring, health informatics, public sector statistics, private sector data insights, business intelligence, tech infrastructure, cloud computing for data, predictive modeling, statistical modeling workshop, statistical software training, SPSS R Python workshops, data visualization techniques, GIS spatial analysis, environmental statistics, agricultural data analytics, educational statistics, social statistics framework, institutional partnership, academic collaboration, university research presentation, research fellows, board of fellows, doctoral thesis forum, masterclass data science, data security protocols, privacy preservation, blockchain in data, open data initiatives, smart cities metrics, industrial statistics, quality control metrics, reliability engineering, mathematical statistics, probability theory, stochastic processes, time series analysis, multivariate data analysis, data mining techniques, survey enumeration, national population metrics, trade statistics, labor market analytics, consumer price index tracking, inflation modeling, risk assessment analytics, actuarial science forum, statistical consultation services, tech innovators Nigeria, West African data hub, CISON conference registry"
-            />
-
             {/* <EarlyBirdStrip /> */}
             <Hero />
             {/* <Countdown /> */}

@@ -65,9 +65,21 @@ export interface RuleType {
 }
 
 export interface PanTracker {
-  isDragging?: boolean;
-  startX: number;
-  startY: number;
-  startPanX: number;
-  startPanY: number;
+    isDragging?: boolean;
+    startX: number;
+    startY: number;
+    startPanX: number;
+    startPanY: number;
+}
+
+export interface SEOProps {
+    title?: string;
+    description?: string;
+    canonicalUrl?: string;
+    ogImage?: string;
+    article?: boolean;
+    publishedTime?: string;
+    author?: string;
+    keywords?: string;
+    noIndex?: boolean;
 }

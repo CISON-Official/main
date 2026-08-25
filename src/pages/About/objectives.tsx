@@ -4,7 +4,6 @@ import RoutePath from "@/routes";
 import { TriangleIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 import { AnimatedSection } from ".";
-import SEO from "@/components/SEO";
 
 const objectives = [
     { num: "01", text: "Advancing the use of statistics in medical research", featured: true },
@@ -78,8 +77,6 @@ export default function CISONObjectives() {
     ]
     return (
         <>
-            <SEO title="Our Objective" description="Aims and Objectives of the Chartered Institute of Statisticians of Nigeria (CISON)" canonicalUrl={RoutePath.Objective} />
-
             <PageHero title="Our Objectives" subtitle="Charting the Path to" breadcrumb={<Breadcrumb Elements={crumbles} />} catchy="Success" />
 
             <AnimatedSection className="max-w-5xl mx-auto px-6 md:px-12 py-14">

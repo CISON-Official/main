@@ -15,8 +15,6 @@ import {
     ChartBarIcon,
 } from '@phosphor-icons/react'
 import { useRef } from 'react'
-import SEO from '@/components/SEO'
-import RoutePath from '@/routes'
 
 
 const criteria = [
@@ -323,7 +321,6 @@ function Process() {
 export default function App() {
     return (
         <>
-            <SEO title='Courses Accreditation' canonicalUrl={RoutePath.CourseAccreditation} description='Accreditation of Tertiary Education Courses by CISON' />
             <Hero />
             <Overview />
             <Criteria />

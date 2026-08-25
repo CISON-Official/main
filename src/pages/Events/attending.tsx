@@ -24,7 +24,6 @@ import {
     SparkleIcon,
     ChartBarIcon,
 } from '@phosphor-icons/react';
-import SEO from '@/components/SEO';
 import type { PanTracker } from '@/data/base';
 
 // ---- Frame geometry, measured directly from the flyer artwork -----------
@@ -434,13 +433,6 @@ export default function AttendingCardGenerator() {
 
     return (
         <div className="min-h-screen ">
-            <SEO
-                title="I'm Attending"
-                description="Join CISON's 3rd International Conference and 50th Anniversary celebration, 12th – 16th October 2026 at Chida International Hotel Event Center, Abuja, Nigeria. Register, then generate and share your personalized 'I Have Registered' flyer."
-                canonicalUrl="/conference2026"
-                ogImage={templateImageFile}
-                keywords={'CISON,Chartered Institute of Statisticians of Nigeria,CISON conference 2026,CISON 50th anniversary, Nigeria statistics conference, statisticians Nigeria, Abuja conference October 2026, I am attending flyer'}
-            />
             <header className="flex flex-col items-center text-center px-6 pt-10 pb-6 lg:pt-16 lg:pb-10">
                 <div className="flex items-center gap-2 mb-2">
                     <ChartBarIcon className="w-6 h-6 lg:w-7 lg:h-7 text-emerald-500" weight="fill" />
@@ -642,9 +634,6 @@ export default function AttendingCardGenerator() {
                                         aria-hidden="true"
                                     />
 
-                                    <p className="text-[11px]  mt-2 px-1 leading-relaxed">
-                                        Your name and photo stay on your device — this tool draws the flyer locally in your browser and doesn't upload anything anywhere.
-                                    </p>
                                 </div>
                             </div>
 

@@ -6,6 +6,7 @@ import RoutePath, { legacyRedirectRules } from "./routes";
 import { lazyImport } from "./lib/utils";
 import FloatingDonateButton from "./components/Donate";
 import type { RuleType } from "./data/base";
+import { SEOManager } from "./components/SEO";
 
 const PageLoader = () => (
   <div className="container py-20">
@@ -124,106 +125,109 @@ const InductionList2026Page = lazy(() => import("@/pages/News/2026-induction-lis
 function App() {
 
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
+    <>
+    <SEOManager />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<HomePage />} />
 
-          <Route path={RoutePath.ContactUs} element={<ContactUsPage />} />
-          <Route path="privacy">
-            <Route index element={<PolicyPage />} />
-            {/* <Route path={RoutePath.TermsOfService} element={<TermsPage />} /> */}
+            <Route path={RoutePath.ContactUs} element={<ContactUsPage />} />
+            <Route path="privacy">
+              <Route index element={<PolicyPage />} />
+              {/* <Route path={RoutePath.TermsOfService} element={<TermsPage />} /> */}
+            </Route>
+
+            <Route path={RoutePath.AboutUs}>
+              <Route index element={<AboutPage />} />
+              <Route path={RoutePath.Objective} element={<ObjectivePage />} />
+              <Route path={RoutePath.OurHistory} element={<HistoryPage />} />
+              <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
+              <Route path={RoutePath.Leadership} element={<Leadership />} />
+              <Route path={RoutePath.ElectedCouncilMembers} element={<CoucilMembers />} />
+              <Route path={RoutePath.Departments} element={<Departments />} />
+              <Route path={RoutePath.Committee} element={<Committee />} />
+              <Route path={RoutePath.Fellows} element={<FellowPage />} />
+              <Route path={RoutePath.ConsultancyService} element={<ConsultancyServicesPage />} />
+              <Route path={RoutePath.MentoringScheme} element={<MentoringSchemePage />} />
+
+              <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
+              <Route path={RoutePath.President} element={<PresidentPage />} />
+              <Route path={RoutePath.VicePresident} element={<VicePresidentPage />} />
+              <Route path={RoutePath.Registrar} element={<RegistrarPage />} />
+              <Route path={RoutePath.ElectedMemberOne} element={<ElectedMemberOnePage />} />
+              <Route path={RoutePath.ElectedMemberTwo} element={<ElectedMemberTwoPage />} />
+              <Route path={RoutePath.ElectedMemberThree} element={<ElectedMemberThreePage />} />
+              <Route path={RoutePath.ElectedMemberFour} element={<ElectedMemberFourPage />} />
+              <Route path={RoutePath.ElectedMemberFive} element={<ElectedMemberFivePage />} />
+              <Route path={RoutePath.ElectedMemberSix} element={<ElectedMemberSixPage />} />
+              <Route path={RoutePath.CBNRepresentative} element={<CBNRepPage />} />
+              <Route path={RoutePath.NPCRepresentative} element={<NPCRepPage />} />
+              <Route path={RoutePath.NBSRepresentative} element={<NBSRepPage />} />
+              <Route path={RoutePath.ManagingEditor} element={<ManagingEditorPage />} />
+              <Route path={RoutePath.AssociateEditor} element={<AssociateEditorPage />} />
+              <Route path={RoutePath.CrownPrinceAbubakarBelloAfegbua} element={<CrownPrinceAbubakarBelloAfegbuaPage />} />
+            </Route>
+
+            <Route path={RoutePath.Accreditation}>
+              <Route index element={<AccreditationAndExam />} />
+              <Route path={RoutePath.ProfessionalAccreditation} element={<ProfessionalAccreditation />} />
+              <Route path={RoutePath.CurriculumDevelopment} element={<CuririculumDevelopmentPage />} />
+              <Route path={RoutePath.InstitutionalAccreditation} element={<InstitutionalAccreditationPage />} />
+              <Route path={RoutePath.CourseAccreditation} element={<CourseAccreditationPage />} />
+              <Route path={RoutePath.CPDPolicy} element={<CPDPolicyPage />} />
+            </Route>
+
+            <Route path={RoutePath.Examinations}>
+              <Route index element={<ProfessionalExamination />} />
+              <Route path={RoutePath.ProfessionalExamination} element={<ProfessionalExamination />} />
+            </Route>
+
+            <Route path={RoutePath.OurPeople} >
+              <Route index element={<Leadership />} />
+            </Route>
+
+            <Route path={RoutePath.Membership}>
+              <Route index element={<MembershipPage />} />
+              <Route path={RoutePath.CharacterdStatistician} element={<CharacteredStatisticianPage />} />
+              <Route path={RoutePath.AssociateStatistician} element={<AssociateStatistitianPage />} />
+              <Route path={RoutePath.ExaminationAssociate} element={<ExaminationAssociatePage />} />
+              <Route path={RoutePath.RegisteredStatistician} element={<RegisteredStatisticianPage />} />
+              <Route path={RoutePath.Student} element={<UndergraduateStudentMamberPage />} />
+              <Route path={RoutePath.Corporate} element={<CorporateStatisticianPage />} />
+            </Route>
+
+            <Route path={RoutePath.Event}>
+              <Route index element={<EventPage />} />
+              <Route path={RoutePath.Conference2026} element={<Conference2026Page />} />
+              <Route path={RoutePath.SingleEvent} element={<SingleEvent />} />
+              <Route path={RoutePath.SecondQuarterPrs2026} element={<CisonWorkshopPage />} />
+              <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
+              <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
+              <Route path={RoutePath.WomenStatsEvent2026} element={<WomenStatEvent2026 />} />
+              <Route path={RoutePath.Attending2026Conference} element={<Attending2026Conference />} />
+            </Route>
+
+            <Route path={RoutePath.News}>
+              <Route path={RoutePath.InductionList2026} element={<InductionList2026Page />} />
+            </Route>
+
+            <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />
+            <Route path={RoutePath.HowToPay} element={<HowToPayPage />} />
+            <Route path={RoutePath.WP_ADMIN} element={<WPADMINPage />} />
+
+
+            {/* Redirect Existing URLS on the internet */}
+            <Route
+              path="*"
+              element={<LegacyRedirectWatcher rules={legacyRedirectRules} fallbackTo="/" />}
+            />
+            <Route path="*" element={<Page404 />} />
           </Route>
-
-          <Route path={RoutePath.AboutUs}>
-            <Route index element={<AboutPage />} />
-            <Route path={RoutePath.Objective} element={<ObjectivePage />} />
-            <Route path={RoutePath.OurHistory} element={<HistoryPage />} />
-            <Route path={RoutePath.StructureAndGovernance} element={<StructureAndGovernancePage />} />
-            <Route path={RoutePath.Leadership} element={<Leadership />} />
-            <Route path={RoutePath.ElectedCouncilMembers} element={<CoucilMembers />} />
-            <Route path={RoutePath.Departments} element={<Departments />} />
-            <Route path={RoutePath.Committee} element={<Committee />} />
-            <Route path={RoutePath.Fellows} element={<FellowPage />} />
-            <Route path={RoutePath.ConsultancyService} element={<ConsultancyServicesPage />} />
-            <Route path={RoutePath.MentoringScheme} element={<MentoringSchemePage />} />
-
-            <Route path={RoutePath.EditorInChief} element={<EditorInChiefPage />} />
-            <Route path={RoutePath.President} element={<PresidentPage />} />
-            <Route path={RoutePath.VicePresident} element={<VicePresidentPage />} />
-            <Route path={RoutePath.Registrar} element={<RegistrarPage />} />
-            <Route path={RoutePath.ElectedMemberOne} element={<ElectedMemberOnePage />} />
-            <Route path={RoutePath.ElectedMemberTwo} element={<ElectedMemberTwoPage />} />
-            <Route path={RoutePath.ElectedMemberThree} element={<ElectedMemberThreePage />} />
-            <Route path={RoutePath.ElectedMemberFour} element={<ElectedMemberFourPage />} />
-            <Route path={RoutePath.ElectedMemberFive} element={<ElectedMemberFivePage />} />
-            <Route path={RoutePath.ElectedMemberSix} element={<ElectedMemberSixPage />} />
-            <Route path={RoutePath.CBNRepresentative} element={<CBNRepPage />} />
-            <Route path={RoutePath.NPCRepresentative} element={<NPCRepPage />} />
-            <Route path={RoutePath.NBSRepresentative} element={<NBSRepPage />} />
-            <Route path={RoutePath.ManagingEditor} element={<ManagingEditorPage />} />
-            <Route path={RoutePath.AssociateEditor} element={<AssociateEditorPage />} />
-            <Route path={RoutePath.CrownPrinceAbubakarBelloAfegbua} element={<CrownPrinceAbubakarBelloAfegbuaPage />} />
-          </Route>
-
-          <Route path={RoutePath.Accreditation}>
-            <Route index element={<AccreditationAndExam />} />
-            <Route path={RoutePath.ProfessionalAccreditation} element={<ProfessionalAccreditation />} />
-            <Route path={RoutePath.CurriculumDevelopment} element={<CuririculumDevelopmentPage />} />
-            <Route path={RoutePath.InstitutionalAccreditation} element={<InstitutionalAccreditationPage />} />
-            <Route path={RoutePath.CourseAccreditation} element={<CourseAccreditationPage />} />
-            <Route path={RoutePath.CPDPolicy} element={<CPDPolicyPage />} />
-          </Route>
-
-          <Route path={RoutePath.Examinations}>
-            <Route index element={<ProfessionalExamination />} />
-            <Route path={RoutePath.ProfessionalExamination} element={<ProfessionalExamination />} />
-          </Route>
-
-          <Route path={RoutePath.OurPeople} >
-            <Route index element={<Leadership />} />
-          </Route>
-
-          <Route path={RoutePath.Membership}>
-            <Route index element={<MembershipPage />} />
-            <Route path={RoutePath.CharacterdStatistician} element={<CharacteredStatisticianPage />} />
-            <Route path={RoutePath.AssociateStatistician} element={<AssociateStatistitianPage />} />
-            <Route path={RoutePath.ExaminationAssociate} element={<ExaminationAssociatePage />} />
-            <Route path={RoutePath.RegisteredStatistician} element={<RegisteredStatisticianPage />} />
-            <Route path={RoutePath.Student} element={<UndergraduateStudentMamberPage />} />
-            <Route path={RoutePath.Corporate} element={<CorporateStatisticianPage />} />
-          </Route>
-
-          <Route path={RoutePath.Event}>
-            <Route index element={<EventPage />} />
-            <Route path={RoutePath.Conference2026} element={<Conference2026Page />} />
-            <Route path={RoutePath.SingleEvent} element={<SingleEvent />} />
-            <Route path={RoutePath.SecondQuarterPrs2026} element={<CisonWorkshopPage />} />
-            <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
-            <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
-            <Route path={RoutePath.WomenStatsEvent2026} element={<WomenStatEvent2026 />} />
-            <Route path={RoutePath.Attending2026Conference} element={<Attending2026Conference />} />
-          </Route>
-
-          <Route path={RoutePath.News}>
-            <Route path={RoutePath.InductionList2026} element={<InductionList2026Page />} />
-          </Route>
-
-          <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />
-          <Route path={RoutePath.HowToPay} element={<HowToPayPage />} />
-          <Route path={RoutePath.WP_ADMIN} element={<WPADMINPage />} />
-
-
-          {/* Redirect Existing URLS on the internet */}
-          <Route
-            path="*"
-            element={<LegacyRedirectWatcher rules={legacyRedirectRules} fallbackTo="/" />}
-          />
-          <Route path="*" element={<Page404 />} />
-        </Route>
-      </Routes>
-      <FloatingDonateButton />
-    </Suspense >
+        </Routes>
+        <FloatingDonateButton />
+      </Suspense >
+    </>
   )
 }
 

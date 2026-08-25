@@ -5,7 +5,6 @@ import RoutePath from "@/routes";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
 import { motion } from "framer-motion";
 import CTAStrip from "@/components/cta";
-import SEO from "@/components/SEO";
 import { Reveal } from "@/animate";
 
 function MemberList({ members }: { members: Members[] }) {
@@ -229,7 +228,6 @@ export default function CisonCommittees() {
     ];
     return (
         <>
-            <SEO title="Our Committees | Chartered Institute of Statisticians of Nigeria (CISON)" description="Steering Progress Through Data" canonicalUrl={RoutePath.Committee} />
             <PageHero title="Our Committees" subtitle="Steering Progress" catchy="Through Data" breadcrumb={<Breadcrumb Elements={crumbles} />} />
             <main role="main" className="max-w-7xl mx-auto px-6 md:px-14 py-14 flex flex-col gap-14">
                 <BigDescription />

@@ -6,7 +6,6 @@ import { ArchiveIcon, DownloadIcon, HouseIcon, IdentificationBadgeIcon, PlusIcon
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import History from "@/assets/pdf/History-of-CISON.pdf";
-import SEO from "@/components/SEO";
 
 interface AccordionItem {
     id: string;
@@ -292,7 +291,6 @@ export default function OurHistoryPage() {
     ]
     return (
         <>
-            <SEO title="CISON History | Founding, Growth & Milestones of the Institute" description="Explore the rich history of the Chartered Institute of Statisticians of Nigeria (CISON) – from its founding to its key milestones in advancing statistical professionalism in Nigeria." canonicalUrl={RoutePath.OurHistory} />
             <PageHero breadcrumb={<Breadcrumb Elements={crumbles} />} subtitle={"Charting a Legacy of"} catchy={"Excellence in Statistics"} title="Our History" />
             <MainContent />
 

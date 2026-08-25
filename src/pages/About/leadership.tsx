@@ -20,7 +20,6 @@ import ElectedMemberOne from "@/data/council/elected-member-one";
 import Registrar from "@/data/council/registrar";
 import VicePresident from "@/data/council/vice-president";
 import President from "@/data/council/president";
-import SEO from "@/components/SEO";
 
 
 interface Person {
@@ -347,13 +346,6 @@ export default function OurPeoplePage() {
     ];
     return (
         <>
-            <SEO
-                title="Our People"
-                description="All members of CISON in Leadership capacity"
-                canonicalUrl={RoutePath.Leadership}
-                keywords="leadership, leaders, Council, council members, who we are, CISON governance, governing council, executive committee, statistical board, Nigeria statisticians, CISON board, Dr Godday Ebuh, Prof S U Gulumbe, CISON president, CISON registrar, Ngozi Agboegbulem, Christopher M Okafor, Nigerian Statistical Association, NSA, professional statisticians, chartered statisticians, statistical society, Nigeria data experts, data science leadership, national statistical system, NBS Nigeria, National Bureau of Statistics, National Population Commission, NPC representative, CBN research team, Central Bank of Nigeria statistics, EFCC corporate partner, NIPSS delegation, data driven governance, institutional editorial board, CISON elected members, pioneer state chairmen, Plateau state chapter, FCT Abuja chapter, statistical regulation, data ethics board, accredited data analysts, Act No 38, CISON Act 2022, President Muhammadu Buhari signed bill, official gazette data, statistical practice enforcement, continuing professional development, CPD programme, mandatory training board, statistical examination council, member induction committee, charter certification board, registered statisticians, associate statistician, A Stat, C Stat accreditation, research fellows, data analytics professors, academic statisticians, public sector analysts, private sector data consultants, statistical policy makers, macroeconomic analysts, demographic experts, survey methodology experts, biostatisticians, econometricians, operational research leaders, data infrastructure committee, technical sessions committee, pre conference workshop planners, annual conference executives, Chida Hotel Abuja event organizers, membership transition committee, development levy board, institutional partnerships, academic accreditation team, statistical curriculum developers, professional ethics panel, disciplinary committee, data integrity enforcement, regional coordinators, zonal executives, state statistical chiefs, public health analysts, data scientists Nigeria, tech infrastructure advisors, digital data governance, census planners, population data board, economic planning council, Federal Commissioners, state chapter executives, statistical management team, institutional trustees, board of fellows, honorary fellows, tracking metrics leadership"
-            />
-
             <div id="page" className="min-h-screen bg-background font-sans">
                 <PageHero
                     title="Our People" subtitle="Come meet" catchy="Our People" breadcrumb={<Breadcrumb Elements={crumbles} />} />

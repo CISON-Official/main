@@ -1,6 +1,5 @@
 import { Reveal } from "@/animate";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
-import SEO from "@/components/SEO";
 import RoutePath from "@/routes";
 import { Separator } from "@base-ui/react";
 import { BookOpenIcon, BuildingIcon, DiamondsFourIcon, HouseIcon, IdentificationBadgeIcon, Shield, StackIcon } from "@phosphor-icons/react";
@@ -232,7 +231,6 @@ export default function StructureAndGovernancePage() {
     ]
     return (
         <>
-            <SEO title="Structure and Governance | Leadership and Institutional Framework" description="Understand the organizational structure of CISON, including its governing council, committees, and leadership roles that guide the institute’s strategic direction and integrity." canonicalUrl={RoutePath.StructureAndGovernance} />
             <PageHero title="Structure and Governance" subtitle="A framework for" catchy="Professional Excellence" breadcrumb={<Breadcrumb Elements={crumbles} />} />
             <GovernanceContent />
         </>

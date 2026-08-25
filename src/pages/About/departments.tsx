@@ -27,7 +27,6 @@ import RoutePath from "@/routes";
 import Logo from "@/assets/logo.png"
 import { Reveal } from "@/animate";
 import { Breadcrumb, PageHero, type BreadcrumbType } from "@/components/Hero";
-import SEO from "@/components/SEO";
 
 
 interface Department {
@@ -325,7 +324,6 @@ export default function DepartmentsPage() {
     ]
     return (
         <div id="page" className="min-h-screen bg-background">
-            <SEO description="Explore the various departments within the Chartered Institute of Statisticians of Nigeria (CISON), each driving core programs in statistics, training, membership, and national development." title="CISON Departments | Functional Units and Core Divisions" canonicalUrl={RoutePath.Departments} />
             <PageHero title="Departments" subtitle="Departments and" catchy="Areas of Activities" breadcrumb={<Breadcrumb Elements={crumbles} />} />
             <MainContent />
         </div>

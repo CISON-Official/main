@@ -9,10 +9,6 @@ import {
     NotebookIcon,
     InfoIcon
 } from '@phosphor-icons/react';
-import SEO from '@/components/SEO';
-import RoutePath from '@/routes';
-import { Franklin } from '@/authors';
-
 
 const INDUCTEE_IDS = [
     "20240083",
@@ -141,7 +137,6 @@ export default function InductionPage() {
 
     return (
         <main className="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-50 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-            <SEO title="Induction list" description='Verify official CISON inducted members. View eligibility criteria, certificate issuance protocols, and advanced professional exam pathways for new inductees.' canonicalUrl={RoutePath.InductionList2026} publishedTime={new Date("15/07/2026").toString()} author={Franklin.pageName} keywords={"CISON induction list, CISON membership verification, CISON inducted members, CISON professional registry,how to become a recognized member of CISON, CISON membership induction requirements, CISON professional examination eligibility, CISON member screening, registration,CISON membership certificate collection"} />
             <div className="max-w-5xl mx-auto space-y-12">
 
                 {/* Intro Section (Shadcn-style Card) */}

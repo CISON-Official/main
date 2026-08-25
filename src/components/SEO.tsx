@@ -1,22 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from "@/assets/logo.png";
+import type { SEOProps } from '@/data/base';
+import { DEFAULT_DESCRIPTION, SITE_TITLE, SITE_URL } from '@/constants';
+import SEO_DATA from '@/data/seo';
+import { useLocation } from 'react-router-dom';
 
-interface SEOProps {
-    title?: string;
-    description?: string;
-    canonicalUrl?: string;
-    ogImage?: string;
-    article?: boolean;
-    publishedTime?: string;
-    author?: string;
-    keywords?: string;
-    noIndex?: boolean;
-}
-
-const SITE_TITLE = 'Chartered Institute of Statisticians of Nigeria (CISON)';
-const SITE_URL = 'https://cison.org.ng';
-const DEFAULT_DESCRIPTION =
-    'Leading regulatory body for professional standards and accreditation for statisticians in Nigeria.';
 
 export default function SEO({
     title,
@@ -72,7 +60,7 @@ export default function SEO({
             <link rel="canonical" href={fullUrl} />
 
             {/* Open Graph / Facebook */}
-            <meta property="og:type" content={article ? 'article' : 'website'} />
+            <meta property="og:type" content='website' />
             <meta property="og:url" content={fullUrl} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={metaDescription} />
@@ -137,4 +125,13 @@ export default function SEO({
             <meta name="referrer" content="strict-origin-when-cross-origin" />
         </Helmet>
     );
+}
+
+export function SEOManager() {
+  const location = useLocation();
+  const path = location.pathname;
+  
+  const currentSeo = SEO_DATA[path] || SEO_DATA["/"];
+
+  return SEO({...currentSeo})
 }

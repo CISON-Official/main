@@ -10,7 +10,6 @@ import {
     ArrowRightIcon,
 } from "@phosphor-icons/react";
 import AnnouncementModal from "@/components/Announcements";
-import SEO from "@/components/SEO";
 import RoutePath from "@/routes";
 import { fadeUp, Reveal } from "@/animate";
 import { HeroBadge } from "@/components/Hero";
@@ -578,7 +577,6 @@ function CtaSection() {
 export default function AccreditationPage() {
     return (
         <div>
-            <SEO title="Accreditation and Examinations | Chartered Institute of Statisticians of Nigeria (CISON)" canonicalUrl={RoutePath.Accreditation} description="Accreditation Programmes and Professional Examinations" />
             <Hero />
             <PeerBodiesStrip />
             <AboutSection />
