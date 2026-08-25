@@ -1,12 +1,14 @@
-interface AuthorsInterface {
+export interface AuthorsInterface {
     name: string;
-    position: string;
+    worksFor: string;
+    jobTitle:string;
     pageName: string;
 }
 
 
 export const Franklin: AuthorsInterface = {
-    name: "Fidelugwuowo Dilibe Franklin",
-    position: "system Analyst",
+    name: "Franklin",
+    jobTitle: "system Analyst",
+    worksFor: "CISON",
     pageName: "Franklin",
 }

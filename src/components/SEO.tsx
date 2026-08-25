@@ -4,7 +4,7 @@ import type { SEOProps } from '@/data/base';
 import { DEFAULT_DESCRIPTION, SITE_TITLE, SITE_URL } from '@/constants';
 import SEO_DATA from '@/data/seo';
 import { useLocation } from 'react-router-dom';
-
+import { Franklin } from '@/authors';
 
 export default function SEO({
     title,
@@ -16,6 +16,7 @@ export default function SEO({
     author,
     keywords,
     noIndex = false,
+    person = Franklin, // optional: { name, jobTitle, worksFor } — enables Person schema for bio/profile pages
 }: SEOProps) {
     const fullTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     const metaDescription = description ?? DEFAULT_DESCRIPTION;
@@ -23,34 +24,51 @@ export default function SEO({
     const fullImage = ogImage.startsWith('http')
         ? ogImage
         : `${SITE_URL}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`;
+    const fullLogo = Logo.startsWith('http')
+        ? Logo
+        : `${SITE_URL}${Logo.startsWith('/') ? Logo : `/${Logo}`}`;
 
-    const structuredData = {
-        '@context': 'https://schema.org',
-        '@type': article ? 'Article' : 'WebPage',
-        name: fullTitle,
-        headline: fullTitle,
-        description: metaDescription,
-        url: fullUrl,
-        image: fullImage,
-        mainEntityOfPage: fullUrl,
-        datePublished: article && publishedTime ? publishedTime : new Date().toISOString(),
-        publisher: {
-            '@type': 'Organization',
-            name: SITE_TITLE,
-            url: SITE_URL,
-            logo: {
-                '@type': 'ImageObject',
-                url: fullImage,
-                width: 128,
-                height: 128,
-                caption: SITE_TITLE,
-                contentUrl: fullImage,
-            },
-        },
-        author: article && author
-            ? { '@type': 'Person', name: author }
-            : { '@type': 'Organization', name: SITE_TITLE },
-    };
+    const structuredData = person
+        ? {
+              '@context': 'https://schema.org',
+              '@type': 'Person',
+              name: person.name,
+              jobTitle: person.jobTitle,
+              image: fullImage,
+              url: fullUrl,
+              worksFor: {
+                  '@type': 'Organization',
+                  name: person.worksFor ?? SITE_TITLE,
+                  url: SITE_URL,
+              },
+          }
+        : {
+              '@context': 'https://schema.org',
+              '@type': article ? 'Article' : 'WebPage',
+              name: fullTitle,
+              headline: fullTitle,
+              description: metaDescription,
+              url: fullUrl,
+              image: fullImage,
+              mainEntityOfPage: fullUrl,
+              datePublished: article && publishedTime ? publishedTime : new Date().toISOString(),
+              publisher: {
+                  '@type': 'Organization',
+                  name: SITE_TITLE,
+                  url: SITE_URL,
+                  logo: {
+                      '@type': 'ImageObject',
+                      url: fullLogo,
+                      width: 128,
+                      height: 128,
+                      caption: SITE_TITLE,
+                      contentUrl: fullLogo,
+                  },
+              },
+              author: article && author
+                  ? { '@type': 'Person', name: author }
+                  : { '@type': 'Organization', name: SITE_TITLE },
+          };
 
     return (
         <Helmet>
@@ -95,9 +113,10 @@ export default function SEO({
                 {JSON.stringify(structuredData)}
             </script>
 
-            <meta name="msapplication-TileImage" content={fullImage} />
-            <link rel="apple-touch-icon" href={fullImage} />
-            <link rel="icon" href={fullImage} />
+            {/* Site icon — always the site logo, never a per-page photo (og:image handles that) */}
+            <meta name="msapplication-TileImage" content={fullLogo} />
+            <link rel="apple-touch-icon" href={fullLogo} />
+            <link rel="icon" href={fullLogo} />
             <meta name="theme-color" content="#8FD299" />
 
             <meta name="google-site-verification" content="googlef6e8f004c1043043.html" />
@@ -130,7 +149,7 @@ export default function SEO({
 export function SEOManager() {
   const location = useLocation();
   const path = location.pathname;
-  
+
   const currentSeo = SEO_DATA[path] || SEO_DATA["/"];
 
   return SEO({...currentSeo})

@@ -1,3 +1,4 @@
+import type { AuthorsInterface } from "@/authors";
 
 export interface Publication {
     title: string;
@@ -82,4 +83,5 @@ export interface SEOProps {
     author?: string;
     keywords?: string;
     noIndex?: boolean;
+    person?:AuthorsInterface
 }
