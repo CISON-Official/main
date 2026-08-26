@@ -538,7 +538,7 @@ export default function AttendingCardGenerator() {
                                         value={name}
                                         onChange={(e) => { setName(e.target.value); setIsGenerated(false); }}
                                         placeholder="Type your name here"
-                                        className="w-full border border-slate-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-emerald-500"
+                                        className="w-full border border-slate-700 rounded-xl px-4 py-3  text-sm focus:outline-none focus:border-emerald-500"
                                     />
                                 </div>
 

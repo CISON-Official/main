@@ -16,7 +16,7 @@ export default function SEO({
     author,
     keywords,
     noIndex = false,
-    person = Franklin, // optional: { name, jobTitle, worksFor } — enables Person schema for bio/profile pages
+    person = Franklin,
 }: SEOProps) {
     const fullTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
     const metaDescription = description ?? DEFAULT_DESCRIPTION;
