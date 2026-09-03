@@ -1,26 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy } from "react";
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout";
-import { Skeleton } from "./components/ui/skeleton";
 import RoutePath, { legacyRedirectRules } from "./routes";
 import { lazyImport } from "./lib/utils";
 import FloatingDonateButton from "./components/Donate";
 import type { RuleType } from "./data/base";
 import { SEOManager } from "./components/SEO";
-
-const PageLoader = () => (
-  <div className="container py-20">
-    <div className="space-y-4">
-      <Skeleton className="h-12 w-3/4" />
-      <Skeleton className="h-64 w-full" />
-      <div className="space-y-2">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-5/6" />
-        <Skeleton className="h-4 w-4/6" />
-      </div>
-    </div>
-  </div>
-);
 
 function LegacyRedirectWatcher({ rules, fallbackTo = "/" }: { rules: RuleType[], fallbackTo: string }) {
   const location = useLocation();
@@ -127,7 +112,6 @@ function App() {
   return (
     <>
     <SEOManager />
-      <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route index element={<HomePage />} />
@@ -226,7 +210,6 @@ function App() {
           </Route>
         </Routes>
         <FloatingDonateButton />
-      </Suspense >
     </>
   )
 }
