@@ -82,6 +82,12 @@ const SEO_DATA: Record<string, SEOProps> = {
         description: "The follow are the new elected CISON Council Members",
         canonicalUrl: RoutePath.ElectedCouncilMembers
     },
+    [`${RoutePath.Fellows}`]: {
+        title: "College of Fellows | Chartered Institute of Statisticians of Nigeria (CISON)",
+        description: "Learn about the CISON College of Fellows - chartered statisticians with 15+ years of active membership, nominated by chapters and ratified by Council for their distinguished contribution to the practice and promotion of statistics in Nigeria.",
+        canonicalUrl: RoutePath.Fellows,
+        keywords: "CISON fellows, college of fellows, chartered statisticians, honorary fellows, statistics fellowship Nigeria, CISON honorary membership, statistics profession recognition, chapter nominations, CISON council ratification, champions of statistics, professional statistics body Nigeria, statistical excellence award, CISON membership upgrade",
+    },
     [`${RoutePath.OurHistory}`]: {
         title: "CISON History | Founding, Growth & Milestones of the Institute",
         description: "Explore the rich history of the Chartered Institute of Statisticians of Nigeria (CISON) – from its founding to its key milestones in advancing statistical professionalism in Nigeria.",
