@@ -32,9 +32,10 @@ const NewsAnnouncementData:NewsInterface[] = [
         expiry: new Date("2026/10/12"),
     },
     {
-        title:"Women In Statistics",
-        route: RoutePath.WomenStatsEvent2026,
-        expiry: new Date("2026/10/12"),
+        title:"Fellowship Application",
+        route: RoutePath.Fellows,
+        description: "Apply now for Fellowship and join the highest professional membership category of the Institute.",
+        expiry: new Date("2026/12/31"),
     },
     
 ]

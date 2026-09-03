@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRightIcon} from '@phosphor-icons/react';
+import { ArrowRightIcon, BriefcaseIcon, GraduationCapIcon, ArrowsLeftRightIcon, TrophyIcon } from '@phosphor-icons/react';
 import RoutePath from '@/routes';
 import LandingMeeting from "@/assets/landing/meeting-e1724103063780.webp";
 import LandingLegal from "@/assets/landing/legal-approval.webp";
@@ -53,10 +53,11 @@ const slides = [
     },
     {
         id: 6,
-        heading: "Women In Statistics",
-        cta: "Apply for Event",
-        href: RoutePath.WomenStatsEvent2026,
-        bg: ""
+        heading: "Fellowship Application",
+        description: "Apply for Fellowship and join the highest professional membership category of the Institute.",
+        cta: "Apply for Fellowship",
+        href: RoutePath.Fellows,
+        bg: "from-emerald-100 via-slate-50 to-emerald-50 dark:from-emerald-900 dark:via-slate-900 dark:to-emerald-950"
     }
 ];
 
@@ -631,11 +632,89 @@ function ArticlesSection() {
 }
 
 
+const fellowshipCategories = [
+    {
+        icon: BriefcaseIcon,
+        title: 'Professional Practice',
+        desc: 'Minimum 10 years post-qualification experience with 5+ years as a CISON Registered Statistician in good standing.',
+    },
+    {
+        icon: GraduationCapIcon,
+        title: 'Qualification & Experience',
+        desc: 'Doctorate or equivalent qualification with significant contribution to statistical science and minimum 2 years Registered Statistician membership.',
+    },
+    {
+        icon: ArrowsLeftRightIcon,
+        title: 'Transition',
+        desc: 'Exclusively for existing Fellows of the defunct Nigerian Statistical Association (NSA).',
+    },
+    {
+        icon: TrophyIcon,
+        title: 'Honorary Fellowship',
+        desc: 'Awarded to persons of exceptional distinction and contribution to statistics, public service or CISON\'s development.',
+    },
+];
+
+
+function FellowshipSection() {
+    return (
+        <section className="relative py-24 overflow-hidden">
+            <div className="absolute inset-0 bg-linear-to-br from-emerald-50 via-white to-slate-50 dark:from-emerald-950/30 dark:via-gray-950 dark:to-slate-900" />
+            <div
+                className="absolute inset-0 opacity-[0.03]"
+                style={{
+                    backgroundImage: 'radial-gradient(circle, currentColor 1px, transparent 1px)',
+                    backgroundSize: '24px 24px',
+                }}
+            />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl" />
+
+            <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10">
+                <div className="grid lg:grid-cols-2 gap-14 items-start">
+                    <div>
+                        <SectionLabel label="Fellowship" />
+                        <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
+                            The highest professional membership<br />category of CISON
+                        </h2>
+                        <p className="text-muted-foreground leading-relaxed max-w-lg mb-8">
+                            Fellowship is conferred only upon persons who satisfy the requirements
+                            prescribed under the CISON Act. There are four pathways to Fellowship.
+                        </p>
+                        <a
+                            href={RoutePath.Fellows}
+                            className="inline-flex items-center gap-3 px-7 py-3.5 bg-emerald-600 text-white hover:bg-emerald-500 font-semibold rounded-xl text-sm transition-all duration-200 shadow-lg shadow-emerald-600/20 hover:shadow-emerald-600/40 hover:-translate-y-0.5"
+                        >
+                            Explore Fellowship <ArrowRightIcon className="w-4 h-4" />
+                        </a>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        {fellowshipCategories.map(({ icon: Icon, title, desc }) => (
+                            <div
+                                key={title}
+                                className="group p-5 rounded-2xl border border-emerald-200/50 dark:border-emerald-800/30 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm hover:border-emerald-500/50 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/30 transition-all duration-200"
+                            >
+                                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 mb-3 group-hover:scale-105 transition-transform">
+                                    <Icon weight="bold" className="h-5 w-5" />
+                                </span>
+                                <h3 className="font-semibold text-foreground mb-1.5">{title}</h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+
 export {
     HeroSlider,
     ServicesSection,
     WhatElseSection,
     EventBanner,
+    FellowshipSection,
     TeamSection,
     ArticlesSection,
 }
