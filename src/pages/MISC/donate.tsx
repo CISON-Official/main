@@ -10,7 +10,7 @@ import {
   ChartLineUpIcon,
   LightbulbIcon,
   BuildingsIcon,
-  CpuIcon,
+  CertificateIcon,
   TrendUpIcon,
 } from "@phosphor-icons/react";
 import { Button } from "@/components/ui/button";
@@ -47,28 +47,46 @@ const whyDonateItems = [
 
 const fundUsageItems = [
   {
-    icon: TrendUpIcon,
-    title: "Student Scholarships & Bursaries",
+    icon: BuildingsIcon,
+    title: "Securing a Befitting Secretariat for CISON",
     description:
-      "Financial support for undergraduate and postgraduate students pursuing degrees in statistics and related disciplines.",
+      "Acquiring and equipping a permanent secretariat that will serve as the institutional home for CISON's operations and professional activities.",
   },
   {
     icon: ChartLineUpIcon,
-    title: "Annual International Conferences",
+    title: "Annual International Conference",
     description:
       "Funding world-class conferences that bring together statisticians, data scientists, and policymakers from across the globe.",
   },
   {
     icon: LightbulbIcon,
-    title: "Training & Capacity Building",
+    title: "Annual Pre-Conference Workshop",
     description:
-      "Developing and delivering training programmes, CPD workshops, and professional certification courses for practicing statisticians.",
+      "Organizing intensive technical workshops that equip participants with practical skills in statistics, data science, and analytics ahead of the main conference.",
   },
   {
-    icon: CpuIcon,
-    title: "Infrastructure & Digital Transformation",
+    icon: TrendUpIcon,
+    title: "Quarterly Planning, Research and Statistics Workshop",
     description:
-      "Investing in technology, digital tools, and modern infrastructure to position CISON at the forefront of the data revolution.",
+      "Supporting quarterly PRS workshops that provide platforms for professional development, research dissemination, and strategic planning among statisticians.",
+  },
+  {
+    icon: GraduationCapIcon,
+    title: "CISON Competition of Undergraduate Students (CISONCUS)",
+    description:
+      "Sponsoring the undergraduate student competition that encourages academic excellence and nurtures the next generation of statisticians in Nigerian universities.",
+  },
+  {
+    icon: CertificateIcon,
+    title: "CISON Certification Programme",
+    description:
+      "Funding the professional certification programme that validates competence and upholds the highest standards of statistical practice in Nigeria.",
+  },
+  {
+    icon: BooksIcon,
+    title: "PhD Thesis Competition",
+    description:
+      "Supporting the doctoral thesis competition that recognises and rewards outstanding PhD research contributions to statistical science in Nigeria.",
   },
 ];
 
@@ -299,7 +317,7 @@ const DonatePage: React.FC = () => {
             </motion.p>
 
             <motion.div
-              className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2"
+              className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
               variants={Stagger}
             >
               {fundUsageItems.map((item) => (
