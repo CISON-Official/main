@@ -146,6 +146,12 @@ const SEO_DATA: Record<string, SEOProps> = {
         canonicalUrl: RoutePath.Accreditation,
         description: "Accreditation Programmes and Professional Examinations",
     },
+    [`${RoutePath.Donate}`]: {
+        title: "Donate to CISON",
+        description: "Support the Chartered Institute of Statisticians of Nigeria (CISON). Your donation funds scholarships, conferences, training programmes, and capacity building that advance statistical excellence in Nigeria.",
+        canonicalUrl: RoutePath.Donate,
+        keywords: "donate CISON, support statisticians Nigeria, CISON donation, contribute to statistics Nigeria, fund statistical education, CISON charity, professional statisticians Nigeria support, statistical development Nigeria",
+    },
     [`${RoutePath.CourseAccreditation}`]: {
         title: 'Courses Accreditation',
         canonicalUrl: RoutePath.CourseAccreditation,
