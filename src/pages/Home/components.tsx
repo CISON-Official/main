@@ -709,6 +709,78 @@ function FellowshipSection() {
 }
 
 
+const featuredHotels = [
+    { name: "Aden 360 Hotel", area: "Utako", price: "₦30,000", tag: "Budget" },
+    { name: "Top Rank Hotel", area: "Utako", price: "₦45,000", tag: "Budget" },
+    { name: "Presken Hotel", area: "Jabi", price: "₦50,625", tag: "Mid-Range" },
+    { name: "Sandralia Hotel", area: "Utako", price: "₦80,000", tag: "Mid-Range" },
+    { name: "Canopy Hotels Ltd", area: "Mabushi", price: "₦15,000", tag: "Budget" },
+    { name: "Diamond Suites Hotel", area: "Mabushi", price: "₦25,100", tag: "Budget" },
+    { name: "Chida Hotel", area: "Mabushi", price: "₦70,000", tag: "Mid-Range" },
+    { name: "Centurion Apartments", area: "Wuse", price: "₦60,000", tag: "Mid-Range" },
+];
+
+function HotelsSection() {
+    return (
+        <section className="py-20 bg-muted/40 border-y border-border">
+            <div className="max-w-6xl mx-auto px-6 sm:px-10">
+                <div className="flex flex-wrap items-end justify-between gap-6 mb-12">
+                    <div>
+                        <SectionLabel label="Conference Hotels" />
+                        <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+                            Accommodation near the venue
+                        </h2>
+                        <p className="text-muted-foreground mt-2 text-sm max-w-xl">
+                            A selection of approved hotels in Utako, Jabi, Mabushi and Wuse — all within easy reach of the conference venue.
+                        </p>
+                    </div>
+                    <a
+                        href={RoutePath.ConferenceHotels}
+                        className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:underline underline-offset-4 flex items-center gap-2"
+                    >
+                        View All Hotels <ArrowRightIcon className="w-4 h-4" />
+                    </a>
+                </div>
+
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {featuredHotels.map((hotel) => (
+                        <a
+                            key={hotel.name}
+                            href={RoutePath.ConferenceHotels}
+                            className="group block p-5 rounded-2xl border border-border bg-card hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/5 dark:hover:shadow-emerald-950/50 transition-all duration-200"
+                        >
+                            <div className="flex items-center justify-between mb-3">
+                                <span className="text-[10px] font-semibold tracking-wider uppercase text-muted-foreground">
+                                    {hotel.area}
+                                </span>
+                                <span className="text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                                    {hotel.tag}
+                                </span>
+                            </div>
+                            <h3 className="font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-2">
+                                {hotel.name}
+                            </h3>
+                            <p className="text-lg font-bold text-emerald-600 dark:text-emerald-400">
+                                {hotel.price}
+                                <span className="text-xs font-normal text-muted-foreground ml-1">/ night</span>
+                            </p>
+                        </a>
+                    ))}
+                </div>
+
+                <div className="mt-8 text-center">
+                    <a
+                        href={RoutePath.ConferenceHotels}
+                        className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white text-sm font-semibold rounded-xl hover:bg-emerald-500 transition-colors"
+                    >
+                        View Full Hotel List <ArrowRightIcon className="w-4 h-4" />
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
 export {
     HeroSlider,
     ServicesSection,
@@ -717,4 +789,5 @@ export {
     FellowshipSection,
     TeamSection,
     ArticlesSection,
+    HotelsSection,
 }

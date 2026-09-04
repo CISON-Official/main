@@ -1,5 +1,5 @@
 import CISON2026Conference from "@/components/announcements/2026conference";
-import { ArticlesSection, EventBanner, FellowshipSection, HeroSlider, ServicesSection, TeamSection, WhatElseSection } from "./components";
+import { ArticlesSection, EventBanner, FellowshipSection, HeroSlider, HotelsSection, ServicesSection, TeamSection, WhatElseSection } from "./components";
 import { ScheduleSidebar } from "@/components/announcements/conference";
 import { NewsAnnouncement } from "@/components/News";
 
@@ -11,6 +11,7 @@ export default function HomePage() {
                 <HeroSlider />
                 <NewsAnnouncement />
                 <ScheduleSidebar />
+                <HotelsSection />
                 <ServicesSection />
                 <WhatElseSection />
                 <EventBanner />

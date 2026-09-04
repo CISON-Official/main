@@ -85,6 +85,7 @@ const RoutePath = {
     JCISONCallForPapers: "/event/jcison-call-for-papers",
     WomenStatsEvent2026: "/event/women-statistics-2026",
     Attending2026Conference: "/event/attending-2026-card-generator",
+    ConferenceHotels: "/event/conference-hotels",
 
     // News
     News: "/news",

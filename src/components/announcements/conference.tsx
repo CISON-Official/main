@@ -112,7 +112,7 @@ export function ScheduleSidebar({ fadeInUp }: ScheduleSidebarProps) {
                     </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center">
+                <div className="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 text-center flex flex-col gap-2">
                     <a
                         href={RoutePath.Conference2026}
                         target="_blank"
@@ -120,6 +120,12 @@ export function ScheduleSidebar({ fadeInUp }: ScheduleSidebarProps) {
                         className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 break-all"
                     >
                         Register
+                    </a>
+                    <a
+                        href={RoutePath.ConferenceHotels}
+                        className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1 break-all"
+                    >
+                        Conference Hotels
                     </a>
                 </div>
             </motion.section>
