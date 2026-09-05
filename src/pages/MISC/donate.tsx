@@ -88,6 +88,18 @@ const fundUsageItems = [
     description:
       "Supporting the doctoral thesis competition that recognises and rewards outstanding PhD research contributions to statistical science in Nigeria.",
   },
+  {
+    icon: GlobeIcon,
+    title: "Journal of the Chartered Institute of Statisticians of Nigeria (CISON)",
+    description:
+      "Supporting the publication and dissemination of the CISON journal that promotes statistical research and knowledge sharing.",
+  },
+{
+    icon: LightbulbIcon,
+    title: "Research and Innovation",
+    description:
+      "Funding research initiatives, innovation grants, and evidence-based solutions that advance the statistics profession in Nigeria.",
+  },
 ];
 
 const DonatePage: React.FC = () => {

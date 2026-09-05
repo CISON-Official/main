@@ -55,6 +55,26 @@ const Fellows: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* ===== APPLY FOR FELLOWSHIP CTa ===== */}
+      <section className="px-4 pb-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <Button
+            variant="default"
+            className="w-full bg-emerald-600 hover:bg-emerald-700 dark:bg-emerald-500 dark:hover:bg-emerald-400 sm:w-auto"
+          >
+            <a
+              href="https://my.cison.org.ng/fellowship-application/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="inline-block px-6 py-3 text-lg font-medium text-white">
+                Apply for Fellowship
+              </span>
+            </a>
+          </Button>
+        </div>
+      </section>
+
       {/* ===== FELLOWSHIP FRAMEWORK SECTION ===== */}
       <section className="px-4 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
