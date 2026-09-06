@@ -489,7 +489,7 @@ function PreConferenceSection() {
                     </div>
 
                     {/* Payment */}
-                    <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 lg:col-span-2">
+                    {/* <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 lg:col-span-2">
                         <div className="mb-5 flex items-center gap-3">
                             <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white">
                                 <WalletIcon size={20} weight="bold" />
@@ -509,7 +509,7 @@ function PreConferenceSection() {
                             <CopyField label="Account Name" value="Chartered Institute of Statisticians of Nigeria" />
                             <CopyField label="Account Number" value="1310081653" />
                         </div>
-                    </div>
+                    </div> */}
 
                     {/* Contacts */}
                     <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
