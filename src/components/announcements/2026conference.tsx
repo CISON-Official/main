@@ -28,7 +28,14 @@ export default function CISON2026Conference() {
                                     <span className="text-blue-600 text-lg">📅</span>
                                     <div>
                                         <p className="font-semibold text-slate-800">Date</p>
-                                        <p className="text-slate-500">October 12 -16, 2026</p>
+                                        <p className="text-slate-500">October 14 - 16, 2026</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-blue-600 text-lg">🎓</span>
+                                    <div>
+                                        <p className="font-semibold text-slate-800">Pre-Conference</p>
+                                        <p className="text-slate-500">October 12 - 13, 2026</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-2">
@@ -41,7 +48,7 @@ export default function CISON2026Conference() {
                             </div>
 
                             <p className="text-lg text-slate-900 mt-2 text-center">
-                                {getDaysDifference(new Date(), new Date("2026-10-12"))} days to go
+                                {getDaysDifference(new Date(), new Date("2026-10-14"))} days to go
                             </p>
 
                             {/* Action Buttons */}

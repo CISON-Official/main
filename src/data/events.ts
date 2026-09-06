@@ -7,7 +7,7 @@ const INITIAL_EVENTS: EventData[] = [
         name: "3rd CISON International Annual Conference (2026)",
         description: "Theme: From Legacy to Leadership: 50 Years of Promoting Statistical Development in Nigeria. Bringing together statisticians, data scientists, policymakers, and academics across Africa to discuss advancements in big data ecosystems, governance metrics, and executive AI capabilities.",
         url: RoutePath.Conference2026,
-        startDate: "2026-10-12T09:00:00+01:00",
+        startDate: "2026-10-14T09:00:00+01:00",
         endDate: "2026-10-16T17:00:00+01:00",
         location: {
             type: "Place",
@@ -17,7 +17,27 @@ const INITIAL_EVENTS: EventData[] = [
                 addressCountry: "Nigeria"
             }
         },
-        displayDateRange: "October 12 - October 16",
+        displayDateRange: "October 14 - October 16",
+        monthSection: "October 2026",
+        dayNum: "14",
+        weekday: "Wed"
+    },
+    {
+        id: "994154",
+        name: "2026 Pre-Conference Workshop",
+        description: "Advanced Techniques for Spatial Data Analysis and Interactive Visualisation. A two-day intensive workshop led by Associate Professor Chigozie Edson Utazi (University of Southampton, UK) held ahead of the main conference.",
+        url: RoutePath.Conference2026,
+        startDate: "2026-10-12T09:00:00+01:00",
+        endDate: "2026-10-13T17:00:00+01:00",
+        location: {
+            type: "Place",
+            name: "3J's Hotels & Apartments, Utako, Abuja",
+            address: {
+                type: "PostalAddress",
+                addressCountry: "Nigeria"
+            }
+        },
+        displayDateRange: "October 12 - October 13",
         monthSection: "October 2026",
         dayNum: "12",
         weekday: "Mon"

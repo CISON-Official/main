@@ -50,7 +50,15 @@ export function ScheduleSidebar({ fadeInUp }: ScheduleSidebarProps) {
                         <div className="p-2 bg-white/10 rounded-xl"><CalendarIcon size={20} weight="fill" /></div>
                         <div>
                             <span className="text-xs uppercase dark:text-emerald-200 text-emerald-700 block">Date</span>
-                            <span className="font-bold text-sm md:text-base">12th – 16th Oct, 2026</span>
+                            <span className="font-bold text-sm md:text-base">14th – 16th Oct, 2026</span>
+                        </div>
+                    </div>
+
+                    <div className="flex items-start gap-4">
+                        <div className="p-2 bg-white/10 rounded-xl"><CalendarIcon size={20} weight="fill" /></div>
+                        <div>
+                            <span className="text-xs uppercase dark:text-emerald-200 text-emerald-700 block">Pre-Conference</span>
+                            <span className="font-bold text-sm md:text-base">12th – 13th Oct, 2026</span>
                         </div>
                     </div>
 
