@@ -11,7 +11,6 @@ import {
     MicrophoneIcon,
     PhoneIcon,
     TrophyIcon,
-    WalletIcon,
 } from "@phosphor-icons/react";
 
 
@@ -164,43 +163,11 @@ function SectionHeading({ children, className = "" }: { children: ReactNode, cla
     );
 }
 
-function CopyField({ label, value }: { label: string, value: string }) {
-    const [copied, setCopied] = useState(false);
-
-    const copy = async () => {
-        try {
-            await navigator.clipboard.writeText(value);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 1500);
-        } catch {
-            /* clipboard unavailable */
-        }
-    };
-
-    return (
-        <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-800 dark:bg-gray-950/60">
-            <div className="min-w-0">
-                <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">{label}</div>
-                <div className="truncate font-mono text-sm font-semibold text-gray-900 dark:text-white">{value}</div>
-            </div>
-            <button
-                type="button"
-                onClick={copy}
-                className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
-                    copied
-                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
-                }`}
-            >
-                {copied ? "Copied" : "Copy"}
-            </button>
-        </div>
-    );
-}
-
 
 // ─── Sections ──────────────────────────────────────────────────────────────
 function Hero() {
+    const [showMemberNote, setShowMemberNote] = useState(false);
+
     return (
         <section
             className="relative flex min-h-[88vh] items-center overflow-hidden"
@@ -249,9 +216,9 @@ function Hero() {
 
                 <div className="mb-9 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-white/80">
                     {([
-                        { icon: CalendarBlankIcon, text: "October 12–16, 2026" },
+                        { icon: CalendarBlankIcon, text: "October 14–16, 2026" },
                         { icon: MapPinIcon, text: "Abuja, Nigeria" },
-                        { icon: ClockIcon, text: "5 Days · Workshops, Panels & Awards" },
+                        { icon: ClockIcon, text: "3 Days · Workshops, Panels & Awards" },
                     ] as const).map(({ icon: Icon, text }) => (
                         <span key={text} className="inline-flex items-center gap-2">
                             <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: T.gold }} />
@@ -262,13 +229,14 @@ function Hero() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                    <a
-                        href="https://my.cison.org.ng/2026-conference-and-preconference-registration/"
-                        className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-105"
+                    <button
+                        type="button"
+                        onClick={() => setShowMemberNote(true)}
+                        className="inline-flex cursor-pointer items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-105"
                         style={{ background: T.gold, color: T.green }}
                     >
                         Member Registration <ArrowRightIcon size={16} weight="bold" />
-                    </a>
+                    </button>
                     <a
                         href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
                         className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-105"
@@ -292,6 +260,55 @@ function Hero() {
                     — Advanced Spatial Data Analysis (Oct 12–13).
                 </p>
             </div>
+
+            {showMemberNote && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+                    onClick={() => setShowMemberNote(false)}
+                >
+                    <div
+                        className="relative w-full max-w-md rounded-2xl bg-white p-7 shadow-2xl dark:bg-gray-900"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            type="button"
+                            aria-label="Close"
+                            onClick={() => setShowMemberNote(false)}
+                            className="absolute right-4 top-4 text-2xl leading-none text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                        >
+                            &times;
+                        </button>
+
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-md shadow-emerald-600/20">
+                            <CheckCircleIcon size={24} weight="bold" />
+                        </div>
+
+                        <h2 className="mb-2 font-serif text-xl font-bold text-gray-900 dark:text-white">
+                            Before You Register
+                        </h2>
+                        <p className="mb-6 leading-relaxed text-gray-600 dark:text-gray-300">
+                            Please ensure that you are <strong className="font-semibold text-gray-900 dark:text-white">logged into your CISON membership account</strong> before proceeding with the registration.
+                        </p>
+
+                        <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
+                            <button
+                                type="button"
+                                onClick={() => setShowMemberNote(false)}
+                                className="rounded-lg border border-gray-300 px-5 py-2.5 text-sm font-semibold text-gray-700 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                            >
+                                Cancel
+                            </button>
+                            <a
+                                href="https://my.cison.org.ng/2026-conference-and-preconference-registration/"
+                                className="inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-all hover:opacity-90"
+                                style={{ background: T.green }}
+                            >
+                                Proceed to Registration <ArrowRightIcon size={16} weight="bold" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
