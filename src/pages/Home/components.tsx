@@ -676,6 +676,15 @@ function FellowshipSection() {
                         <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
                             The highest professional membership<br />category of CISON
                         </h2>
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/40 border border-emerald-300 dark:border-emerald-700 rounded-full mb-4">
+                            <span className="relative flex h-2.5 w-2.5">
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-600" />
+                            </span>
+                            <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">
+                                Fellowship Application is Now Open
+                            </span>
+                        </div>
                         <p className="text-muted-foreground leading-relaxed max-w-lg mb-8">
                             Fellowship is conferred only upon persons who satisfy the requirements
                             prescribed under the CISON Act. There are four pathways to Fellowship.

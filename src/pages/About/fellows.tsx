@@ -36,7 +36,7 @@ const Fellows: React.FC = () => {
         >
           <motion.h1
             variants={fadeUp}
-            className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-4xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-5xl lg:text-6xl"
+            className="mt-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-3xl font-bold tracking-tight text-transparent dark:from-gray-50 dark:to-gray-300 sm:text-4xl lg:text-5xl"
           >
             College of <span className="text-emerald-600 dark:text-emerald-400">Fellows</span>
           </motion.h1>
@@ -72,6 +72,16 @@ const Fellows: React.FC = () => {
               </span>
             </a>
           </Button>
+          <p className="mt-3 text-sm text-gray-500 dark:text-gray-400">
+            <a
+              href="https://my.cison.org.ng/fellowship-application/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 hover:text-emerald-600 dark:hover:text-emerald-400"
+            >
+              Click here to apply for CISON Fellowship
+            </a>
+          </p>
         </div>
       </section>
 
@@ -94,7 +104,7 @@ const Fellows: React.FC = () => {
                 </Badge>
               </div>
 
-              <p className="mt-5 text-xl sm:text-2xl text-gray-800 dark:text-gray-100 leading-relaxed">
+              <p className="mt-5 text-lg sm:text-xl text-gray-800 dark:text-gray-100 leading-relaxed">
                 Fellowship constitutes the{" "}
                 <span className="font-semibold text-emerald-700 dark:text-emerald-400">
                   highest professional membership category
@@ -103,7 +113,7 @@ const Fellows: React.FC = () => {
                 prescribed under the Act and the Framework.
               </p>
 
-              <p className="mx-auto mt-6 max-w-4xl text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="mx-auto mt-6 max-w-4xl text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 There shall be a College of Fellows made up of chartered statisticians who have
                 been financially up-to-date members for not less than 15 years and are active in
                 the practice and promotion of the profession of statistics. Candidates must clear
@@ -139,10 +149,10 @@ const Fellows: React.FC = () => {
                   <MedalIcon weight="bold" className="h-6 w-6" />
                 </span>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50">
                     Categories &amp; Eligibility
                   </h2>
-                  <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400">
+                  <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
                     Four pathways to Fellowship within the Institute
                   </p>
                 </div>
@@ -154,12 +164,12 @@ const Fellows: React.FC = () => {
                     <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                       <BriefcaseIcon weight="bold" className="h-6 w-6" />
                     </span>
-                    <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-50">
+                    <CardTitle className="text-lg font-bold text-gray-900 dark:text-gray-50">
                       Professional Practice
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                    <ul className="space-y-3 text-base text-gray-700 dark:text-gray-300">
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Full Member of CISON in good standing</li>
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Minimum 10 years&rsquo; post-qualification experience</li>
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Minimum 5 years as a CISON Registered Statistician with membership certificate</li>
@@ -173,12 +183,12 @@ const Fellows: React.FC = () => {
                     <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                       <GraduationCapIcon weight="bold" className="h-6 w-6" />
                     </span>
-                    <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-50">
+                    <CardTitle className="text-lg font-bold text-gray-900 dark:text-gray-50">
                       Qualification &amp; Experience
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                    <ul className="space-y-3 text-base text-gray-700 dark:text-gray-300">
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Doctorate or equivalent qualification</li>
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Significant contribution to statistical science</li>
                       <li className="flex gap-3"><span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />Distinguished professional standing</li>
@@ -192,12 +202,12 @@ const Fellows: React.FC = () => {
                     <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                       <ArrowsLeftRightIcon weight="bold" className="h-6 w-6" />
                     </span>
-                    <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-50">
+                    <CardTitle className="text-lg font-bold text-gray-900 dark:text-gray-50">
                       Fellowship by Transition
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-lg text-gray-700 dark:text-gray-300">
+                    <p className="text-base text-gray-700 dark:text-gray-300">
                       Strictly open to existing Fellows of the defunct Nigerian Statistical
                       Association (NSA).
                     </p>
@@ -213,10 +223,10 @@ const Fellows: React.FC = () => {
                   <TrophyIcon weight="bold" className="h-6 w-6" />
                 </span>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50">
                     Honorary Fellowship
                   </h2>
-                  <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400">
+                  <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
                     Recognising distinction and extraordinary contribution
                   </p>
                 </div>
@@ -237,7 +247,7 @@ const Fellows: React.FC = () => {
 
               <Card className="border-emerald-200/50 bg-white/80 backdrop-blur-sm dark:border-emerald-800/30 dark:bg-gray-900/80">
                 <CardContent className="pt-6">
-                  <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                     An Honorary Fellow of CISON should be someone whose distinction and
                     contribution justify recognition by CISON even though the person has not
                     necessarily followed the normal professional pathway to Fellowship. A person may
@@ -252,7 +262,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           Outstanding reputation &amp; integrity
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           The nominee should be demonstrably a fit and proper person whose conduct
                           is consistent with the dignity of CISON.
                         </p>
@@ -267,7 +277,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           Exceptional contribution to statistics
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           Includes contributions to statistical science &amp; research, education
                           &amp; training, official statistics, data science &amp; evidence-based
                           decision-making, statistical policy, or advancement of statistical
@@ -284,7 +294,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           Exceptional contribution to Nigeria through statistics
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           Particularly relevant for non-statisticians — a senior public servant,
                           policymaker, academic, business leader or international development
                           professional who has advanced statistics in Nigeria could qualify.
@@ -300,7 +310,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           Distinguished contribution to CISON or the profession
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           Supporting CISON&rsquo;s establishment or growth, promoting professional
                           standards, supporting capacity building, facilitating major programmes, or
                           providing sustained institutional or professional leadership.
@@ -316,7 +326,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           Distinction above ordinary membership
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           Honorary Fellowship should not be awarded merely because someone is
                           influential, wealthy, politically prominent, a senior government official,
                           or has attended CISON programmes.
@@ -332,7 +342,7 @@ const Fellows: React.FC = () => {
                         <h3 className="font-semibold text-gray-900 dark:text-gray-50">
                           15 years of distinguished service
                         </h3>
-                        <p className="mt-1.5 text-lg text-gray-600 dark:text-gray-400">
+                        <p className="mt-1.5 text-base text-gray-600 dark:text-gray-400">
                           Should ordinarily have at least 15 years of distinguished
                           professional/public service, supported by achievement — not simply years
                           served. This guideline is not an absolute statutory requirement.
@@ -342,13 +352,13 @@ const Fellows: React.FC = () => {
                   </div>
 
                   <div className="mt-8 rounded-2xl border border-emerald-200/60 bg-emerald-50/50 p-6 dark:border-emerald-800/30 dark:bg-emerald-950/30">
-                    <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed">
+                    <p className="text-base text-gray-800 dark:text-gray-100 leading-relaxed">
                       The Council may confer Honorary Fellowship on any person who has made
                       exceptional contributions to statistics, national development, academia,
                       public policy, governance, science, research or related fields. Conferment is
                       subject to approval by the Council.
                     </p>
-                    <ul className="mt-5 space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                    <ul className="mt-5 space-y-3 text-base text-gray-700 dark:text-gray-300">
                       <li className="flex gap-3"><SealCheckIcon weight="bold" className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />An Honorary Fellow shall not automatically qualify as a statutory Fellow under section 1(5) of the Act unless all statutory requirements are satisfied.</li>
                       <li className="flex gap-3"><SealCheckIcon weight="bold" className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />Honorary Fellows shall not vote or contest elections, hold elective office or practice as Chartered Statisticians solely by virtue of the honorary award.</li>
                       <li className="flex gap-3"><SealCheckIcon weight="bold" className="mt-1 h-5 w-5 shrink-0 text-emerald-600" />Honorary Fellows are exempted from CPD requirements.</li>
@@ -365,12 +375,12 @@ const Fellows: React.FC = () => {
                   <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                     <ListChecksIcon weight="bold" className="h-6 w-6" />
                   </span>
-                  <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-50">
+                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-gray-50">
                     Additional Fellowship Requirements
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">Evidence of:</p>
+                  <p className="text-base text-gray-600 dark:text-gray-400 mb-4">Evidence of:</p>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {[
                       "Professional leadership",
@@ -381,7 +391,7 @@ const Fellows: React.FC = () => {
                       "National or international recognition",
                       "Contribution to statistical development",
                     ].map(item => (
-                      <li key={item} className="flex gap-3 text-lg text-gray-700 dark:text-gray-300">
+                      <li key={item} className="flex gap-3 text-base text-gray-700 dark:text-gray-300">
                         <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                         {item}
                       </li>
@@ -395,15 +405,15 @@ const Fellows: React.FC = () => {
                   <span className="mb-1 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                     <ShieldCheckIcon weight="bold" className="h-6 w-6" />
                   </span>
-                  <CardTitle className="text-xl font-bold text-gray-900 dark:text-gray-50">
+                  <CardTitle className="text-lg font-bold text-gray-900 dark:text-gray-50">
                     Personality Requirement
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-lg text-gray-600 dark:text-gray-400 mb-4">
+                  <p className="text-base text-gray-600 dark:text-gray-400 mb-4">
                     Every applicant for Fellowship shall satisfy the Council that he or she:
                   </p>
-                  <ul className="space-y-3 text-lg text-gray-700 dark:text-gray-300">
+                  <ul className="space-y-3 text-base text-gray-700 dark:text-gray-300">
                     {[
                       "Possesses good character and professional integrity",
                       "Has not been convicted of fraud, dishonesty or professional misconduct",
@@ -429,10 +439,10 @@ const Fellows: React.FC = () => {
                   <WalletIcon weight="bold" className="h-6 w-6" />
                 </span>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50">
                     Fellowship Fees
                   </h2>
-                  <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400">
+                  <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
                     Schedule of fees by fellowship pathway
                   </p>
                 </div>
@@ -440,7 +450,7 @@ const Fellows: React.FC = () => {
 
               <Card className="border-emerald-200/50 bg-white/80 backdrop-blur-sm dark:border-emerald-800/30 dark:bg-gray-900/80">
                 <CardContent className="overflow-x-auto p-0">
-                  <table className="w-full text-left text-lg">
+                  <table className="w-full text-left text-base">
                     <thead>
                       <tr className="border-b border-emerald-200/50 bg-emerald-50/80 dark:border-emerald-800/30 dark:bg-emerald-950/30">
                         <th className="px-5 py-4 font-semibold text-gray-900 dark:text-gray-50">S/N</th>
@@ -492,10 +502,10 @@ const Fellows: React.FC = () => {
                       <SealCheckIcon weight="bold" className="h-6 w-6" />
                     </span>
                     <div>
-                      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-gray-50">
+                      <h2 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-50">
                         Conferment of Fellowship
                       </h2>
-                      <p className="mt-2 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                      <p className="mt-2 text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                         Fellowship shall take effect upon formal conferment by the President of the
                         Institute following approval by the Governing Council and completion of all
                         registration requirements.

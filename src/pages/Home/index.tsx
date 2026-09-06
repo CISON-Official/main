@@ -11,11 +11,11 @@ export default function HomePage() {
                 <HeroSlider />
                 <NewsAnnouncement />
                 <ScheduleSidebar />
+                <FellowshipSection />
                 <HotelsSection />
                 <ServicesSection />
                 <WhatElseSection />
                 <EventBanner />
-                <FellowshipSection />
                 <TeamSection />
                 <ArticlesSection />
             </main>
