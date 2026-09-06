@@ -1,30 +1,24 @@
-import React, { type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
-    CalendarBlankIcon,
-    MapPinIcon,
-    ClockIcon,
-    MicrophoneIcon,
-    LaptopIcon,
-    HandshakeIcon,
-    TrophyIcon,
     ArrowRightIcon,
+    CalendarBlankIcon,
     CheckCircleIcon,
+    ClockIcon,
+    GraduationCapIcon,
+    HandshakeIcon,
+    LaptopIcon,
+    MapPinIcon,
+    MicrophoneIcon,
+    PhoneIcon,
+    TrophyIcon,
+    WalletIcon,
 } from "@phosphor-icons/react";
 
 
 const T = {
     green: "#0B3D1E",
     greenMid: "#1A6635",
-    greenLight: "#E8F5ED",
     gold: "#E8A020",
-    goldLight: "#FEF3DC",
-    teal: "#2A9D8F",
-    tealLight: "#E0F5F3",
-    cream: "#F5F0E8",
-    ink: "#111816",
-    muted: "#5A6B5E",
-    white: "#ffffff",
-    border: "#D8E4DB",
 };
 
 // ─── Data ──────────────────────────────────────────────────────────────────
@@ -87,53 +81,18 @@ const THEMES = [
     },
 ];
 
-// const TAG_STYLES = {
-//     keynote: { bg: "rgba(232,160,32,0.18)", color: "#E8A020" },
-//     panel: { bg: "rgba(42,157,143,0.18)", color: "#2A9D8F" },
-//     workshop: { bg: "rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.65)" },
-//     ceremony: { bg: "rgba(232,160,32,0.12)", color: "#f0c060" },
-// };
-
-// const SCHEDULE: any = {
-//     "Day 1 — Oct 12": [
-//         { time: "8:00 – 9:00", title: "Delegate Registration & Welcome Coffee", speaker: "Conference Secretariat", tag: null },
-//         { time: "9:00 – 10:30", title: "Workshop A: Statistical Modelling with R", speaker: "Technical Faculty, CISON", tag: "workshop" },
-//         { time: "10:30 – 12:00", title: "Workshop B: Python for Data Science", speaker: "Industry Practitioners", tag: "workshop" },
-//         { time: "14:00 – 16:00", title: "Workshop C: Official Statistics & SDGs", speaker: "National Bureau of Statistics Experts", tag: "workshop" },
-//     ],
-//     "Day 2 — Oct 13": [
-//         { time: "9:00 – 10:00", title: "Opening Ceremony & Presidential Address", speaker: "CISON President & Dignitaries", tag: "ceremony" },
-//         { time: "10:00 – 11:00", title: "Keynote: 50 Years of Statistical Leadership", speaker: "Distinguished Statistician — TBC", tag: "keynote" },
-//         { time: "11:30 – 13:00", title: "Panel: Nigeria's National Statistical System — Past & Future", speaker: "NBS, NISR & Policy Leaders", tag: "panel" },
-//         { time: "14:00 – 15:30", title: "Session: Big Data for Electoral Integrity", speaker: "INEC & Data Scientists", tag: "panel" },
-//     ],
-//     "Day 3 — Oct 14": [
-//         { time: "9:00 – 10:30", title: "Keynote: AI & the Future of Governance Data", speaker: "International Guest Speaker", tag: "keynote" },
-//         { time: "11:00 – 12:30", title: "Workshop: Machine Learning in Official Statistics", speaker: "Technical Faculty", tag: "workshop" },
-//         { time: "14:00 – 15:30", title: "Panel: Citizens & Data — Building Statistical Literacy", speaker: "Civil Society & Academia", tag: "panel" },
-//         { time: "16:00 – 17:00", title: "Poster & Research Presentations", speaker: "Paper Presenters", tag: "workshop" },
-//     ],
-//     "Day 4 — Oct 15": [
-//         { time: "9:00 – 10:30", title: "Keynote: Next 50 Years — Strategic Vision for Nigeria", speaker: "Policy Leader — TBC", tag: "keynote" },
-//         { time: "11:00 – 12:30", title: "Panel: Data-Driven Health & Development", speaker: "Health Economists & Statisticians", tag: "panel" },
-//         { time: "14:00 – 16:00", title: "Workshop: Advanced Survey Methodology", speaker: "Technical Faculty, CISON", tag: "workshop" },
-//         { time: "19:00 – 22:00", title: "Golden Jubilee Gala & Awards Night", speaker: "All Conference Delegates", tag: "ceremony" },
-//     ],
-//     "Day 5 — Oct 16": [
-//         { time: "9:00 – 10:30", title: "Closing Keynote: Africa's Statistical Future", speaker: "Pan-African Statistics Leader", tag: "keynote" },
-//         { time: "11:00 – 12:30", title: "Final Panel: From Legacy to Leadership — The Road Ahead", speaker: "CISON Executive & Past Presidents", tag: "panel" },
-//         { time: "14:00 – 15:00", title: "Closing Ceremony & Communiqué Release", speaker: "CISON President", tag: "ceremony" },
-//     ],
-// };
-
 const REG_CARDS = [
     {
-        tier: "",
+        tier: "Full Delegate",
         type: "CISON Member",
-        price: "₦150,000 Conference",
+        price: "₦150,000",
         period: "per delegate",
-        // features: ["All plenary & panel sessions", "2 pre-conference workshops", "Conference materials", "Gala dinner access"],
-        features: [],
+        features: [
+            "All plenary & panel sessions",
+            "2 pre-conference workshops",
+            "Conference materials",
+            "Gala dinner access",
+        ],
         href: "https://my.cison.org.ng/2026-conference-and-preconference-registration/",
         cta: "Register — Member",
         featured: false,
@@ -143,293 +102,210 @@ const REG_CARDS = [
         type: "Non-Member",
         price: "₦195,000",
         period: "per delegate",
-        // features: ["All plenary & panel sessions", "3 pre-conference workshops", "Conference materials & bag", "Gala dinner access"],
-        features: [],
+        features: [
+            "All plenary & panel sessions",
+            "3 pre-conference workshops",
+            "Conference materials & bag",
+            "Gala dinner access",
+        ],
         href: "https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/",
         cta: "Register — Non-Member",
         featured: true,
     },
     {
-        tier: "Group Rate",
-        type: "Corporate / Group",
+        tier: "Corporate / Group",
+        type: "Group Rate",
         price: "₦150,000",
         period: "10+ delegates",
-        // features: ["Dedicated group coordinator", "Custom workshop allocation", "Branded delegate packs", "Priority reserved seating"],
-        features: [],
+        features: [
+            "Dedicated group coordinator",
+            "Custom workshop allocation",
+            "Branded delegate packs",
+            "Priority reserved seating",
+        ],
         href: "https://my.cison.org.ng/group-conference-registration/",
         cta: "Corporate Registration",
         featured: false,
     },
 ];
 
+const PRECONFERENCE_META = [
+    { icon: CalendarBlankIcon, label: "Dates", value: "12 – 13 October 2026" },
+    { icon: ClockIcon, label: "Daily Schedule", value: "9:00 AM – 5:00 PM" },
+    { icon: MapPinIcon, label: "Venue", value: "3J's Hotels & Apartments, Utako, Abuja" },
+];
 
-// function useCountdown(targetDate: any) {
-//     const [timeLeft, setTimeLeft] = useState({ d: "--", h: "--", m: "--", s: "--" });
+const PRECONFERENCE_CONTACTS = [
+    { role: "Editor-in-Chief", phone: "0803 393 0082" },
+    { role: "Managing Editor", phone: "0806 157 2108" },
+    { role: "Associate Editor", phone: "0814 458 5757" },
+];
 
-//     useEffect(() => {
-//         const end = new Date(targetDate).getTime();
-//         const pad = (n: any) => String(n).padStart(2, "0");
 
-//         const tick = () => {
-//             const diff = end - Date.now();
-//             if (diff > 0) {
-//                 setTimeLeft({
-//                     d: pad(Math.floor(diff / 86400000)),
-//                     h: pad(Math.floor((diff % 86400000) / 3600000)),
-//                     m: pad(Math.floor((diff % 3600000) / 60000)),
-//                     s: pad(Math.floor((diff % 60000) / 1000)),
-//                 });
-//             } else {
-//                 setTimeLeft({ d: "00", h: "00", m: "00", s: "00" });
-//             }
-//         };
+// ─── Shared building blocks ────────────────────────────────────────────────
+function Eyebrow({ children, light = false, className = "" }: { children: ReactNode, light?: boolean, className?: string }) {
+    return (
+        <div
+            className={`flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] mb-3 ${
+                light ? "text-white/80" : "text-emerald-600 dark:text-emerald-400"
+            } ${className}`}
+        >
+            <span className={`w-6 h-px shrink-0 ${light ? "bg-[#E8A020]" : "bg-emerald-500 dark:bg-emerald-400"}`} />
+            {children}
+        </div>
+    );
+}
 
-//         tick();
-//         const id = setInterval(tick, 1000);
-//         return () => clearInterval(id);
-//     }, [targetDate]);
+function SectionHeading({ children, className = "" }: { children: ReactNode, className?: string }) {
+    return (
+        <h2 className={`font-serif text-3xl sm:text-4xl font-bold ${className}`}>
+            {children}
+        </h2>
+    );
+}
 
-//     return timeLeft;
-// }
+function CopyField({ label, value }: { label: string, value: string }) {
+    const [copied, setCopied] = useState(false);
 
-// ─── Sub-components ─────────────────────────────────────────────────────────
+    const copy = async () => {
+        try {
+            await navigator.clipboard.writeText(value);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        } catch {
+            /* clipboard unavailable */
+        }
+    };
 
-// function EarlyBirdStrip() {
-//     return (
-//         <div
-//             style={{
-//                 background: T.gold,
-//                 color: T.green,
-//                 fontSize: 13,
-//                 fontWeight: 600,
-//                 textAlign: "center",
-//                 padding: "10px 16px",
-//                 letterSpacing: "0.01em",
-//             }}
-//         >
-//             Early Bird Registration — Save 25% before{" "}
-//             <strong>July 1, 2026</strong>.{" "}
-//             <a
-//                 href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
-//                 style={{ color: T.green, fontWeight: 700, marginLeft: 6 }}
-//             >
-//                 Register Now →
-//             </a>
-//         </div>
-//     );
-// }
+    return (
+        <div className="flex items-center justify-between gap-3 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-800 dark:bg-gray-950/60">
+            <div className="min-w-0">
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">{label}</div>
+                <div className="truncate font-mono text-sm font-semibold text-gray-900 dark:text-white">{value}</div>
+            </div>
+            <button
+                type="button"
+                onClick={copy}
+                className={`shrink-0 rounded-lg px-3 py-1.5 text-xs font-semibold transition-colors ${
+                    copied
+                        ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700"
+                }`}
+            >
+                {copied ? "Copied" : "Copy"}
+            </button>
+        </div>
+    );
+}
 
+
+// ─── Sections ──────────────────────────────────────────────────────────────
 function Hero() {
     return (
         <section
-            style={{
-                position: "relative",
-                minHeight: "88vh",
-                display: "flex",
-                alignItems: "center",
-                background: T.green,
-                overflow: "hidden",
-            }}
+            className="relative flex min-h-[88vh] items-center overflow-hidden"
+            style={{ background: T.green }}
         >
             {/* Diagonal stripes */}
             <div
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    right: 0,
-                    width: "48%",
-                    height: "100%",
-                    background: T.greenMid,
-                    clipPath: "polygon(18% 0, 100% 0, 100% 100%, 0% 100%)",
-                }}
+                className="absolute inset-y-0 right-0 w-1/2"
+                style={{ background: T.greenMid, clipPath: "polygon(18% 0, 100% 0, 100% 100%, 0% 100%)" }}
             />
             <div
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    right: 0,
-                    width: "22%",
-                    height: "100%",
-                    background: T.gold,
-                    opacity: 0.12,
-                    clipPath: "polygon(60% 0, 100% 0, 100% 100%, 0% 100%)",
-                }}
+                className="absolute inset-y-0 right-0 w-[22%]"
+                style={{ background: T.gold, opacity: 0.12, clipPath: "polygon(60% 0, 100% 0, 100% 100%, 0% 100%)" }}
             />
             {/* Giant 50 watermark */}
             <div
-                style={{
-                    position: "absolute",
-                    right: "3%",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    fontFamily: "'Fraunces', serif",
-                    fontSize: "clamp(140px, 18vw, 220px)",
-                    fontWeight: 900,
-                    color: "rgba(255,255,255,0.06)",
-                    lineHeight: 1,
-                    userSelect: "none",
-                    pointerEvents: "none",
-                }}
+                className="pointer-events-none absolute right-[3%] top-1/2 select-none font-serif font-black leading-none"
+                style={{ fontSize: "clamp(140px, 18vw, 220px)", color: "rgba(255,255,255,0.06)", transform: "translateY(-50%)" }}
             >
                 50
             </div>
 
-            <div style={{ position: "relative", zIndex: 2, maxWidth: 820, padding: "4rem 2.5rem" }}>
-                <div
-                    style={{
-                        display: "inline-block",
-                        border: "1.5px solid rgba(255,255,255,0.35)",
-                        color: "rgba(255,255,255,0.85)",
-                        fontSize: 11,
-                        fontWeight: 600,
-                        letterSpacing: "0.18em",
-                        textTransform: "uppercase",
-                        padding: "5px 14px",
-                        borderRadius: 100,
-                        marginBottom: "1.8rem",
-                    }}
-                >
+            <div className="relative z-10 max-w-3xl px-6 py-16 sm:px-12">
+                <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">
+                    <span className="h-1.5 w-1.5 rounded-full" style={{ background: T.gold }} />
                     3rd International Conference · CISON 2026
                 </div>
 
                 <h1
-                    style={{
-                        fontFamily: "'Fraunces', serif",
-                        fontSize: "clamp(2.6rem, 6vw, 4.8rem)",
-                        fontWeight: 900,
-                        color: "#fff",
-                        lineHeight: 1.05,
-                        marginBottom: "0.8rem",
-                    }}
+                    className="mb-3 font-serif font-black leading-[1.05] text-white"
+                    style={{ fontSize: "clamp(2.6rem, 6vw, 4.6rem)" }}
                 >
-                    CISON Annual<br />
-                    Conference{" "}
-                    <em style={{ fontStyle: "italic", color: T.gold }}>2026</em>
+                    CISON Annual
+                    <br />
+                    Conference <em className="italic" style={{ color: T.gold }}>2026</em>
                 </h1>
 
-                <p style={{ fontSize: "1rem", fontWeight: 500, color: "rgba(255,255,255,0.65)", marginBottom: "0.5rem", letterSpacing: "0.04em" }}>
+                <p className="mb-2 text-sm font-medium uppercase tracking-[0.04em] text-white/65">
                     Chartered Institute of Statisticians of Nigeria
                 </p>
 
-                <p
-                    style={{
-                        fontFamily: "'Fraunces', serif",
-                        fontStyle: "italic",
-                        fontSize: "clamp(0.95rem, 2vw, 1.15rem)",
-                        color: "rgba(255,255,255,0.7)",
-                        marginBottom: "2.2rem",
-                        lineHeight: 1.6,
-                        maxWidth: 540,
-                    }}
-                >
+                <p className="mb-8 max-w-xl font-serif text-lg italic leading-relaxed text-white/70">
                     "From Legacy to Leadership:<br />
                     50 Years of Promoting Statistical Development In Nigeria"
                 </p>
 
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem 2rem", marginBottom: "2.6rem" }}>
-                    {[
+                <div className="mb-9 flex flex-wrap gap-x-8 gap-y-3 text-sm font-medium text-white/80">
+                    {([
                         { icon: CalendarBlankIcon, text: "October 12–16, 2026" },
                         { icon: MapPinIcon, text: "Abuja, Nigeria" },
                         { icon: ClockIcon, text: "5 Days · Workshops, Panels & Awards" },
-                    ].map(({ icon: Icon, text }) => (
-                        <span key={text} style={{ display: "flex", alignItems: "center", gap: 8, color: "rgba(255,255,255,0.8)", fontSize: "0.88rem", fontWeight: 500 }}>
-                            <span style={{ width: 6, height: 6, borderRadius: "50%", background: T.gold, flexShrink: 0 }} />
-                            <Icon size={15} style={{ opacity: 0.7 }} />
+                    ] as const).map(({ icon: Icon, text }) => (
+                        <span key={text} className="inline-flex items-center gap-2">
+                            <span className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: T.gold }} />
+                            <Icon size={16} className="opacity-80" />
                             {text}
                         </span>
                     ))}
                 </div>
 
-                <div className="flex flex-3 flex-wrap gap-3 content-center items-center justify-center">
+                <div className="flex flex-wrap gap-3">
                     <a
                         href="https://my.cison.org.ng/2026-conference-and-preconference-registration/"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
+                        className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-105"
+                        style={{ background: T.gold, color: T.green }}
                     >
-                        Member Registration <ArrowRightIcon size={16} />
+                        Member Registration <ArrowRightIcon size={16} weight="bold" />
                     </a>
                     <a
                         href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}
+                        className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-semibold transition hover:brightness-105"
+                        style={{ background: T.gold, color: T.green }}
                     >
-                        Non-Member Registration <ArrowRightIcon size={16} />
+                        Non-Member Registration <ArrowRightIcon size={16} weight="bold" />
                     </a>
                     <a
                         href="https://my.cison.org.ng/group-conference-registration/"
-                        style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,0.4)", textDecoration: "none" }}
+                        className="inline-flex items-center gap-2 rounded-lg border-2 border-white/25 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/50"
                     >
                         Corporate Registration
                     </a>
                 </div>
+
+                <p className="mt-7 text-sm text-white/70">
+                    Also open:{" "}
+                    <a href="#preconference" className="font-semibold underline underline-offset-4 hover:text-white" style={{ color: T.gold }}>
+                        Pre-Conference Workshop
+                    </a>{" "}
+                    — Advanced Spatial Data Analysis (Oct 12–13).
+                </p>
             </div>
         </section>
     );
 }
 
-// function Countdown() {
-//     const { d, h, m, s } = useCountdown("July 1, 2026 00:00:00 GMT+0100");
-
-//     return (
-//         /* Replaced flat padding with responsive py-6 (mobile) to py-9 (desktop) */
-//         <section className="bg-zinc-950 px-4 py-6 sm:px-6 sm:py-9">
-//             {/* Added flex-col for a single-column layout on mobile, switching to row on tablet (sm:) */}
-//             <div className="mx-auto flex max-w-[700px] flex-col items-center justify-between gap-6 text-center sm:flex-row sm:text-left">
-//                 <div className="flex flex-col items-center sm:items-start">
-//                     {/* Header Label */}
-//                     <div className="mb-3 text-[10px] font-semibold tracking-[0.18em] uppercase text-white/50 sm:text-[11px]">
-//                         Early bird ends in
-//                     </div>
-
-//                     {/* Numbers Row - Tighter gap on tiny screens (gap-1.5) scaling up on larger screens */}
-//                     <div className="flex items-start gap-1.5 sm:gap-2.5">
-//                         {[
-//                             { val: d, unit: "Days" },
-//                             { val: h, unit: "Hrs" },
-//                             { val: m, unit: "Min" },
-//                             { val: s, unit: "Sec" }
-//                         ].map(({ val, unit }, i) => (
-//                             <div key={unit} className="flex items-start gap-1.5 sm:gap-2.5">
-//                                 {i > 0 && (
-//                                     /* Reduced separator sizing for mobile layout stability */
-//                                     <span className="font-serif text-xl text-white/20 mt-0.5 sm:text-2xl sm:mt-1">
-//                                         :
-//                                     </span>
-//                                 )}
-//                                 <div className="text-center">
-//                                     {/* Typography scales from text-3xl (mobile) to text-4xl (desktop). Width adapts safely */}
-//                                     <span className="font-serif text-3xl font-bold text-white block min-w-[48px] sm:min-w-[64px] leading-none tracking-tight">
-//                                         {val}
-//                                     </span>
-//                                     <span className="text-[9px] tracking-[0.12em] uppercase text-white/45 block mt-1 sm:text-[10px] sm:tracking-[0.14em]">
-//                                         {unit}
-//                                     </span>
-//                                 </div>
-//                             </div>
-//                         ))}
-//                     </div>
-//                 </div>
-
-//                 {/* Offer Subtext - Flex margin push places it cleanly underneath on mobile */}
-//                 <div className="mt-2 text-xs font-medium text-amber-400 dark:text-amber-500 sm:mt-0 sm:text-[13.92px]">
-//                     Save 25% · Deadline <strong className="font-bold whitespace-nowrap">July 1, 2026</strong>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-
 function StatsBar() {
     return (
-        <section style={{ borderBottom: `1px solid #E0E8E2` }} className="dark:bg-black bg-white dark:text-white">
-            <div className="mx-auto w-full max-w-270 grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))]">
-                {STATS.map((s, i) => (
-                    <div
-                        key={s.label}
-                        className={`py-[2.2rem] px-6 text-center ${i < STATS.length - 1 ? 'border-r border-[#E8EDE9]' : 'border-r-0'}`}
-                    >
-                        <div className="dark:text-white text-green-600 text-4xl font-bold">
+        <section className="border-b border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+            <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-gray-100 sm:grid-cols-3 lg:grid-cols-5 dark:bg-gray-800">
+                {STATS.map((s) => (
+                    <div key={s.label} className="bg-white px-6 py-8 text-center dark:bg-gray-950">
+                        <div className="font-serif text-3xl font-black text-emerald-700 dark:text-emerald-400">
                             {s.num}
                         </div>
-                        <div style={{ fontSize: "0.8rem", color: T.muted, marginTop: 5, fontWeight: 500 }}>{s.label}</div>
+                        <div className="mt-1 text-xs font-medium text-gray-500 dark:text-gray-400">{s.label}</div>
                     </div>
                 ))}
             </div>
@@ -437,90 +313,74 @@ function StatsBar() {
     );
 }
 
-
-function Eyebrow({ children, className }: { children: ReactNode, className?: string }) {
-    return (
-        <div className={`font-bold tracking-[0.2em] uppercase flex items-center gap-2 mb-[0.9rem] text-brand-teal dark:text-brand-gold ${className}`}>
-            <span className="w-5 h-0.5 shrink-0 inline-block bg-brand-teal dark:bg-brand-gold" />
-            {children}
-        </div>
-    );
-}
-
-
-function SectionHeading({ children, className }: { children: React.ReactNode, className?: string }) {
-    return (
-        <h2 className={`font-black ${className}`}>
-            {children}
-        </h2>
-    );
-}
-
 function AboutSection() {
     return (
-        <section className="my-12 px-5">
-            <div className="mx-auto max-w-270 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
+        <section className="py-20 px-6 sm:px-10">
+            <div className="mx-auto grid max-w-6xl items-start gap-12 md:grid-cols-2 md:gap-16">
                 <div>
                     <Eyebrow>About the Conference</Eyebrow>
-                    <SectionHeading className="text-2xl my-10">Nigeria's Premier Statistics & Data Analytics Summit</SectionHeading>
-                    <p className="text-[1.02rem] leading-[1.8] max-w-140 mb-10 text-[#5A6B5E] dark:text-[#E8F5ED]">
-                        The CISON Annual Conference unites statisticians, data scientists, policymakers, academics, and industry leaders across Africa. Our 2026 edition moves to Abuja — Nigeria's governance heartland — as we mark 50 years of shaping the national statistical system.
+                    <SectionHeading className="mb-6 text-gray-900 dark:text-white">
+                        Nigeria's Premier Statistics &amp; Data Analytics Summit
+                    </SectionHeading>
+                    <p className="mb-10 max-w-xl leading-[1.8] text-gray-600 dark:text-gray-300">
+                        The CISON Annual Conference unites statisticians, data scientists, policymakers,
+                        academics, and industry leaders across Africa. Our 2026 edition moves to Abuja —
+                        Nigeria's governance heartland — as we mark 50 years of shaping the national
+                        statistical system.
                     </p>
-                    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+
+                    <div className="flex flex-col gap-4">
                         {FEATURES.map(({ icon: Icon, title, text }) => (
                             <div
                                 key={title}
-                                className="flex gap-4 p-[1.2rem] rounded-[6px] border-l-4 bg-green-700 border-green-900 text-white"
+                                className="flex items-start gap-4 rounded-xl border border-emerald-200/60 bg-emerald-50/40 p-5 dark:border-emerald-900/40 dark:bg-emerald-950/20"
                             >
-                                <Icon
-                                    size={22}
-
-                                    weight="duotone"
-                                    className="shrink-0 mt-px text-brand-greenMid dark:text-brand-green"
-                                />
+                                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-emerald-600 text-white shadow-md shadow-emerald-600/20">
+                                    <Icon size={22} weight="bold" />
+                                </span>
                                 <div>
-                                    <div className="text-[0.92rem] font-semibold mb-0.75 text-green dark:text-green">
+                                    <h3 className="text-[0.95rem] font-semibold text-emerald-950 dark:text-emerald-100">
                                         {title}
-                                    </div>
-                                    <div className="text-[0.83rem] leading-[1.6] text-brand-muted dark:text-brand-greenLight/80">
+                                    </h3>
+                                    <p className="mt-1 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                                         {text}
-                                    </div>
+                                    </p>
                                 </div>
                             </div>
-
                         ))}
                     </div>
                 </div>
 
-                {/* Visual card */}
+                {/* Golden Jubilee visual */}
                 <div
-                    style={{
-                        background: T.green,
-                        borderRadius: 8,
-                        padding: "2.5rem",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                        minHeight: 380,
-                        position: "relative",
-                        overflow: "hidden",
-                    }}
+                    className="relative flex min-h-96 flex-col justify-between overflow-hidden rounded-2xl p-8"
+                    style={{ background: T.green }}
                 >
-                    <div style={{ position: "absolute", top: 0, right: 0, width: "60%", height: "100%", background: T.greenMid, clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)" }} />
-                    <div style={{ position: "absolute", top: 0, right: 0, width: "22%", height: "100%", background: T.gold, opacity: 0.25, clipPath: "polygon(40% 0, 100% 0, 100% 100%, 0% 100%)" }} />
-                    <div style={{ fontFamily: "'Fraunces', serif", fontSize: "7rem", fontWeight: 900, color: "rgba(255,255,255,0.08)", lineHeight: 1, position: "relative", zIndex: 1 }}>
+                    <div
+                        className="absolute inset-y-0 right-0 w-3/5"
+                        style={{ background: T.greenMid, clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)" }}
+                    />
+                    <div
+                        className="absolute inset-y-0 right-0 w-1/4"
+                        style={{ background: T.gold, opacity: 0.25, clipPath: "polygon(40% 0, 100% 0, 100% 100%, 0% 100%)" }}
+                    />
+                    <div className="relative z-10 font-serif font-black leading-none text-white/10" style={{ fontSize: "7rem" }}>
                         50
                     </div>
-                    <div style={{ position: "relative", zIndex: 1 }}>
-                        <div style={{ display: "inline-block", background: T.gold, color: T.green, fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", padding: "4px 12px", borderRadius: 2, marginBottom: "1rem" }}>
+                    <div className="relative z-10">
+                        <span
+                            className="mb-4 inline-block rounded px-3 py-1 text-[11px] font-bold uppercase tracking-widest"
+                            style={{ background: T.gold, color: T.green }}
+                        >
                             Golden Jubilee
-                        </div>
-                        <div style={{ fontFamily: "'Fraunces', serif", fontSize: "1.6rem", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: "0.6rem" }}>
+                        </span>
+                        <h3 className="mb-2 font-serif text-2xl font-bold leading-snug text-white">
                             Five decades of statistical leadership in Nigeria
-                        </div>
-                        <div style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.7 }}>
-                            From the founding of CISON to shaping national data policy — a legacy of rigour, service, and development.
-                        </div>
+                        </h3>
+                        <p className="text-sm leading-relaxed text-white/60">
+                            From the founding of CISON to shaping national data policy — a legacy of
+                            rigour, service, and development.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -530,31 +390,25 @@ function AboutSection() {
 
 function ThemesSection() {
     return (
-        <section className="py-20 bg-linear-[120deg] from-green-700 to-green-900 mask-[linear-gradient(45deg,rgba(20,0,0,1),rgba(0,0,0,20))] from-45%">
-
-            <div className="w-full max-w-5xl mx-auto px-4 md:px-6 flex flex-col items-center justify-center">
-
-                <Eyebrow className="text-2xl font-black text-white">Key Themes</Eyebrow>
-                <SectionHeading className="text-2xl mb-10 dark:text-white text-black">What We'll Explore</SectionHeading>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1.2rem" }}>
+        <section className="relative overflow-hidden py-20" style={{ background: T.green }}>
+            <div
+                className="absolute inset-y-0 right-0 w-1/3 opacity-40"
+                style={{ background: T.greenMid, clipPath: "polygon(30% 0, 100% 0, 100% 100%, 0% 100%)" }}
+            />
+            <div className="relative z-10 mx-auto max-w-6xl px-6">
+                <Eyebrow light className="justify-center">Key Themes</Eyebrow>
+                <h2 className="mb-12 text-center font-serif text-3xl font-bold text-white sm:text-4xl">
+                    What We'll Explore
+                </h2>
+                <div className="grid gap-5 text-left sm:grid-cols-2 lg:grid-cols-3">
                     {THEMES.map((t) => (
-                        <div className="bg-white"
+                        <div
                             key={t.num}
-                            style={{
-
-                                // border: `1px solid ${T.greenMid}`,
-                                borderRadius: 6,
-                                padding: "1.6rem 1.4rem",
-                                transition: "border-color 0.2s, transform 0.2s",
-                            }}
-                            onMouseEnter={(e) => { e.currentTarget.style.borderColor = T.greenMid; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.borderColor = T.green; e.currentTarget.style.transform = "none"; }}
+                            className="rounded-2xl bg-white p-6 shadow-xl shadow-black/10 transition-transform duration-200 hover:-translate-y-1"
                         >
-                            <div style={{ fontFamily: "'Fraunces', serif", fontSize: "2rem", fontWeight: 700, color: "#C8DFCE", lineHeight: 1, marginBottom: "0.7rem" }}>
-                                {t.num}
-                            </div>
-                            <div style={{ fontSize: "0.9rem", fontWeight: 600, color: T.green, marginBottom: 4, lineHeight: 1.3 }}>{t.title}</div>
-                            <div style={{ fontSize: "0.8rem", color: T.muted, lineHeight: 1.6 }}>{t.text}</div>
+                            <div className="font-serif text-4xl font-black text-emerald-200">{t.num}</div>
+                            <h3 className="mt-2 text-base font-semibold text-emerald-950">{t.title}</h3>
+                            <p className="mt-1.5 text-sm leading-relaxed text-gray-600">{t.text}</p>
                         </div>
                     ))}
                 </div>
@@ -563,174 +417,211 @@ function ThemesSection() {
     );
 }
 
-// function ScheduleSection() {
-//     const days = Object.keys(SCHEDULE);
-//     const [activeDay, setActiveDay] = useState(days[0]);
+function PreConferenceSection() {
+    return (
+        <section id="preconference" className="border-y border-border bg-muted/40 py-20 px-6 sm:px-10">
+            <div className="mx-auto max-w-6xl">
+                <div className="mb-12 max-w-3xl">
+                    <Eyebrow>Pre-Conference Workshop</Eyebrow>
+                    <h2 className="mb-6 text-gray-900 dark:text-white">
+                        <SectionHeading>
+                            Advanced Techniques for Spatial Data Analysis and Interactive Visualisation
+                        </SectionHeading>
+                    </h2>
+                    <p className="leading-[1.8] text-gray-600 dark:text-gray-300">
+                        A two-day intensive workshop delivered ahead of the main conference — equipping
+                        participants with modern spatial and spatiotemporal modelling skills and hands-on
+                        tools for interactive data visualisation.
+                    </p>
+                </div>
 
-//     return (
-//         <section style={{ padding: "5.5rem 1.5rem", background: T.green }}>
-//             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-//                 <Eyebrow light>Programme</Eyebrow>
-//                 <SectionHeading style light>Conference Schedule</SectionHeading>
-//                 <p style={{ fontSize: "1.02rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }}>
-//                     Five days of keynotes, technical workshops, panel discussions, and the Golden Jubilee Gala.
-//                 </p>
+                <div className="grid gap-6 lg:grid-cols-3">
+                    {/* Overview & fees */}
+                    <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
+                        {PRECONFERENCE_META.map(({ icon: Icon, label, value }) => (
+                            <div key={label} className="flex items-start gap-4 border-b border-gray-100 py-4 first:pt-0 last:border-b-0 dark:border-gray-800">
+                                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300">
+                                    <Icon size={20} weight="bold" />
+                                </span>
+                                <div className="min-w-0">
+                                    <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">{label}</div>
+                                    <div className="mt-0.5 text-sm font-medium text-gray-900 dark:text-gray-100">{value}</div>
+                                </div>
+                            </div>
+                        ))}
 
-//                 {/* Day tabs */}
-//                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: "2rem" }}>
-//                     {days.map((day) => (
-//                         <button
-//                             key={day}
-//                             onClick={() => setActiveDay(day)}
-//                             style={{
-//                                 padding: "7px 18px",
-//                                 borderRadius: 4,
-//                                 fontSize: "0.82rem",
-//                                 fontWeight: 600,
-//                                 cursor: "pointer",
-//                                 border: `1px solid ${activeDay === day ? T.gold : "rgba(255,255,255,0.12)"}`,
-//                                 background: activeDay === day ? T.gold : "rgba(255,255,255,0.07)",
-//                                 color: activeDay === day ? T.green : "rgba(255,255,255,0.55)",
-//                                 transition: "all 0.15s",
-//                             }}
-//                         >
-//                             {day}
-//                         </button>
-//                     ))}
-//                 </div>
+                        <div className="mt-5 rounded-xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-900/50 dark:bg-amber-950/40">
+                            <div className="text-[11px] font-bold uppercase tracking-widest text-amber-700 dark:text-amber-400">
+                                Workshop Fee
+                            </div>
+                            <div className="mt-1 font-serif text-3xl font-black text-amber-900 dark:text-amber-300">₦80,000</div>
+                            <p className="mt-1 text-sm text-amber-800/80 dark:text-amber-200/70">
+                                Covers conference materials and lunch.
+                            </p>
+                        </div>
+                    </div>
 
-//                 {/* Schedule items */}
-//                 <div>
-//                     {SCHEDULE[activeDay].map((item: any, i: any) => (
-//                         <div
-//                             key={i}
-//                             style={{
-//                                 display: "flex",
-//                                 gap: "1.5rem",
-//                                 padding: "1rem 0",
-//                                 borderBottom: "1px solid rgba(255,255,255,0.06)",
-//                             }}
-//                         >
-//                             <div style={{ fontSize: "0.78rem", fontWeight: 600, color: T.teal, minWidth: 100, flexShrink: 0, paddingTop: 2 }}>
-//                                 {item.time}
-//                             </div>
-//                             <div>
-//                                 <div style={{ fontSize: "0.92rem", fontWeight: 600, color: "#fff", marginBottom: 3, display: "flex", alignItems: "center", flexWrap: "wrap", gap: 4 }}>
-//                                     {item.title}
-//                                     {item.tag && (
-//                                         <span
-//                                             style={{
-//                                                 display: "inline-block",
-//                                                 fontSize: 10,
-//                                                 fontWeight: 700,
-//                                                 padding: "2px 8px",
-//                                                 borderRadius: 100,
-//                                                 background: TAG_STYLES[item.tag as keyof typeof TAG_STYLES]?.bg || "#e4e4e7",
-//                                                 color: TAG_STYLES[item.tag as keyof typeof TAG_STYLES]?.color || "#71717a",
-//                                                 textTransform: "capitalize",
-//                                             }}
+                    {/* Facilitator */}
+                    <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 lg:col-span-2">
+                        <div className="flex flex-wrap items-center gap-4">
+                            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-md shadow-emerald-600/20">
+                                <GraduationCapIcon size={28} weight="bold" />
+                            </span>
+                            <div className="min-w-0">
+                                <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+                                    <span className="h-0.5 w-5 bg-emerald-500 dark:bg-emerald-400" /> Facilitator
+                                </div>
+                                <h3 className="mt-1 font-serif text-xl font-bold text-gray-900 dark:text-white sm:text-2xl">
+                                    Associate Professor Chigozie Edson Utazi
+                                </h3>
+                            </div>
+                        </div>
 
-//                                         >
-//                                             {item.tag}
-//                                         </span>
-//                                     )}
-//                                 </div>
-//                                 <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.45)" }}>{item.speaker}</div>
-//                             </div>
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
+                        <div className="mt-5 rounded-xl bg-emerald-50 px-4 py-2.5 text-sm font-semibold text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200">
+                            University of Southampton, United Kingdom
+                        </div>
+
+                        <p className="mt-4 leading-relaxed text-gray-600 dark:text-gray-300">
+                            A prominent statistician, researcher, and academic specialising in spatial
+                            and spatiotemporal modelling — bringing world-class expertise to a practical,
+                            interactive learning experience.
+                        </p>
+                    </div>
+
+                    {/* Payment */}
+                    <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900 lg:col-span-2">
+                        <div className="mb-5 flex items-center gap-3">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                                <WalletIcon size={20} weight="bold" />
+                            </span>
+                            <div>
+                                <h3 className="font-serif text-lg font-bold text-gray-900 dark:text-white">
+                                    Registration &amp; Payment
+                                </h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                    Pay the ₦80,000 fee by bank transfer, then confirm with the Editorial Committee below.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2.5">
+                            <CopyField label="Bank" value="Zenith Bank" />
+                            <CopyField label="Account Name" value="Chartered Institute of Statisticians of Nigeria" />
+                            <CopyField label="Account Number" value="1310081653" />
+                        </div>
+                    </div>
+
+                    {/* Contacts */}
+                    <div className="rounded-2xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
+                        <div className="mb-5 flex items-center gap-3">
+                            <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-600 text-white">
+                                <PhoneIcon size={20} weight="bold" />
+                            </span>
+                            <div>
+                                <h3 className="font-serif text-lg font-bold text-gray-900 dark:text-white">
+                                    Inquiries &amp; Confirmation
+                                </h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">Editorial Committee</p>
+                            </div>
+                        </div>
+
+                        <ul className="space-y-3">
+                            {PRECONFERENCE_CONTACTS.map(({ role, phone }) => (
+                                <li key={role} className="flex items-center justify-between gap-3 rounded-xl border border-gray-200 px-4 py-3 dark:border-gray-800">
+                                    <span className="text-sm text-gray-500 dark:text-gray-400">{role}</span>
+                                    <a
+                                        href={`tel:${phone.replace(/\s+/g, "")}`}
+                                        className="font-mono text-sm font-semibold text-emerald-700 transition-colors hover:text-emerald-600 dark:text-emerald-400"
+                                    >
+                                        {phone}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
 
 function RegistrationSection() {
     return (
-        <section id="registration" style={{ padding: "5.5rem 1.5rem" }}>
-            <div style={{ maxWidth: 1080, margin: "0 auto" }}>
+        <section id="registration" className="py-20 px-6 sm:px-10">
+            <div className="mx-auto max-w-6xl">
                 <Eyebrow>Registration</Eyebrow>
-                <SectionHeading className="text-2xl  mb-5">Secure Your Place</SectionHeading>
-                <p style={{ fontSize: "1.02rem", lineHeight: 1.8, maxWidth: 600, marginBottom: "2.5rem" }} className="text-black dark:text-white">
-                    Early bird pricing available until July 1, 2026. All registrations include access to all plenary sessions, workshops, and the Gala dinner.
+                <h2 className="mb-6 text-gray-900 dark:text-white">
+                    <SectionHeading>Secure Your Place</SectionHeading>
+                </h2>
+                <p className="mb-10 max-w-2xl leading-[1.8] text-gray-600 dark:text-gray-300">
+                    All registrations include access to plenary sessions, workshops, conference
+                    materials, and the Gala dinner.
                 </p>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(230px, 1fr))", gap: "1.2rem", marginBottom: "2rem" }}>
+
+                <div className="grid gap-6 md:grid-cols-3">
                     {REG_CARDS.map((card) => (
                         <div
                             key={card.type}
-                            className={`rounded-get p-8 border transition-all duration-200 ${card.featured
-                                ? "border-brand-gold bg-brand-gold dark:border-brand-gold dark:bg-brand-gold"
-                                : "border-white/10 bg-slate-950 dark:border-brand-border/10 dark:bg-brand-ink/40"
-                                }`}
+                            className={`flex flex-col rounded-2xl border p-8 shadow-sm transition-transform duration-200 hover:-translate-y-1 ${
+                                card.featured
+                                    ? "border-amber-300/70 bg-linear-to-b from-amber-50 to-white shadow-amber-500/10 ring-1 ring-amber-200/60 dark:border-amber-800/60 dark:from-amber-950/40 dark:to-gray-900"
+                                    : "border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-900"
+                            }`}
                         >
-                            {/* Tier Label */}
-                            <div className={`text-[10px] font-bold tracking-[0.15em] uppercase mb-[0.7rem] ${card.featured
-                                ? "text-brand-green/60"
-                                : "text-white/45 dark:text-brand-muted"
-                                }`}>
-                                {card.tier}
+                            <div className="flex items-center justify-between">
+                                <span
+                                    className={`text-[11px] font-bold uppercase tracking-[0.15em] ${
+                                        card.featured
+                                            ? "text-amber-700 dark:text-amber-400"
+                                            : "text-emerald-600 dark:text-emerald-400"
+                                    }`}
+                                >
+                                    {card.tier}
+                                </span>
                             </div>
 
-                            {/* Type / Title */}
-                            <div className={`font-semibold text-base mb-4 ${card.featured
-                                ? "text-brand-green"
-                                : "text-white dark:text-brand-green"
-                                }`}>
+                            <div className="mt-3 text-base font-semibold text-gray-900 dark:text-white">
                                 {card.type}
                             </div>
 
-                            {/* Pricing Track */}
-                            <div className={`font-['Fraunces',serif] text-[2.2rem] font-bold leading-none ${card.featured
-                                ? "text-brand-green"
-                                : "text-white dark:text-brand-green"
-                                }`}>
+                            <div
+                                className={`mt-4 font-serif text-3xl font-black leading-none ${
+                                    card.featured
+                                        ? "text-emerald-950 dark:text-emerald-300"
+                                        : "text-emerald-700 dark:text-emerald-400"
+                                }`}
+                            >
                                 {card.price}
                             </div>
+                            <div className="mt-1.5 text-sm text-gray-500 dark:text-gray-400">{card.period}</div>
 
-                            {/* Payment Billing Period */}
-                            <div className={`text-[0.78rem] mt-0.75 mb-[1.2rem] ${card.featured
-                                ? "text-brand-green/55"
-                                : "text-white/45 dark:text-brand-muted"
-                                }`}>
-                                {card.period}
-                            </div>
-
-                            {/* Features List Section */}
-                            <div className="mb-6">
-                                {card.features && card.features.map((f) => (
-                                    <div
-                                        key={f}
-                                        className={`text-[0.82rem] mb-1.5 flex gap-1.5 items-start ${card.featured
-                                            ? "text-green/80"
-                                            : "text-white/70 dark:text-brand-muted/90 bg-slate-500"
-                                            }`}
-                                    >
+                            <ul className="mb-8 mt-6 flex-1 space-y-2.5">
+                                {card.features.map((f) => (
+                                    <li key={f} className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300">
                                         <CheckCircleIcon
-                                            size={14}
-                                            color={undefined} // Handled dynamically below via Tailwind text utilities
+                                            size={16}
                                             weight="bold"
-                                            className={`shrink-0 mt-px ${card.featured
-                                                ? "text-brand-green"
-                                                : "text-brand-teal dark:text-brand-greenMid"
-                                                }`}
+                                            className={`mt-0.5 shrink-0 ${
+                                                card.featured ? "text-amber-600 dark:text-amber-400" : "text-emerald-600 dark:text-emerald-400"
+                                            }`}
                                         />
                                         {f}
-                                    </div>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
 
-                            {/* Call To Action Action Link Button */}
                             <a
                                 href={card.href}
-                                className={`block w-full p-[0.8rem] rounded-lg font-semibold text-[0.88rem] text-center no-underline cursor-pointer border-none transition-all duration-200 hover:opacity-90 active:scale-[0.98] text-white ${card.featured
-                                    ? "bg-[#E8A020]  shadow-sm hover:bg-brand-green/90"
-                                    : "bg-white/10  hover:bg-white/20 dark:bg-brand-greenMid dark:text-white"
-                                    }`}
+                                className={`block rounded-lg p-3 text-center text-sm font-semibold no-underline transition-all hover:opacity-90 active:scale-[0.98] ${
+                                    card.featured
+                                        ? "text-emerald-950 shadow-sm shadow-amber-500/30"
+                                        : "text-white"
+                                }`}
+                                style={card.featured ? { background: T.gold } : { background: T.green }}
                             >
                                 {card.cta}
                             </a>
                         </div>
-
                     ))}
                 </div>
             </div>
@@ -738,45 +629,37 @@ function RegistrationSection() {
     );
 }
 
-// function SponsorsSection() {
-//     const sponsors = ["Gold Sponsor", "Silver Sponsor", "NBS Nigeria", "Media Partner"];
-//     return (
-//         <section style={{ padding: "5.5rem 1.5rem", background: T.white }}>
-//             <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-//                 <Eyebrow light>Partners & Sponsors</Eyebrow>
-//                 <SectionHeading style light >Supported By</SectionHeading>
-//                 <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}>
-//                     {sponsors.map((s) => (
-//                         <div key={s} style={{ border: `1px solid ${T.border}`, borderRadius: 6, padding: "1rem 1.8rem", fontSize: "0.87rem", fontWeight: 600, color: T.muted, background: T.cream }}>
-//                             {s}
-//                         </div>
-//                     ))}
-//                     <div style={{ border: `1.5px dashed ${T.teal}`, borderRadius: 6, padding: "1rem 1.8rem", fontSize: "0.87rem", fontWeight: 600, color: T.teal, background: T.tealLight, cursor: "pointer" }}>
-//                         Become a Sponsor →
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-
 function CTASection() {
     return (
-        <section style={{ background: T.green, padding: "5rem 1.5rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", top: 0, right: 0, width: "35%", height: "100%", background: T.greenMid, clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)" }} />
-            <div style={{ position: "absolute", top: 0, right: 0, width: "12%", height: "100%", background: T.gold, opacity: 0.3, clipPath: "polygon(40% 0, 100% 0, 100% 100%, 0% 100%)" }} />
-            <div style={{ position: "relative", zIndex: 1, maxWidth: 640, margin: "0 auto" }}>
-                <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 900, color: "#fff", marginBottom: "0.8rem", lineHeight: 1.1 }}>
+        <section className="relative overflow-hidden py-20 text-center" style={{ background: T.green }}>
+            <div
+                className="absolute inset-y-0 right-0 w-1/3"
+                style={{ background: T.greenMid, clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)" }}
+            />
+            <div
+                className="absolute inset-y-0 right-0 w-[12%]"
+                style={{ background: T.gold, opacity: 0.3, clipPath: "polygon(40% 0, 100% 0, 100% 100%, 0% 100%)" }}
+            />
+            <div className="relative z-10 mx-auto max-w-2xl px-6">
+                <h2 className="mb-3 font-serif text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl">
                     Join 1,200+ delegates<br />in Abuja this October
                 </h2>
-                <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.65)", marginBottom: "2.2rem", lineHeight: 1.7 }}>
-                    Be part of the moment Nigeria's statistical community marks 50 years of leadership — and charts the next half-century.
+                <p className="mb-8 text-base leading-[1.7] text-white/65">
+                    Be part of the moment Nigeria's statistical community marks 50 years of leadership
+                    — and charts the next half-century.
                 </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.8rem", justifyContent: "center" }}>
-                    <a href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: T.gold, color: T.green, textDecoration: "none" }}>
-                        Register Now — Save 25% <ArrowRightIcon size={16} />
+                <div className="flex flex-wrap justify-center gap-3">
+                    <a
+                        href="https://my.cison.org.ng/3rd-workshop-preconference-and-conference-registration/"
+                        className="inline-flex items-center gap-2 rounded-lg px-7 py-3.5 text-sm font-semibold transition hover:brightness-105"
+                        style={{ background: T.gold, color: T.green }}
+                    >
+                        Register Now <ArrowRightIcon size={16} weight="bold" />
                     </a>
-                    <a href="#registration" style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "0.85rem 2rem", borderRadius: 4, fontSize: "0.9rem", fontWeight: 600, background: "transparent", color: "#fff", border: "1.5px solid rgba(255,255,255,0.4)", textDecoration: "none" }}>
+                    <a
+                        href="#registration"
+                        className="inline-flex items-center gap-2 rounded-lg border-2 border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:border-white/50"
+                    >
                         View Pricing
                     </a>
                 </div>
@@ -789,15 +672,12 @@ function CTASection() {
 export default function CisonConference2026() {
     return (
         <>
-            {/* <EarlyBirdStrip /> */}
             <Hero />
-            {/* <Countdown /> */}
             <StatsBar />
             <AboutSection />
             <ThemesSection />
-            {/* <ScheduleSection /> */}
+            <PreConferenceSection />
             <RegistrationSection />
-            {/* <SponsorsSection /> */}
             <CTASection />
         </>
     );
