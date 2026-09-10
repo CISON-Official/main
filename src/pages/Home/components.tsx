@@ -172,6 +172,7 @@ const whatElseLinks = [
     { name: 'Corporate Member', href: RoutePath.Corporate },
     { name: 'Examination Associate', href: RoutePath.ExaminationAssociate },
     { name: 'Student Member', href: RoutePath.Student },
+    { name: 'Group Insurance Scheme', href: RoutePath.Insurance },
     { name: 'How to Pay', href: RoutePath.HowToPay },
 ];
 

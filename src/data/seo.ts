@@ -157,6 +157,12 @@ const SEO_DATA: Record<string, SEOProps> = {
         canonicalUrl: RoutePath.CourseAccreditation,
         description: 'Accreditation of Tertiary Education Courses by CISON',
     },
+    [`${RoutePath.Insurance}`]: {
+        title: "CISON Group Insurance Scheme | Chartered Institute of Statisticians of Nigeria",
+        description: "Access affordable insurance protection through the CISON Group Insurance Scheme. Includes Group Life Assurance of \u20A6500,000.00 for all insured members.",
+        canonicalUrl: RoutePath.Insurance,
+        keywords: "CISON insurance, group insurance Nigeria, life assurance, statisticians insurance, CISON member benefits, group life cover, affordable insurance Nigeria, professional body insurance",
+    },
     ...Object.assign({}, ...CouncilSEO()),
 };
 

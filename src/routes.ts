@@ -102,6 +102,7 @@ const RoutePath = {
     // Misc
     HowToPay: "/misc/how-to-pay",
     AnnualFees: "/misc/annual-fees",
+    Insurance: "/insurance",
     Donate: "/donate",
 
     WP_ADMIN: "/wp-admin",
