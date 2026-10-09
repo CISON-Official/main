@@ -173,6 +173,7 @@ const whatElseLinks = [
     { name: 'Examination Associate', href: RoutePath.ExaminationAssociate },
     { name: 'Student Member', href: RoutePath.Student },
     { name: 'Group Insurance Scheme', href: RoutePath.Insurance },
+    { name: 'Hosting Rights 2027–2030', href: RoutePath.HostingRights },
     { name: 'How to Pay', href: RoutePath.HowToPay },
 ];
 

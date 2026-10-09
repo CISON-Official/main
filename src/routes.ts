@@ -46,6 +46,7 @@ const RoutePath = {
     // Documents
     CISONAct: "/pdf/CISON-Act-2022-compressed.pdf",
     CISONBookOfAbstracts: "/pdf/CISON Book of Abstracts FINAL-1.pdf",
+    CISON2026ConferenceBookOfAbstracts: "/pdf/2026 CISON Conference Book of Abstracts.pdf",
     CISON2025ConferenceProceeding: "/pdf/2025-CONFERENCE-PROCEEDINGS_FINAL-DRAFT.pdf",
     CISON2024ConferenceProceeding: "/pdf/2024-PROCEEDINGS-SUBMITTED-FOR-PUBLICATION_UPDATED.pdf",
 
@@ -103,6 +104,7 @@ const RoutePath = {
     HowToPay: "/misc/how-to-pay",
     AnnualFees: "/misc/annual-fees",
     Insurance: "/insurance",
+    HostingRights: "/hosting-rights",
     Donate: "/donate",
 
     WP_ADMIN: "/wp-admin",

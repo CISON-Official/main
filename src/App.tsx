@@ -103,6 +103,7 @@ const Page404 = lazy(() => import('@/pages/MISC/404'));
 const HowToPayPage = lazy(() => import("@/pages/MISC/how-to-pay"));
 const AnnualFeesPage = lazy(() => import("@/pages/MISC/annual-fees"));
 const InsurancePage = lazy(() => import("@/pages/MISC/insurance"));
+const HostingRightsPage = lazy(() => import("@/pages/MISC/hosting-rights"));
 const WPADMINPage = lazy(() => import("@/pages/MISC/wp-admin"))
 const DonatePage = lazy(() => import("@/pages/MISC/donate"))
 
@@ -203,6 +204,7 @@ function App() {
             <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />
             <Route path={RoutePath.HowToPay} element={<HowToPayPage />} />
             <Route path={RoutePath.Insurance} element={<InsurancePage />} />
+            <Route path={RoutePath.HostingRights} element={<HostingRightsPage />} />
             <Route path={RoutePath.Donate} element={<DonatePage />} />
             <Route path={RoutePath.WP_ADMIN} element={<WPADMINPage />} />
 

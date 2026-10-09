@@ -163,6 +163,12 @@ const SEO_DATA: Record<string, SEOProps> = {
         canonicalUrl: RoutePath.Insurance,
         keywords: "CISON insurance, group insurance Nigeria, life assurance, statisticians insurance, CISON member benefits, group life cover, affordable insurance Nigeria, professional body insurance",
     },
+    [`${RoutePath.HostingRights}`]: {
+        title: "Hosting Rights for CISON International Conferences 2027-2030 | CISON",
+        description: "CISON invites all State Chapters to apply for hosting rights for the International Conference and Pre-Conference Workshop for 2027, 2028, 2029 and 2030. Submit your expression of interest to the Registrar.",
+        canonicalUrl: RoutePath.HostingRights,
+        keywords: "CISON hosting rights, host CISON conference, CISON international conference 2027, CISON 2028, CISON 2029, CISON 2030, state chapters Nigeria, conference hosting application, pre-conference workshop",
+    },
     ...Object.assign({}, ...CouncilSEO()),
 };
 
