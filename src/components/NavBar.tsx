@@ -88,7 +88,7 @@ const routes = [
             },
             { name: 'Journal of The CISON', href: 'https://journal.cison.org.ng/', external: true },
             { name: 'CISON Book of Abstract', href: RoutePath.CISONBookOfAbstracts },
-            // { name: '2026 CISON Conference Book of Abstracts', href: RoutePath.CISON2026ConferenceBookOfAbstracts },
+            { name: '2026 CISON Conference Book of Abstracts', href: RoutePath.CISON2026ConferenceBookOfAbstracts },
             { name: 'Newsletter', href: 'https://my.cison.org.ng/members/wp-content/private/NewsLetter/cison_newsletter_maiden_edition.pdf', external: true },
         ],
     },

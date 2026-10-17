@@ -27,6 +27,7 @@ interface Person {
     role: string;
     href: string;
     img: string;
+    credentials?: string;
 }
 
 
@@ -75,7 +76,13 @@ function PersonCard({
             <div className="flex flex-col gap-1 p-5">
                 <h3 className="font-bold text-sm md:text-base text-foreground leading-snug group-hover:text-[#6dd249] transition-colors duration-200 tracking-tight">
                     {person.name}
+                    {person.credentials && (
+                        <span className="text-[10px] font-normal block md:inline md:ml-1 text-muted-foreground">
+                            {person.credentials}
+                        </span>
+                    )}
                 </h3>
+
                 <p className="text-xs text-muted-foreground leading-relaxed">{person.role}</p>
             </div>
         </motion.a>
@@ -242,6 +249,7 @@ const editorialBoard: Person[] = [
         role: AssociateEditor.role,
         href: RoutePath.AssociateEditor,
         img: AssociateEditor.img,
+        credentials: AssociateEditor.credentials,
     },
 ];
 

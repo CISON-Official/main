@@ -4,12 +4,13 @@ import Image from "@/assets/council/Dr-OlaOluwa-S.-Yaya.webp"
 
 
 const AssociateEditor: PersonInterface = {
-    name: "Dr OlaOluwa S. Yaya",
-    role: "Associate Editor: Journal of CISON",
+    name: "Prof. OlaOluwa S. Yaya",
+    credentials: "FCISON",
+    role: "Associate Editor: Journal of the CISON",
     category: "Editorial Board",
     img: Image,
     backHref: RoutePath.OurPeople,
-    bio: "Dr. OlaOluwa Simon Yaya is an Associate Professor, researcher, and Associate Editor of the Journal of CISON. He contributes to statistical research, academic publishing, and peer-review coordination within the institute’s editorial board.",
+    bio: "Prof. OlaOluwa Simon Yaya is an Associate Professor, researcher, and Associate Editor of Journal of the CISON. He contributes to statistical research, academic publishing, and peer-review coordination within the institute’s editorial board.",
     expertise: [
         "Time Series Econometrics",
         "Stationarity Testing",
@@ -24,17 +25,17 @@ const AssociateEditor: PersonInterface = {
         {
             degree: "BSc Statistics",
             institution: "University of Ibadan",
-            year: "Unknown"
+            year: "2001"
         },
         {
             degree: "MSc Statistics",
             institution: "University of Ibadan",
-            year: "Unknown"
+            year: "2006"
         },
         {
             degree: "PhD Time Series Econometrics",
             institution: "University of Ibadan",
-            year: "Unknown"
+            year: "2013"
         }
     ],
     publications: [

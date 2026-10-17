@@ -23,6 +23,7 @@ export interface Social {
 
 export interface PersonInterface {
     name: string;
+    credentials?: string;
     role: string;
     category: string;
     img: string;
