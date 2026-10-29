@@ -10,7 +10,7 @@ const AssociateEditor: PersonInterface = {
     category: "Editorial Board",
     img: Image,
     backHref: RoutePath.OurPeople,
-    bio: "Prof. OlaOluwa Simon Yaya is an Associate Professor, researcher, and Associate Editor of Journal of the CISON. He contributes to statistical research, academic publishing, and peer-review coordination within the institute’s editorial board.",
+    bio: "Prof. OlaOluwa Simon Yaya is a Professor, researcher, and Associate Editor of Journal of the CISON. He contributes to statistical research, academic publishing, and peer-review coordination within the institute’s editorial board.",
     expertise: [
         "Time Series Econometrics",
         "Stationarity Testing",
