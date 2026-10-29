@@ -7,17 +7,17 @@ export interface NewsInterface {
     expiry: Date;
 }
 const NewsAnnouncementData:NewsInterface[] = [
+    // {
+    //     title:"3rd CISON International Annual Conference (2026)",
+    //     route: RoutePath.Conference2026,
+    //     description:"Intensive technical sessions, member induction and certification.",
+    //     expiry: new Date("2026/10/12"),
+    // },
     {
-        title:"3rd CISON International Annual Conference (2026)",
-        route: RoutePath.Conference2026,
-        description:"Intensive technical sessions, member induction and certification.",
-        expiry: new Date("2026/10/12"),
-    },
-    {
-        title:"Q3 and Q4 PRS Registration",
+        title:"Q4 PRS Registration",
         route: RoutePath.ThirdFourthQuarterPRS2026,
         description: "Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.",
-        expiry: new Date("2026/10/12"),
+        expiry: new Date("2026/11/23"),
     },
     {
         title:"JCISON Call for Papers",
@@ -25,18 +25,18 @@ const NewsAnnouncementData:NewsInterface[] = [
         route: RoutePath.JCISONCallForPapers,
         expiry: new Date("2026/12/31"),
     },
-    {
-        title:"2026 Induction List",
-        route:RoutePath.InductionList2026,
-        description: "CISON has officially released the comprehensive list of approved inductees for the upcoming 2026 Annual International Conference.",
-        expiry: new Date("2026/10/12"),
-    },
-    {
-        title:"Fellowship Application",
-        route: RoutePath.Fellows,
-        description: "Apply now for Fellowship and join the highest professional membership category of the Institute.",
-        expiry: new Date("2026/12/31"),
-    },
+    // {
+    //     title:"2026 Induction List",
+    //     route:RoutePath.InductionList2026,
+    //     description: "CISON has officially released the comprehensive list of approved inductees for the upcoming 2026 Annual International Conference.",
+    //     expiry: new Date("2026/10/12"),
+    // },
+    // {
+    //     title:"Fellowship Application",
+    //     route: RoutePath.Fellows,
+    //     description: "Apply now for Fellowship and join the highest professional membership category of the Institute.",
+    //     expiry: new Date("2026/12/31"),
+    // },
     
 ]
 export default NewsAnnouncementData;

@@ -45,7 +45,7 @@ const Committees: CommitteeType[] = [
             { name: "Prof. H Garba Dikko", phone: "08034536799" },
             { name: "Assoc. Prof. Monday Osagie Adenomon", phone: "07036990145" },
             { name: "Dr. Chigozie Edson Utazi", phone: "+447956985992" },
-            { name: "Assoc. Prof. OlaOluwa S. Yaya", phone: "08144585757 / 07082742507" },
+            { name: "Prof. OlaOluwa S. Yaya", phone: "08144585757 / 07082742507" },
             { name: "Dr. Abidemi K. Awopeju", phone: "08038638878" },
             { name: "Mr Henry Chukwuemeka Chukwueloka", phone: "08061211524" },
             { name: "Prof. Gafar Matanmi Oyeyemi", phone: "08068241885" },
