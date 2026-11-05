@@ -9,7 +9,6 @@ import {
   NetworkIcon,
 } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
-import Person1 from "@/assets/people/citations.jpeg";
 import Person2 from "@/assets/people/citations-1.jpeg";
 // --- Types ---
 interface WorkshopData {
@@ -34,29 +33,6 @@ interface WorkshopData {
 
 // --- Mocking Data parsed from the input HTML markup ---
 const workshops: WorkshopData[] = [
-  {
-    id: "Q3PRSregistration",
-    quarter: "Q3 PRS Workshop",
-    title: "Forecasting and Scenario Modeling for National and Sub-National Development",
-    subtitle: "Empowering Institutional Leaders and Technical professionals with data-driven methodologies.",
-    dates: "10th to 13th, August, 2026",
-    facilitator: {
-      name: "DR. Ephraim Ogbonna",
-      institution: "University of Ibadan, Oyo State",
-      image: Person1
-    },
-    outcomes: [
-      "Master the Art of forecasting for National Development",
-      "Apply specific skills to improve daily tasks efficiency",
-      "Enhance productive efficiency in professional work environments"
-    ],
-    registrationLinks: {
-      virtual: "https://my.cison.org.ng/q3-prs-virtual-registration/",
-      individual: "https://my.cison.org.ng/q3-prs-individual-registration/",
-      student: "https://my.cison.org.ng/q3-prs-student-registration/",
-      corporate: "https://my.cison.org.ng/q3-prs-corporate-registration/"
-    }
-  },
   {
     id: "Q4PRSregistration",
     quarter: "Q4 PRS Workshop",
@@ -83,7 +59,7 @@ const workshops: WorkshopData[] = [
 ];
 
 export default function PrsWorkshops() {
-  const [activeTab, setActiveTab] = useState<string>("Q3PRSregistration");
+  const [activeTab, setActiveTab] = useState<string>("Q4PRSregistration");
 
   const activeWorkshop = workshops.find(w => w.id === activeTab) || workshops[0];
 
@@ -106,7 +82,7 @@ export default function PrsWorkshops() {
           </span>
           
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-b from-white to-slate-400 bg-clip-text text-transparent leading-tight">
-            Q3 & Q4 PRS Registration Portal
+            Q4 PRS Registration Portal
           </h1>
           
           <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -116,14 +92,8 @@ export default function PrsWorkshops() {
           {/* Core Navigation Quick Jumps */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button 
-              onClick={() => scrollToSection("Q3PRSregistration")}
-              className="px-5 py-3 text-sm font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl shadow-lg shadow-emerald-400/10 transition-all active:scale-[0.98]"
-            >
-              Go to Q3 PRS Registration
-            </button>
-            <button 
               onClick={() => scrollToSection("Q4PRSregistration")}
-              className="px-5 py-3 text-sm font-semibold text-slate-200 bg-slate-900 hover:bg-slate-800 border border-slate-800 rounded-xl transition-all active:scale-[0.98]"
+              className="px-5 py-3 text-sm font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl shadow-lg shadow-emerald-400/10 transition-all active:scale-[0.98]"
             >
               Go to Q4 PRS Registration
             </button>

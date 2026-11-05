@@ -48,7 +48,7 @@ const FellowPage = lazy(() => import("@/pages/About/fellows"));
 
 // PRS
 const CisonWorkshopPage = lazy(() => import("@/pages/PRS/2nd_2026"));
-const Q3Q4PRS2026Page = lazy(() => import("@/pages/PRS/Q3_Q4_2026"));
+const Q4PRS2026Page = lazy(() => import("@/pages/PRS/Q3_Q4_2026"));
 
 // Council Members
 const EditorInChiefPage = lazyImport(() => import("@/pages/About/council"), "EditorInChiefPage");
@@ -190,7 +190,7 @@ function App() {
               <Route path={RoutePath.Conference2026} element={<Conference2026Page />} />
               <Route path={RoutePath.SingleEvent} element={<SingleEvent />} />
               <Route path={RoutePath.SecondQuarterPrs2026} element={<CisonWorkshopPage />} />
-              <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q3Q4PRS2026Page />} />
+              <Route path={RoutePath.ThirdFourthQuarterPRS2026} element={<Q4PRS2026Page />} />
               <Route path={RoutePath.JCISONCallForPapers} element={<JCISONPage />} />
               <Route path={RoutePath.WomenStatsEvent2026} element={<WomenStatEvent2026 />} />
               <Route path={RoutePath.Attending2026Conference} element={<Attending2026Conference />} />
