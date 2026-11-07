@@ -10,8 +10,7 @@ import {
   GoogleLogo,
   MicrosoftOutlookLogo,
   DownloadSimple,
-  CaretLeft,
-  CaretRight
+  CaretLeft
 } from '@phosphor-icons/react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,7 +34,7 @@ export default function EventPage() {
           <span>»</span>
           <a href="https://cison.org.ng/events/" className="hover:text-sky-400 transition-colors">Events</a>
           <span>»</span>
-          <span className="text-slate-200 font-semibold truncate">Q3 Workshop</span>
+          <span className="text-slate-200 font-semibold truncate">Q4 Workshop</span>
         </nav>
 
         {/* Main Card Container */}
@@ -58,10 +57,10 @@ export default function EventPage() {
             </a>
             
             <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent max-w-3xl leading-tight">
-              Q3 Planning, Research and Statistics Workshop
+              Q4 Planning, Research and Statistics Workshop
             </h1>
             <p className="text-lg md:text-xl text-sky-400 font-semibold mt-2 tracking-wide">
-              Forecasting & Scenario Modeling for National Development
+              Fundamental Power BI for Executive PRS Dashboards
             </p>
           </header>
 
@@ -75,7 +74,7 @@ export default function EventPage() {
                   Workshop Overview
                 </h3>
                 <p className="text-slate-400 leading-relaxed text-[15px] md:text-base">
-                  Equip yourself with the critical tools needed to navigate complex economic landscapes and drive sustainable growth. This practical, high-impact workshop is designed for professionals eager to transform data into actionable insights for both national and sub-national planning. Led by renowned expert Dr. Ephraim Ogbonna from the University of Ibadan, you will gain hands-on, direct-application skills to instantly elevate your strategic capabilities.
+                  This intensive four-day workshop takes you from absolute beginner to advanced dashboard creator. Led by expert facilitator Dr. O.T. Arowolo from the Lagos State University of Science and Technology, you will master the crucial soft and technical skills needed to build dynamic PRS (Planning, Research, and Statistics) dashboards.
                 </p>
               </section>
 
@@ -86,16 +85,16 @@ export default function EventPage() {
                 <ul className="space-y-4">
                   {[
                     {
-                      title: "Direct Application",
-                      desc: "Move past raw theory and master the actual art of forecasting for national and regional development."
+                      title: "Advanced Dashboards",
+                      desc: "Obtain professional soft skills for building advanced professional dashboards."
                     },
                     {
-                      title: "Boost Workplace Efficiency",
-                      desc: "Acquire targeted skills that streamline your daily data tasks and reporting architectures."
+                      title: "Faster Decision Making",
+                      desc: "Facilitate speedy presentation and stakeholder decision making with executive dashboards."
                     },
                     {
-                      title: "Maximize Productive Output",
-                      desc: "Learn how scenario modeling directly drives institutional and productive efficiency in your current work environment."
+                      title: "Boost Productive Efficiency",
+                      desc: "Boost productive efficiency in data-heavy work environments."
                     }
                   ].map((benefit, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -116,25 +115,25 @@ export default function EventPage() {
                 <MetaItem 
                   icon={<CalendarBlank size={20} weight="duotone" />} 
                   label="Date" 
-                  value="August 10 – 13, 2026" 
+                  value="November 9 – 12, 2026" 
                 />
                 <MetaItem 
                   icon={<Clock size={20} weight="duotone" />} 
                   label="Time" 
-                  value="8:00 am – 5:00 pm" 
+                  value="9:00 am – 5:00 pm" 
                 />
                 <MetaItem 
                   icon={<MapPin size={20} weight="duotone" />} 
                   label="Location" 
-                  value="Port Harcourt, Nigeria" 
+                  value="Kano, Nigeria" 
                 />
                 <MetaItem 
                   icon={<UserIcon size={20} weight="duotone" />} 
                   label="Facilitator" 
                   value={
                     <>
-                      Dr. Ephraim Ogbonna
-                      <span className="block text-xs text-slate-500 font-normal mt-0.5">University of Ibadan</span>
+                      Dr. O. T. Arowolo
+                      <span className="block text-xs text-slate-500 font-normal mt-0.5">Lagos State University of Science and Technology</span>
                     </>
                   } 
                 />
@@ -164,17 +163,17 @@ export default function EventPage() {
                         className="absolute right-0 top-[110%] w-full bg-slate-900 border border-slate-800 rounded-xl shadow-xl z-20 overflow-hidden"
                       >
                         <DropdownItem 
-                          href="https://www.google.com/calendar/event?action=TEMPLATE&dates=20260810T080000/20260813T170000&text=Q3%20Planning%2C%20Research%20and%20Statistics%20Workshop&ctz=Africa/Lagos"
+                          href="https://www.google.com/calendar/event?action=TEMPLATE&dates=20261109T090000/20261112T170000&text=Q4%20Planning%2C%20Research%20and%20Statistics%20Workshop&ctz=Africa/Lagos"
                           icon={<GoogleLogo size={16} weight="bold" />}
                           label="Google Calendar"
                         />
                         <DropdownItem 
-                          href="https://outlook.office.com/owa/?path=/calendar/action/compose&rrv=addevent&startdt=2026-08-10T08:00:00+01:00&enddt=2026-08-13T17:00:00+01:00&subject=Q3%20Planning%2C%20Research%20and%20Statistics%20Workshop"
+                          href="https://outlook.office.com/owa/?path=/calendar/action/compose&rrv=addevent&startdt=2026-11-09T09:00:00+01:00&enddt=2026-11-12T17:00:00+01:00&subject=Q4%20Planning%2C%20Research%20and%20Statistics%20Workshop"
                           icon={<MicrosoftOutlookLogo size={16} weight="bold" />}
                           label="Outlook 365"
                         />
                         <DropdownItem 
-                          href="https://cison.org.ng/event/q3-planning-research-and-statistics-workship/?ical=1"
+                          href="https://cison.org.ng/event/q4-planning-research-and-statistics-workshop/?ical=1"
                           icon={<DownloadSimple size={16} weight="bold" />}
                           label="Download iCalendar (.ics)"
                         />
@@ -193,10 +192,6 @@ export default function EventPage() {
           <a href="https://cison.org.ng/event/q1-2026-prs/" className="flex items-center gap-1.5 hover:text-sky-400 transition-colors max-w-[45%]">
             <CaretLeft size={14} weight="bold" />
             <span className="truncate">Q1: 2026 PRS Workshop</span>
-          </a>
-          <a href="https://cison.org.ng/event/q4-planning-research-and-statistics-workshop/" className="flex items-center gap-1.5 hover:text-sky-400 transition-colors max-w-[45%] justify-end">
-            <span className="truncate">Q4 Planning Workshop</span>
-            <CaretRight size={14} weight="bold" />
           </a>
         </footer>
 
