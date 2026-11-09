@@ -36,7 +36,7 @@ const slides = [
     },
     {
         id: 4,
-        heading: 'Q3 and Q4 PRS Registration',
+        heading: 'Q4 PRS Registration',
         description:
             'Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.',
         cta: 'Register for PRS',
