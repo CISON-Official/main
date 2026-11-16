@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  CalendarBlankIcon, 
-  CheckCircleIcon, 
-  UserIcon, 
-  StudentIcon, 
+import {
+  CalendarBlankIcon,
+  CheckCircleIcon,
+  UserIcon,
+  StudentIcon,
   CoatHangerIcon,
   WebcamIcon,
   NetworkIcon,
@@ -24,10 +24,10 @@ interface WorkshopData {
   };
   outcomes: string[];
   registrationLinks: {
-    virtual: string;
+    non_member: string;
     individual: string;
     student: string;
-    corporate: string;
+    corporate?: string;
   };
 }
 
@@ -50,10 +50,10 @@ const workshops: WorkshopData[] = [
       "Boost productive Efficiency in data-heavy work environments"
     ],
     registrationLinks: {
-      virtual: "https://my.cison.org.ng/q4-prs-virtual-registration/",
+      non_member: "https://my.cison.org.ng/q4-prs-non-member-registration/",
       individual: "https://my.cison.org.ng/q4-prs-individual-registration/",
       student: "https://my.cison.org.ng/q4-prs-student-registration/",
-      corporate: "https://my.cison.org.ng/q4-prs-corporate-registration/"
+      // corporate: "https://my.cison.org.ng/q4-prs-corporate-registration/"
     }
   }
 ];
@@ -71,27 +71,27 @@ export default function PrsWorkshops() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900">
-      
+
       {/* --- HERO SECTION --- */}
       <header className="relative border-b border-slate-900 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 py-20 px-4">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-        
+
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
           <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 rounded-full border border-emerald-500/20">
             Planning, Research and Statistics
           </span>
-          
+
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-b from-white to-slate-400 bg-clip-text text-transparent leading-tight">
             Q4 PRS Registration Portal
           </h1>
-          
+
           <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.
           </p>
 
           {/* Core Navigation Quick Jumps */}
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <button 
+            <button
               onClick={() => scrollToSection("Q4PRSregistration")}
               className="px-5 py-3 text-sm font-semibold text-slate-900 bg-emerald-400 hover:bg-emerald-300 rounded-xl shadow-lg shadow-emerald-400/10 transition-all active:scale-[0.98]"
             >
@@ -103,18 +103,17 @@ export default function PrsWorkshops() {
 
       {/* --- LIVE INTERACTIVE HUB --- */}
       <main id="workshop-showcase" className="max-w-5xl mx-auto px-4 py-16 space-y-12">
-        
+
         {/* Quarter Selectors Toggle */}
         <div className="flex bg-slate-900 p-1.5 border border-slate-800 rounded-xl max-w-md mx-auto relative z-10 shadow-inner">
           {workshops.map((w) => (
             <button
               key={w.id}
               onClick={() => setActiveTab(w.id)}
-              className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-all ${
-                activeTab === w.id 
-                  ? 'bg-slate-800 text-emerald-400 border border-slate-700 shadow-sm' 
-                  : 'text-slate-400 hover:text-slate-200'
-              }`}
+              className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-all ${activeTab === w.id
+                ? 'bg-slate-800 text-emerald-400 border border-slate-700 shadow-sm'
+                : 'text-slate-400 hover:text-slate-200'
+                }`}
             >
               {w.quarter}
             </button>
@@ -161,10 +160,10 @@ export default function PrsWorkshops() {
 
             {/* Facilitator Sub-Card Section */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-slate-950/30 p-4 rounded-xl border border-slate-900">
-              <img 
-                src={activeWorkshop.facilitator.image} 
+              <img
+                src={activeWorkshop.facilitator.image}
                 alt={activeWorkshop.facilitator.name}
-                className="w-14 h-14 rounded-xl object-cover border border-slate-800 bg-slate-900 shrink-0" 
+                className="w-14 h-14 rounded-xl object-cover border border-slate-800 bg-slate-900 shrink-0"
               />
               <div>
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">
@@ -191,27 +190,27 @@ export default function PrsWorkshops() {
               </div>
 
               <div className="space-y-3">
-                <RegistrationButton 
-                  href={activeWorkshop.registrationLinks.virtual} 
-                  icon={<WebcamIcon size={18} />} 
-                  label="Register Virtually" 
+                <RegistrationButton
+                  href={activeWorkshop.registrationLinks.non_member}
+                  icon={<WebcamIcon size={18} />}
+                  label="Register Virtually"
                   primary
                 />
-                <RegistrationButton 
-                  href={activeWorkshop.registrationLinks.individual} 
-                  icon={<UserIcon size={18} />} 
-                  label="Register Individually" 
+                <RegistrationButton
+                  href={activeWorkshop.registrationLinks.individual}
+                  icon={<UserIcon size={18} />}
+                  label="Register Individually"
                 />
-                <RegistrationButton 
-                  href={activeWorkshop.registrationLinks.student} 
-                  icon={<StudentIcon size={18} />} 
-                  label="Register as a Student" 
+                <RegistrationButton
+                  href={activeWorkshop.registrationLinks.student}
+                  icon={<StudentIcon size={18} />}
+                  label="Register as a Student"
                 />
-                <RegistrationButton 
-                  href={activeWorkshop.registrationLinks.corporate} 
-                  icon={<NetworkIcon size={18} />} 
-                  label="Corporate Registration" 
-                />
+                {activeWorkshop.registrationLinks.corporate && <RegistrationButton
+                  href={activeWorkshop.registrationLinks.corporate}
+                  icon={<NetworkIcon size={18} />}
+                  label="Corporate Registration"
+                />}
               </div>
             </div>
 
@@ -222,32 +221,31 @@ export default function PrsWorkshops() {
         </motion.div>
       </main>
 
-     
+
     </div>
   );
 }
 
-function RegistrationButton({ 
-  href, 
-  icon, 
-  label, 
-  primary = false 
-}: { 
-  href: string; 
-  icon: React.ReactNode; 
-  label: string; 
-  primary?: boolean; 
+function RegistrationButton({
+  href,
+  icon,
+  label,
+  primary = false
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+  primary?: boolean;
 }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center gap-3 transition-all active:scale-[0.99] ${
-        primary 
-          ? 'bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-md shadow-emerald-400/5' 
-          : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800/80'
-      }`}
+      className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center gap-3 transition-all active:scale-[0.99] ${primary
+        ? 'bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-md shadow-emerald-400/5'
+        : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800/80'
+        }`}
     >
       <span className={primary ? 'text-slate-950' : 'text-slate-400'}>{icon}</span>
       {label}
