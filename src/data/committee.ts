@@ -189,7 +189,7 @@ const Committees: CommitteeType[] = [
         editorial: [
             { role: "Editor-in-Chief", name: "Prof. Polycarp E. Chigbu", phone: "08033930082", email: "editorinchief@cison.org.ng" },
             { role: "Managing Editor", name: "Dr. Victor Ngozi Atoi", phone: "08061572108", email: "managing-editor@cison.org.ng" },
-            { role: "Associate Editor", name: "Assoc. Prof. OlaOluwa S. Yaya", phone: "08144585757 / 07082742507", email: "associate-editor@cison.org.ng" },
+            { role: "Associate EditorProf. OlaOluwa S. Yaya", phone: "08144585757 / 07082742507", email: "associate-editor@cison.org.ng" },
         ],
     },
     {
