@@ -193,7 +193,7 @@ export default function PrsWorkshops() {
                 <RegistrationButton
                   href={activeWorkshop.registrationLinks.non_member}
                   icon={<WebcamIcon size={18} />}
-                  label="Register Virtually"
+                  label="Register as a Non-Member"
                   primary
                 />
                 <RegistrationButton
