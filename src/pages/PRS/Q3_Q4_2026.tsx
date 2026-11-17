@@ -10,7 +10,8 @@ import {
 } from '@phosphor-icons/react';
 import { motion } from 'framer-motion';
 import Person2 from "@/assets/people/citations-1.jpeg";
-// --- Types ---
+
+
 interface WorkshopData {
   id: string;
   quarter: string;
@@ -31,7 +32,6 @@ interface WorkshopData {
   };
 }
 
-// --- Mocking Data parsed from the input HTML markup ---
 const workshops: WorkshopData[] = [
   {
     id: "Q4PRSregistration",
@@ -70,22 +70,22 @@ export default function PrsWorkshops() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900">
+    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50 font-sans antialiased selection:bg-emerald-500 selection:text-slate-900 transition-colors duration-300">
 
-      {/* --- HERO SECTION --- */}
-      <header className="relative border-b border-slate-900 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-slate-900 via-slate-950 to-slate-950 py-20 px-4">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+
+      <header className="relative border-b border-slate-200 dark:border-slate-900 bg-[radial-gradient(ellipse_at_top,var(--tw-gradient-stops))] from-emerald-50 via-white to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-950 py-20 px-4">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
 
         <div className="relative max-w-4xl mx-auto text-center space-y-6">
-          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-400 uppercase bg-emerald-500/10 rounded-full border border-emerald-500/20">
+          <span className="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold tracking-wider text-emerald-700 dark:text-emerald-400 uppercase bg-emerald-500/10 rounded-full border border-emerald-500/20">
             Planning, Research and Statistics
           </span>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-b from-white to-slate-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-linear-to-b from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent leading-tight">
             Q4 PRS Registration Portal
           </h1>
 
-          <p className="text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Empowering Institutional Leaders and Technical professionals with data-driven methodologies and executive tools to shape the future of governance.
           </p>
 
@@ -105,14 +105,14 @@ export default function PrsWorkshops() {
       <main id="workshop-showcase" className="max-w-5xl mx-auto px-4 py-16 space-y-12">
 
         {/* Quarter Selectors Toggle */}
-        <div className="flex bg-slate-900 p-1.5 border border-slate-800 rounded-xl max-w-md mx-auto relative z-10 shadow-inner">
+        <div className="flex bg-slate-100 dark:bg-slate-900 p-1.5 border border-slate-200 dark:border-slate-800 rounded-xl max-w-md mx-auto relative z-10 shadow-inner">
           {workshops.map((w) => (
             <button
               key={w.id}
               onClick={() => setActiveTab(w.id)}
               className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-all ${activeTab === w.id
-                ? 'bg-slate-800 text-emerald-400 border border-slate-700 shadow-sm'
-                : 'text-slate-400 hover:text-slate-200'
+                ? 'bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-slate-200 dark:border-slate-700 shadow-sm'
+                : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
                 }`}
             >
               {w.quarter}
@@ -126,53 +126,53 @@ export default function PrsWorkshops() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-slate-900/60 border border-slate-900 rounded-2xl p-6 md:p-8 shadow-xl"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-900 rounded-2xl p-6 md:p-8 shadow-xl"
         >
           {/* Main Context Left Side Column */}
           <div className="lg:col-span-2 space-y-8">
             <div className="space-y-3">
-              <div className="flex items-center gap-2 text-emerald-400 font-semibold text-sm">
+              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-semibold text-sm">
                 <CalendarBlankIcon size={18} weight="duotone" />
                 {activeWorkshop.dates}
               </div>
-              <h2 className="text-xl md:text-3xl font-bold tracking-tight text-slate-100">
+              <h2 className="text-xl md:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
                 {activeWorkshop.title}
               </h2>
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+              <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed">
                 {activeWorkshop.subtitle}
               </p>
             </div>
 
             {/* Learning Outcomes Checklist Container */}
             <div className="space-y-4">
-              <h3 className="text-xs uppercase tracking-wider font-bold text-slate-400 border-l-2 border-emerald-400 pl-2">
+              <h3 className="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 border-l-2 border-emerald-500 dark:border-emerald-400 pl-2">
                 Learning Outcomes
               </h3>
               <ul className="grid grid-cols-1 gap-3">
                 {activeWorkshop.outcomes.map((outcome, idx) => (
-                  <li key={idx} className="flex items-start gap-3 bg-slate-950/40 p-3 rounded-xl border border-slate-900/80">
-                    <CheckCircleIcon size={20} weight="fill" className="text-emerald-400 shrink-0 mt-0.5" />
-                    <span className="text-sm md:text-[15px] text-slate-300">{outcome}</span>
+                  <li key={idx} className="flex items-start gap-3 bg-slate-50 dark:bg-slate-950/40 p-3 rounded-xl border border-slate-200 dark:border-slate-900/80">
+                    <CheckCircleIcon size={20} weight="fill" className="text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-[15px] text-slate-700 dark:text-slate-300">{outcome}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Facilitator Sub-Card Section */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-slate-950/30 p-4 rounded-xl border border-slate-900">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-slate-50 dark:bg-slate-950/30 p-4 rounded-xl border border-slate-200 dark:border-slate-900">
               <img
                 src={activeWorkshop.facilitator.image}
                 alt={activeWorkshop.facilitator.name}
-                className="w-14 h-14 rounded-xl object-cover border border-slate-800 bg-slate-900 shrink-0"
+                className="w-14 h-14 rounded-xl object-cover border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shrink-0"
               />
               <div>
-                <div className="flex items-center gap-1.5 text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">
+                <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-500 font-bold uppercase tracking-wider mb-0.5">
                   <CoatHangerIcon size={14} /> Facilitator
                 </div>
-                <div className="text-base font-bold text-slate-200">
+                <div className="text-base font-bold text-slate-900 dark:text-slate-200">
                   {activeWorkshop.facilitator.name}
                 </div>
-                <div className="text-xs text-slate-400">
+                <div className="text-xs text-slate-600 dark:text-slate-400">
                   {activeWorkshop.facilitator.institution}
                 </div>
               </div>
@@ -180,13 +180,13 @@ export default function PrsWorkshops() {
           </div>
 
           {/* Right Action Registration Links Box */}
-          <div className="bg-slate-950/60 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between space-y-6">
+          <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/60 rounded-xl p-5 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
-              <div className="text-center pb-2 border-b border-slate-900">
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">
+              <div className="text-center pb-2 border-b border-slate-200 dark:border-slate-900">
+                <span className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-widest">
                   Secure Access Window
                 </span>
-                <p className="text-xs text-slate-400 mt-1">Select appropriate pathway track to apply</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Select appropriate pathway track to apply</p>
               </div>
 
               <div className="space-y-3">
@@ -214,7 +214,7 @@ export default function PrsWorkshops() {
               </div>
             </div>
 
-            <p className="text-[11px] text-center text-slate-500 leading-normal">
+            <p className="text-[11px] text-center text-slate-600 dark:text-slate-500 leading-normal">
               Upon successful registration, onboarding packets and matching virtual streaming credentials will be piped to your active profile vector.
             </p>
           </div>
@@ -244,10 +244,10 @@ function RegistrationButton({
       rel="noopener noreferrer"
       className={`w-full py-2.5 px-4 rounded-lg font-semibold text-sm flex items-center gap-3 transition-all active:scale-[0.99] ${primary
         ? 'bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-md shadow-emerald-400/5'
-        : 'bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800/80'
+        : 'bg-slate-100 dark:bg-slate-900 hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800/80'
         }`}
     >
-      <span className={primary ? 'text-slate-950' : 'text-slate-400'}>{icon}</span>
+      <span className={primary ? 'text-slate-950' : 'text-slate-500 dark:text-slate-400'}>{icon}</span>
       {label}
     </a>
   );
