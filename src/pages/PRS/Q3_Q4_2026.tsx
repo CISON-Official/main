@@ -53,7 +53,7 @@ const workshops: WorkshopData[] = [
       non_member: "https://my.cison.org.ng/q4-prs-non-member-registration/",
       individual: "https://my.cison.org.ng/q4-prs-individual-registration/",
       student: "https://my.cison.org.ng/q4-prs-student-registration/",
-      // corporate: "https://my.cison.org.ng/q4-prs-corporate-registration/"
+      corporate: "https://my.cison.org.ng/q4-prs-corporate-registration/"
     }
   }
 ];
@@ -105,20 +105,7 @@ export default function PrsWorkshops() {
       <main id="workshop-showcase" className="max-w-5xl mx-auto px-4 py-16 space-y-12">
 
         {/* Quarter Selectors Toggle */}
-        <div className="flex bg-slate-100 dark:bg-slate-900 p-1.5 border border-slate-200 dark:border-slate-800 rounded-xl max-w-md mx-auto relative z-10 shadow-inner">
-          {workshops.map((w) => (
-            <button
-              key={w.id}
-              onClick={() => setActiveTab(w.id)}
-              className={`flex-1 py-2.5 text-sm font-bold rounded-lg transition-all ${activeTab === w.id
-                ? 'bg-white dark:bg-slate-800 text-emerald-700 dark:text-emerald-400 border border-slate-200 dark:border-slate-700 shadow-sm'
-                : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200'
-                }`}
-            >
-              {w.quarter}
-            </button>
-          ))}
-        </div>
+        
 
         {/* Selected Workshop Display Wrapper */}
         <motion.div
@@ -191,26 +178,29 @@ export default function PrsWorkshops() {
 
               <div className="space-y-3">
                 <RegistrationButton
-                  href={activeWorkshop.registrationLinks.non_member}
-                  icon={<WebcamIcon size={18} />}
-                  label="Register as a Non-Member"
-                  primary
-                />
-                <RegistrationButton
                   href={activeWorkshop.registrationLinks.individual}
                   icon={<UserIcon size={18} />}
-                  label="Register Individually"
+                  label="Member Registration"
+                  primary
                 />
                 <RegistrationButton
                   href={activeWorkshop.registrationLinks.student}
                   icon={<StudentIcon size={18} />}
-                  label="Register as a Student"
+                  label="Student Registration"
+                  primary
                 />
                 {activeWorkshop.registrationLinks.corporate && <RegistrationButton
                   href={activeWorkshop.registrationLinks.corporate}
                   icon={<NetworkIcon size={18} />}
                   label="Corporate Registration"
+                  primary
                 />}
+                <RegistrationButton
+                  href={activeWorkshop.registrationLinks.non_member}
+                  icon={<WebcamIcon size={18} />}
+                  label="Non-member Registration"
+                  primary
+                />
               </div>
             </div>
 
