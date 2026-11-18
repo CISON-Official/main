@@ -130,6 +130,12 @@ const SEO_DATA: Record<string, SEOProps> = {
         author: Franklin.pageName,
         keywords: "CISON induction list, CISON membership verification, CISON inducted members, CISON professional registry,how to become a recognized member of CISON, CISON membership induction requirements, CISON professional examination eligibility, CISON member screening, registration,CISON membership certificate collection",
     },
+    [RoutePath.AfricanStatisticsDay2026]: {
+        title: "African Statistics Day 2026 | CISON",
+        description: "CISON celebrates African Statistics Day 2026 - Institutionalising Water and Sanitation Statistics for Sustainable and Climate-Resilient Development in Africa.",
+        canonicalUrl: RoutePath.AfricanStatisticsDay2026,
+        keywords: "African Statistics Day 2026, CISON, water and sanitation statistics, sustainable development, climate-resilient development, Africa, statistics Nigeria",
+    },
     [`${RoutePath.CPDPolicy}`]: {
         title: "Continous Professional Development ",
         description: "About CISON as a statistical association",

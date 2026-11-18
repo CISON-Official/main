@@ -7,6 +7,12 @@ export interface NewsInterface {
     expiry: Date;
 }
 const NewsAnnouncementData:NewsInterface[] = [
+    {
+        title:"African Statistics Day 2026",
+        route: RoutePath.AfricanStatisticsDay2026,
+        description: "CISON celebrates African Statistics Day 2026: Institutionalising Water and Sanitation Statistics for Sustainable and Climate-Resilient Development in Africa.",
+        expiry: new Date("2026/12/31"),
+    },
     // {
     //     title:"3rd CISON International Annual Conference (2026)",
     //     route: RoutePath.Conference2026,

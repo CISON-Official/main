@@ -109,6 +109,7 @@ const DonatePage = lazy(() => import("@/pages/MISC/donate"))
 
 // News
 const InductionList2026Page = lazy(() => import("@/pages/News/2026-induction-list"));
+const AfricanStatisticsDay2026Page = lazy(() => import("@/pages/News/african-statistics-day-2026"));
 
 
 function App() {
@@ -199,6 +200,7 @@ function App() {
 
             <Route path={RoutePath.News}>
               <Route path={RoutePath.InductionList2026} element={<InductionList2026Page />} />
+              <Route path={RoutePath.AfricanStatisticsDay2026} element={<AfricanStatisticsDay2026Page />} />
             </Route>
 
             <Route path={RoutePath.AnnualFees} element={<AnnualFeesPage />} />

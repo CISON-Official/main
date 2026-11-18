@@ -91,6 +91,7 @@ const RoutePath = {
     // News
     News: "/news",
     InductionList2026: "/news/2026-induction-list",
+    AfricanStatisticsDay2026: "/news/african-statistics-day-2026",
 
 
 
